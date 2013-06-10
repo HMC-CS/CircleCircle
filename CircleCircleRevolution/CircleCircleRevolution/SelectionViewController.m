@@ -1,24 +1,24 @@
 //
-//  GameViewController.m
+//  SelectionViewController.m
 //  CircleCircleRevolution
 //
 //  Created by Kathryn Aplin on 6/7/13.
 //  Copyright (c) 2013 Kathryn Aplin. All rights reserved.
 //
 
-#import "GameViewController.h"
+#import "SelectionViewController.h"
 
-@interface GameViewController ()
+@interface SelectionViewController ()
 
 @end
 
-@implementation GameViewController
+@implementation SelectionViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        GameView* game = [[GameView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        SelectionView* game = [[SelectionView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         game.pressedDelegate = self;
         self.view = game;
     }
@@ -43,7 +43,7 @@
     if (self.screenDelegate)
     {
         NSString* screenTitle = button.titleLabel.text;
-        [self.screenDelegate goToScreenFromGame:screenTitle];
+        [self.screenDelegate goToScreenFromSelect:screenTitle];
     }
 }
 

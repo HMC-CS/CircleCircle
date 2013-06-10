@@ -1,5 +1,5 @@
 //
-//  GameView.h
+//  SelectionView.h
 //  CircleCircleRevolution
 //
 //  Created by Kathryn Aplin on 6/7/13.
@@ -8,18 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class GameView;
+@class SelectionView;
 
-@protocol ButtonOnGamePressed <NSObject>
+@protocol ButtonOnSelectPressed <NSObject>
 -(void) passedButtonPress:(UIButton*)button;
 
 @end
 
-@interface GameView : UIView
+@interface SelectionView : UIView
 {
+    UIButton* singleButton;
+    UIButton* doubleButton;
     UIButton* menuButton;
 }
 
-@property (weak,nonatomic)id<ButtonOnGamePressed> pressedDelegate;
+@property (weak,nonatomic)id<ButtonOnSelectPressed> pressedDelegate;
 
 @end

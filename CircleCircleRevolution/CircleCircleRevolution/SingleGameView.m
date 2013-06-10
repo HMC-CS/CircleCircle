@@ -1,22 +1,23 @@
 //
-//  GameView.m
+//  SingleGameView.m
 //  CircleCircleRevolution
 //
-//  Created by Kathryn Aplin on 6/7/13.
+//  Created by Buike Ndefo-Dahl on 6/10/13.
 //  Copyright (c) 2013 Kathryn Aplin. All rights reserved.
 //
 
-#import "GameView.h"
+#import "SingleGameView.h"
 
-@implementation GameView
+@implementation SingleGameView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+        // Initialization code
+        self.backgroundColor = [UIColor yellowColor];
         
-        self.userInteractionEnabled=YES;
+        self.userInteractionEnabled = YES;
         
         // Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -28,7 +29,7 @@
     return self;
 }
 
-// Protocol for communicating with GameViewController, to reach ViewController
+// Protocol for communicating with SingleGameViewController, to reach ViewController
 -(void) buttonPress:(id)sender
 {
     if (self.pressedDelegate){

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4563F4C1176679FC00A74E15 /* SingleGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C0176679FC00A74E15 /* SingleGameView.m */; };
+		4563F4C417667A4A00A74E15 /* DoubleGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C317667A4A00A74E15 /* DoubleGameView.m */; };
+		4563F4C717667B6800A74E15 /* SingleGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C617667B6800A74E15 /* SingleGameViewController.m */; };
+		4563F4CA17667B7400A74E15 /* DoubleGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C917667B7400A74E15 /* DoubleGameViewController.m */; };
 		6F39D82017625D190089FBA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D81F17625D190089FBA1 /* UIKit.framework */; };
 		6F39D82217625D190089FBA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D82117625D190089FBA1 /* Foundation.framework */; };
 		6F39D82417625D190089FBA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D82317625D190089FBA1 /* CoreGraphics.framework */; };
@@ -22,8 +26,8 @@
 		6F39D84D1762623F0089FBA1 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D84C1762623F0089FBA1 /* MenuView.m */; };
 		6F39D850176278510089FBA1 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D84F176278510089FBA1 /* CreditsViewController.m */; };
 		6F39D853176278700089FBA1 /* CreditsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D852176278700089FBA1 /* CreditsView.m */; };
-		6F39D856176289750089FBA1 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D855176289750089FBA1 /* GameViewController.m */; };
-		6F39D8591762898B0089FBA1 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D8581762898B0089FBA1 /* GameView.m */; };
+		6F39D856176289750089FBA1 /* SelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D855176289750089FBA1 /* SelectionViewController.m */; };
+		6F39D8591762898B0089FBA1 /* SelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D8581762898B0089FBA1 /* SelectionView.m */; };
 		6F39D85C176289A30089FBA1 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D85B176289A20089FBA1 /* ScoreViewController.m */; };
 		6F39D85F176289B70089FBA1 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D85E176289B60089FBA1 /* ScoreView.m */; };
 		6F39D86617629A990089FBA1 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D86517629A990089FBA1 /* InstructionsViewController.m */; };
@@ -31,6 +35,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4563F4BF176679FC00A74E15 /* SingleGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameView.h; sourceTree = "<group>"; };
+		4563F4C0176679FC00A74E15 /* SingleGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameView.m; sourceTree = "<group>"; };
+		4563F4C217667A4A00A74E15 /* DoubleGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleGameView.h; sourceTree = "<group>"; };
+		4563F4C317667A4A00A74E15 /* DoubleGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleGameView.m; sourceTree = "<group>"; };
+		4563F4C517667B6700A74E15 /* SingleGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameViewController.h; sourceTree = "<group>"; };
+		4563F4C617667B6800A74E15 /* SingleGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameViewController.m; sourceTree = "<group>"; };
+		4563F4C817667B7400A74E15 /* DoubleGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleGameViewController.h; sourceTree = "<group>"; };
+		4563F4C917667B7400A74E15 /* DoubleGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleGameViewController.m; sourceTree = "<group>"; };
 		6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircleCircleRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F39D81F17625D190089FBA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F39D82117625D190089FBA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,10 +67,10 @@
 		6F39D84F176278510089FBA1 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		6F39D851176278700089FBA1 /* CreditsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsView.h; sourceTree = "<group>"; };
 		6F39D852176278700089FBA1 /* CreditsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsView.m; sourceTree = "<group>"; };
-		6F39D854176289750089FBA1 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		6F39D855176289750089FBA1 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		6F39D8571762898A0089FBA1 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
-		6F39D8581762898B0089FBA1 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		6F39D854176289750089FBA1 /* SelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionViewController.h; sourceTree = "<group>"; };
+		6F39D855176289750089FBA1 /* SelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionViewController.m; sourceTree = "<group>"; };
+		6F39D8571762898A0089FBA1 /* SelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionView.h; sourceTree = "<group>"; };
+		6F39D8581762898B0089FBA1 /* SelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionView.m; sourceTree = "<group>"; };
 		6F39D85A176289A10089FBA1 /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
 		6F39D85B176289A20089FBA1 /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 		6F39D85D176289B50089FBA1 /* ScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreView.h; sourceTree = "<group>"; };
@@ -164,14 +176,18 @@
 			children = (
 				6F39D842176260EF0089FBA1 /* MenuViewController.h */,
 				6F39D843176260F00089FBA1 /* MenuViewController.m */,
-				6F39D854176289750089FBA1 /* GameViewController.h */,
-				6F39D855176289750089FBA1 /* GameViewController.m */,
+				6F39D854176289750089FBA1 /* SelectionViewController.h */,
+				6F39D855176289750089FBA1 /* SelectionViewController.m */,
 				6F39D85A176289A10089FBA1 /* ScoreViewController.h */,
 				6F39D85B176289A20089FBA1 /* ScoreViewController.m */,
 				6F39D84E176278510089FBA1 /* CreditsViewController.h */,
 				6F39D84F176278510089FBA1 /* CreditsViewController.m */,
 				6F39D86417629A990089FBA1 /* InstructionsViewController.h */,
 				6F39D86517629A990089FBA1 /* InstructionsViewController.m */,
+				4563F4C517667B6700A74E15 /* SingleGameViewController.h */,
+				4563F4C617667B6800A74E15 /* SingleGameViewController.m */,
+				4563F4C817667B7400A74E15 /* DoubleGameViewController.h */,
+				4563F4C917667B7400A74E15 /* DoubleGameViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -188,8 +204,12 @@
 		6F39D861176289D70089FBA1 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				6F39D8571762898A0089FBA1 /* GameView.h */,
-				6F39D8581762898B0089FBA1 /* GameView.m */,
+				6F39D8571762898A0089FBA1 /* SelectionView.h */,
+				6F39D8581762898B0089FBA1 /* SelectionView.m */,
+				4563F4BF176679FC00A74E15 /* SingleGameView.h */,
+				4563F4C0176679FC00A74E15 /* SingleGameView.m */,
+				4563F4C217667A4A00A74E15 /* DoubleGameView.h */,
+				4563F4C317667A4A00A74E15 /* DoubleGameView.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -294,12 +314,16 @@
 				6F39D84D1762623F0089FBA1 /* MenuView.m in Sources */,
 				6F39D850176278510089FBA1 /* CreditsViewController.m in Sources */,
 				6F39D853176278700089FBA1 /* CreditsView.m in Sources */,
-				6F39D856176289750089FBA1 /* GameViewController.m in Sources */,
-				6F39D8591762898B0089FBA1 /* GameView.m in Sources */,
+				6F39D856176289750089FBA1 /* SelectionViewController.m in Sources */,
+				6F39D8591762898B0089FBA1 /* SelectionView.m in Sources */,
 				6F39D85C176289A30089FBA1 /* ScoreViewController.m in Sources */,
 				6F39D85F176289B70089FBA1 /* ScoreView.m in Sources */,
 				6F39D86617629A990089FBA1 /* InstructionsViewController.m in Sources */,
 				6F39D86A17629AE50089FBA1 /* InstructionsView.m in Sources */,
+				4563F4C1176679FC00A74E15 /* SingleGameView.m in Sources */,
+				4563F4C417667A4A00A74E15 /* DoubleGameView.m in Sources */,
+				4563F4C717667B6800A74E15 /* SingleGameViewController.m in Sources */,
+				4563F4CA17667B7400A74E15 /* DoubleGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
