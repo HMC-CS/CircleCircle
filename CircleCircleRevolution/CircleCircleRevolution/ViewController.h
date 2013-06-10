@@ -10,17 +10,21 @@
 #import <UIKit/UIKit.h>
 #import "MenuViewController.h"
 #import "CreditsViewController.h"
-#import "GameViewController.h"
+#import "SelectionViewController.h"
 #import "ScoreViewController.h"
 #import "InstructionsViewController.h"
+#import "SingleGameViewController.h"
+#import "DoubleGameViewController.h"
 
 
-@interface ViewController : UINavigationController <ChangeScreenFromMenu, ChangeScreenFromGame, ChangeScreenFromCredits, ChangeScreenFromScore, ChangeScreenFromInstructions>
+@interface ViewController : UINavigationController <ChangeScreenFromMenu, ChangeScreenFromSelect, ChangeScreenFromCredits, ChangeScreenFromScore, ChangeScreenFromInstructions, ChangeScreenFromGame1, ChangeScreenFromGame2>
 {
     MenuViewController* menuViewController;
-    GameViewController* gameViewController;
+    SelectionViewController* selectionViewController;
     ScoreViewController* scoreViewController;
     CreditsViewController* creditsViewController;
     InstructionsViewController* instructionsViewController;
+    SingleGameViewController* singleGameViewController;
+    DoubleGameViewController* doubleGameViewController;
 }
 @end
