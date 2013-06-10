@@ -7,6 +7,7 @@
 //
 
 #import "CreditsView.h"
+#import "Config.h"
 
 @implementation CreditsView
 
@@ -20,8 +21,8 @@
         
         // Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [menuButton setTitle:@"Menu" forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(50,30, 50, 30);
+        [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
+        menuButton.frame = CGRectMake(csMainMenuButtonX,csMainMenuButtonY, csButtonWidth, csButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
     }

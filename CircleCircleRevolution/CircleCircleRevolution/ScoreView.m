@@ -7,6 +7,7 @@
 //
 
 #import "ScoreView.h"
+#import "Config.h"
 
 @implementation ScoreView
 
@@ -20,8 +21,8 @@
         
         // Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [menuButton setTitle:@"Menu" forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(50,30, 50, 30);
+        [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
+        menuButton.frame = CGRectMake(hsMainMenuButtonX,hsMainMenuButtonY, hsButtonWidth, hsButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
     }

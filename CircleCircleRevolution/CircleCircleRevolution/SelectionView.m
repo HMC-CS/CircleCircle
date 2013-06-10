@@ -7,6 +7,7 @@
 //
 
 #import "SelectionView.h"
+#import "Config.h"
 
 @implementation SelectionView
 
@@ -20,22 +21,22 @@
         
         // single button
         singleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [singleButton setTitle:@"Single" forState:UIControlStateNormal];
-        singleButton.frame = CGRectMake(50,30, 50, 30);
+        [singleButton setTitle:toSingleGame forState:UIControlStateNormal];
+        singleButton.frame = CGRectMake(ssSingleGameButtonX,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
         [singleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:singleButton];
         
         // double button
         doubleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [doubleButton setTitle:@"Double" forState:UIControlStateNormal];
-        doubleButton.frame = CGRectMake(150,30, 50, 30);
+        [doubleButton setTitle:toDoubleGame forState:UIControlStateNormal];
+        doubleButton.frame = CGRectMake(ssDoubleGameButtonX,ssDoubleGameButtonY, ssButtonWidth, ssButtonHeight);
         [doubleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:doubleButton];
         
         // Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [menuButton setTitle:@"Menu" forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(250,30, 50, 30);
+        [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
+        menuButton.frame = CGRectMake(ssMainMenuButtonX,ssMainMenuButtonY, ssButtonWidth, ssButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
     }

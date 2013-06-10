@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Config.h"
 
 @interface ViewController ()
 
@@ -53,19 +54,19 @@
 
 -(void)goToScreen:(NSString *)screen
 {
-    if ([screen isEqualToString:@"Menu"])
+    if ([screen isEqualToString:toMainMenu])
         [self popToViewController:menuViewController animated:YES];
-    else if ([screen isEqualToString:@"Game"])
+    else if ([screen isEqualToString:toSelectionScreen])
         [self pushViewController:selectionViewController animated:YES];
-    else if ([screen isEqualToString:@"Score"])
+    else if ([screen isEqualToString:toHighScores])
         [self pushViewController:scoreViewController animated:YES];
-    else if ([screen isEqualToString:@"Credits"])
+    else if ([screen isEqualToString:toCredits])
         [self pushViewController:creditsViewController animated:YES];
-    else if ([screen isEqualToString:@"Instructions"])
+    else if ([screen isEqualToString:toInstructions])
         [self pushViewController:instructionsViewController animated:YES];
-    else if ([screen isEqualToString:@"Single"])
+    else if ([screen isEqualToString:toSingleGame])
         [self pushViewController:singleGameViewController animated:YES];
-    else if ([screen isEqualToString:@"Double"])
+    else if ([screen isEqualToString:toDoubleGame])
         [self pushViewController:doubleGameViewController animated:YES];
     else
         NSLog(@"Invalid screen.");

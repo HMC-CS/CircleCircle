@@ -12,6 +12,7 @@
 // Overall
 #define gameFont
 
+
 // Gameplay Constants
 
 
@@ -23,24 +24,30 @@
 #define toHighScores @"Score"
 #define toInstructions @"Instructions"
 #define toCredits @"Credits"
+#define showPauseMenu @"Pause"
 
 // Main Menu Formatting - mm
-#define mmSelectionButtonX
-#define mmSelectionButtonY
-#define mmCreditsButtonX
-#define mmCreditsButtonY
-#define mmInstructionsButtonX
-#define mmInstrucitonsButtonY
-#define mmScoresButtonX
-#define mmScoresButtonY
+#define mmSelectionButtonX 50
+#define mmSelectionButtonY 30
+#define mmCreditsButtonX 150
+#define mmCreditsButtonY 30
+#define mmInstructionsButtonX 250
+#define mmInstructionsButtonY 30
+#define mmScoreButtonX 350
+#define mmScoreButtonY 30
+#define mmButtonWidth 50
+#define mmButtonHeight 30
+
 
 // Selection Screen Formatting - ss
-#define ssMainMenuButtonX
-#define ssMainMenuButtonY
-#define ssSingleGameButtonX
-#define ssSingleGameButtonY
-#define ssDoubleGameButtonX
-#define ssDoubleGameButtonY
+#define ssMainMenuButtonX 250
+#define ssMainMenuButtonY 30
+#define ssSingleGameButtonX 50
+#define ssSingleGameButtonY 30
+#define ssDoubleGameButtonX 150
+#define ssDoubleGameButtonY 30
+#define ssButtonWidth 50
+#define ssButtonHeight 30
 
 
 // Single Circle Game Formatting - sg
@@ -70,18 +77,31 @@
 #define dgLifeMeterY
 
 // Credits Screen Formatting - cs
-#define csMainMenuButtonX
-#define csMainMenubuttonY
+#define csMainMenuButtonX 50
+#define csMainMenuButtonY 30
 #define csFontSize
 #define csFontPositionX
 #define csFontPositionY
+#define csButtonWidth 50
+#define csButtonHeight 30
 
 // Instrucitons Screen Formatting - is
-#define isMainMenuButtonX
-#define isMainMenubuttonY
+#define isMainMenuButtonX 50
+#define isMainMenuButtonY 30
 #define isFontSize
 #define isFontPositionX
 #define isFontPositionY
+#define isButtonWidth 50
+#define isButtonHeight 30
+
+// High Scores Screen Formatting - hs
+#define hsMainMenuButtonX 50
+#define hsMainMenuButtonY 30
+#define hsFontSize
+#define hsFontPositionX
+#define hsFontPositionY
+#define hsButtonWidth 50
+#define hsButtonHeight 30
 
 // Resource File Titles - replace when we have them
 
