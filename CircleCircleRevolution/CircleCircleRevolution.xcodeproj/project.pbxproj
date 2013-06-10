@@ -79,6 +79,7 @@
 		6F39D86517629A990089FBA1 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
 		6F39D86817629AE50089FBA1 /* InstructionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsView.h; sourceTree = "<group>"; };
 		6F39D86917629AE50089FBA1 /* InstructionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsView.m; sourceTree = "<group>"; };
+		6F67EBD61766915D00043359 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 		6F39D81317625D190089FBA1 = {
 			isa = PBXGroup;
 			children = (
+				6F67EBD61766915D00043359 /* Config.h */,
 				6F39D82517625D190089FBA1 /* CircleCircleRevolution */,
 				6F39D81E17625D190089FBA1 /* Frameworks */,
 				6F39D81D17625D190089FBA1 /* Products */,
