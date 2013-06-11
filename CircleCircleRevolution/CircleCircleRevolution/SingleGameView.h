@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShipView.h"
+#import "GameScoreView.h"
 
 @class SingleGameView;
 
@@ -23,8 +25,15 @@
     UIView* pauseView;
     UIButton* pauseButton;
     UIButton* resumeButton;
-    
+    ShipView* shipView;
+    GameScoreView* gameScoreView;
 }
+
+-(void)addCircle:(CircleView*)circleView;
+-(void)updateFraction:(NSArray*)currentFraction;
+-(void)updateCircle:(float)percent;
+-(void)setFeedback:(float)feedbackPercent;
+-(void)updateScore:(int)score;
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;
 
