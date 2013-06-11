@@ -42,6 +42,33 @@
     }
     return self;
 }
+/*
+-(void)selectDifficulty
+{
+    // make the view to select from
+    UIView* difficultySelection = [[UIView alloc] initWithFrame:self.bounds];
+    difficultySelection.backgroundColor = [UIColor brownColor];
+    
+    UIButton* easyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [easyButton setTitle:@"Easy" forState:UIControlStateNormal];
+    easyButton.frame = CGRectMake(ssSingleGameButtonX,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
+    [easyButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:easyButton];
+    
+    UIButton* mediumButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [mediumButton setTitle:@"Medium" forState:UIControlStateNormal];
+    mediumButton.frame = CGRectMake(ssSingleGameButtonX+50,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
+    [mediumButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:mediumButton];
+    
+    UIButton* hardButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [hardButton setTitle:@"Hard" forState:UIControlStateNormal];
+    hardButton.frame = CGRectMake(ssSingleGameButtonX+100,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
+    [hardButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:hardButton];
+
+}*/
+
 
 // Protocol for communicating with SelectionViewController, to reach ViewController
 -(void) buttonPress:(id)sender

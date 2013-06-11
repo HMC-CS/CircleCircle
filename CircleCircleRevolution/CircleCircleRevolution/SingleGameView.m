@@ -38,18 +38,43 @@
         [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
         
         // Pause Screen
-        pauseView = [[UIView alloc] initWithFrame:self.bounds];
+        pauseView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.height,self.bounds.size.width)];
         pauseView.backgroundColor = [UIColor purpleColor];
         [pauseView addSubview:menuButton];
         [pauseView addSubview:resumeButton];
         pauseView.alpha = 0;
         
+        // Ship view
+        shipView = [[ShipView alloc] initWithFrame:CGRectMake(200,200,400,300)];
+        shipView.backgroundColor = [UIColor magentaColor];
+        
+        //Score view
+        gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(500, 10, 200, 100)];
+        
         [self addSubview:pauseView];
         [self sendSubviewToBack:pauseView];
         [self addSubview:pauseButton];
+        [self addSubview:shipView];
+        [self addSubview:gameScoreView];
 
     }
     return self;
+}
+
+
+-(void) updateFraction:(NSArray *)currentFraction
+{
+    [shipView updateFraction:currentFraction];
+}
+
+-(void) updateCircle:(float)percent
+{
+    [shipView updateCircle:percent];
+}
+
+-(void) updateScore:(int)score
+{
+    [gameScoreView updateScore:score];
 }
 
 // Protocol for communicating with SingleGameViewController, to reach ViewController
@@ -75,6 +100,15 @@
     [self.pressedDelegate gameResume];
 }
 
+-(void)addCircle:(CircleView*)circleView
+{
+    [shipView addSubview:circleView];
+}
+
+-(void)setFeedback:(float)feedbackPercent
+{
+    [shipView setFeedback:feedbackPercent];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

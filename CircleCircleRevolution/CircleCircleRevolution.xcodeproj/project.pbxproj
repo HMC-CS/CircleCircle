@@ -11,6 +11,15 @@
 		4563F4C417667A4A00A74E15 /* DoubleGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C317667A4A00A74E15 /* DoubleGameView.m */; };
 		4563F4C717667B6800A74E15 /* SingleGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C617667B6800A74E15 /* SingleGameViewController.m */; };
 		4563F4CA17667B7400A74E15 /* DoubleGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C917667B7400A74E15 /* DoubleGameViewController.m */; };
+		45B1F2BF1767A0540090EEF7 /* GameScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2BE1767A0540090EEF7 /* GameScoreView.m */; };
+		45B1F2C21767A0740090EEF7 /* ShipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2C11767A0740090EEF7 /* ShipView.m */; };
+		45B1F2C51767A0820090EEF7 /* LifeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2C41767A0820090EEF7 /* LifeView.m */; };
+		45B1F2C81767A0AE0090EEF7 /* FractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2C71767A0AE0090EEF7 /* FractionView.m */; };
+		45B1F2CB1767A0F10090EEF7 /* ShipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2CA1767A0F10090EEF7 /* ShipModel.m */; };
+		45B1F2CE1767A0FB0090EEF7 /* FractionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2CD1767A0FB0090EEF7 /* FractionModel.m */; };
+		45B1F2D11767A1030090EEF7 /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2D01767A1030090EEF7 /* GameModel.m */; };
+		45B1F2D41767A2480090EEF7 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2D31767A2480090EEF7 /* CircleView.m */; };
+		45B1F2DD1767D8880090EEF7 /* DifficultySelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2DC1767D8870090EEF7 /* DifficultySelectionView.m */; };
 		6F39D82017625D190089FBA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D81F17625D190089FBA1 /* UIKit.framework */; };
 		6F39D82217625D190089FBA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D82117625D190089FBA1 /* Foundation.framework */; };
 		6F39D82417625D190089FBA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D82317625D190089FBA1 /* CoreGraphics.framework */; };
@@ -43,6 +52,24 @@
 		4563F4C617667B6800A74E15 /* SingleGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameViewController.m; sourceTree = "<group>"; };
 		4563F4C817667B7400A74E15 /* DoubleGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleGameViewController.h; sourceTree = "<group>"; };
 		4563F4C917667B7400A74E15 /* DoubleGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleGameViewController.m; sourceTree = "<group>"; };
+		45B1F2BD1767A0540090EEF7 /* GameScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScoreView.h; sourceTree = "<group>"; };
+		45B1F2BE1767A0540090EEF7 /* GameScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScoreView.m; sourceTree = "<group>"; };
+		45B1F2C01767A0740090EEF7 /* ShipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipView.h; sourceTree = "<group>"; };
+		45B1F2C11767A0740090EEF7 /* ShipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipView.m; sourceTree = "<group>"; };
+		45B1F2C31767A0820090EEF7 /* LifeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeView.h; sourceTree = "<group>"; };
+		45B1F2C41767A0820090EEF7 /* LifeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeView.m; sourceTree = "<group>"; };
+		45B1F2C61767A0AE0090EEF7 /* FractionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FractionView.h; sourceTree = "<group>"; };
+		45B1F2C71767A0AE0090EEF7 /* FractionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FractionView.m; sourceTree = "<group>"; };
+		45B1F2C91767A0F10090EEF7 /* ShipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipModel.h; sourceTree = "<group>"; };
+		45B1F2CA1767A0F10090EEF7 /* ShipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipModel.m; sourceTree = "<group>"; };
+		45B1F2CC1767A0FB0090EEF7 /* FractionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FractionModel.h; sourceTree = "<group>"; };
+		45B1F2CD1767A0FB0090EEF7 /* FractionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FractionModel.m; sourceTree = "<group>"; };
+		45B1F2CF1767A1030090EEF7 /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		45B1F2D01767A1030090EEF7 /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
+		45B1F2D21767A2480090EEF7 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
+		45B1F2D31767A2480090EEF7 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		45B1F2DB1767D8870090EEF7 /* DifficultySelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DifficultySelectionView.h; sourceTree = "<group>"; };
+		45B1F2DC1767D8870090EEF7 /* DifficultySelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DifficultySelectionView.m; sourceTree = "<group>"; };
 		6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircleCircleRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F39D81F17625D190089FBA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F39D82117625D190089FBA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +123,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45B1F2B617679FE10090EEF7 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				45B1F2BD1767A0540090EEF7 /* GameScoreView.h */,
+				45B1F2BE1767A0540090EEF7 /* GameScoreView.m */,
+				45B1F2C01767A0740090EEF7 /* ShipView.h */,
+				45B1F2C11767A0740090EEF7 /* ShipView.m */,
+				45B1F2C31767A0820090EEF7 /* LifeView.h */,
+				45B1F2C41767A0820090EEF7 /* LifeView.m */,
+				45B1F2C61767A0AE0090EEF7 /* FractionView.h */,
+				45B1F2C71767A0AE0090EEF7 /* FractionView.m */,
+				45B1F2D21767A2480090EEF7 /* CircleView.h */,
+				45B1F2D31767A2480090EEF7 /* CircleView.m */,
+			);
+			name = Subviews;
+			sourceTree = "<group>";
+		};
 		6F39D81317625D190089FBA1 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +201,12 @@
 		6F39D845176260FB0089FBA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45B1F2C91767A0F10090EEF7 /* ShipModel.h */,
+				45B1F2CA1767A0F10090EEF7 /* ShipModel.m */,
+				45B1F2CC1767A0FB0090EEF7 /* FractionModel.h */,
+				45B1F2CD1767A0FB0090EEF7 /* FractionModel.m */,
+				45B1F2CF1767A1030090EEF7 /* GameModel.h */,
+				45B1F2D01767A1030090EEF7 /* GameModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -206,8 +256,11 @@
 		6F39D861176289D70089FBA1 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				45B1F2B617679FE10090EEF7 /* Subviews */,
 				6F39D8571762898A0089FBA1 /* SelectionView.h */,
 				6F39D8581762898B0089FBA1 /* SelectionView.m */,
+				45B1F2DB1767D8870090EEF7 /* DifficultySelectionView.h */,
+				45B1F2DC1767D8870090EEF7 /* DifficultySelectionView.m */,
 				4563F4BF176679FC00A74E15 /* SingleGameView.h */,
 				4563F4C0176679FC00A74E15 /* SingleGameView.m */,
 				4563F4C217667A4A00A74E15 /* DoubleGameView.h */,
@@ -326,6 +379,15 @@
 				4563F4C417667A4A00A74E15 /* DoubleGameView.m in Sources */,
 				4563F4C717667B6800A74E15 /* SingleGameViewController.m in Sources */,
 				4563F4CA17667B7400A74E15 /* DoubleGameViewController.m in Sources */,
+				45B1F2BF1767A0540090EEF7 /* GameScoreView.m in Sources */,
+				45B1F2C21767A0740090EEF7 /* ShipView.m in Sources */,
+				45B1F2C51767A0820090EEF7 /* LifeView.m in Sources */,
+				45B1F2C81767A0AE0090EEF7 /* FractionView.m in Sources */,
+				45B1F2CB1767A0F10090EEF7 /* ShipModel.m in Sources */,
+				45B1F2CE1767A0FB0090EEF7 /* FractionModel.m in Sources */,
+				45B1F2D11767A1030090EEF7 /* GameModel.m in Sources */,
+				45B1F2D41767A2480090EEF7 /* CircleView.m in Sources */,
+				45B1F2DD1767D8880090EEF7 /* DifficultySelectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
