@@ -21,7 +21,6 @@
         int width = kScreenWidth;
         int height = kScreenHeight * .10;
         CGRect fractionFrame = CGRectMake(originX, originY, width, height);
-        
         fractionLabel = [[UILabel alloc] initWithFrame:fractionFrame];
         fractionLabel.backgroundColor = [UIColor clearColor];
         fractionLabel.textColor = [UIColor blackColor];
@@ -36,7 +35,7 @@
 -(void)updateFraction:(NSArray*)currentFraction
 {
     NSString* fractionString = [NSString stringWithFormat:@"%d/%d", [currentFraction[0] intValue], [currentFraction[1] intValue]];
-    fractionLabel.text = fractionString;
+    fractionLabel.text = fractionString;    
 }
 
 /*

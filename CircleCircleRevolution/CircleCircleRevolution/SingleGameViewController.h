@@ -27,25 +27,28 @@
 
 @interface SingleGameViewController : UIViewController <ButtonOnGame1Pressed,ButtonOnDifficultySelectionPressed>
 {
-    float circlePercent;
+    int gameMode;
     float percentChange;
-    BOOL update;
-    BOOL touch;
-    NSArray* currentFraction;
-    NSTimer* timer;
-    NSString* feedbackTerm;
+    float circlePercent1;
+    float circlePercent2;
+    BOOL update1;
+    BOOL touch1;
+    BOOL update2;
+    BOOL touch2;
+    NSArray* currentFraction1;
+    NSArray* currentFraction2;
+    NSString* feedbackTerm1;
+    NSString* feedbackTerm2;
+    NSTimer* timer1;
+    NSTimer* timer2;
     ShipModel* shipModel;
     FractionModel* fractionModel;
     GameModel* gameModel;
     DifficultySelectionView* difficultySelectionView;
+    
 }
 
--(void)startTimer;
--(void)checkUpdate;
--(void)updateCircle;
--(void)scoreTap;
--(void)tapFeedback:(int)accuracy;
--(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event;
+-(id)initWithMode:(int)mode;
 
 @property (weak,nonatomic) id<ChangeScreenFromGame1> screenDelegate;
 
