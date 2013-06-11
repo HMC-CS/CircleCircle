@@ -29,8 +29,6 @@
     scoreViewController = [[ScoreViewController alloc] init];
     creditsViewController = [[CreditsViewController alloc] init];
     instructionsViewController = [[InstructionsViewController alloc] init];
-    singleGameViewController = [[SingleGameViewController alloc] init];
-    doubleGameViewController = [[DoubleGameViewController alloc] init];
     
     // Set screenDelegate for changing view controllers
     menuViewController.screenDelegate = self;
@@ -38,8 +36,6 @@
     scoreViewController.screenDelegate = self;
     creditsViewController.screenDelegate = self;
     instructionsViewController.screenDelegate = self;
-    singleGameViewController.screenDelegate = self;
-    doubleGameViewController.screenDelegate = self;
 
     [self pushViewController:menuViewController animated:NO];
     
@@ -65,9 +61,19 @@
     else if ([screen isEqualToString:toInstructions])
         [self pushViewController:instructionsViewController animated:YES];
     else if ([screen isEqualToString:toSingleGame])
+    {
+        singleGameViewController = [[SingleGameViewController alloc] init];
+        singleGameViewController.screenDelegate = self;
         [self pushViewController:singleGameViewController animated:YES];
+
+    }
     else if ([screen isEqualToString:toDoubleGame])
+    {
+        doubleGameViewController = [[DoubleGameViewController alloc] init];
+        doubleGameViewController.screenDelegate = self;
         [self pushViewController:doubleGameViewController animated:YES];
+
+    }
     else
         NSLog(@"Invalid screen.");
 }

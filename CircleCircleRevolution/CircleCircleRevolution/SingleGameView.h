@@ -12,12 +12,18 @@
 
 @protocol ButtonOnGame1Pressed <NSObject>
 -(void) passedButtonPress:(UIButton*)button;
+-(void) gamePause;
+-(void) gameResume;
 
 @end
 
 @interface SingleGameView : UIView
 {
     UIButton* menuButton;
+    UIView* pauseView;
+    UIButton* pauseButton;
+    UIButton* resumeButton;
+    
 }
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;

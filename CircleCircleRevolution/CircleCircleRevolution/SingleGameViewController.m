@@ -48,4 +48,15 @@
     }
 }
 
+// Protocol for pausing and resuming game
+-(void) gamePause
+{
+    // To do - any pausing from the controller
+}
+
+-(void) gameResume
+{
+    // To do - any resuming from the controller
+}
+
 @end
