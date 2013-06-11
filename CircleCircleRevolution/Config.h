@@ -6,11 +6,16 @@
 //  Copyright (c) 2013 Kathryn Aplin. All rights reserved.
 //
 
+
+// reusability - 123 setup for buttons
+
 #ifndef CircleCircleRevolution_Config_h
 #define CircleCircleRevolution_Config_h
 
 // Overall
-#define gameFont
+#define kgameFont
+#define kScreenWidth [UIScreen mainScreen].bounds.size.height
+#define kScreenHeight [UIScreen mainScreen].bounds.size.width
 
 
 // Gameplay Constants
