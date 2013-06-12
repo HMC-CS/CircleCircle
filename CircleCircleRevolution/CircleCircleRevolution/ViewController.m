@@ -62,16 +62,16 @@
         [self pushViewController:instructionsViewController animated:YES];
     else if ([screen isEqualToString:toSingleGame])
     {
-        singleGameViewController = [[SingleGameViewController alloc] init];
+        singleGameViewController = [[SingleGameViewController alloc] initWithMode:1];
         singleGameViewController.screenDelegate = self;
         [self pushViewController:singleGameViewController animated:YES];
 
     }
     else if ([screen isEqualToString:toDoubleGame])
     {
-        doubleGameViewController = [[DoubleGameViewController alloc] init];
-        doubleGameViewController.screenDelegate = self;
-        [self pushViewController:doubleGameViewController animated:YES];
+        singleGameViewController = [[SingleGameViewController alloc] initWithMode:2];
+        singleGameViewController.screenDelegate = self;
+        [self pushViewController:singleGameViewController animated:YES];
 
     }
     else

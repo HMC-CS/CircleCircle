@@ -12,12 +12,16 @@
 
 @interface ShipView : UIImageView
 {
-    CircleView* circleView;
-    FractionView* fractionView;
+    int gameMode;
+    CircleView* circleView1;
+    CircleView* circleView2;
+    FractionView* fractionView1;
+    FractionView* fractionView2;
 }
 
--(void)updateFraction:(NSArray*)currentFraction;
--(void)updateCircle:(float)percent;
--(void)setFeedback:(float)feedbackPercent;
+-(id)initWithFrame:(CGRect)frame andMode:(int)mode;
+-(void)updateFraction1:(NSArray*)currentFraction1 fraction2:(NSArray*)currentFraction2;
+-(void)updateCircle1:(float)percent1 circle2:(float)percent2;
+-(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2;
 
 @end
