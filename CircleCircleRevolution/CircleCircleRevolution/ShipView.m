@@ -10,37 +10,75 @@
 
 @implementation ShipView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andMode:(int)mode
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         self.userInteractionEnabled = YES;
         self.backgroundColor = [UIColor clearColor];
+        gameMode = mode;
         
-        fractionView = [[FractionView alloc] init];
-        [self addSubview:fractionView];
-        
-        circleView = [[CircleView alloc] initWithFrame:self.bounds];
-        [self addSubview:circleView];
+        if (gameMode == 1)
+        {
+            circleView1 = [[CircleView alloc] initWithFrame:self.bounds];
+            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(200,400,200,200)];
+            [self addSubview:circleView1];
+        }
+        else if (gameMode == 2)
+        {
+            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width/2,self.bounds.size.height)];
+            circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(self.bounds.size.width/2,0,self.bounds.size.width/2,self.bounds.size.height)];
+            fractionView1 = [[FractionView alloc] init];//WithFrame:CGRectMake(200,400,200,200)];
+            fractionView2 = [[FractionView alloc] init];//WithFrame:CGRectMake(400,400,200,200)];
+            [self addSubview:circleView1];
+            [self addSubview:circleView2];
+            [self addSubview:fractionView1];
+            [self addSubview:fractionView2];
+        }
         
         
     }
     return self;
 }
 
--(void) updateFraction:(NSArray *)currentFraction
+-(void) updateFraction1:(NSArray *)currentFraction1 fraction2:(NSArray *)currentFraction2
 {
-    [fractionView updateFraction:currentFraction];
+    if (currentFraction1)
+    {
+        [fractionView1 updateFraction:currentFraction1];
+        [circleView1 setFeedback:0];
+    }
+    if (currentFraction2)
+    {
+        [fractionView2 updateFraction:currentFraction2];
+        [circleView2 setFeedback:0];
+    }
 }
 
--(void)updateCircle:(float)percent
+-(void)updateCircle1:(float)percent1 circle2:(float)percent2
 {
-    [circleView update:percent];
+    if (percent1)
+    {
+        [circleView1 update:percent1];
+    }
+    if (percent2)
+    {
+        [circleView2 update:percent2];
+    }
 }
--(void)setFeedback:(float)feedbackPercent
+
+-(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2
 {
-    [circleView setFeedback:feedbackPercent];
+    
+    if (feedbackPercent1)
+    {
+        [circleView1 setFeedback:feedbackPercent1];
+    }
+    if (feedbackPercent2)
+    {
+        [circleView2 setFeedback:feedbackPercent2];
+    }
 }
 
 /*

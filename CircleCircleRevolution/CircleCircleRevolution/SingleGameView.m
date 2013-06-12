@@ -10,7 +10,7 @@
 
 @implementation SingleGameView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andMode:(int)mode
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -45,7 +45,7 @@
         pauseView.alpha = 0;
         
         // Ship view
-        shipView = [[ShipView alloc] initWithFrame:CGRectMake(200,200,400,300)];
+        shipView = [[ShipView alloc] initWithFrame:CGRectMake(200,200,400,300) andMode:mode];
         shipView.backgroundColor = [UIColor magentaColor];
         
         //Score view
@@ -62,14 +62,14 @@
 }
 
 
--(void) updateFraction:(NSArray *)currentFraction
+-(void) updateFraction1:(NSArray *)currentFraction1 fraction2:(NSArray *)currentFraction2
 {
-    [shipView updateFraction:currentFraction];
+    [shipView updateFraction1:currentFraction1 fraction2:currentFraction2];
 }
 
--(void) updateCircle:(float)percent
+-(void) updateCircle1:(float)percent1 circle2:(float)percent2
 {
-    [shipView updateCircle:percent];
+    [shipView updateCircle1:percent1 circle2:percent2];
 }
 
 -(void) updateScore:(int)score
@@ -100,14 +100,9 @@
     [self.pressedDelegate gameResume];
 }
 
--(void)addCircle:(CircleView*)circleView
+-(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2
 {
-    [shipView addSubview:circleView];
-}
-
--(void)setFeedback:(float)feedbackPercent
-{
-    [shipView setFeedback:feedbackPercent];
+    [shipView setFeedback1:feedbackPercent1 feedback2:feedbackPercent2];
 }
 
 /*
