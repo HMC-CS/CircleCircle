@@ -25,7 +25,7 @@
     UIView* pauseView;
     UIButton* pauseButton;
     UIButton* resumeButton;
-    ShipView* shipView;
+    ShipView* _shipView;
     GameScoreView* gameScoreView;
 }
 
@@ -36,5 +36,7 @@
 -(void)updateScore:(int)score;
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;
+
+@property (strong, nonatomic) ShipView* shipView;
 
 @end
