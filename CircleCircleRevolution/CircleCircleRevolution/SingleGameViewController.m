@@ -80,7 +80,7 @@
     {
         circlePercent1 = 0;
         [(SingleGameView*)self.view updateCircle1:circlePercent1 circle2:NO];//displays the circle without having to increase the percent
-        [(SingleGameView*)self.view setFeedback1:0 feedback2:NO];
+        [(SingleGameView*)self.view setFeedback1:0 feedback2:-1];
         currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
         [self updateFraction1:YES andFraction2:NO];
         //update1 = TRUE;
@@ -89,7 +89,7 @@
     {
         circlePercent2 = 0;
         [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
-        [(SingleGameView*)self.view setFeedback1:NO feedback2:0];
+        [(SingleGameView*)self.view setFeedback1:-1 feedback2:0];
         currentFraction2 = [fractionModel getFractionWithMinD:2 andMaxD:4];
         [self updateFraction1:NO andFraction2:YES];
     }    
@@ -195,7 +195,7 @@
     int accuracy = [self calculateAccuracyFromPercent:circlePercent1 andTargetFractionValue:fracValue];
     [self tapFeedback:accuracy];
     
-    [(SingleGameView*)self.view setFeedback1:fracValue*100 feedback2:NO];
+    [(SingleGameView*)self.view setFeedback1:fracValue*100 feedback2:-1];
     
     [self updateScore];
     [(SingleGameView*)self.view updateCircle1:circlePercent1 circle2:NO];
@@ -216,7 +216,7 @@
     int accuracy = [self calculateAccuracyFromPercent:circlePercent2 andTargetFractionValue:fracValue];
     [self tapFeedback:accuracy];
     
-    [(SingleGameView*)self.view setFeedback1:NO feedback2:fracValue*100];
+    [(SingleGameView*)self.view setFeedback1:-1 feedback2:fracValue*100];
     
     [self updateScore];
     [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
