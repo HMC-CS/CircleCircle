@@ -15,6 +15,7 @@
     score = 0;
     percentChange = 0.1;
     problemsCorrect = 0;
+    lives = 3;
     return self;
 }
 
@@ -36,6 +37,21 @@
         percentChange += .2;
     }
     return percentChange;
+}
+
+-(void) increaseLife
+{
+    lives ++;
+}
+
+-(void) decreaseLife
+{
+    lives --;
+}
+
+-(int)getLives
+{
+    return lives;
 }
 
 @end

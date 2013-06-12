@@ -10,6 +10,9 @@
 #import "Config.h"
 
 @implementation ShipView
+@synthesize circleView1 = _circleView1;
+@synthesize circleView2 = _circleView2;
+
 
 - (id)initWithFrame:(CGRect)frame andMode:(int)mode
 {
@@ -49,12 +52,12 @@
     if (currentFraction1)
     {
         [fractionView1 updateFraction:currentFraction1];
-        [_circleView1 setFeedback:0];
+        [_circleView1 resetFeedback];
     }
     if (currentFraction2)
     {
         [fractionView2 updateFraction:currentFraction2];
-        [_circleView2 setFeedback:0];
+        [_circleView2 resetFeedback];
     }
 }
 
@@ -73,9 +76,17 @@
 -(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2
 {
     
-    if (feedbackPercent1)
+    if (feedbackPercent1 == 0)
+    {
+        [_circleView1 resetFeedback];
+    }
+    else if (feedbackPercent1)
     {
         [_circleView1 setFeedback:feedbackPercent1];
+    }
+    if (feedbackPercent2 == 0)
+    {
+        [_circleView2 resetFeedback];
     }
     if (feedbackPercent2)
     {

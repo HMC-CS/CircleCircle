@@ -36,35 +36,56 @@
         touch2 = FALSE;
         percentChange = 0.1;
         
-        [self resetCircle1:YES andCircle2:YES];
-        [self startTimer];
+        [self resetCircle:1];
+        [self resetCircle:2];
+        [self startTimer1];
+        if (gameMode == 2)
+            [self startTimer2];
+        [singleGameView updateLife:[gameModel getLives]];
+        gameOver = FALSE;
         
     }
     return self;
 }
 
--(void) startTimer
+-(void) startTimer1
 {
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.01
+    if (!gameOver){
+    timer1 = [NSTimer scheduledTimerWithTimeInterval:0.01
                                              target:self
-                                           selector:@selector(checkUpdate)
+                                           selector:@selector(checkUpdate1)
                                            userInfo:nil
                                             repeats:YES];
+
+    }
+}
+
+-(void) startTimer2
+{
+    if (!gameOver) {
+    timer2 = [NSTimer scheduledTimerWithTimeInterval:0.01
+                                              target:self
+                                            selector:@selector(checkUpdate2)
+                                            userInfo:nil
+                                             repeats:YES];
+    }
+
 }
 
 
--(void) resetCircle1:(BOOL)shouldReset1 andCircle2:(BOOL)shouldReset2
+-(void) resetCircle:(int)circleNumber
 {
     percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
-    if (shouldReset1)
+    if (circleNumber ==1)
     {
         circlePercent1 = 0;
         [(SingleGameView*)self.view updateCircle1:circlePercent1 circle2:NO];//displays the circle without having to increase the percent
         [(SingleGameView*)self.view setFeedback1:0 feedback2:NO];
         currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
         [self updateFraction1:YES andFraction2:NO];
+        update1 = TRUE;
     }
-    if (shouldReset2)
+    if (circleNumber == 2)
     {
         circlePercent2 = 0;
         [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
@@ -75,24 +96,36 @@
     [self updateScore];    
 }
 
--(void) checkUpdate
+-(void) resetCircleFromNum:(NSNumber*)circleNumber
 {
+    [self resetCircle:[circleNumber integerValue]];
+}
+
+
+-(void) checkUpdate1
+{
+    [self checkGameOver];
     if (update1)
         [self updateCircle1];
     if (!update1){
         update1 = TRUE;
-        [self resetCircle1:YES andCircle2:NO];
+        //[self resetCircle:1];
         touch1 = FALSE;
     }
+}
+
+-(void) checkUpdate2
+{
+    [self checkGameOver];
     if (update2)
         [self updateCircle2];
     if (!update2) {
         update2 = TRUE;
-        [self resetCircle1:NO andCircle2:YES];
+        //[self resetCircle:2];
         touch2 = FALSE;
     }
+    
 }
-
 
 -(void) updateCircle1
 {
@@ -103,7 +136,10 @@
     }
     else
     {
-        [self resetCircle1:YES andCircle2:NO];
+        [self scoreTap1];
+        //[self resetCircle:1];
+
+
     }
 }
 
@@ -116,7 +152,7 @@
     }
     else
     {
-        [self resetCircle1:NO andCircle2:YES];
+        [self scoreTap2];
     }
 }
 
@@ -128,6 +164,7 @@
         [(SingleGameView*)self.view updateFraction1:NO fraction2:currentFraction2];
 }
 
+// Passes down the changed score so that it is displayed
 -(void) updateScore
 {
     int score = [gameModel getScore];
@@ -135,111 +172,127 @@
 }
 
 
+-(int)calculateAccuracyFromPercent:(float)circlePercent andTargetFractionValue:(float)fracValue
+{
+    int accuracy = fabsf(fracValue*100 - circlePercent);
+    return accuracy;
+}
+
+-(float) calculateFractionValue:(NSArray*)fraction
+{
+    int numerator = [fraction[0] intValue];
+    int denominator = [fraction[1] intValue];
+    float fracValue = (float) numerator/denominator;
+    return fracValue;
+}
+
 -(void) scoreTap1
 {
+  
+    [timer1 invalidate];
     update1 = FALSE;
-    int accuracy;
-    int numerator = [currentFraction1[0] intValue];
-    int denominator = [currentFraction1[1] intValue];
-    
-    float fracValue = (float)numerator/denominator;
-    accuracy = fabsf(fracValue*100 - circlePercent1);
-    [self tapFeedback1:accuracy];
+    float fracValue = [self calculateFractionValue:currentFraction1];
+    int accuracy = [self calculateAccuracyFromPercent:circlePercent1 andTargetFractionValue:fracValue];
+    [self tapFeedback:accuracy];
     
     [(SingleGameView*)self.view setFeedback1:fracValue*100 feedback2:NO];
     
     [self updateScore];
     [(SingleGameView*)self.view updateCircle1:circlePercent1 circle2:NO];
     touch1 = TRUE;
+    
+    [self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
+    [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:5.0];
+
 }
 
 
 -(void) scoreTap2
 {
+    [timer2 invalidate];
     update2 = FALSE;
-    int accuracy;
-    int numerator = [currentFraction2[0] intValue];
-    int denominator = [currentFraction2[1] intValue];
-    
-    float fracValue = (float)numerator/denominator;
-    accuracy = fabsf(fracValue*100 - circlePercent2);
-    [self tapFeedback2:accuracy];
+    float fracValue = [self calculateFractionValue:currentFraction2];
+    int accuracy = [self calculateAccuracyFromPercent:circlePercent2 andTargetFractionValue:fracValue];
+    [self tapFeedback:accuracy];
     
     [(SingleGameView*)self.view setFeedback1:NO feedback2:fracValue*100];
     
     [self updateScore];
     [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
     touch2 = TRUE;
+    
+    [self performSelector:@selector(startTimer2) withObject:nil afterDelay:5.0];
+    [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:5.0];
+
+
 }
 
-
--(void) tapFeedback1:(int)accuracy
+-(NSString*) tapFeedback:(int)accuracy
 {
+    NSString* feedbackTerm;
     if (accuracy <= 2)
     {
-        feedbackTerm1 = @"Awesome";
+        feedbackTerm = @"Awesome";
         [gameModel incrementScore:100];
     }
     
     else if (accuracy <= 5)
     {
-        feedbackTerm1 = @"Good";
+        feedbackTerm = @"Good";
         [gameModel incrementScore:50];
     }
     
     else if (accuracy <= 8)
     {
-        feedbackTerm1 = @"Okay";
+        feedbackTerm = @"Okay";
         [gameModel incrementScore:25];
     }
     
     else
     {
-        feedbackTerm1 = @"Miss";
+        feedbackTerm = @"Miss";
+        if ([gameModel getLives] > 0)
+        {
+            [gameModel decreaseLife];
+            [singleGameView updateLife:[gameModel getLives]];
+        }
+
+       
     }
+    return feedbackTerm;
 }
 
--(void) tapFeedback2:(int)accuracy
+-(void) displayFeedback:(NSString*)feedbackTerm atPosition:(CGPoint)location
 {
-    if (accuracy <= 2)
-    {
-        feedbackTerm2 = @"Awesome";
-        [gameModel incrementScore:100];
-    }
     
-    else if (accuracy <= 5)
+}
+
+-(void) checkGameOver
+{
+    if ([gameModel getLives]==0)
     {
-        feedbackTerm2 = @"Good";
-        [gameModel incrementScore:50];
-    }
-    
-    else if (accuracy <= 8)
-    {
-        feedbackTerm2 = @"Okay";
-        [gameModel incrementScore:25];
-    }
-    
-    else
-    {
-        feedbackTerm2 = @"Miss";
+        gameOver = TRUE;
+        NSLog(@"Game should be over now, technically!");
+        [timer1 invalidate];
+        [timer2 invalidate];
+        [self.screenDelegate goToScreenFromGame1:toMainMenu];
     }
 }
 
 -(void) touchesBegan:(NSSet*) touches withEvent:(UIEvent *) event
 {
+    NSLog(@"touched!");
     UITouch* t = [touches anyObject];
-    
     CGPoint touchLocation = [t locationInView:singleGameView.shipView];
+    if (CGRectContainsPoint(singleGameView.shipView.circleView1.frame, touchLocation) && [t.view class] == [CircleView class] && !touch1){
+        
     
-    if (CGRectContainsPoint(singleGameView.shipView.circleView1.frame, touchLocation))
-        [self scoreTap1];
-    if (CGRectContainsPoint(singleGameView.shipView.circleView2.frame, touchLocation))
+       [self scoreTap1];
+        NSLog(@"score tap 1");
+        }
+    
+    if (CGRectContainsPoint(singleGameView.shipView.circleView2.frame, touchLocation) && [t.view class] == [CircleView class] && !touch2)
         [self scoreTap2];
-    
-    /*if ([t.view class] == [CircleView class] && !touch1)
-    {
-        [self scoreTap1];
-    }*/
     return;
 }
 
@@ -269,15 +322,16 @@
 // Protocol for pausing and resuming game
 -(void) gamePause
 {
-    [timer invalidate];
-
+    [timer1 invalidate];
+    if (gameMode == 2)
+        [timer2 invalidate];
 }
 
 -(void) gameResume
 {
-    [self startTimer];
-
-    
+    [self startTimer1];
+    if (gameMode == 2)
+        [self startTimer2];
 }
 
 
