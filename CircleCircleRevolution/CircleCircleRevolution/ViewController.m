@@ -62,16 +62,15 @@
         [self pushViewController:instructionsViewController animated:YES];
     else if ([screen isEqualToString:toSingleGame])
     {
-        singleGameViewController = [[SingleGameViewController alloc] initWithMode:1];
-        singleGameViewController.screenDelegate = self;
-        [self pushViewController:singleGameViewController animated:YES];
-
+        difficultySelectionViewController = [[DifficultySelectionViewController alloc] initWithMode:1];
+        difficultySelectionViewController.screenDelegate = self;
+        [self pushViewController:difficultySelectionViewController animated:YES];
     }
     else if ([screen isEqualToString:toDoubleGame])
     {
-        singleGameViewController = [[SingleGameViewController alloc] initWithMode:2];
-        singleGameViewController.screenDelegate = self;
-        [self pushViewController:singleGameViewController animated:YES];
+        difficultySelectionViewController = [[DifficultySelectionViewController alloc] initWithMode:2];
+        difficultySelectionViewController.screenDelegate = self;
+        [self pushViewController:difficultySelectionViewController animated:YES];
 
     }
     else
@@ -114,6 +113,13 @@
 -(void)goToScreenFromGame2:(NSString *)screen
 {
     [self goToScreen:screen];
+}
+
+-(void)beginGameWithMode:(int)gameMode andDifficulty:(int)difficulty
+{
+    singleGameViewController = [[SingleGameViewController alloc] initWithMode:gameMode andDifficulty:difficulty];
+    singleGameViewController.screenDelegate = self;
+    [self pushViewController:singleGameViewController animated:YES];
 }
 
 

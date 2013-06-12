@@ -15,7 +15,7 @@
 
 @implementation SingleGameViewController
 
--(id)initWithMode:(int)mode
+-(id)initWithMode:(int)mode andDifficulty:(int)difficulty
 {
     self = [super init];
     if (self)
@@ -23,6 +23,7 @@
         SingleGameView* game = [[SingleGameView alloc] initWithFrame:[UIScreen mainScreen].bounds andMode:mode];
         game.pressedDelegate = self;
         self.view = game;
+        singleGameView = game;
         
         shipModel = [[ShipModel alloc] init];
         fractionModel = [[FractionModel alloc] init];
@@ -35,55 +36,63 @@
         touch2 = FALSE;
         percentChange = 0.1;
         
-        difficultySelectionView = [[DifficultySelectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-        difficultySelectionView.pressedDelegate = self;
-        [self.view addSubview:difficultySelectionView];
+        [self resetCircle1:YES andCircle2:YES];
+        [self startTimer];
+        
     }
     return self;
 }
 
--(void) startTimer1
+-(void) startTimer
 {
-    timer1 = [NSTimer scheduledTimerWithTimeInterval:0.01
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.01
                                              target:self
-                                           selector:@selector(checkUpdate1)
+                                           selector:@selector(checkUpdate)
                                            userInfo:nil
                                             repeats:YES];
 }
 
--(void) startTimer2
-{
-    timer2 = [NSTimer scheduledTimerWithTimeInterval:0.01
-                                             target:self
-                                           selector:@selector(checkUpdate2)
-                                           userInfo:nil
-                                            repeats:YES];
-}
 
--(void) newObject1
+-(void) resetCircle1:(BOOL)shouldReset1 andCircle2:(BOOL)shouldReset2
 {
-    percentChange = [gameModel calculateSpeed];
-    circlePercent1 = 0;
-    [(SingleGameView*)self.view updateCircle1:circlePercent1 circle2:NO];
-    [(SingleGameView*)self.view setFeedback1:0 feedback2:NO];
-    currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
-    [self updateFraction1];
-    [self updateScore];
-}
-
-
--(void) checkUpdate1
-{
-    if (update1) {
-        [self updateCircle1];
+    percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
+    if (shouldReset1)
+    {
+        circlePercent1 = 0;
+        [(SingleGameView*)self.view updateCircle1:circlePercent1 circle2:NO];//displays the circle without having to increase the percent
+        [(SingleGameView*)self.view setFeedback1:0 feedback2:NO];
+        currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
+        [self updateFraction1:YES andFraction2:NO];
     }
-    //if (!update && [animateImage isAnimating] == NO) {
-    if (!update1) {
+    if (shouldReset2)
+    {
+        circlePercent2 = 0;
+        [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
+        [(SingleGameView*)self.view setFeedback1:NO feedback2:0];
+        currentFraction2 = [fractionModel getFractionWithMinD:2 andMaxD:4];
+        [self updateFraction1:NO andFraction2:YES];
+    }    
+    [self updateScore];    
+}
+
+-(void) checkUpdate
+{
+    if (update1)
+        [self updateCircle1];
+    if (!update1){
         update1 = TRUE;
-        [self newObject1];
+        [self resetCircle1:YES andCircle2:NO];
         touch1 = FALSE;
     }
+    if (update2)
+        [self updateCircle2];
+    if (!update2) {
+        update2 = TRUE;
+        [self resetCircle1:NO andCircle2:YES];
+        touch2 = FALSE;
+    }
 }
+
 
 -(void) updateCircle1
 {
@@ -94,14 +103,29 @@
     }
     else
     {
-        circlePercent1 = 0;
-        [self newObject1];
+        [self resetCircle1:YES andCircle2:NO];
     }
 }
 
--(void) updateFraction1
+-(void) updateCircle2
 {
-    [(SingleGameView*)self.view updateFraction1:currentFraction1 fraction2:currentFraction2];
+    if (circlePercent2 < 100)
+    {
+        circlePercent2 += percentChange;
+        [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
+    }
+    else
+    {
+        [self resetCircle1:NO andCircle2:YES];
+    }
+}
+
+-(void) updateFraction1:(BOOL)shouldUpdate1 andFraction2:(BOOL)shouldUpdate2
+{
+    if (shouldUpdate1)
+        [(SingleGameView*)self.view updateFraction1:currentFraction1 fraction2:NO];
+    if (shouldUpdate2)
+        [(SingleGameView*)self.view updateFraction1:NO fraction2:currentFraction2];
 }
 
 -(void) updateScore
@@ -129,6 +153,26 @@
     touch1 = TRUE;
 }
 
+
+-(void) scoreTap2
+{
+    update2 = FALSE;
+    int accuracy;
+    int numerator = [currentFraction2[0] intValue];
+    int denominator = [currentFraction2[1] intValue];
+    
+    float fracValue = (float)numerator/denominator;
+    accuracy = fabsf(fracValue*100 - circlePercent2);
+    [self tapFeedback2:accuracy];
+    
+    [(SingleGameView*)self.view setFeedback1:NO feedback2:fracValue*100];
+    
+    [self updateScore];
+    [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
+    touch2 = TRUE;
+}
+
+
 -(void) tapFeedback1:(int)accuracy
 {
     if (accuracy <= 2)
@@ -153,68 +197,6 @@
     {
         feedbackTerm1 = @"Miss";
     }
-}
-
--(void) newObject2
-{
-    percentChange = [gameModel calculateSpeed];
-    circlePercent2 = 0;
-    [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
-    [(SingleGameView*)self.view setFeedback1:NO feedback2:0];
-    currentFraction2 = [fractionModel getFractionWithMinD:2 andMaxD:4];
-    [self updateFraction2];
-    [self updateScore];
-}
-
-
--(void) checkUpdate2
-{
-    if (update2) {
-        [self updateCircle2];
-    }
-    //if (!update && [animateImage isAnimating] == NO) {
-    if (!update2) {
-        update2 = TRUE;
-        [self newObject2];
-        touch2 = FALSE;
-    }
-}
-
--(void) updateCircle2
-{
-    if (circlePercent2 < 100)
-    {
-        circlePercent2 += percentChange;
-        [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
-    }
-    else
-    {
-        circlePercent2 = 0;
-        [self newObject2];
-    }
-}
-
--(void) updateFraction2
-{
-    [(SingleGameView*)self.view updateFraction1:NO fraction2:currentFraction2];
-}
-
--(void) scoreTap2
-{
-    update2 = FALSE;
-    int accuracy;
-    int numerator = [currentFraction2[0] intValue];
-    int denominator = [currentFraction2[1] intValue];
-    
-    float fracValue = (float)numerator/denominator;
-    accuracy = fabsf(fracValue*100 - circlePercent2);
-    [self tapFeedback2:accuracy];
-    
-    [(SingleGameView*)self.view setFeedback1:NO feedback2:fracValue*100];
-    
-    [self updateScore];
-    [(SingleGameView*)self.view updateCircle1:NO circle2:circlePercent2];
-    touch2 = TRUE;
 }
 
 -(void) tapFeedback2:(int)accuracy
@@ -247,10 +229,17 @@
 {
     UITouch* t = [touches anyObject];
     
-    if ([t.view class] == [CircleView class] && !touch1)
+    CGPoint touchLocation = [t locationInView:singleGameView.shipView];
+    
+    if (CGRectContainsPoint(singleGameView.shipView.circleView1.frame, touchLocation))
+        [self scoreTap1];
+    if (CGRectContainsPoint(singleGameView.shipView.circleView2.frame, touchLocation))
+        [self scoreTap2];
+    
+    /*if ([t.view class] == [CircleView class] && !touch1)
     {
         [self scoreTap1];
-    }
+    }*/
     return;
 }
 
@@ -280,28 +269,15 @@
 // Protocol for pausing and resuming game
 -(void) gamePause
 {
-    [timer1 invalidate];
-    [timer2 invalidate];
+    [timer invalidate];
+
 }
 
 -(void) gameResume
 {
-    [self startTimer1];
-    [self startTimer2];
+    [self startTimer];
+
     
-}
-
-
-// Protocol for Selecting Difficulty
--(void)passedDifficulty:(UIButton *)button
-{
-    [self.view sendSubviewToBack:difficultySelectionView];
-    difficultySelectionView.alpha = 0;
-    // Set fraction model difficulty here based on the button
-    [self newObject1];
-    [self newObject2];
-    [self startTimer1];
-    [self startTimer2];
 }
 
 

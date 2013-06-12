@@ -25,7 +25,7 @@
 
 @end
 
-@interface SingleGameViewController : UIViewController <ButtonOnGame1Pressed,ButtonOnDifficultySelectionPressed>
+@interface SingleGameViewController : UIViewController <ButtonOnGame1Pressed>
 {
     int gameMode;
     float percentChange;
@@ -39,16 +39,15 @@
     NSArray* currentFraction2;
     NSString* feedbackTerm1;
     NSString* feedbackTerm2;
-    NSTimer* timer1;
-    NSTimer* timer2;
+    NSTimer* timer;
     ShipModel* shipModel;
     FractionModel* fractionModel;
     GameModel* gameModel;
-    DifficultySelectionView* difficultySelectionView;
+    SingleGameView* singleGameView;
     
 }
 
--(id)initWithMode:(int)mode;
+-(id)initWithMode:(int)mode andDifficulty:(int)difficulty;
 
 @property (weak,nonatomic) id<ChangeScreenFromGame1> screenDelegate;
 

@@ -41,6 +41,7 @@
 		6F39D85F176289B70089FBA1 /* ScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D85E176289B60089FBA1 /* ScoreView.m */; };
 		6F39D86617629A990089FBA1 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D86517629A990089FBA1 /* InstructionsViewController.m */; };
 		6F39D86A17629AE50089FBA1 /* InstructionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D86917629AE50089FBA1 /* InstructionsView.m */; };
+		6F97D9191768D5D000F92821 /* DifficultySelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F97D9181768D5D000F92821 /* DifficultySelectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,8 @@
 		6F39D86817629AE50089FBA1 /* InstructionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsView.h; sourceTree = "<group>"; };
 		6F39D86917629AE50089FBA1 /* InstructionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsView.m; sourceTree = "<group>"; };
 		6F67EBD61766915D00043359 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		6F97D9171768D5D000F92821 /* DifficultySelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DifficultySelectionViewController.h; sourceTree = "<group>"; };
+		6F97D9181768D5D000F92821 /* DifficultySelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DifficultySelectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,8 @@
 				4563F4C617667B6800A74E15 /* SingleGameViewController.m */,
 				4563F4C817667B7400A74E15 /* DoubleGameViewController.h */,
 				4563F4C917667B7400A74E15 /* DoubleGameViewController.m */,
+				6F97D9171768D5D000F92821 /* DifficultySelectionViewController.h */,
+				6F97D9181768D5D000F92821 /* DifficultySelectionViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 				45B1F2D11767A1030090EEF7 /* GameModel.m in Sources */,
 				45B1F2D41767A2480090EEF7 /* CircleView.m in Sources */,
 				45B1F2DD1767D8880090EEF7 /* DifficultySelectionView.m in Sources */,
+				6F97D9191768D5D000F92821 /* DifficultySelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
