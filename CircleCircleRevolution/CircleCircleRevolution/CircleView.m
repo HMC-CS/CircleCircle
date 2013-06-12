@@ -96,6 +96,11 @@
     [self setNeedsDisplay];
 }
 
+-(void) setFeedbackToNum:(float)newFeedbackNumber
+{
+    feedback = newFeedbackNumber;
+}
+
 -(void) resetFeedback
 {
     feedback = 0;
@@ -104,13 +109,28 @@
 // sets the feedback data member
 -(void) setFeedback:(float)newFeedback
 {
-    // for 25 frames
-    float percentChange = newFeedback/25;
-    float startTime = 0;
-    while (startTime < 1.0){
-        [self performSelector:@selector(updateFeedback:) withObject:[NSNumber numberWithFloat:percentChange] afterDelay:startTime];
-        startTime += 0.04;
+    //you underestimated, so fill from where you ended
+    if (newFeedback>percent){
+        feedback = percent;
+        float percentChange = (newFeedback-percent)/25;
+        float startTime = 0;
+        while (startTime < 1.0){
+            [self performSelector:@selector(updateFeedback:) withObject:[NSNumber numberWithFloat:percentChange] afterDelay:startTime];
+            startTime += 0.04;
+        }
+
+    }//if you over estimated
+    else{
+        
+        float percentChange = newFeedback/25;
+        float startTime = 0;
+        while (startTime < 1.0){
+            [self performSelector:@selector(updateFeedback:) withObject:[NSNumber numberWithFloat:percentChange] afterDelay:startTime];
+            startTime += 0.04;
+        }
+
     }
-}
+    // for 25 frames
+    }
 
 @end
