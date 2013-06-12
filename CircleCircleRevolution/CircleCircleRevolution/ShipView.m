@@ -7,6 +7,7 @@
 //
 
 #import "ShipView.h"
+#import "Config.h"
 
 @implementation ShipView
 
@@ -21,18 +22,19 @@
         
         if (gameMode == 1)
         {
-            circleView1 = [[CircleView alloc] initWithFrame:self.bounds];
-            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(200,400,200,200)];
-            [self addSubview:circleView1];
+            _circleView1 = [[CircleView alloc] initWithFrame:self.bounds];
+            fractionView1 = [[FractionView alloc] init];//WithFrame:CGRectMake(200,400,200,200)];
+            [self addSubview:_circleView1];
+            [self addSubview:fractionView1];
         }
         else if (gameMode == 2)
         {
-            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width/2,self.bounds.size.height)];
-            circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(self.bounds.size.width/2,0,self.bounds.size.width/2,self.bounds.size.height)];
+            _circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width/2,self.bounds.size.height)];
+            _circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(self.bounds.size.width/2,0,self.bounds.size.width/2,self.bounds.size.height)];
             fractionView1 = [[FractionView alloc] init];//WithFrame:CGRectMake(200,400,200,200)];
             fractionView2 = [[FractionView alloc] init];//WithFrame:CGRectMake(400,400,200,200)];
-            [self addSubview:circleView1];
-            [self addSubview:circleView2];
+            [self addSubview:_circleView1];
+            [self addSubview:_circleView2];
             [self addSubview:fractionView1];
             [self addSubview:fractionView2];
         }
@@ -47,12 +49,12 @@
     if (currentFraction1)
     {
         [fractionView1 updateFraction:currentFraction1];
-        [circleView1 setFeedback:0];
+        [_circleView1 setFeedback:0];
     }
     if (currentFraction2)
     {
         [fractionView2 updateFraction:currentFraction2];
-        [circleView2 setFeedback:0];
+        [_circleView2 setFeedback:0];
     }
 }
 
@@ -60,11 +62,11 @@
 {
     if (percent1)
     {
-        [circleView1 update:percent1];
+        [_circleView1 update:percent1];
     }
     if (percent2)
     {
-        [circleView2 update:percent2];
+        [_circleView2 update:percent2];
     }
 }
 
@@ -73,11 +75,11 @@
     
     if (feedbackPercent1)
     {
-        [circleView1 setFeedback:feedbackPercent1];
+        [_circleView1 setFeedback:feedbackPercent1];
     }
     if (feedbackPercent2)
     {
-        [circleView2 setFeedback:feedbackPercent2];
+        [_circleView2 setFeedback:feedbackPercent2];
     }
 }
 

@@ -108,6 +108,11 @@
 #define hsButtonWidth 50
 #define hsButtonHeight 30
 
+// Circles
+
+
+
+
 // Resource File Titles - replace when we have them
 
 
