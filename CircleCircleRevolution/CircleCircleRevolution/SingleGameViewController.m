@@ -83,7 +83,7 @@
         [(SingleGameView*)self.view setFeedback1:0 feedback2:NO];
         currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
         [self updateFraction1:YES andFraction2:NO];
-        update1 = TRUE;
+        //update1 = TRUE;
     }
     if (circleNumber == 2)
     {
@@ -104,7 +104,6 @@
 
 -(void) checkUpdate1
 {
-    [self checkGameOver];
     if (update1)
         [self updateCircle1];
     if (!update1){
@@ -116,7 +115,8 @@
 
 -(void) checkUpdate2
 {
-    [self checkGameOver];
+
+
     if (update2)
         [self updateCircle2];
     if (!update2) {
@@ -203,6 +203,7 @@
     
     [self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
     [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:5.0];
+    [self performSelector:@selector(checkGameOver) withObject:nil afterDelay:5.0];
 
 }
 
@@ -223,8 +224,7 @@
     
     [self performSelector:@selector(startTimer2) withObject:nil afterDelay:5.0];
     [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:5.0];
-
-
+    [self performSelector:@selector(checkGameOver) withObject:nil afterDelay:5.0];
 }
 
 -(NSString*) tapFeedback:(int)accuracy
@@ -271,11 +271,13 @@
 {
     if ([gameModel getLives]==0)
     {
+        if (gameOver) return;
+        else{
         gameOver = TRUE;
         NSLog(@"Game should be over now, technically!");
         [timer1 invalidate];
         [timer2 invalidate];
-        [self.screenDelegate goToScreenFromGame1:toMainMenu];
+            [self.screenDelegate goToScreenFromGame1:toMainMenu];}
     }
 }
 
