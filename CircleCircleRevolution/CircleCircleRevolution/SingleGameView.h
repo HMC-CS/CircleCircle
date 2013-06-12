@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ShipView.h"
 #import "GameScoreView.h"
+#import "LifeView.h"
 
 @class SingleGameView;
 
@@ -27,6 +28,7 @@
     UIButton* resumeButton;
     ShipView* _shipView;
     GameScoreView* gameScoreView;
+    LifeView* lifeView;
 }
 
 -(id)initWithFrame:(CGRect)frame andMode:(int)mode;
@@ -34,6 +36,8 @@
 -(void)updateCircle1:(float)percent1 circle2:(float)percent2;
 -(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2;
 -(void)updateScore:(int)score;
+-(void)updateLife:(int)lives;
+
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;
 

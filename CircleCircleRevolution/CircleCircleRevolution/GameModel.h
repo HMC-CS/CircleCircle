@@ -13,11 +13,14 @@
     int score;
     float percentChange;
     int problemsCorrect;
+    int lives;
 }
 
 -(id)init;
 -(void)incrementScore:(int)increment;
 -(int)getScore;
 -(float)calculateSpeed;
-
+-(void) decreaseLife;
+-(void) increaseLife;
+-(int) getLives;
 @end

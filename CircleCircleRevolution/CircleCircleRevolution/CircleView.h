@@ -18,5 +18,6 @@
 -(void) update: (float) per;
 -(void) setColor: (UIColor*) newColor;
 -(void) setFeedback: (float) newFeedback;
+-(void) resetFeedback;
 
 @end
