@@ -48,14 +48,19 @@
         _shipView = [[ShipView alloc] initWithFrame:CGRectMake(200,200,400,300) andMode:mode];
         _shipView.backgroundColor = [UIColor magentaColor];
         
-        //Score view
+        // Score view
         gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(500, 10, 200, 100)];
+        
+        // Life View
+        lifeView = [[LifeView alloc] initWithFrame:CGRectMake(500, 50, 200, 100)];
+        
         
         [self addSubview:pauseView];
         [self sendSubviewToBack:pauseView];
         [self addSubview:pauseButton];
         [self addSubview:_shipView];
         [self addSubview:gameScoreView];
+        [self addSubview:lifeView];
 
     }
     return self;
@@ -75,6 +80,12 @@
 -(void) updateScore:(int)score
 {
     [gameScoreView updateScore:score];
+}
+
+
+-(void) updateLife:(int)lives
+{
+    [lifeView updateLife:lives];
 }
 
 // Protocol for communicating with SingleGameViewController, to reach ViewController

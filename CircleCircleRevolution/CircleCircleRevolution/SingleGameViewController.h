@@ -35,11 +35,13 @@
     BOOL touch1;
     BOOL update2;
     BOOL touch2;
+    BOOL gameOver;
     NSArray* currentFraction1;
     NSArray* currentFraction2;
     NSString* feedbackTerm1;
     NSString* feedbackTerm2;
-    NSTimer* timer;
+    NSTimer* timer1;
+    NSTimer* timer2;
     ShipModel* shipModel;
     FractionModel* fractionModel;
     GameModel* gameModel;

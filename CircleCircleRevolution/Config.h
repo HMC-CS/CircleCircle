@@ -17,6 +17,12 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.height
 #define kScreenHeight [UIScreen mainScreen].bounds.size.width
 
+#define button1X 50
+#define button1Y 30
+#define button2X 150
+#define button2Y 30
+#define button3X 250
+#define button3Y 30
 
 // Gameplay Constants
 
@@ -45,12 +51,12 @@
 
 
 // Selection Screen Formatting - ss
-#define ssMainMenuButtonX 250
-#define ssMainMenuButtonY 30
-#define ssSingleGameButtonX 50
-#define ssSingleGameButtonY 30
-#define ssDoubleGameButtonX 150
-#define ssDoubleGameButtonY 30
+#define ssMainMenuButtonX button3X
+#define ssMainMenuButtonY button3Y
+#define ssSingleGameButtonX button1X
+#define ssSingleGameButtonY button1Y
+#define ssDoubleGameButtonX button2X
+#define ssDoubleGameButtonY button2Y
 #define ssButtonWidth 50
 #define ssButtonHeight 30
 

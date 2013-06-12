@@ -89,14 +89,28 @@
     color = newColor;
 }
 
+-(void)updateFeedback:(NSNumber*)percentChange
+{
+    
+    feedback+=[percentChange floatValue];
+    [self setNeedsDisplay];
+}
 
-
-
+-(void) resetFeedback
+{
+    feedback = 0;
+    //[self setNeedsDisplay];
+}
 // sets the feedback data member
 -(void) setFeedback:(float)newFeedback
 {
-    feedback=newFeedback;
-    //NSLog(@"%f", feedback);
+    // for 25 frames
+    float percentChange = newFeedback/25;
+    float startTime = 0;
+    while (startTime < 1.0){
+        [self performSelector:@selector(updateFeedback:) withObject:[NSNumber numberWithFloat:percentChange] afterDelay:startTime];
+        startTime += 0.04;
+    }
 }
 
 @end

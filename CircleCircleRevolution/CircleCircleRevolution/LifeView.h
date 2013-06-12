@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface LifeView : UIView
+{
+    UILabel* lifeLabel;
+}
+
+-(void)updateLife:(int)lives;
 
 @end
