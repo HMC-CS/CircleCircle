@@ -76,19 +76,22 @@
 -(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2
 {
     
+    
     if (feedbackPercent1 == 0)
     {
         [_circleView1 resetFeedback];
     }
-    else if (feedbackPercent1)
+    else if (feedbackPercent1>0)
     {
         [_circleView1 setFeedback:feedbackPercent1];
     }
+    
+    
     if (feedbackPercent2 == 0)
     {
         [_circleView2 resetFeedback];
     }
-    if (feedbackPercent2)
+    else if (feedbackPercent2>0)
     {
         [_circleView2 setFeedback:feedbackPercent2];
     }
