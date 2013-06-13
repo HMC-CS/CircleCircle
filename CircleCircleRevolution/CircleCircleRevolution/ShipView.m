@@ -25,24 +25,22 @@
         
         if (gameMode == 1)
         {
-            _circleView1 = [[CircleView alloc] initWithFrame:self.bounds];
-            fractionView1 = [[FractionView alloc] init];//WithFrame:CGRectMake(200,400,200,200)];
+            _circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.height,self.bounds.size.height)];
+            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(200,400,200,200)];
             [self addSubview:_circleView1];
             [self addSubview:fractionView1];
         }
         else if (gameMode == 2)
         {
-            _circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width/2,self.bounds.size.height)];
-            _circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(self.bounds.size.width/2,0,self.bounds.size.width/2,self.bounds.size.height)];
-            fractionView1 = [[FractionView alloc] init];//WithFrame:CGRectMake(200,400,200,200)];
-            fractionView2 = [[FractionView alloc] init];//WithFrame:CGRectMake(400,400,200,200)];
+            _circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width/2,self.bounds.size.width/2)];
+            _circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(self.bounds.size.width/2,0,self.bounds.size.width/2,self.bounds.size.width/2)];
+            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(200,400,200,200)];
+            fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(400,400,200,200)];
             [self addSubview:_circleView1];
             [self addSubview:_circleView2];
             [self addSubview:fractionView1];
             [self addSubview:fractionView2];
         }
-        
-        
     }
     return self;
 }

@@ -88,6 +88,11 @@
     [lifeView updateLife:lives];
 }
 
+-(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2
+{
+    [_shipView setFeedback1:feedbackPercent1 feedback2:feedbackPercent2];
+}
+
 // Protocol for communicating with SingleGameViewController, to reach ViewController
 -(void) buttonPress:(id)sender
 {
@@ -109,11 +114,6 @@
     [self sendSubviewToBack:pauseView];
     pauseView.alpha = 0;
     [self.pressedDelegate gameResume];
-}
-
--(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2
-{
-    [_shipView setFeedback1:feedbackPercent1 feedback2:feedbackPercent2];
 }
 
 /*
