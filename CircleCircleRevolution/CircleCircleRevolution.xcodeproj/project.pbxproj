@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4563F4C1176679FC00A74E15 /* SingleGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C0176679FC00A74E15 /* SingleGameView.m */; };
-		4563F4C417667A4A00A74E15 /* DoubleGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C317667A4A00A74E15 /* DoubleGameView.m */; };
-		4563F4C717667B6800A74E15 /* SingleGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C617667B6800A74E15 /* SingleGameViewController.m */; };
-		4563F4CA17667B7400A74E15 /* DoubleGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C917667B7400A74E15 /* DoubleGameViewController.m */; };
+		4563F4C1176679FC00A74E15 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C0176679FC00A74E15 /* GameView.m */; };
+		4563F4C717667B6800A74E15 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C617667B6800A74E15 /* GameViewController.m */; };
 		45B1F2BF1767A0540090EEF7 /* GameScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2BE1767A0540090EEF7 /* GameScoreView.m */; };
 		45B1F2C21767A0740090EEF7 /* ShipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2C11767A0740090EEF7 /* ShipView.m */; };
 		45B1F2C51767A0820090EEF7 /* LifeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2C41767A0820090EEF7 /* LifeView.m */; };
@@ -45,14 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4563F4BF176679FC00A74E15 /* SingleGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameView.h; sourceTree = "<group>"; };
-		4563F4C0176679FC00A74E15 /* SingleGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameView.m; sourceTree = "<group>"; };
-		4563F4C217667A4A00A74E15 /* DoubleGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleGameView.h; sourceTree = "<group>"; };
-		4563F4C317667A4A00A74E15 /* DoubleGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleGameView.m; sourceTree = "<group>"; };
-		4563F4C517667B6700A74E15 /* SingleGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameViewController.h; sourceTree = "<group>"; };
-		4563F4C617667B6800A74E15 /* SingleGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameViewController.m; sourceTree = "<group>"; };
-		4563F4C817667B7400A74E15 /* DoubleGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleGameViewController.h; sourceTree = "<group>"; };
-		4563F4C917667B7400A74E15 /* DoubleGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleGameViewController.m; sourceTree = "<group>"; };
+		4563F4BF176679FC00A74E15 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		4563F4C0176679FC00A74E15 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		4563F4C517667B6700A74E15 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		4563F4C617667B6800A74E15 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		45B1F2BD1767A0540090EEF7 /* GameScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScoreView.h; sourceTree = "<group>"; };
 		45B1F2BE1767A0540090EEF7 /* GameScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScoreView.m; sourceTree = "<group>"; };
 		45B1F2C01767A0740090EEF7 /* ShipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipView.h; sourceTree = "<group>"; };
@@ -239,10 +233,8 @@
 				6F39D84F176278510089FBA1 /* CreditsViewController.m */,
 				6F39D86417629A990089FBA1 /* InstructionsViewController.h */,
 				6F39D86517629A990089FBA1 /* InstructionsViewController.m */,
-				4563F4C517667B6700A74E15 /* SingleGameViewController.h */,
-				4563F4C617667B6800A74E15 /* SingleGameViewController.m */,
-				4563F4C817667B7400A74E15 /* DoubleGameViewController.h */,
-				4563F4C917667B7400A74E15 /* DoubleGameViewController.m */,
+				4563F4C517667B6700A74E15 /* GameViewController.h */,
+				4563F4C617667B6800A74E15 /* GameViewController.m */,
 				6F97D9171768D5D000F92821 /* DifficultySelectionViewController.h */,
 				6F97D9181768D5D000F92821 /* DifficultySelectionViewController.m */,
 			);
@@ -266,10 +258,8 @@
 				6F39D8581762898B0089FBA1 /* SelectionView.m */,
 				45B1F2DB1767D8870090EEF7 /* DifficultySelectionView.h */,
 				45B1F2DC1767D8870090EEF7 /* DifficultySelectionView.m */,
-				4563F4BF176679FC00A74E15 /* SingleGameView.h */,
-				4563F4C0176679FC00A74E15 /* SingleGameView.m */,
-				4563F4C217667A4A00A74E15 /* DoubleGameView.h */,
-				4563F4C317667A4A00A74E15 /* DoubleGameView.m */,
+				4563F4BF176679FC00A74E15 /* GameView.h */,
+				4563F4C0176679FC00A74E15 /* GameView.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -380,10 +370,8 @@
 				6F39D85F176289B70089FBA1 /* ScoreView.m in Sources */,
 				6F39D86617629A990089FBA1 /* InstructionsViewController.m in Sources */,
 				6F39D86A17629AE50089FBA1 /* InstructionsView.m in Sources */,
-				4563F4C1176679FC00A74E15 /* SingleGameView.m in Sources */,
-				4563F4C417667A4A00A74E15 /* DoubleGameView.m in Sources */,
-				4563F4C717667B6800A74E15 /* SingleGameViewController.m in Sources */,
-				4563F4CA17667B7400A74E15 /* DoubleGameViewController.m in Sources */,
+				4563F4C1176679FC00A74E15 /* GameView.m in Sources */,
+				4563F4C717667B6800A74E15 /* GameViewController.m in Sources */,
 				45B1F2BF1767A0540090EEF7 /* GameScoreView.m in Sources */,
 				45B1F2C21767A0740090EEF7 /* ShipView.m in Sources */,
 				45B1F2C51767A0820090EEF7 /* LifeView.m in Sources */,
