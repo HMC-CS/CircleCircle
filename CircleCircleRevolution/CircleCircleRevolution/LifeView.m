@@ -19,9 +19,6 @@
         lifeLabel.textColor = [UIColor blackColor];
         lifeLabel.textAlignment = NSTextAlignmentCenter;
         lifeLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(36.0)];
-        
-        NSLog(@"life label inited");
-        // Initialization code
         [self addSubview:lifeLabel];
     }
     return self;

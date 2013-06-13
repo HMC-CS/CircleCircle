@@ -22,7 +22,10 @@
 -(void)incrementScore:(int)increment
 {
     score += increment;
-    problemsCorrect += 1;
+    if (increment >0){
+        problemsCorrect += 1;
+
+    }
 }
 
 -(int)getScore

@@ -22,7 +22,7 @@
         // Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(hsMainMenuButtonX,hsMainMenuButtonY, hsButtonWidth, hsButtonHeight);
+        menuButton.frame = CGRectMake(hsMainMenuButtonX,hsMainMenuButtonY, buttonWidth, buttonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
     }
