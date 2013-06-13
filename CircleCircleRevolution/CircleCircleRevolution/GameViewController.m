@@ -1,28 +1,28 @@
 //
-//  SingleGameViewController.m
+//  GameViewController.m
 //  CircleCircleRevolution
 //
 //  Created by Buike Ndefo-Dahl on 6/10/13.
 //  Copyright (c) 2013 Kathryn Aplin. All rights reserved.
 //
 
-#import "SingleGameViewController.h"
+#import "GameViewController.h"
 #import "Config.h"
 
-@interface SingleGameViewController ()
+@interface GameViewController ()
 
 @end
 
-@implementation SingleGameViewController
+@implementation GameViewController
 
 -(id)initWithMode:(int)mode andDifficulty:(int)difficulty
 {
     self = [super init];
     if (self)
     {
-        singleGameView = [[SingleGameView alloc] initWithFrame:[UIScreen mainScreen].bounds andMode:mode];
-        singleGameView.pressedDelegate = self;
-        self.view = singleGameView;
+        gameView = [[GameView alloc] initWithFrame:[UIScreen mainScreen].bounds andMode:mode];
+        gameView.pressedDelegate = self;
+        self.view = gameView;
         
         shipModel = [[ShipModel alloc] init];
         fractionModel = [[FractionModel alloc] init];
@@ -40,7 +40,7 @@
         [self startTimer1];
         if (gameMode == 2)
             [self startTimer2];
-        [singleGameView updateLife:[gameModel getLives]];
+        [gameView updateLife:[gameModel getLives]];
         gameOver = FALSE;
         
     }
@@ -78,16 +78,16 @@
     if (circleNumber ==1)
     {
         circlePercent1 = 0;
-        [singleGameView updateCircle1:circlePercent1 circle2:NO];
-        [singleGameView setFeedback1:0 feedback2:-1];
+        [gameView updateCircle1:circlePercent1 circle2:NO];
+        [gameView setFeedback1:0 feedback2:-1];
         currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
         [self updateFraction1:YES andFraction2:NO];
     }
     if (circleNumber == 2)
     {
         circlePercent2 = 0;
-        [singleGameView updateCircle1:NO circle2:circlePercent2];
-        [singleGameView setFeedback1:-1 feedback2:0];
+        [gameView updateCircle1:NO circle2:circlePercent2];
+        [gameView setFeedback1:-1 feedback2:0];
         currentFraction2 = [fractionModel getFractionWithMinD:2 andMaxD:4];
         [self updateFraction1:NO andFraction2:YES];
     }    
@@ -126,7 +126,7 @@
     if (circlePercent1 < 100)
     {
         circlePercent1 += percentChange;
-        [singleGameView updateCircle1:circlePercent1 circle2:NO];
+        [gameView updateCircle1:circlePercent1 circle2:NO];
     }
     else
     {
@@ -139,7 +139,7 @@
     if (circlePercent2 < 100)
     {
         circlePercent2 += percentChange;
-        [singleGameView updateCircle1:NO circle2:circlePercent2];
+        [gameView updateCircle1:NO circle2:circlePercent2];
     }
     else
     {
@@ -151,15 +151,15 @@
 -(void) updateFraction1:(BOOL)shouldUpdate1 andFraction2:(BOOL)shouldUpdate2
 {
     if (shouldUpdate1)
-        [singleGameView updateFraction1:currentFraction1 fraction2:NO];
+        [gameView updateFraction1:currentFraction1 fraction2:NO];
     if (shouldUpdate2)
-        [singleGameView updateFraction1:NO fraction2:currentFraction2];
+        [gameView updateFraction1:NO fraction2:currentFraction2];
 }
 
 -(void) updateScore
 {
     int score = [gameModel getScore];
-    [singleGameView updateScore:score];
+    [gameView updateScore:score];
 }
 
 // Scoring and Displaying Feedback
@@ -171,9 +171,9 @@
     int accuracy = [self calculateAccuracyFromPercent:circlePercent1 andTargetFractionValue:fracValue];
     [self tapFeedback:accuracy];
     [self checkGameOver];
-    [singleGameView setFeedback1:fracValue*100 feedback2:-1];
+    [gameView setFeedback1:fracValue*100 feedback2:-1];
     [self updateScore];
-    [singleGameView updateCircle1:circlePercent1 circle2:NO];
+    [gameView updateCircle1:circlePercent1 circle2:NO];
     touch1 = TRUE;
 }
 
@@ -185,9 +185,9 @@
     int accuracy = [self calculateAccuracyFromPercent:circlePercent2 andTargetFractionValue:fracValue];
     [self tapFeedback:accuracy];
     [self checkGameOver];
-    [singleGameView setFeedback1:-1 feedback2:fracValue*100];
+    [gameView setFeedback1:-1 feedback2:fracValue*100];
     [self updateScore];
-    [singleGameView updateCircle1:NO circle2:circlePercent2];
+    [gameView updateCircle1:NO circle2:circlePercent2];
     touch2 = TRUE;
 }
 
@@ -239,7 +239,7 @@
             if ([gameModel getLives] > 0)
             {
                 [gameModel decreaseLife];
-                [singleGameView updateLife:[gameModel getLives]];
+                [gameView updateLife:[gameModel getLives]];
             }
         }
     }
@@ -296,11 +296,11 @@
 -(void) touchesBegan:(NSSet*) touches withEvent:(UIEvent *) event
 {
     UITouch* t = [touches anyObject];
-    CGPoint touchLocation = [t locationInView:singleGameView.shipView];
-    if (CGRectContainsPoint(singleGameView.shipView.circleView1.frame, touchLocation) && [t.view class] == [CircleView class] && !touch1){
+    CGPoint touchLocation = [t locationInView:gameView.shipView];
+    if (CGRectContainsPoint(gameView.shipView.circleView1.frame, touchLocation) && [t.view class] == [CircleView class] && !touch1){
        [self scoreTap1];        
     }
-    if (CGRectContainsPoint(singleGameView.shipView.circleView2.frame, touchLocation) && [t.view class] == [CircleView class] && !touch2){
+    if (CGRectContainsPoint(gameView.shipView.circleView2.frame, touchLocation) && [t.view class] == [CircleView class] && !touch2){
         [self scoreTap2];
     }
     return;

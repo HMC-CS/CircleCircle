@@ -1,5 +1,5 @@
 //
-//  SingleGameView.h
+//  GameView.h
 //  CircleCircleRevolution
 //
 //  Created by Buike Ndefo-Dahl on 6/10/13.
@@ -11,7 +11,7 @@
 #import "GameScoreView.h"
 #import "LifeView.h"
 
-@class SingleGameView;
+@class GameView;
 
 @protocol ButtonOnGame1Pressed <NSObject>
 -(void) passedButtonPress:(UIButton*)button;
@@ -20,7 +20,7 @@
 
 @end
 
-@interface SingleGameView : UIView
+@interface GameView : UIView
 {
     UIButton* menuButton;
     UIView* pauseView;

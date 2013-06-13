@@ -22,21 +22,21 @@
         // single button
         singleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [singleButton setTitle:toSingleGame forState:UIControlStateNormal];
-        singleButton.frame = CGRectMake(ssSingleGameButtonX,ssSingleGameButtonY, buttonWidth, buttonHeight);
+        singleButton.frame = CGRectMake(button1X,button1Y, buttonWidth, buttonHeight);
         [singleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:singleButton];
         
         // double button
         doubleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [doubleButton setTitle:toDoubleGame forState:UIControlStateNormal];
-        doubleButton.frame = CGRectMake(ssDoubleGameButtonX,ssDoubleGameButtonY, buttonWidth, buttonHeight);
+        doubleButton.frame = CGRectMake(button2X,button2Y, buttonWidth, buttonHeight);
         [doubleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:doubleButton];
         
         // Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(ssMainMenuButtonX,ssMainMenuButtonY, buttonWidth, buttonHeight);
+        menuButton.frame = CGRectMake(button3X,button3Y, buttonWidth, buttonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
     }

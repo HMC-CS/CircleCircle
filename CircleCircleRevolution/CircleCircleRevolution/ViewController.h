@@ -13,20 +13,18 @@
 #import "SelectionViewController.h"
 #import "ScoreViewController.h"
 #import "InstructionsViewController.h"
-#import "SingleGameViewController.h"
-#import "DoubleGameViewController.h"
+#import "GameViewController.h"
 #import "DifficultySelectionViewController.h"
 
 
-@interface ViewController : UINavigationController <ChangeScreenFromMenu, ChangeScreenFromSelect, ChangeScreenFromCredits, ChangeScreenFromScore, ChangeScreenFromInstructions, ChangeScreenFromGame1, ChangeScreenFromGame2, BeginGameFromDifficulySelection>
+@interface ViewController : UINavigationController <ChangeScreenFromMenu, ChangeScreenFromSelect, ChangeScreenFromCredits, ChangeScreenFromScore, ChangeScreenFromInstructions, ChangeScreenFromGame1, BeginGameFromDifficulySelection>
 {
     MenuViewController* menuViewController;
     SelectionViewController* selectionViewController;
     ScoreViewController* scoreViewController;
     CreditsViewController* creditsViewController;
     InstructionsViewController* instructionsViewController;
-    SingleGameViewController* singleGameViewController;
-    DoubleGameViewController* doubleGameViewController;
+    GameViewController* gameViewController;
     DifficultySelectionViewController* difficultySelectionViewController;
 }
 @end

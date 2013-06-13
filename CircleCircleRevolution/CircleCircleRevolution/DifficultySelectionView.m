@@ -19,19 +19,19 @@
         
         UIButton* easyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [easyButton setTitle:@"Easy" forState:UIControlStateNormal];
-        easyButton.frame = CGRectMake(ssSingleGameButtonX,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
+        easyButton.frame = CGRectMake(button1X,button1Y, buttonWidth, buttonHeight);
         [easyButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:easyButton];
         
         UIButton* mediumButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [mediumButton setTitle:@"Medium" forState:UIControlStateNormal];
-        mediumButton.frame = CGRectMake(ssSingleGameButtonX+50,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
+        mediumButton.frame = CGRectMake(button2X,button2Y, buttonWidth, buttonHeight);
         [mediumButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:mediumButton];
         
         UIButton* hardButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [hardButton setTitle:@"Hard" forState:UIControlStateNormal];
-        hardButton.frame = CGRectMake(ssSingleGameButtonX+100,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
+        hardButton.frame = CGRectMake(button3X,button3Y, buttonWidth, buttonHeight);
         [hardButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:hardButton];
         
