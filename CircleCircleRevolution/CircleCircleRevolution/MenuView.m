@@ -21,28 +21,28 @@
         // Game button
         gameButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [gameButton setTitle:toSelectionScreen forState:UIControlStateNormal];
-        gameButton.frame = CGRectMake(mmSelectionButtonX,mmSelectionButtonY, mmButtonWidth, mmButtonHeight);
+        gameButton.frame = CGRectMake(mmSelectionButtonX,mmSelectionButtonY, buttonWidth, buttonHeight);
         [gameButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:gameButton];
         
         // Credits button
         creditsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [creditsButton setTitle:toCredits forState:UIControlStateNormal];
-        creditsButton.frame = CGRectMake(mmCreditsButtonX, mmCreditsButtonY, mmButtonWidth, mmButtonHeight);
+        creditsButton.frame = CGRectMake(mmCreditsButtonX, mmCreditsButtonY, buttonWidth, buttonHeight);
         [creditsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:creditsButton];
         
         // Score button
         scoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [scoreButton setTitle:toHighScores forState:UIControlStateNormal];
-        scoreButton.frame = CGRectMake(mmScoreButtonX, mmScoreButtonY, mmButtonWidth, mmButtonHeight);
+        scoreButton.frame = CGRectMake(mmScoreButtonX, mmScoreButtonY, buttonWidth, buttonHeight);
         [scoreButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:scoreButton];
         
         // Instructions button
         instructionsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [instructionsButton setTitle:toInstructions forState:UIControlStateNormal];
-        instructionsButton.frame = CGRectMake(mmInstructionsButtonX, mmInstructionsButtonY, mmButtonWidth, mmButtonHeight);
+        instructionsButton.frame = CGRectMake(mmInstructionsButtonX, mmInstructionsButtonY, buttonWidth, buttonHeight);
         [instructionsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:instructionsButton];
          

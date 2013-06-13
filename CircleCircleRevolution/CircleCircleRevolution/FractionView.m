@@ -16,12 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        int originX = 0;
-        int originY = kScreenHeight * .1;
-        int width = kScreenWidth;
-        int height = kScreenHeight * .10;
-        CGRect fractionFrame = CGRectMake(originX, originY, width, height);
-        fractionLabel = [[UILabel alloc] initWithFrame:fractionFrame];
+        fractionLabel = [[UILabel alloc] initWithFrame:self.bounds];
         fractionLabel.backgroundColor = [UIColor clearColor];
         fractionLabel.textColor = [UIColor blackColor];
         fractionLabel.textAlignment = NSTextAlignmentCenter;
