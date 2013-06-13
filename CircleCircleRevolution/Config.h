@@ -17,18 +17,19 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.height
 #define kScreenHeight [UIScreen mainScreen].bounds.size.width
 
-// 3 Button system
+// Menu Buttons
 #define button1X 50
 #define button1Y 30
 #define button2X 150
 #define button2Y 30
 #define button3X 250
 #define button3Y 30
+#define button4X 350
+#define button4Y 30
 #define buttonWidth 50
 #define buttonHeight 30
 
 // Gameplay Constants
-
 
 // Button Titles
 #define toMainMenu @"Menu"
@@ -39,27 +40,6 @@
 #define toInstructions @"Instructions"
 #define toCredits @"Credits"
 #define showPauseMenu @"Pause"
-
-// Main Menu Formatting - mm
-#define mmSelectionButtonX 50
-#define mmSelectionButtonY 30
-#define mmCreditsButtonX 150
-#define mmCreditsButtonY 30
-#define mmInstructionsButtonX 250
-#define mmInstructionsButtonY 30
-#define mmScoreButtonX 350
-#define mmScoreButtonY 30
-
-
-// Selection Screen Formatting - ss
-#define ssMainMenuButtonX button3X
-#define ssMainMenuButtonY button3Y
-#define ssSingleGameButtonX button1X
-#define ssSingleGameButtonY button1Y
-#define ssDoubleGameButtonX button2X
-#define ssDoubleGameButtonY button2Y
-
-
 
 // Single Circle Game Formatting - sg
 #define sgPauseButtonX
@@ -108,23 +88,6 @@
 #define hsFontSize
 #define hsFontPositionX
 #define hsFontPositionY
-
-
-// Mode Selection Screen Formatting - ms
-#define msMainMenuButtonX button1X
-#define msMainMenuButtonY button1Y
-#define msSingleButtonX button2X
-#define msSingleButtonY button2Y
-#define msDoubleButtonX button3X
-#define msDoubleButtonY button3Y
-
-// Difficulty Selection Screen Formatting - ds
-#define dsEasyButtonX button1X
-#define dsEasyButtonY button1Y
-#define dsMediumButtonX button2X
-#define dsMediumButtonY button2Y
-#define dsHardButtonX button3X
-#define dsHardButtonY button3Y
 
 // Circles
 

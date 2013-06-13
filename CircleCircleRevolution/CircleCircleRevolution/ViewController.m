@@ -117,9 +117,9 @@
 
 -(void)beginGameWithMode:(int)gameMode andDifficulty:(int)difficulty
 {
-    singleGameViewController = [[SingleGameViewController alloc] initWithMode:gameMode andDifficulty:difficulty];
-    singleGameViewController.screenDelegate = self;
-    [self pushViewController:singleGameViewController animated:YES];
+    gameViewController = [[GameViewController alloc] initWithMode:gameMode andDifficulty:difficulty];
+    gameViewController.screenDelegate = self;
+    [self pushViewController:gameViewController animated:YES];
 }
 
 

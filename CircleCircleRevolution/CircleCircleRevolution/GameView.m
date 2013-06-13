@@ -1,14 +1,14 @@
 //
-//  SingleGameView.m
+//  GameView.m
 //  CircleCircleRevolution
 //
 //  Created by Buike Ndefo-Dahl on 6/10/13.
 //  Copyright (c) 2013 Kathryn Aplin. All rights reserved.
 //
 
-#import "SingleGameView.h"
+#import "GameView.h"
 
-@implementation SingleGameView
+@implementation GameView
 
 - (id)initWithFrame:(CGRect)frame andMode:(int)mode
 {
@@ -93,7 +93,7 @@
     [_shipView setFeedback1:feedbackPercent1 feedback2:feedbackPercent2];
 }
 
-// Protocol for communicating with SingleGameViewController, to reach ViewController
+// Protocol for communicating with GameViewController, to reach ViewController
 -(void) buttonPress:(id)sender
 {
     if (self.pressedDelegate){

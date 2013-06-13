@@ -1,5 +1,5 @@
 //
-//  SingleGameViewController.h
+//  GameViewController.h
 //  CircleCircleRevolution
 //
 //  Created by Buike Ndefo-Dahl on 6/10/13.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SingleGameView.h"
+#import "GameView.h"
 #import "ShipView.h"
 #import "CircleView.h"
 #import "FractionView.h"
@@ -18,14 +18,14 @@
 #import "GameModel.h"
 #import "DifficultySelectionView.h"
 
-@class SingleGameViewController;
+@class GameViewController;
 
 @protocol ChangeScreenFromGame1 <NSObject>
 -(void) goToScreenFromGame1:(NSString*) screen;
 
 @end
 
-@interface SingleGameViewController : UIViewController <ButtonOnGame1Pressed>
+@interface GameViewController : UIViewController <ButtonOnGame1Pressed>
 {
     int gameMode;
     float percentChange;
@@ -45,7 +45,7 @@
     ShipModel* shipModel;
     FractionModel* fractionModel;
     GameModel* gameModel;
-    SingleGameView* singleGameView;
+    GameView* gameView;
     
 }
 
