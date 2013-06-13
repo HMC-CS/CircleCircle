@@ -104,21 +104,25 @@
 
 -(void) setFeedback:(float)newFeedback
 {
-    float startTime = 0;    
-    float percentChange;
-    if (newFeedback>percent) //you underestimated, so fill from where you ended
-    {
-        feedback = percent;
-        percentChange = (newFeedback-percent)/25;
-    }
-    else //if you over estimated, start from 0
-    {
-        percentChange = newFeedback/25;
-    }
-    while (startTime < 1.0) // for 1 second, 25 redraws
-    {
-        [self performSelector:@selector(updateFeedback:) withObject:[NSNumber numberWithFloat:percentChange] afterDelay:startTime];
-        startTime += 0.04;
+    if (feedback ==0){
+        NSLog(@"setting feedback to %f",newFeedback);
+        float startTime = 0;
+        float percentChange;
+        if (newFeedback>percent) //you underestimated, so fill from where you ended
+        {
+            feedback = percent;
+            percentChange = (newFeedback-percent)/25;
+        }
+        else //if you over estimated, start from 0
+        {
+            feedback = 0;
+            percentChange = newFeedback/25;
+        }
+        while (startTime < 1.0) // for 1 second, 25 redraws
+        {
+            [self performSelector:@selector(updateFeedback:) withObject:[NSNumber numberWithFloat:percentChange] afterDelay:startTime];
+            startTime += 0.04;
+        }
     }
 }
 

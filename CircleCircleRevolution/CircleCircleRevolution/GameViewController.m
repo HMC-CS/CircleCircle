@@ -74,26 +74,28 @@
 // Resets a circle and its fraction
 -(void) resetCircle:(int)circleNumber
 {
-    percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
-    if (circleNumber ==1)
+    if (!gameOver)
     {
-        circlePercent1 = 0;
-        [gameView updateCircle1:circlePercent1 circle2:NO];
-        [gameView setFeedback1:0 feedback2:-1];
-        currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
-        [self updateFraction1:YES andFraction2:NO];
+        percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
+        if (circleNumber ==1)
+        {
+            circlePercent1 = 0;
+            [gameView updateCircle1:circlePercent1 circle2:NO];
+            [gameView setFeedback1:0 feedback2:-1];
+            currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
+            [self updateFraction1:YES andFraction2:NO];
+        }
+        if (circleNumber == 2)
+        {
+            circlePercent2 = 0;
+            [gameView updateCircle1:NO circle2:circlePercent2];
+            [gameView setFeedback1:-1 feedback2:0];
+            currentFraction2 = [fractionModel getFractionWithMinD:2 andMaxD:4];
+            [self updateFraction1:NO andFraction2:YES];
+        }    
+        [self updateScore];
     }
-    if (circleNumber == 2)
-    {
-        circlePercent2 = 0;
-        [gameView updateCircle1:NO circle2:circlePercent2];
-        [gameView setFeedback1:-1 feedback2:0];
-        currentFraction2 = [fractionModel getFractionWithMinD:2 andMaxD:4];
-        [self updateFraction1:NO andFraction2:YES];
-    }    
-    [self updateScore];    
 }
-
 // A helper method so reset can be called by a selector
 -(void) resetCircleFromNum:(NSNumber*)circleNumber
 {
@@ -172,6 +174,7 @@
     [self tapFeedback:accuracy];
     [self checkGameOver];
     [gameView setFeedback1:fracValue*100 feedback2:-1];
+    NSLog(@"frac value for feedback on circle 1 is %f",fracValue);
     [self updateScore];
     [gameView updateCircle1:circlePercent1 circle2:NO];
     touch1 = TRUE;
@@ -186,6 +189,8 @@
     [self tapFeedback:accuracy];
     [self checkGameOver];
     [gameView setFeedback1:-1 feedback2:fracValue*100];
+    NSLog(@"frac value for feedback on circle 2 is %f",fracValue);
+
     [self updateScore];
     [gameView updateCircle1:NO circle2:circlePercent2];
     touch2 = TRUE;
@@ -277,6 +282,9 @@
             [self performSelector:@selector(backToMainMenu) withObject:nil afterDelay:5.0];
             [timer1 invalidate];
             [timer2 invalidate];
+            NSLog(@"fraction1 is %f",[self calculateFractionValue:currentFraction1]);
+            NSLog(@"fraction2 is %f",[self calculateFractionValue:currentFraction2]);
+
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
         NSLog(@"Game should be over now, technically!");
