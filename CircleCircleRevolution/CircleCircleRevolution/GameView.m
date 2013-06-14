@@ -66,7 +66,7 @@
     return self;
 }
 
-
+// Updates passed down to subviews
 -(void) updateFraction1:(NSArray *)currentFraction1 fraction2:(NSArray *)currentFraction2
 {
     [_shipView updateFraction1:currentFraction1 fraction2:currentFraction2];
@@ -81,7 +81,6 @@
 {
     [gameScoreView updateScore:score];
 }
-
 
 -(void) updateLife:(int)lives
 {
