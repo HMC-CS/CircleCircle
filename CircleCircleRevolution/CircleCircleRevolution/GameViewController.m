@@ -174,7 +174,6 @@
     [self tapFeedback:accuracy];
     [self checkGameOver];
     [gameView setFeedback1:fracValue*100 feedback2:-1];
-    NSLog(@"frac value for feedback on circle 1 is %f",fracValue);
     [self updateScore];
     [gameView updateCircle1:circlePercent1 circle2:NO];
     touch1 = TRUE;
@@ -189,8 +188,6 @@
     [self tapFeedback:accuracy];
     [self checkGameOver];
     [gameView setFeedback1:-1 feedback2:fracValue*100];
-    NSLog(@"frac value for feedback on circle 2 is %f",fracValue);
-
     [self updateScore];
     [gameView updateCircle1:NO circle2:circlePercent2];
     touch2 = TRUE;
@@ -282,9 +279,6 @@
             [self performSelector:@selector(backToMainMenu) withObject:nil afterDelay:5.0];
             [timer1 invalidate];
             [timer2 invalidate];
-            NSLog(@"fraction1 is %f",[self calculateFractionValue:currentFraction1]);
-            NSLog(@"fraction2 is %f",[self calculateFractionValue:currentFraction2]);
-
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
         NSLog(@"Game should be over now, technically!");
@@ -294,12 +288,7 @@
     }
 }
 
-// Helper method that can be called by a selector
--(void) backToMainMenu
-{
-    [self.screenDelegate goToScreenFromGame1:toMainMenu];
 
-}
 
 -(void) touchesBegan:(NSSet*) touches withEvent:(UIEvent *) event
 {
@@ -337,6 +326,13 @@
         NSString* screenTitle = button.titleLabel.text;
         [self.screenDelegate goToScreenFromGame1:screenTitle];
     }
+}
+
+// Helper method that can be called by a selector
+-(void) backToMainMenu
+{
+    [self.screenDelegate goToScreenFromGame1:toMainMenu];
+    
 }
 
 // Protocol for pausing and resuming game

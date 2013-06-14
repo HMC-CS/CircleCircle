@@ -45,6 +45,7 @@
     return self;
 }
 
+// Updates passed to subviews
 -(void) updateFraction1:(NSArray *)currentFraction1 fraction2:(NSArray *)currentFraction2
 {
     if (currentFraction1)
@@ -73,7 +74,6 @@
 
 -(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2
 {
-    
     
     if (feedbackPercent1 == 0)
     {
