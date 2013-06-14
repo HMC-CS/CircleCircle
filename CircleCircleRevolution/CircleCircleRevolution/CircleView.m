@@ -32,7 +32,6 @@
     int width = self.bounds.size.width;
     int height = self.bounds.size.height;
     
-    
     //background circle
     [color setFill];
     CGRect rectangle = CGRectMake(0, 0, width, height);
@@ -102,6 +101,7 @@
     feedback = 0;
 }
 
+// Draws feedback "sweeping" to the correct answer
 -(void) setFeedback:(float)newFeedback
 {
     if (feedback ==0){
