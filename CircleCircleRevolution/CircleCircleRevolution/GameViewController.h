@@ -42,10 +42,13 @@
     NSString* feedbackTerm2;
     NSTimer* timer1;
     NSTimer* timer2;
+    NSTimer* timer3;
     ShipModel* shipModel;
     FractionModel* fractionModel;
     GameModel* gameModel;
     GameView* gameView;
+    UIView* bg1;
+    UIView* bg2;
     
 }
 

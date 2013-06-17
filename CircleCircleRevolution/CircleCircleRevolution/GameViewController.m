@@ -20,12 +20,23 @@
     self = [super init];
     if (self)
     {
-        gameView = [[GameView alloc] initWithFrame:[UIScreen mainScreen].bounds andMode:mode];
+        self.view.backgroundColor = [UIColor greenColor];
+        bg1 = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.height,self.view.bounds.size.width)];
+        bg1.backgroundColor = [UIColor orangeColor];
+        bg2 = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.height,self.view.bounds.size.width)];
+        bg2.backgroundColor = [UIColor blueColor];
+
+        bg2.center = CGPointMake(3.0*self.view.bounds.size.height/2.0,self.view.bounds.size.width/2.0);
+
+        [self.view addSubview:bg1];
+        [self.view addSubview:bg2];
+        
+        gameView = [[GameView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.height,self.view.bounds.size.width) andMode:mode];
         [gameView setCircleTarget:self forAction:@selector(scoreTap1) whichCircle:1];
         [gameView setCircleTarget:self forAction:@selector(scoreTap2) whichCircle:2];
         gameView.pressedDelegate = self;
-        self.view = gameView;
-        
+        [self.view addSubview:gameView];
+
         shipModel = [[ShipModel alloc] init];
         fractionModel = [[FractionModel alloc] init];
         gameModel = [[GameModel alloc] init];
@@ -44,10 +55,26 @@
             [self startTimer2];
         [gameView updateLife:[gameModel getLives]];
         gameOver = FALSE;
+        [self startTimer3];
         
     }
     return self;
 }
+
+-(void)moveLeft
+{
+    if (bg1.center.x <= -self.view.bounds.size.width/2.0)
+    {
+        bg1.center = CGPointMake(1.5*self.view.bounds.size.width,bg1.center.y);
+    }
+    if (bg2.center.x <= -self.view.bounds.size.width/2.0)
+    {
+        bg2.center = CGPointMake(1.5*self.view.bounds.size.width,bg2.center.y);
+    }
+    bg1.center = CGPointMake(bg1.center.x - 1, bg1.center.y);
+    bg2.center = CGPointMake(bg2.center.x - 1, bg2.center.y);
+}
+
 
 // Timers
 -(void) startTimer1
@@ -73,9 +100,21 @@
     }
 }
 
+-(void) startTimer3
+{
+    NSTimeInterval updateInterval = 0.01;
+    timer3 = [NSTimer scheduledTimerWithTimeInterval:updateInterval
+                                              target:self
+                                            selector:@selector(moveLeft)
+                                            userInfo:nil
+                                             repeats:YES];
+}
+
 // Resets a circle and its fraction
 -(void) resetCircle:(int)circleNumber
 {
+    [timer3 invalidate];
+    [self startTimer3];
     if (!gameOver)
     {
         percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
@@ -280,9 +319,11 @@
     if ([gameModel getLives]==0) // the game is over
     {
         if (!gameOver){ // the first time this is reached
+            [timer3 performSelector:@selector(invalidate) withObject:nil afterDelay:5.0];
             [self performSelector:@selector(backToMainMenu) withObject:nil afterDelay:5.0];
             [timer1 invalidate];
             [timer2 invalidate];
+
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
         NSLog(@"Game should be over now, technically!");
@@ -291,16 +332,6 @@
 
     }
 }
-
-
-
--(void) touchesBegan:(NSSet*) touches withEvent:(UIEvent *) event
-{
-    NSLog(@"touch registered in view controller");
-
-    return;
-}
-
 
 - (void)viewDidLoad
 {
@@ -319,7 +350,11 @@
 // Protocol for communicating with ViewController
 -(void) passedButtonPress:(UIButton*)button
 {
-    if (self.screenDelegate)
+    if ([button.titleLabel.text isEqualToString:toMainMenu]&&self.screenDelegate)
+    {
+        [self backToMainMenu];
+    }
+    else if (self.screenDelegate)
     {
         NSString* screenTitle = button.titleLabel.text;
         [self.screenDelegate goToScreenFromGame1:screenTitle];
@@ -329,6 +364,8 @@
 // Helper method that can be called by a selector
 -(void) backToMainMenu
 {
+    bg1.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
+    bg2.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
     [self.screenDelegate goToScreenFromGame1:toMainMenu];
     
 }
@@ -339,6 +376,7 @@
     [timer1 invalidate];
     if (gameMode == 2)
         [timer2 invalidate];
+    [timer3 invalidate];
 }
 
 -(void) gameResume
@@ -346,6 +384,7 @@
     [self startTimer1];
     if (gameMode == 2)
         [self startTimer2];
+    [self startTimer3];
 }
 
 

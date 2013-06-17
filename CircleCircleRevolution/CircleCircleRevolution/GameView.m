@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor yellowColor];
+        self.backgroundColor = [UIColor clearColor];
         
         self.userInteractionEnabled = YES;
         
@@ -38,7 +38,7 @@
         [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
         
         // Pause Screen
-        pauseView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.height,self.bounds.size.width)];
+        pauseView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width,self.bounds.size.height)];
         pauseView.backgroundColor = [UIColor purpleColor];
         [pauseView addSubview:menuButton];
         [pauseView addSubview:resumeButton];
