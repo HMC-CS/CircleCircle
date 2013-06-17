@@ -13,8 +13,8 @@
 @interface ShipView : UIImageView
 {
     int gameMode;
-    CircleView* _circleView1;
-    CircleView* _circleView2;
+    CircleView* circleView1;
+    CircleView* circleView2;
     FractionView* fractionView1;
     FractionView* fractionView2;
 }
@@ -23,9 +23,8 @@
 -(void)updateFraction1:(NSArray*)currentFraction1 fraction2:(NSArray*)currentFraction2;
 -(void)updateCircle1:(float)percent1 circle2:(float)percent2;
 -(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2;
+-(void) setCircleTarget:(id)sender forAction:(SEL)action whichCircle:(int)circleNumber;
 
-@property (strong, nonatomic) CircleView* circleView1;
-@property (strong, nonatomic) CircleView* circleView2;
 
 
 @end

@@ -26,7 +26,7 @@
     UIView* pauseView;
     UIButton* pauseButton;
     UIButton* resumeButton;
-    ShipView* _shipView;
+    ShipView* shipView;
     GameScoreView* gameScoreView;
     LifeView* lifeView;
 }
@@ -37,10 +37,11 @@
 -(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2;
 -(void)updateScore:(int)score;
 -(void)updateLife:(int)lives;
+-(void) setCircleTarget:(id)sender forAction:(SEL)action whichCircle:(int)circleNumber;
+
+
 
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;
-
-@property (strong, nonatomic) ShipView* shipView;
 
 @end

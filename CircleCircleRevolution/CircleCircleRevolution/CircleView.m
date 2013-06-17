@@ -105,7 +105,6 @@
 -(void) setFeedback:(float)newFeedback
 {
     if (feedback ==0){
-        NSLog(@"setting feedback to %f",newFeedback);
         float startTime = 0;
         float percentChange;
         if (newFeedback>percent) //you underestimated, so fill from where you ended
@@ -124,6 +123,21 @@
             startTime += 0.04;
         }
     }
+}
+
+-(void) setCircleTarget:(id)sender forAction:(SEL)action
+{
+    target = sender;
+    selector = action;
+}
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if (target && selector)
+    {
+        [target performSelector:selector];
+    }
+    NSLog(@"touch registered in circle view");
 }
 
 @end
