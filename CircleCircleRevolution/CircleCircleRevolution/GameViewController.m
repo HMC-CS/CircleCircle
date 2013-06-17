@@ -21,6 +21,8 @@
     if (self)
     {
         gameView = [[GameView alloc] initWithFrame:[UIScreen mainScreen].bounds andMode:mode];
+        [gameView setCircleTarget:self forAction:@selector(scoreTap1) whichCircle:1];
+        [gameView setCircleTarget:self forAction:@selector(scoreTap2) whichCircle:2];
         gameView.pressedDelegate = self;
         self.view = gameView;
         
@@ -195,24 +197,26 @@
 
 -(void) scoreTap1
 {
+    if (!touch1){
     [self scoreBlock1];    
     if (gameOver && gameMode == 2){
         [self scoreBlock2];        
     }else if (!gameOver){
         [self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
         [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:5.0];
-    }    
+    }    }
 }
 
 -(void) scoreTap2
 {
+    if(!touch2){
     [self scoreBlock2];
     if (gameOver){
         [self scoreBlock1];
     }else if (!gameOver){
         [self performSelector:@selector(startTimer2) withObject:nil afterDelay:5.0];
         [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:5.0]; 
-    }
+    }}
 }
 
 -(NSString*) tapFeedback:(int)accuracy
@@ -292,14 +296,8 @@
 
 -(void) touchesBegan:(NSSet*) touches withEvent:(UIEvent *) event
 {
-    UITouch* t = [touches anyObject];
-    CGPoint touchLocation = [t locationInView:gameView.shipView];
-    if (CGRectContainsPoint(gameView.shipView.circleView1.frame, touchLocation) && [t.view class] == [CircleView class] && !touch1){
-       [self scoreTap1];        
-    }
-    if (CGRectContainsPoint(gameView.shipView.circleView2.frame, touchLocation) && [t.view class] == [CircleView class] && !touch2){
-        [self scoreTap2];
-    }
+    NSLog(@"touch registered in view controller");
+
     return;
 }
 

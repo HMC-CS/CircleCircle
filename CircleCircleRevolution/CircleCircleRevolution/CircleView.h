@@ -13,11 +13,15 @@
     float percent;
     UIColor* color;
     float feedback;
+    
+    id target;
+    SEL selector;
 }
 
 -(void) update: (float) per;
 -(void) setColor: (UIColor*) newColor;
 -(void) setFeedback: (float) newFeedback;
 -(void) resetFeedback;
+-(void) setCircleTarget:(id)sender forAction:(SEL)action;
 
 @end
