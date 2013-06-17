@@ -18,7 +18,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastGameScore"];
+
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.navigationBarHidden = YES;

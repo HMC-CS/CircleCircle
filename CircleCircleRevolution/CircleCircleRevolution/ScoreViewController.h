@@ -17,6 +17,11 @@
 @end
 
 @interface ScoreViewController : UIViewController <ButtonOnScorePressed>
+{
+    NSString* playerName;
+    UIAlertView* message;
+    int lastScore;
+}
 
 @property (weak,nonatomic) id<ChangeScreenFromScore> screenDelegate;
 
