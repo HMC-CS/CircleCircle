@@ -25,6 +25,13 @@
         menuButton.frame = CGRectMake(hsMainMenuButtonX,hsMainMenuButtonY, buttonWidth, buttonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
+        
+        // Scores and the like
+        scoresLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.height,self.bounds.size.width)];
+        scoresLabel.backgroundColor = [UIColor clearColor];
+        scoresLabel.numberOfLines = 0;
+        [self addSubview:scoresLabel];
+        [self updateScoresLabel];
     }
     return self;
 }
@@ -35,6 +42,28 @@
     if (self.pressedDelegate){
         [self.pressedDelegate passedButtonPress:sender];
     }
+}
+
+-(NSString*)getScoresAndNames
+{
+    // Get scores array stored in user default
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // Get high scores array from "defaults" object
+    NSMutableArray *highScores = [NSMutableArray arrayWithArray: [defaults arrayForKey: @"scores"]];
+    NSMutableArray *nameList = [NSMutableArray arrayWithArray: [defaults arrayForKey: @"names"]];
+    
+    NSString* scoresToPrint = @"";
+    for (int i = 0; i < [nameList count]; i++) {
+        int score = [[highScores objectAtIndex: i] intValue];
+        NSString* name = [nameList objectAtIndex: i];
+        scoresToPrint = [scoresToPrint stringByAppendingFormat: @"%@ %i\n", name, score];
+    }
+    return scoresToPrint;
+}
+
+-(void) updateScoresLabel
+{
+    scoresLabel.text = [self getScoresAndNames];
 }
 
 /*

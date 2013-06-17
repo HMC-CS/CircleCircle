@@ -137,7 +137,6 @@
     {
         [target performSelector:selector];
     }
-    NSLog(@"touch registered in circle view");
 }
 
 @end
