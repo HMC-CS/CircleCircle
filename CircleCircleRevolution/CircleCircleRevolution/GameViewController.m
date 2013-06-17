@@ -320,7 +320,7 @@
     {
         if (!gameOver){ // the first time this is reached
             [timer3 performSelector:@selector(invalidate) withObject:nil afterDelay:5.0];
-            [self performSelector:@selector(backToMainMenu) withObject:nil afterDelay:5.0];
+            [self performSelector:@selector(goToHighScores) withObject:nil afterDelay:5.0];
             [timer1 invalidate];
             [timer2 invalidate];
 
@@ -350,11 +350,9 @@
 // Protocol for communicating with ViewController
 -(void) passedButtonPress:(UIButton*)button
 {
-    if ([button.titleLabel.text isEqualToString:toMainMenu]&&self.screenDelegate)
-    {
-        [self backToMainMenu];
-    }
-    else if (self.screenDelegate)
+    bg1.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
+    bg2.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
+    if (self.screenDelegate)
     {
         NSString* screenTitle = button.titleLabel.text;
         [self.screenDelegate goToScreenFromGame1:screenTitle];
@@ -362,11 +360,14 @@
 }
 
 // Helper method that can be called by a selector
--(void) backToMainMenu
+-(void) goToHighScores
 {
     bg1.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
     bg2.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
-    [self.screenDelegate goToScreenFromGame1:toMainMenu];
+    
+    // Save the score in the userDefaults for last game, and go to high scores
+    [[NSUserDefaults standardUserDefaults] setInteger:[gameModel getScore] forKey:@"lastGameScore"];
+    [self.screenDelegate goToScreenFromGame1:toHighScores];
     
 }
 

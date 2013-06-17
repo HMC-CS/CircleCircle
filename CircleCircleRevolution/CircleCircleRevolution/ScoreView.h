@@ -19,7 +19,11 @@
 @interface ScoreView : UIView
 {
     UIButton* menuButton;
+    UILabel* scoresLabel;
 }
+
+-(void) updateScoresLabel;
+
 
 @property (weak,nonatomic)id<ButtonOnScorePressed> pressedDelegate;
 
