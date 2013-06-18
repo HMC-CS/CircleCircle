@@ -20,13 +20,47 @@
     self = [super init];
     if (self)
     {
-        self.view.backgroundColor = [UIColor greenColor];
+        pauseDisabledBy2 = FALSE;
+        pauseDisabledBy1 = FALSE;
+        self.view.backgroundColor = [UIColor blackColor];
+        
         // Scrolling background pieces
-        bg1 = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.height,self.view.bounds.size.width)];
-        bg1.backgroundColor = [UIColor orangeColor];
-        bg2 = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.height,self.view.bounds.size.width)];
-        bg2.backgroundColor = [UIColor blueColor];
-        bg2.center = CGPointMake(3.0*self.view.bounds.size.height/2.0,self.view.bounds.size.width/2.0);
+        
+       /* farBackgroundImages = [[NSMutableArray alloc] initWithCapacity:4];
+        nearBackgroundImages = [[NSMutableArray alloc] initWithCapacity:4];
+        for (int i = 1; i<=4;i++){
+            NSAssert(5>i>0,@"name of image must start at 1 and not be greater than 5");
+            UIImageView* small = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"stars%d_s.png",i]]];
+            UIImageView* large = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"stars%d_l.png",i]]];            
+            [farBackgroundImages addObject:small];
+            [nearBackgroundImages addObject:large];
+        }
+
+        NSAssert(farBackgroundImages.count==4,@"we should have 4 background images in the far");
+        NSAssert(nearBackgroundImages.count==4,@"we should have 4 background images in the near");
+
+        int n = 1;
+        
+        for (UIImageView* smallStars in farBackgroundImages){
+            [self.view addSubview:smallStars];
+            smallStars.center = CGPointMake(n*smallStars.image.size.width/2.0,smallStars.center.y);
+            n += 2;
+
+        }
+
+        n=1;
+        for (UIImageView* largeStars in nearBackgroundImages){
+            [self.view addSubview:largeStars];
+            largeStars.center = CGPointMake(n*largeStars.image.size.width/2.0,largeStars.center.y);
+            n += 2;
+        }*/
+        
+        bg1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars2_s.png"]];
+        //bg1.backgroundColor = [UIColor orangeColor];
+        bg1.center = CGPointMake(bg1.image.size.width/2.0, bg1.center.y);
+        bg2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars3_s.png"]];
+        //bg2.backgroundColor = [UIColor blueColor];
+        bg2.center = CGPointMake(3.0*bg2.image.size.width/2.0, bg2.center.y);
 
         [self.view addSubview:bg1];
         [self.view addSubview:bg2];
@@ -65,16 +99,36 @@
 
 -(void)moveLeft
 {
-    if (bg1.center.x <= -self.view.bounds.size.width/2.0)
+    if (bg1.center.x <= -bg1.image.size.width/2.0)
     {
-        bg1.center = CGPointMake(1.5*self.view.bounds.size.width,bg1.center.y);
+        bg1.center = CGPointMake(1.5*bg1.image.size.width,bg1.center.y);
     }
-    if (bg2.center.x <= -self.view.bounds.size.width/2.0)
+    if (bg2.center.x <= -bg2.image.size.width/2.0)
     {
-        bg2.center = CGPointMake(1.5*self.view.bounds.size.width,bg2.center.y);
+        bg2.center = CGPointMake(1.5*bg2.image.size.width,bg2.center.y);
     }
     bg1.center = CGPointMake(bg1.center.x - 1, bg1.center.y);
     bg2.center = CGPointMake(bg2.center.x - 1, bg2.center.y);
+  
+    
+  /*  for (int i = 0; i < 4;i++){
+        UIImageView* small = [farBackgroundImages objectAtIndex:i];
+        UIImageView* large = [nearBackgroundImages objectAtIndex:i];
+        
+        if (small.center.x <= -small.image.size.width/2.0){
+            small.center = CGPointMake(7.0*small.image.size.width/2.0,small.center.y);
+        }
+        if (large.center.x <= -large.image.size.width/2.0){
+            large.center = CGPointMake(7.0*large.image.size.width/2.0,large.center.y);
+        }
+        small.center = CGPointMake(small.center.x - 1,small.center.y);
+        large.center = CGPointMake(large.center.x - 2, large.center.y);
+
+   
+    }*/
+    
+    //            smallStars.center = CGPointMake(n*smallStars.image.size.width/2.0,smallStars.center.y);
+    
 }
 
 
@@ -243,25 +297,41 @@
 -(void) scoreTap1
 {
     if (!touch1){
-    [self scoreBlock1];    
-    if (gameOver && gameMode == 2){
-        [self scoreBlock2];        
-    }else if (!gameOver){
-        [self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
-        [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:5.0];
-    }    }
+        [self scoreBlock1];        
+        [self disablePause];
+        pauseDisabledBy1 = TRUE;
+        if (gameOver && gameMode == 2){
+            [self scoreBlock2];        
+        }else if (!gameOver){
+            [self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
+            [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:5.0];
+            if (pauseDisabledBy2){
+                // cancel the other enable selector
+                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(enablePause) object:nil];
+            }
+            [self performSelector:@selector(enablePause) withObject:nil afterDelay:5.0];
+        }
+    }
 }
 
 -(void) scoreTap2
 {
     if(!touch2){
-    [self scoreBlock2];
-    if (gameOver){
-        [self scoreBlock1];
-    }else if (!gameOver){
-        [self performSelector:@selector(startTimer2) withObject:nil afterDelay:5.0];
-        [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:5.0]; 
-    }}
+        [self scoreBlock2];
+        [self disablePause];
+        pauseDisabledBy2 = TRUE;
+        if (gameOver){
+            [self scoreBlock1];
+        }else if (!gameOver){
+            [self performSelector:@selector(startTimer2) withObject:nil afterDelay:5.0];
+            [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:5.0];
+            if (pauseDisabledBy1){
+                // cancel the other enable selector
+                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(enablePause) object:nil];
+            }
+        [self performSelector:@selector(enablePause) withObject:nil afterDelay:5.0];
+        }
+    }
 }
 
 -(NSString*) tapFeedback:(int)accuracy
@@ -315,7 +385,7 @@
 
 -(void) displayFeedback:(NSString*)feedbackTerm atPosition:(CGPoint)location
 {
-    
+    // Any visual onscreen feedback other than the circle filling
 }
 
 
@@ -329,6 +399,7 @@
             [self performSelector:@selector(goToHighScores) withObject:nil afterDelay:5.0];
             [timer1 invalidate];
             [timer2 invalidate];
+            [gameView disablePause];
 
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
@@ -338,6 +409,19 @@
 
     }
 }
+
+// Helper method that can be called by a selector
+-(void) goToHighScores
+{
+    bg1.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
+    bg2.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
+    
+    // Save the score in the userDefaults for last game, and go to high scores
+    [[NSUserDefaults standardUserDefaults] setInteger:[gameModel getScore] forKey:@"lastGameScore"];
+    [self.screenDelegate goToScreenFromGame1:toHighScores];
+    
+}
+
 
 - (void)viewDidLoad
 {
@@ -352,7 +436,6 @@
 }
 
 
-
 // Protocol for communicating with ViewController
 -(void) passedButtonPress:(UIButton*)button
 {
@@ -363,18 +446,6 @@
         NSString* screenTitle = button.titleLabel.text;
         [self.screenDelegate goToScreenFromGame1:screenTitle];
     }
-}
-
-// Helper method that can be called by a selector
--(void) goToHighScores
-{
-    bg1.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
-    bg2.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
-    
-    // Save the score in the userDefaults for last game, and go to high scores
-    [[NSUserDefaults standardUserDefaults] setInteger:[gameModel getScore] forKey:@"lastGameScore"];
-    [self.screenDelegate goToScreenFromGame1:toHighScores];
-    
 }
 
 // Protocol for pausing and resuming game
@@ -397,18 +468,27 @@
 // Protocol for boosting
 -(void) boost
 {
-    NSLog(@"Boost on controller");
-        // start boost
     isBoosted = TRUE;
-    percentChange +=1;
-        NSLog(@"was unboosted, now is boosted");
-    
+    percentChange +=1;    
 }
 
 -(void) unboost
 {
     isBoosted = FALSE;
     percentChange = [gameModel calculateSpeed];
+}
+
+// Disables pause button while feedback displays until circle resets
+-(void) disablePause
+{
+    [gameView disablePause];
+}
+
+-(void) enablePause
+{
+    pauseDisabledBy1 = FALSE;
+    pauseDisabledBy2 = FALSE;
+    [gameView enablePause];
 }
 
 @end
