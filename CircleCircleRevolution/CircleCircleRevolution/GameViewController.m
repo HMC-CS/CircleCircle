@@ -21,11 +21,11 @@
     if (self)
     {
         self.view.backgroundColor = [UIColor greenColor];
+        // Scrolling background pieces
         bg1 = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.height,self.view.bounds.size.width)];
         bg1.backgroundColor = [UIColor orangeColor];
         bg2 = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.height,self.view.bounds.size.width)];
         bg2.backgroundColor = [UIColor blueColor];
-
         bg2.center = CGPointMake(3.0*self.view.bounds.size.height/2.0,self.view.bounds.size.width/2.0);
 
         [self.view addSubview:bg1];
@@ -56,6 +56,8 @@
         [gameView updateLife:[gameModel getLives]];
         gameOver = FALSE;
         [self startTimer3];
+        
+        isBoosted = FALSE;
         
     }
     return self;
@@ -117,7 +119,11 @@
     [self startTimer3];
     if (!gameOver)
     {
+        
         percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
+        if (isBoosted){
+            percentChange += 1;
+        }
         if (circleNumber ==1)
         {
             circlePercent1 = 0;
@@ -388,5 +394,21 @@
     [self startTimer3];
 }
 
+// Protocol for boosting
+-(void) boost
+{
+    NSLog(@"Boost on controller");
+        // start boost
+    isBoosted = TRUE;
+    percentChange +=1;
+        NSLog(@"was unboosted, now is boosted");
+    
+}
+
+-(void) unboost
+{
+    isBoosted = FALSE;
+    percentChange = [gameModel calculateSpeed];
+}
 
 @end

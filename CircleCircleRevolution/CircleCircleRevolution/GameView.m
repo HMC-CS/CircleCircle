@@ -25,6 +25,18 @@
         menuButton.frame = CGRectMake(50,30, 50, 30);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         
+        // Boost button
+        boostButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [boostButton setTitle:@"Boost" forState:UIControlStateNormal];
+        boostButton.frame = CGRectMake(250,30, 50, 30);
+        [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchUpInside];
+        [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchDragExit];
+        [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDown];
+        [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDragEnter];
+
+
+        
+        
         // Pause button
         pauseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
@@ -61,6 +73,7 @@
         [self addSubview:shipView];
         [self addSubview:gameScoreView];
         [self addSubview:lifeView];
+        [self addSubview:boostButton];
 
     }
     return self;
@@ -114,6 +127,22 @@
     pauseView.alpha = 0;
     [self.pressedDelegate gameResume];
 }
+
+-(void) boost
+{
+    NSLog(@"boost button pressed");
+
+    [self.pressedDelegate boost];
+    // change ship as needed
+}
+
+-(void) unboost
+{
+    [self.pressedDelegate unboost];
+
+    NSLog(@"boost button released");
+}
+
 
 -(void) setCircleTarget:(id)sender forAction:(SEL)action whichCircle:(int)circleNumber
 {
