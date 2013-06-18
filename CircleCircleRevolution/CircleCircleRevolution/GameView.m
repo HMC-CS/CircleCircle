@@ -14,15 +14,25 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        float buttonPictureWidth = 252;
+        float topButtonHeight = 70;
+        float bottomButtonHeight = 64;
+        
+        float xCoord = self.bounds.size.width/2  - buttonPictureWidth/2;
+        float topButtonY = 100;
+        float bottomButtonY = topButtonY + topButtonHeight;
+        
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
         
         self.userInteractionEnabled = YES;
         
         // Menu button
-        menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:@"Menu" forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(50,30, 50, 30);
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_neutral.png"] forState:UIControlStateNormal];
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_pressed.png"] forState:UIControlStateHighlighted];
+        menuButton.frame = CGRectMake(xCoord, bottomButtonY, buttonPictureWidth, bottomButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         
         // Boost button
@@ -34,11 +44,8 @@
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchUpInside];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchDragExit];
         [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDown];
-        [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDragEnter];
-
-
-        
-        
+        [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDragEnter];        
+    
         // Pause button
         pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
@@ -48,9 +55,11 @@
         [pauseButton addTarget:self action:@selector(pause) forControlEvents:UIControlEventTouchUpInside];
         
         // Resume button
-        resumeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        resumeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [resumeButton setTitle:@"Resume" forState:UIControlStateNormal];
-        resumeButton.frame = CGRectMake(250,30, 50, 30);
+        [resumeButton setBackgroundImage:[UIImage imageNamed:@"button_top.png"] forState:UIControlStateNormal];
+        [resumeButton setBackgroundImage:[UIImage imageNamed:@"button_top_pressed.png"] forState:UIControlStateHighlighted];
+        resumeButton.frame = CGRectMake(xCoord,topButtonY, buttonPictureWidth, topButtonHeight);
         [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
         
         // Pause Screen
@@ -58,6 +67,11 @@
         pauseView.backgroundColor = [UIColor purpleColor];
         [pauseView addSubview:menuButton];
         [pauseView addSubview:resumeButton];
+        
+        UIImageView* highlights = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_border_2.png"]];
+        highlights.frame = CGRectMake(xCoord,topButtonY,252,132);
+        [pauseView addSubview:highlights];
+        
         pauseView.alpha = 0;
         
         // Ship view

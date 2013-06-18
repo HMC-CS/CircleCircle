@@ -15,15 +15,21 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        float smallCircleButtonPictureWidth = 120;
+        float smallCircleButtonPictureHeight = 120;
+        
+        float xCoord = 25;
+        float topButtonY = 25;
         self.backgroundColor = [UIColor purpleColor];
         
         self.userInteractionEnabled=YES;
         
-        // Menu button
-        menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        /// Menu button
+        menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(isMainMenuButtonX,isMainMenuButtonY, buttonWidth, buttonHeight);
-        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_round_s_neutral.png"] forState:UIControlStateNormal];
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_round_s_pressed.png"] forState:UIControlStateHighlighted];
+        menuButton.frame = CGRectMake(xCoord,topButtonY, smallCircleButtonPictureWidth, smallCircleButtonPictureHeight);        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
     }
     return self;
