@@ -17,12 +17,15 @@
 -(void) passedButtonPress:(UIButton*)button;
 -(void) gamePause;
 -(void) gameResume;
+-(void) boost;
+-(void) unboost;
 
 @end
 
 @interface GameView : UIView
 {
     UIButton* menuButton;
+    UIButton* boostButton;
     UIView* pauseView;
     UIButton* pauseButton;
     UIButton* resumeButton;

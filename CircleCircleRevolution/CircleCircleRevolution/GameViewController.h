@@ -36,6 +36,7 @@
     BOOL update2;
     BOOL touch2;
     BOOL gameOver;
+    BOOL isBoosted;
     NSArray* currentFraction1;
     NSArray* currentFraction2;
     NSString* feedbackTerm1;
