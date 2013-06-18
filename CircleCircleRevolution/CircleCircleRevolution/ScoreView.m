@@ -15,20 +15,38 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor blackColor];
+        // stars background
+        UIImageView* bgFar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars1_s.png"]];
+        bgFar.center = CGPointMake(bgFar.image.size.width/4, bgFar.center.y);
+        bgFar.backgroundColor = [UIColor clearColor];
+        UIImageView* bgNear = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars1_l.png"]];
+        bgNear.center = CGPointMake(bgNear.image.size.width/4, bgNear.center.y);
+        bgNear.backgroundColor = [UIColor clearColor];
         
+        [self addSubview:bgFar];
+        [self addSubview:bgNear];
+        
+        float smallCircleButtonPictureWidth = 120;
+        float smallCircleButtonPictureHeight = 120;        
+        float xCoord = 25;
+        float topButtonY = 25;
+        
+                
         self.userInteractionEnabled=YES;
         
         // Menu button
-        menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(hsMainMenuButtonX,hsMainMenuButtonY, buttonWidth, buttonHeight);
-        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_round_s_neutral.png"] forState:UIControlStateNormal];
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_round_s_pressed.png"] forState:UIControlStateHighlighted];
+        menuButton.frame = CGRectMake(xCoord,topButtonY, smallCircleButtonPictureWidth, smallCircleButtonPictureHeight);        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
         
         // Scores and the like
         scoresLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.height,self.bounds.size.width)];
         scoresLabel.backgroundColor = [UIColor clearColor];
+        scoresLabel.textColor = [UIColor whiteColor];
         scoresLabel.numberOfLines = 0;
         [self addSubview:scoresLabel];
         [self updateScoresLabel];

@@ -20,6 +20,7 @@
     self = [super init];
     if (self)
     {
+        gameDifficulty = difficulty;
         pauseDisabledBy2 = FALSE;
         pauseDisabledBy1 = FALSE;
         self.view.backgroundColor = [UIColor blackColor];
@@ -159,7 +160,7 @@
             circlePercent1 = 0;
             [gameView updateCircle1:circlePercent1 circle2:NO];
             [gameView setFeedback1:0 feedback2:-1];
-            currentFraction1 = [fractionModel getFractionWithMinD:2 andMaxD:4];
+            currentFraction1 = [fractionModel getFractionGivenDifficulty:gameDifficulty];
             [self updateFraction1:YES andFraction2:NO];
         }
         if (circleNumber == 2)
@@ -167,7 +168,7 @@
             circlePercent2 = 0;
             [gameView updateCircle1:NO circle2:circlePercent2];
             [gameView setFeedback1:-1 feedback2:0];
-            currentFraction2 = [fractionModel getFractionWithMinD:2 andMaxD:4];
+            currentFraction2 = [fractionModel getFractionGivenDifficulty:gameDifficulty];
             [self updateFraction1:NO andFraction2:YES];
         }    
         [self updateScore];

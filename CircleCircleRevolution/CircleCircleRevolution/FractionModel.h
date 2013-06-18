@@ -16,4 +16,6 @@
 -(id) init;
 -(NSArray*) getFractionWithMinD:(int) minDenominator andMaxD:(int) maxDenominator;
 
+-(NSArray*) getFractionGivenDifficulty:(int)difficulty;
+
 @end

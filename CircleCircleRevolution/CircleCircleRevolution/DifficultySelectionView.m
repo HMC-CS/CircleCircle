@@ -17,23 +17,42 @@
     if (self) {
         // Initialization code
         
-        UIButton* easyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        float buttonPictureWidth = 252;
+        float topButtonHeight = 70;
+        float middleButtonHeight = 60;
+        float bottomButtonHeight = 64;
+        
+        float xCoord = self.bounds.size.width/2 - buttonPictureWidth/2;
+        float topButtonY = 100;
+        float secondButtonY = topButtonY + topButtonHeight;
+        float bottomButtonY = secondButtonY + middleButtonHeight;
+
+        
+        UIButton* easyButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [easyButton setTitle:@"Easy" forState:UIControlStateNormal];
-        easyButton.frame = CGRectMake(button1X,button1Y, buttonWidth, buttonHeight);
+        [easyButton setBackgroundImage:[UIImage imageNamed:@"button_top.png"] forState:UIControlStateNormal];
+        [easyButton setBackgroundImage:[UIImage imageNamed:@"button_top_pressed.png"] forState:UIControlStateHighlighted];
+        easyButton.frame = CGRectMake(xCoord,topButtonY, buttonPictureWidth, topButtonHeight);
         [easyButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:easyButton];
         
-        UIButton* mediumButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        UIButton* mediumButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [mediumButton setTitle:@"Medium" forState:UIControlStateNormal];
-        mediumButton.frame = CGRectMake(button2X,button2Y, buttonWidth, buttonHeight);
-        [mediumButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        [mediumButton setBackgroundImage:[UIImage imageNamed:@"button_middle_neutral.png"] forState:UIControlStateNormal];
+        [mediumButton setBackgroundImage:[UIImage imageNamed:@"button_middle_pressed.png"] forState:UIControlStateHighlighted];
+        mediumButton.frame = CGRectMake(xCoord, secondButtonY, buttonPictureWidth, middleButtonHeight);        [mediumButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:mediumButton];
         
-        UIButton* hardButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        UIButton* hardButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [hardButton setTitle:@"Hard" forState:UIControlStateNormal];
-        hardButton.frame = CGRectMake(button3X,button3Y, buttonWidth, buttonHeight);
-        [hardButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        [hardButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_neutral.png"] forState:UIControlStateNormal];
+        [hardButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_pressed.png"] forState:UIControlStateHighlighted];
+        hardButton.frame = CGRectMake(xCoord, bottomButtonY, buttonPictureWidth, bottomButtonHeight);        [hardButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:hardButton];
+        
+        UIImageView* highlights = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_border_3.png"]];
+        highlights.frame = CGRectMake(xCoord,topButtonY,252,192);
+        [self addSubview:highlights];
         
         self.backgroundColor = [UIColor blackColor];
     }
