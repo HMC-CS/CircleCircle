@@ -15,7 +15,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        // stars background
+        UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"difficultyBg.png"]];
+        [self addSubview:bg];
         
         float buttonPictureWidth = 252;
         float topButtonHeight = 70;
@@ -54,7 +56,6 @@
         highlights.frame = CGRectMake(xCoord,topButtonY,252,192);
         [self addSubview:highlights];
         
-        self.backgroundColor = [UIColor blackColor];
     }
     return self;
 }

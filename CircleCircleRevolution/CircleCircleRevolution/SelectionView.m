@@ -15,6 +15,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        // stars background
+        UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"modeBg.png"]];
+        [self addSubview:bg];
         
         float buttonPictureWidth = 252;
         float topButtonHeight = 70;
@@ -26,7 +29,6 @@
         float secondButtonY = topButtonY + topButtonHeight;
         float bottomButtonY = secondButtonY + middleButtonHeight;
                 
-        self.backgroundColor = [UIColor redColor];
         
         self.userInteractionEnabled=YES;
         
