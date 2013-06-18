@@ -17,7 +17,7 @@
     if (self) {
         // Initialization code
         scoreLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        scoreLabel.backgroundColor = [UIColor clearColor];
+        scoreLabel.backgroundColor = [UIColor whiteColor];
         scoreLabel.textColor = [UIColor blackColor];
         scoreLabel.textAlignment = NSTextAlignmentCenter;
         scoreLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(36.0)];

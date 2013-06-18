@@ -17,7 +17,7 @@
     if (self) {
         // Initialization code
         fractionLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        fractionLabel.backgroundColor = [UIColor clearColor];
+        fractionLabel.backgroundColor = [UIColor whiteColor];
         fractionLabel.textColor = [UIColor blackColor];
         fractionLabel.textAlignment = NSTextAlignmentCenter;
         fractionLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(72.0)];

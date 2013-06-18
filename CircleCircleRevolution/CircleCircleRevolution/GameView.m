@@ -130,8 +130,6 @@
 
 -(void) boost
 {
-    NSLog(@"boost button pressed");
-
     [self.pressedDelegate boost];
     // change ship as needed
 }
@@ -139,14 +137,22 @@
 -(void) unboost
 {
     [self.pressedDelegate unboost];
-
-    NSLog(@"boost button released");
 }
 
 
 -(void) setCircleTarget:(id)sender forAction:(SEL)action whichCircle:(int)circleNumber
 {
     [shipView setCircleTarget:sender forAction:action whichCircle:circleNumber];
+}
+
+-(void) disablePause
+{
+    pauseButton.enabled = NO;
+}
+
+-(void) enablePause
+{
+    pauseButton.enabled = YES;
 }
 
 /*

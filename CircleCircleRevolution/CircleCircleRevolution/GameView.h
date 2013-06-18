@@ -41,8 +41,8 @@
 -(void)updateScore:(int)score;
 -(void)updateLife:(int)lives;
 -(void) setCircleTarget:(id)sender forAction:(SEL)action whichCircle:(int)circleNumber;
-
-
+-(void) disablePause;
+-(void) enablePause;
 
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;
