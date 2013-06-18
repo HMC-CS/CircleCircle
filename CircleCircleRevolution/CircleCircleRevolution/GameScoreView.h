@@ -11,6 +11,7 @@
 @interface GameScoreView : UIImageView
 {
     UILabel* scoreLabel;
+    UIImageView* scoreBg;
 }
 
 -(void) updateScore:(int)score;

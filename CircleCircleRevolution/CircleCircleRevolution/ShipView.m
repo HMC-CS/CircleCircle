@@ -26,7 +26,7 @@
             shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
             shipBody.backgroundColor = [UIColor clearColor];
             circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(174,67,320,320)];
-            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(200,400,200,200)];
+            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(223,398,220,194)];
             [self addSubview:circleView1];
             [self addSubview:fractionView1];
             [self addSubview:shipBody];

@@ -16,12 +16,19 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
+        
+        scoreBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"score_tab.png"]];
+        scoreBg.backgroundColor = [UIColor clearColor];
+        
         scoreLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        scoreLabel.backgroundColor = [UIColor whiteColor];
+        scoreLabel.backgroundColor = [UIColor clearColor];
         scoreLabel.textColor = [UIColor blackColor];
         scoreLabel.textAlignment = NSTextAlignmentCenter;
         scoreLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(36.0)];
         
+        
+        [self addSubview:scoreBg];
         [self addSubview:scoreLabel];
     }
     return self;
