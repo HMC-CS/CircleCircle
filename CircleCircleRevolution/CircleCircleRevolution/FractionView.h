@@ -11,6 +11,7 @@
 @interface FractionView : UIImageView
 {
     UILabel* fractionLabel;
+    UIImageView* fractionTab;
 }
 
 -(void)updateFraction:(NSArray*)currentFraction;

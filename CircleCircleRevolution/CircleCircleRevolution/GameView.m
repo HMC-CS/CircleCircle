@@ -26,9 +26,11 @@
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         
         // Boost button
-        boostButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        boostButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [boostButton setTitle:@"Boost" forState:UIControlStateNormal];
-        boostButton.frame = CGRectMake(250,30, 50, 30);
+        boostButton.frame = CGRectMake(50,500,178,178);
+        [boostButton setImage:[UIImage imageNamed:@"button_round_l_neutral.png"] forState:UIControlStateNormal];
+        [boostButton setImage:[UIImage imageNamed:@"button_round_l_pressed.png"] forState:UIControlStateHighlighted];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchUpInside];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchDragExit];
         [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDown];
@@ -38,9 +40,11 @@
         
         
         // Pause button
-        pauseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
-        pauseButton.frame = CGRectMake(150,30, 50, 30);
+        pauseButton.frame = CGRectMake(50,50,120,120);
+        [pauseButton setImage:[UIImage imageNamed:@"button_round_s_neutral.png"] forState:UIControlStateNormal];
+        [pauseButton setImage:[UIImage imageNamed:@"button_round_s_pressed.png"] forState:UIControlStateHighlighted];
         [pauseButton addTarget:self action:@selector(pause) forControlEvents:UIControlEventTouchUpInside];
         
         // Resume button
@@ -57,11 +61,11 @@
         pauseView.alpha = 0;
         
         // Ship view
-        shipView = [[ShipView alloc] initWithFrame:CGRectMake(115,100,560,440) andMode:mode];
+        shipView = [[ShipView alloc] initWithFrame:CGRectMake(177,100,560,440) andMode:mode];
         shipView.backgroundColor = [UIColor clearColor];
         
         // Score view
-        gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(500, 10, 200, 100)];
+        gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(700, 0, 310, 140)];
         
         // Life View
         lifeView = [[LifeView alloc] initWithFrame:CGRectMake(500, 50, 200, 100)];
