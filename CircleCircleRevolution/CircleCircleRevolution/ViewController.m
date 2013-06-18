@@ -39,7 +39,6 @@
     instructionsViewController.screenDelegate = self;
 
     [self pushViewController:menuViewController animated:NO];
-    
 }
 
 - (void)didReceiveMemoryWarning
