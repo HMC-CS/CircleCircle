@@ -22,10 +22,14 @@
         
         if (gameMode == 1)
         {
-            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.height,self.bounds.size.height)];
+            shipBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ship_body_single.png"]];
+            shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
+            shipBody.backgroundColor = [UIColor clearColor];
+            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(174,67,320,320)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(200,400,200,200)];
             [self addSubview:circleView1];
             [self addSubview:fractionView1];
+            [self addSubview:shipBody];
         }
         else if (gameMode == 2)
         {
