@@ -16,12 +16,17 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
+        fractionTab = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ship_fraction_single.png"]];
+        fractionTab.backgroundColor = [UIColor clearColor];
+        
         fractionLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        fractionLabel.backgroundColor = [UIColor whiteColor];
+        fractionLabel.backgroundColor = [UIColor clearColor];
         fractionLabel.textColor = [UIColor blackColor];
         fractionLabel.textAlignment = NSTextAlignmentCenter;
         fractionLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(72.0)];
         
+        [self addSubview:fractionTab];
         [self addSubview:fractionLabel];
     }
     return self;

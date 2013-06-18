@@ -30,6 +30,7 @@
 		459B78811770F5C500D3C583 /* ship_body_single.png in Resources */ = {isa = PBXBuildFile; fileRef = 459B786C1770F5C500D3C583 /* ship_body_single.png */; };
 		459B78821770F5C500D3C583 /* ship_fraction_single.png in Resources */ = {isa = PBXBuildFile; fileRef = 459B786D1770F5C500D3C583 /* ship_fraction_single.png */; };
 		459B78831770F5C500D3C583 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 459B786E1770F5C500D3C583 /* title.png */; };
+		459B78851771059F00D3C583 /* score_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 459B78841771059F00D3C583 /* score_tab.png */; };
 		45B1F2BF1767A0540090EEF7 /* GameScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2BE1767A0540090EEF7 /* GameScoreView.m */; };
 		45B1F2C21767A0740090EEF7 /* ShipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2C11767A0740090EEF7 /* ShipView.m */; };
 		45B1F2C51767A0820090EEF7 /* LifeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B1F2C41767A0820090EEF7 /* LifeView.m */; };
@@ -89,6 +90,7 @@
 		459B786C1770F5C500D3C583 /* ship_body_single.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_body_single.png; sourceTree = "<group>"; };
 		459B786D1770F5C500D3C583 /* ship_fraction_single.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_fraction_single.png; sourceTree = "<group>"; };
 		459B786E1770F5C500D3C583 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		459B78841771059F00D3C583 /* score_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = score_tab.png; sourceTree = "<group>"; };
 		45B1F2BD1767A0540090EEF7 /* GameScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScoreView.h; sourceTree = "<group>"; };
 		45B1F2BE1767A0540090EEF7 /* GameScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScoreView.m; sourceTree = "<group>"; };
 		45B1F2C01767A0740090EEF7 /* ShipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipView.h; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				459B785C1770F5C500D3C583 /* buttons */,
 				459B786B1770F5C500D3C583 /* ship */,
 				459B786E1770F5C500D3C583 /* title.png */,
+				459B78841771059F00D3C583 /* score_tab.png */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				459B78811770F5C500D3C583 /* ship_body_single.png in Resources */,
 				459B78821770F5C500D3C583 /* ship_fraction_single.png in Resources */,
 				459B78831770F5C500D3C583 /* title.png in Resources */,
+				459B78851771059F00D3C583 /* score_tab.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
