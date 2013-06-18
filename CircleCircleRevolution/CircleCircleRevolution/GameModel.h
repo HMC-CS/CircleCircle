@@ -14,6 +14,7 @@
     float percentChange;
     int problemsCorrect;
     int lives;
+    float backgroundChange;
 }
 
 -(id)init;
@@ -23,4 +24,5 @@
 -(void) decreaseLife;
 -(void) increaseLife;
 -(int) getLives;
+-(float) getBackgroundChange;
 @end

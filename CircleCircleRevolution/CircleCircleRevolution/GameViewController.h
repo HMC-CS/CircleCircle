@@ -31,6 +31,7 @@
     float percentChange;
     float circlePercent1;
     float circlePercent2;
+    float backgroundMoveAmount;
     BOOL update1;
     BOOL touch1;
     BOOL update2;
@@ -52,8 +53,10 @@
     GameView* gameView;
     NSMutableArray* farBackgroundImages;
     NSMutableArray* nearBackgroundImages;
-    UIImageView* bg1;
-    UIImageView* bg2;    
+    UIImageView* bg1Far;
+    UIImageView* bg2Far;
+    UIImageView* bg1Near;
+    UIImageView* bg2Near;
 }
 
 -(id)initWithMode:(int)mode andDifficulty:(int)difficulty;
