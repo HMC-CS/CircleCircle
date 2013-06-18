@@ -17,7 +17,6 @@
     problemsCorrect = 0;
     lives = 3;
     backgroundChange = 1.0;
-    NSLog(@"initial bg change is %f",backgroundChange);
     return self;
 
 }
@@ -63,7 +62,6 @@
 
 -(float)getBackgroundChange
 {
-    NSLog(@"background change is %f",backgroundChange);
     return backgroundChange;
 }
 
