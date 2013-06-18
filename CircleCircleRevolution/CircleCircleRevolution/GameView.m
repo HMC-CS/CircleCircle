@@ -57,8 +57,8 @@
         pauseView.alpha = 0;
         
         // Ship view
-        shipView = [[ShipView alloc] initWithFrame:CGRectMake(200,200,400,300) andMode:mode];
-        shipView.backgroundColor = [UIColor magentaColor];
+        shipView = [[ShipView alloc] initWithFrame:CGRectMake(115,100,560,440) andMode:mode];
+        shipView.backgroundColor = [UIColor clearColor];
         
         // Score view
         gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(500, 10, 200, 100)];

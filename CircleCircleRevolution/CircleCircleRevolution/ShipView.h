@@ -17,6 +17,7 @@
     CircleView* circleView2;
     FractionView* fractionView1;
     FractionView* fractionView2;
+    UIImageView* shipBody;
 }
 
 -(id)initWithFrame:(CGRect)frame andMode:(int)mode;
