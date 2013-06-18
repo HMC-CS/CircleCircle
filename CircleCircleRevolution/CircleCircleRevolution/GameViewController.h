@@ -37,6 +37,8 @@
     BOOL touch2;
     BOOL gameOver;
     BOOL isBoosted;
+    BOOL pauseDisabledBy1;
+    BOOL pauseDisabledBy2;
     NSArray* currentFraction1;
     NSArray* currentFraction2;
     NSString* feedbackTerm1;
@@ -48,9 +50,10 @@
     FractionModel* fractionModel;
     GameModel* gameModel;
     GameView* gameView;
-    UIView* bg1;
-    UIView* bg2;
-    
+    NSMutableArray* farBackgroundImages;
+    NSMutableArray* nearBackgroundImages;
+    UIImageView* bg1;
+    UIImageView* bg2;    
 }
 
 -(id)initWithMode:(int)mode andDifficulty:(int)difficulty;

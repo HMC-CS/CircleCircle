@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         lifeLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        lifeLabel.backgroundColor = [UIColor clearColor];
+        lifeLabel.backgroundColor = [UIColor whiteColor];
         lifeLabel.textColor = [UIColor blackColor];
         lifeLabel.textAlignment = NSTextAlignmentCenter;
         lifeLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(36.0)];
