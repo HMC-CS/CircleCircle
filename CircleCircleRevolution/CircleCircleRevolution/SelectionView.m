@@ -15,30 +15,52 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        float buttonPictureWidth = 252;
+        float topButtonHeight = 70;
+        float middleButtonHeight = 60;
+        float bottomButtonHeight = 64;
+        
+        float xCoord = self.bounds.size.width/2;
+        float topButtonY = 100;
+        float secondButtonY = topButtonY + topButtonHeight;
+        float bottomButtonY = secondButtonY + middleButtonHeight;
+                
         self.backgroundColor = [UIColor redColor];
         
         self.userInteractionEnabled=YES;
         
         // single button
-        singleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        singleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [singleButton setTitle:toSingleGame forState:UIControlStateNormal];
-        singleButton.frame = CGRectMake(button1X,button1Y, buttonWidth, buttonHeight);
+        [singleButton setBackgroundImage:[UIImage imageNamed:@"button_top.png"] forState:UIControlStateNormal];
+        [singleButton setBackgroundImage:[UIImage imageNamed:@"button_top_pressed.png"] forState:UIControlStateHighlighted];
+        singleButton.frame = CGRectMake(xCoord,topButtonY, buttonPictureWidth, topButtonHeight);
+
         [singleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:singleButton];
         
         // double button
-        doubleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        doubleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [doubleButton setTitle:toDoubleGame forState:UIControlStateNormal];
-        doubleButton.frame = CGRectMake(button2X,button2Y, buttonWidth, buttonHeight);
+        [doubleButton setBackgroundImage:[UIImage imageNamed:@"button_middle_neutral.png"] forState:UIControlStateNormal];
+        [doubleButton setBackgroundImage:[UIImage imageNamed:@"button_middle_pressed.png"] forState:UIControlStateHighlighted];
+        doubleButton.frame = CGRectMake(xCoord, secondButtonY, buttonPictureWidth, middleButtonHeight);
         [doubleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:doubleButton];
         
         // Menu button
-        menuButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
-        menuButton.frame = CGRectMake(button3X,button3Y, buttonWidth, buttonHeight);
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_neutral.png"] forState:UIControlStateNormal];
+        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_pressed.png"] forState:UIControlStateHighlighted];
+        menuButton.frame = CGRectMake(xCoord, bottomButtonY, buttonPictureWidth, bottomButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
+        
+        UIImageView* highlights = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_border_3.png"]];
+        highlights.frame = CGRectMake(xCoord,topButtonY,252,192);
+        [self addSubview:highlights];
     }
     return self;
 }

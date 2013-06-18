@@ -28,6 +28,7 @@
 @interface GameViewController : UIViewController <ButtonOnGame1Pressed>
 {
     int gameMode;
+    int gameDifficulty;
     float percentChange;
     float circlePercent1;
     float circlePercent2;
