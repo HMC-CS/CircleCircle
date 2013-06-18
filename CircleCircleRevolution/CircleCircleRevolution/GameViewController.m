@@ -25,46 +25,27 @@
         self.view.backgroundColor = [UIColor blackColor];
         
         // Scrolling background pieces
+        bg1Far = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars1_s.png"]];
+        bg1Far.center = CGPointMake(bg1Far.image.size.width/2.0, bg1Far.center.y);
+        bg1Far.backgroundColor = [UIColor clearColor];
+        bg2Far = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars2_s.png"]];
+        bg2Far.center = CGPointMake(3.0*bg2Far.image.size.width/2.0, bg2Far.center.y);
+        bg2Far.backgroundColor = [UIColor clearColor];
+
+        [self.view addSubview:bg1Far];
+        [self.view addSubview:bg2Far];
         
-       /* farBackgroundImages = [[NSMutableArray alloc] initWithCapacity:4];
-        nearBackgroundImages = [[NSMutableArray alloc] initWithCapacity:4];
-        for (int i = 1; i<=4;i++){
-            NSAssert(5>i>0,@"name of image must start at 1 and not be greater than 5");
-            UIImageView* small = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"stars%d_s.png",i]]];
-            UIImageView* large = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"stars%d_l.png",i]]];            
-            [farBackgroundImages addObject:small];
-            [nearBackgroundImages addObject:large];
-        }
+        bg1Near = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars1_l.png"]];
+        bg1Near.center = CGPointMake(bg1Near.image.size.width/2.0, bg1Near.center.y);
+        bg1Near.backgroundColor = [UIColor clearColor];
+        bg2Near = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars2_l.png"]];
+        bg2Near.center = CGPointMake(3.0*bg2Near.image.size.width/2.0, bg2Near.center.y);
+        bg1Near.backgroundColor = [UIColor clearColor];
 
-        NSAssert(farBackgroundImages.count==4,@"we should have 4 background images in the far");
-        NSAssert(nearBackgroundImages.count==4,@"we should have 4 background images in the near");
-
-        int n = 1;
+        [self.view addSubview:bg1Near];
+        [self.view addSubview:bg2Near];
         
-        for (UIImageView* smallStars in farBackgroundImages){
-            [self.view addSubview:smallStars];
-            smallStars.center = CGPointMake(n*smallStars.image.size.width/2.0,smallStars.center.y);
-            n += 2;
-
-        }
-
-        n=1;
-        for (UIImageView* largeStars in nearBackgroundImages){
-            [self.view addSubview:largeStars];
-            largeStars.center = CGPointMake(n*largeStars.image.size.width/2.0,largeStars.center.y);
-            n += 2;
-        }*/
-        
-        bg1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars2_s.png"]];
-        //bg1.backgroundColor = [UIColor orangeColor];
-        bg1.center = CGPointMake(bg1.image.size.width/2.0, bg1.center.y);
-        bg2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars3_s.png"]];
-        //bg2.backgroundColor = [UIColor blueColor];
-        bg2.center = CGPointMake(3.0*bg2.image.size.width/2.0, bg2.center.y);
-
-        [self.view addSubview:bg1];
-        [self.view addSubview:bg2];
-        
+        // Game View
         gameView = [[GameView alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.height,self.view.bounds.size.width) andMode:mode];
         [gameView setCircleTarget:self forAction:@selector(scoreTap1) whichCircle:1];
         [gameView setCircleTarget:self forAction:@selector(scoreTap2) whichCircle:2];
@@ -81,6 +62,7 @@
         touch1 = FALSE;
         touch2 = FALSE;
         percentChange = 0.1;
+        backgroundMoveAmount = 1.0;
         
         [self resetCircle:1];
         [self resetCircle:2];
@@ -99,36 +81,31 @@
 
 -(void)moveLeft
 {
-    if (bg1.center.x <= -bg1.image.size.width/2.0)
+    float moveAmount = backgroundMoveAmount;
+    //NSLog(@"backgroundMoveAmount is %f",backgroundMoveAmount);
+    if (bg1Far.center.x <= -bg1Far.image.size.width/2.0)
     {
-        bg1.center = CGPointMake(1.5*bg1.image.size.width,bg1.center.y);
+        bg1Far.center = CGPointMake(1.5*bg1Far.image.size.width,bg1Far.center.y);
     }
-    if (bg2.center.x <= -bg2.image.size.width/2.0)
+    if (bg2Far.center.x <= -bg2Far.image.size.width/2.0)
     {
-        bg2.center = CGPointMake(1.5*bg2.image.size.width,bg2.center.y);
+        bg2Far.center = CGPointMake(1.5*bg2Far.image.size.width,bg2Far.center.y);
     }
-    bg1.center = CGPointMake(bg1.center.x - 1, bg1.center.y);
-    bg2.center = CGPointMake(bg2.center.x - 1, bg2.center.y);
+    bg1Far.center = CGPointMake(bg1Far.center.x - moveAmount, bg1Far.center.y);
+    bg2Far.center = CGPointMake(bg2Far.center.x - moveAmount, bg2Far.center.y);
   
     
-  /*  for (int i = 0; i < 4;i++){
-        UIImageView* small = [farBackgroundImages objectAtIndex:i];
-        UIImageView* large = [nearBackgroundImages objectAtIndex:i];
-        
-        if (small.center.x <= -small.image.size.width/2.0){
-            small.center = CGPointMake(7.0*small.image.size.width/2.0,small.center.y);
-        }
-        if (large.center.x <= -large.image.size.width/2.0){
-            large.center = CGPointMake(7.0*large.image.size.width/2.0,large.center.y);
-        }
-        small.center = CGPointMake(small.center.x - 1,small.center.y);
-        large.center = CGPointMake(large.center.x - 2, large.center.y);
+    if (bg1Near.center.x <= -bg1Near.image.size.width/2.0)
+    {
+        bg1Near.center = CGPointMake(1.5*bg1Near.image.size.width,bg1Near.center.y);
+    }
+    if (bg2Near.center.x <= -bg2Near.image.size.width/2.0)
+    {
+        bg2Near.center = CGPointMake(1.5*bg2Near.image.size.width,bg2Near.center.y);
+    }
+    bg1Near.center = CGPointMake(bg1Near.center.x - 2*moveAmount, bg1Near.center.y);
+    bg2Near.center = CGPointMake(bg2Near.center.x - 2*moveAmount, bg2Near.center.y);
 
-   
-    }*/
-    
-    //            smallStars.center = CGPointMake(n*smallStars.image.size.width/2.0,smallStars.center.y);
-    
 }
 
 
@@ -136,7 +113,7 @@
 -(void) startTimer1
 {
     if (!gameOver){
-    timer1 = [NSTimer scheduledTimerWithTimeInterval:0.01
+    timer1 = [NSTimer scheduledTimerWithTimeInterval:1.0/60
                                              target:self
                                            selector:@selector(checkUpdate1)
                                            userInfo:nil
@@ -148,7 +125,7 @@
 -(void) startTimer2
 {
     if (!gameOver) {
-    timer2 = [NSTimer scheduledTimerWithTimeInterval:0.01
+    timer2 = [NSTimer scheduledTimerWithTimeInterval:1.0/60
                                               target:self
                                             selector:@selector(checkUpdate2)
                                             userInfo:nil
@@ -158,8 +135,7 @@
 
 -(void) startTimer3
 {
-    NSTimeInterval updateInterval = 0.01;
-    timer3 = [NSTimer scheduledTimerWithTimeInterval:updateInterval
+    timer3 = [NSTimer scheduledTimerWithTimeInterval:1.0/60
                                               target:self
                                             selector:@selector(moveLeft)
                                             userInfo:nil
@@ -169,14 +145,14 @@
 // Resets a circle and its fraction
 -(void) resetCircle:(int)circleNumber
 {
-    [timer3 invalidate];
-    [self startTimer3];
     if (!gameOver)
     {
-        
         percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
+        backgroundMoveAmount = [gameModel getBackgroundChange];
+        NSLog(@"percent change is %f and bgmoveamt is %f",percentChange,backgroundMoveAmount);
         if (isBoosted){
             percentChange += 1;
+            backgroundMoveAmount *=3;
         }
         if (circleNumber ==1)
         {
@@ -413,9 +389,11 @@
 // Helper method that can be called by a selector
 -(void) goToHighScores
 {
-    bg1.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
-    bg2.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
-    
+    bg1Far.center = CGPointMake(bg1Far.image.size.width/2.0,bg1Far.image.size.height/2.0);
+    bg2Far.center = CGPointMake(bg2Far.image.size.width/2.0,bg2Far.image.size.height/2.0);
+    bg1Near.center = CGPointMake(bg1Near.image.size.width/2.0,bg1Near.image.size.height/2.0);
+    bg2Near.center = CGPointMake(bg2Near.image.size.width/2.0,bg2Near.image.size.height/2.0);
+    [gameView removeFromSuperview];
     // Save the score in the userDefaults for last game, and go to high scores
     [[NSUserDefaults standardUserDefaults] setInteger:[gameModel getScore] forKey:@"lastGameScore"];
     [self.screenDelegate goToScreenFromGame1:toHighScores];
@@ -439,8 +417,10 @@
 // Protocol for communicating with ViewController
 -(void) passedButtonPress:(UIButton*)button
 {
-    bg1.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
-    bg2.center = CGPointMake(self.view.bounds.size.width/2.0,self.view.bounds.size.height/2.0);
+    bg1Far.center = CGPointMake(bg1Far.image.size.width/2.0,bg1Far.image.size.height/2.0);
+    bg2Far.center = CGPointMake(bg2Far.image.size.width/2.0,bg2Far.image.size.height/2.0);
+    bg1Near.center = CGPointMake(bg1Near.image.size.width/2.0,bg1Near.image.size.height/2.0);
+    bg2Near.center = CGPointMake(bg2Near.image.size.width/2.0,bg2Near.image.size.height/2.0);
     if (self.screenDelegate)
     {
         NSString* screenTitle = button.titleLabel.text;
@@ -469,13 +449,15 @@
 -(void) boost
 {
     isBoosted = TRUE;
-    percentChange +=1;    
+    percentChange +=1;
+    backgroundMoveAmount *= 3;
 }
 
 -(void) unboost
 {
     isBoosted = FALSE;
     percentChange = [gameModel calculateSpeed];
+    backgroundMoveAmount /= 3;
 }
 
 // Disables pause button while feedback displays until circle resets

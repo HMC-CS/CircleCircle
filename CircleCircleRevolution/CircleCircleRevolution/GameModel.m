@@ -16,7 +16,10 @@
     percentChange = 0.1;
     problemsCorrect = 0;
     lives = 3;
+    backgroundChange = 1.0;
+    NSLog(@"initial bg change is %f",backgroundChange);
     return self;
+
 }
 
 -(void)incrementScore:(int)increment
@@ -38,6 +41,7 @@
     if (problemsCorrect % 3 == 0 && problemsCorrect != 0 && percentChange < 0.5)
     {
         percentChange += .2;
+        backgroundChange += 5;
     }
     return percentChange;
 }
@@ -55,6 +59,12 @@
 -(int)getLives
 {
     return lives;
+}
+
+-(float)getBackgroundChange
+{
+    NSLog(@"background change is %f",backgroundChange);
+    return backgroundChange;
 }
 
 @end
