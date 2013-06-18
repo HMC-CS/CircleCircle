@@ -15,12 +15,15 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        // stars background
+        UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"creditsBg.png"]];
+        [self addSubview:bg];
+        
         float smallCircleButtonPictureWidth = 120;
         float smallCircleButtonPictureHeight = 120;
         
         float xCoord = 25;
         float topButtonY = 25;
-        self.backgroundColor = [UIColor blueColor];
         
         self.userInteractionEnabled=YES;
         

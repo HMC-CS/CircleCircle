@@ -62,6 +62,12 @@
 		6F39D86617629A990089FBA1 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D86517629A990089FBA1 /* InstructionsViewController.m */; };
 		6F39D86A17629AE50089FBA1 /* InstructionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F39D86917629AE50089FBA1 /* InstructionsView.m */; };
 		6F97D9191768D5D000F92821 /* DifficultySelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F97D9181768D5D000F92821 /* DifficultySelectionViewController.m */; };
+		6F98E3431771170900FC64C9 /* creditsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F98E33D1771170900FC64C9 /* creditsBg.png */; };
+		6F98E3441771170900FC64C9 /* difficultyBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F98E33E1771170900FC64C9 /* difficultyBg.png */; };
+		6F98E3451771170900FC64C9 /* instructionsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F98E33F1771170900FC64C9 /* instructionsBg.png */; };
+		6F98E3461771170900FC64C9 /* menuBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F98E3401771170900FC64C9 /* menuBg.png */; };
+		6F98E3471771170900FC64C9 /* modeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F98E3411771170900FC64C9 /* modeBg.png */; };
+		6F98E3481771170900FC64C9 /* scoreBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F98E3421771170900FC64C9 /* scoreBg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +154,12 @@
 		6F67EBD61766915D00043359 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		6F97D9171768D5D000F92821 /* DifficultySelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DifficultySelectionViewController.h; sourceTree = "<group>"; };
 		6F97D9181768D5D000F92821 /* DifficultySelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DifficultySelectionViewController.m; sourceTree = "<group>"; };
+		6F98E33D1771170900FC64C9 /* creditsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creditsBg.png; sourceTree = "<group>"; };
+		6F98E33E1771170900FC64C9 /* difficultyBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = difficultyBg.png; sourceTree = "<group>"; };
+		6F98E33F1771170900FC64C9 /* instructionsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instructionsBg.png; sourceTree = "<group>"; };
+		6F98E3401771170900FC64C9 /* menuBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBg.png; sourceTree = "<group>"; };
+		6F98E3411771170900FC64C9 /* modeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = modeBg.png; sourceTree = "<group>"; };
+		6F98E3421771170900FC64C9 /* scoreBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreBg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +191,7 @@
 		459B78571770F5C500D3C583 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				6F98E33C1771170900FC64C9 /* menu */,
 				459B78581770F5C500D3C583 /* stars1_l.png */,
 				459B78591770F5C500D3C583 /* stars1_s.png */,
 				459B785A1770F5C500D3C583 /* stars2_l.png */,
@@ -389,6 +402,19 @@
 			name = Instructions;
 			sourceTree = "<group>";
 		};
+		6F98E33C1771170900FC64C9 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				6F98E33D1771170900FC64C9 /* creditsBg.png */,
+				6F98E33E1771170900FC64C9 /* difficultyBg.png */,
+				6F98E33F1771170900FC64C9 /* instructionsBg.png */,
+				6F98E3401771170900FC64C9 /* menuBg.png */,
+				6F98E3411771170900FC64C9 /* modeBg.png */,
+				6F98E3421771170900FC64C9 /* scoreBg.png */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,6 +493,12 @@
 				459B78821770F5C500D3C583 /* ship_fraction_single.png in Resources */,
 				459B78831770F5C500D3C583 /* title.png in Resources */,
 				459B78851771059F00D3C583 /* score_tab.png in Resources */,
+				6F98E3431771170900FC64C9 /* creditsBg.png in Resources */,
+				6F98E3441771170900FC64C9 /* difficultyBg.png in Resources */,
+				6F98E3451771170900FC64C9 /* instructionsBg.png in Resources */,
+				6F98E3461771170900FC64C9 /* menuBg.png in Resources */,
+				6F98E3471771170900FC64C9 /* modeBg.png in Resources */,
+				6F98E3481771170900FC64C9 /* scoreBg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

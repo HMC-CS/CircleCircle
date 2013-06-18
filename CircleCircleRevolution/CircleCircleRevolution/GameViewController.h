@@ -39,6 +39,7 @@
     BOOL touch2;
     BOOL gameOver;
     BOOL isBoosted;
+    BOOL isPaused;
     BOOL pauseDisabledBy1;
     BOOL pauseDisabledBy2;
     NSArray* currentFraction1;
@@ -46,8 +47,6 @@
     NSString* feedbackTerm1;
     NSString* feedbackTerm2;
     NSTimer* timer1;
-    NSTimer* timer2;
-    NSTimer* timer3;
     ShipModel* shipModel;
     FractionModel* fractionModel;
     GameModel* gameModel;

@@ -20,6 +20,7 @@
     self = [super init];
     if (self)
     {
+        isPaused = FALSE;
         gameDifficulty = difficulty;
         pauseDisabledBy2 = FALSE;
         pauseDisabledBy1 = FALSE;
@@ -59,20 +60,22 @@
         
         gameMode = mode;
         update1 = TRUE;
-        update2 = TRUE;
         touch1 = FALSE;
         touch2 = FALSE;
         percentChange = 0.1;
         backgroundMoveAmount = 1.0;
         
         [self resetCircle:1];
-        [self resetCircle:2];
+        
         [self startTimer1];
         if (gameMode == 2)
-            [self startTimer2];
+        {
+            update2 = TRUE;
+            [self resetCircle:2];
+            touch2 = FALSE;
+        }
         [gameView updateLife:[gameModel getLives]];
         gameOver = FALSE;
-        [self startTimer3];
         
         isBoosted = FALSE;
         
@@ -83,7 +86,6 @@
 -(void)moveLeft
 {
     float moveAmount = backgroundMoveAmount;
-    //NSLog(@"backgroundMoveAmount is %f",backgroundMoveAmount);
     if (bg1Far.center.x <= -bg1Far.image.size.width/2.0)
     {
         bg1Far.center = CGPointMake(1.5*bg1Far.image.size.width,bg1Far.center.y);
@@ -116,32 +118,14 @@
     if (!gameOver){
     timer1 = [NSTimer scheduledTimerWithTimeInterval:1.0/60
                                              target:self
-                                           selector:@selector(checkUpdate1)
+                                           selector:@selector(allUpdates)
                                            userInfo:nil
                                             repeats:YES];
 
     }
 }
 
--(void) startTimer2
-{
-    if (!gameOver) {
-    timer2 = [NSTimer scheduledTimerWithTimeInterval:1.0/60
-                                              target:self
-                                            selector:@selector(checkUpdate2)
-                                            userInfo:nil
-                                             repeats:YES];
-    }
-}
 
--(void) startTimer3
-{
-    timer3 = [NSTimer scheduledTimerWithTimeInterval:1.0/60
-                                              target:self
-                                            selector:@selector(moveLeft)
-                                            userInfo:nil
-                                             repeats:YES];
-}
 
 // Resets a circle and its fraction
 -(void) resetCircle:(int)circleNumber
@@ -157,6 +141,8 @@
         }
         if (circleNumber ==1)
         {
+            update1 = TRUE;
+            touch1 = FALSE;
             circlePercent1 = 0;
             [gameView updateCircle1:circlePercent1 circle2:NO];
             [gameView setFeedback1:0 feedback2:-1];
@@ -165,6 +151,8 @@
         }
         if (circleNumber == 2)
         {
+            update2 = TRUE;
+            touch2 = FALSE;
             circlePercent2 = 0;
             [gameView updateCircle1:NO circle2:circlePercent2];
             [gameView setFeedback1:-1 feedback2:0];
@@ -181,24 +169,27 @@
 }
 
 // Game Loop Updates
+-(void)allUpdates
+{
+    if (!isPaused){
+        [self moveLeft];
+        [self checkUpdate1];
+        if (gameMode ==2)
+            [self checkUpdate2];
+    }
+}
+
+
 -(void) checkUpdate1
 {
     if (update1)
         [self updateCircle1];
-    if (!update1){
-        update1 = TRUE;
-        touch1 = FALSE;
-    }
 }
 
 -(void) checkUpdate2
 {
     if (update2)
         [self updateCircle2];
-    if (!update2) {
-        update2 = TRUE;
-        touch2 = FALSE;
-    }
 }
 
 -(void) updateCircle1
@@ -245,7 +236,7 @@
 // Scoring and Displaying Feedback
 -(void)scoreBlock1
 {
-    [timer1 invalidate];
+    //[timer1 invalidate];
     update1 = FALSE;
     float fracValue = [self calculateFractionValue:currentFraction1];
     int accuracy = [self calculateAccuracyFromPercent:circlePercent1 andTargetFractionValue:fracValue];
@@ -259,7 +250,6 @@
 
 -(void)scoreBlock2
 {
-    [timer2 invalidate];
     update2 = FALSE;
     float fracValue = [self calculateFractionValue:currentFraction2];
     int accuracy = [self calculateAccuracyFromPercent:circlePercent2 andTargetFractionValue:fracValue];
@@ -280,7 +270,7 @@
         if (gameOver && gameMode == 2){
             [self scoreBlock2];        
         }else if (!gameOver){
-            [self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
+            //[self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
             [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:5.0];
             if (pauseDisabledBy2){
                 // cancel the other enable selector
@@ -300,7 +290,6 @@
         if (gameOver){
             [self scoreBlock1];
         }else if (!gameOver){
-            [self performSelector:@selector(startTimer2) withObject:nil afterDelay:5.0];
             [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:5.0];
             if (pauseDisabledBy1){
                 // cancel the other enable selector
@@ -372,17 +361,14 @@
     if ([gameModel getLives]==0) // the game is over
     {
         if (!gameOver){ // the first time this is reached
-            [timer3 performSelector:@selector(invalidate) withObject:nil afterDelay:5.0];
             [self performSelector:@selector(goToHighScores) withObject:nil afterDelay:5.0];
             [timer1 invalidate];
-            [timer2 invalidate];
             [gameView disablePause];
 
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
         NSLog(@"Game should be over now, technically!");
         [timer1 invalidate];
-        [timer2 invalidate];
 
     }
 }
@@ -433,17 +419,11 @@
 -(void) gamePause
 {
     [timer1 invalidate];
-    if (gameMode == 2)
-        [timer2 invalidate];
-    [timer3 invalidate];
 }
 
 -(void) gameResume
 {
     [self startTimer1];
-    if (gameMode == 2)
-        [self startTimer2];
-    [self startTimer3];
 }
 
 // Protocol for boosting
@@ -458,7 +438,7 @@
 {
     isBoosted = FALSE;
     percentChange = [gameModel calculateSpeed];
-    backgroundMoveAmount /= 3;
+    backgroundMoveAmount = [gameModel getBackgroundChange];
 }
 
 // Disables pause button while feedback displays until circle resets

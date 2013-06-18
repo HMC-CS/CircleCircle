@@ -15,17 +15,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor blackColor];
         // stars background
-        UIImageView* bgFar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars1_s.png"]];
-        bgFar.center = CGPointMake(bgFar.image.size.width/4, bgFar.center.y);
-        bgFar.backgroundColor = [UIColor clearColor];
-        UIImageView* bgNear = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars1_l.png"]];
-        bgNear.center = CGPointMake(bgNear.image.size.width/4, bgNear.center.y);
-        bgNear.backgroundColor = [UIColor clearColor];
-        
-        [self addSubview:bgFar];
-        [self addSubview:bgNear];
+        UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scoreBg.png"]];
+        [self addSubview:bg];
         
         float smallCircleButtonPictureWidth = 120;
         float smallCircleButtonPictureHeight = 120;        
