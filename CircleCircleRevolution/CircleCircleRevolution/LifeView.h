@@ -10,7 +10,17 @@
 
 @interface LifeView : UIView
 {
-    UILabel* lifeLabel;
+    UIImageView* lifeBorder;
+    UIImageView* life1;
+    UIImageView* life2;
+    UIImageView* life3;
+    
+    UIImage* bottomFilled;
+    UIImage* bottomEmpty;
+    UIImage* middleFilled;
+    UIImage* middleEmpty;
+    UIImage* topFilled;
+    UIImage* topEmpty;
 }
 
 -(void)updateLife:(int)lives;

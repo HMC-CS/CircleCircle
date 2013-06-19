@@ -271,12 +271,12 @@
             [self scoreBlock2];        
         }else if (!gameOver){
             //[self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
-            [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:5.0];
+            [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:4.0];
             if (pauseDisabledBy2){
                 // cancel the other enable selector
                 [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(enablePause) object:nil];
             }
-            [self performSelector:@selector(enablePause) withObject:nil afterDelay:5.0];
+            [self performSelector:@selector(enablePause) withObject:nil afterDelay:4.0];
         }
     }
 }
@@ -290,12 +290,12 @@
         if (gameOver){
             [self scoreBlock1];
         }else if (!gameOver){
-            [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:5.0];
+            [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:4.0];
             if (pauseDisabledBy1){
                 // cancel the other enable selector
                 [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(enablePause) object:nil];
             }
-        [self performSelector:@selector(enablePause) withObject:nil afterDelay:5.0];
+        [self performSelector:@selector(enablePause) withObject:nil afterDelay:4.0];
         }
     }
 }

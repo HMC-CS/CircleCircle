@@ -18,7 +18,7 @@
         self.userInteractionEnabled = YES;
         percent = 0;
         feedback = 0;
-        color = [UIColor redColor];
+        color = [UIColor colorWithRed:0 green:128.0/255 blue:128.0/255 alpha:1];
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
@@ -41,11 +41,11 @@
     CGContextRestoreGState(context);
     
     if (feedback>percent) {
-        [self drawSlice:feedback :[UIColor purpleColor]];
-        [self drawSlice:percent :[UIColor blueColor]];
+        [self drawSlice:feedback :[UIColor colorWithRed:200.0/255 green:55.0/255 blue:55.0/255 alpha:1]];
+        [self drawSlice:percent :[UIColor colorWithRed:95.0/255 green:211.0/255 blue:95.0/255 alpha:1]];
     }else{
-        [self drawSlice:percent :[UIColor blueColor]];
-        [self drawSlice:feedback :[UIColor purpleColor]];
+        [self drawSlice:percent :[UIColor colorWithRed:95.0/255 green:211.0/255 blue:95.0/255 alpha:1]];
+        [self drawSlice:feedback :[UIColor colorWithRed:200.0/255 green:55.0/255 blue:55.0/255 alpha:1]];
     }
 }
 
