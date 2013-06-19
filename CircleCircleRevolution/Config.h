@@ -18,16 +18,15 @@
 #define kScreenHeight [UIScreen mainScreen].bounds.size.width
 
 // Menu Buttons
-#define button1X 50
-#define button1Y 30
-#define button2X 150
-#define button2Y 30
-#define button3X 250
-#define button3Y 30
-#define button4X 350
-#define button4Y 30
-#define buttonWidth 50
-#define buttonHeight 30
+#define rectButtonWidth 252
+#define rectTopButtonHeight 70
+#define rectMiddleButtonHeight 60
+#define rectBottomButtonHeight 64
+
+#define topButtonY (100)
+#define secondButtonY (topButtonY + rectTopButtonHeight)
+#define thirdButtonY (secondButtonY + rectMiddleButtonHeight)
+#define bottomButtonY (thirdButtonY + rectMiddleButtonHeight)
 
 // Gameplay Constants
 
@@ -42,49 +41,26 @@
 #define showPauseMenu @"Pause"
 
 // Single Circle Game Formatting - sg
-#define sgPauseButtonX
-#define sgPauseButtonY
-#define sgShipX
-#define sgShipY
-#define sgCircleX
-#define sgCircleY
-#define sgFractionX
-#define sgFractionY
-#define sgLifeMeterX
-#define sgLifeMeterY
+
 
 // Double Circle Game Formatting - dg
-#define dgPauseButtonX
-#define dgPauseButtonY
-#define dgShipX
-#define dgShipY
-#define dgCircle1X
-#define dgCircle1Y
-#define dgCircle2X
-#define dgCircle2Y
-#define dgFractionX
-#define dgFractionY
-#define dgLifeMeterX
-#define dgLifeMeterY
+
 
 // Credits Screen Formatting - cs
-#define csMainMenuButtonX 50
-#define csMainMenuButtonY 30
+
 #define csFontSize
 #define csFontPositionX
 #define csFontPositionY
 
 // Instrucitons Screen Formatting - is
-#define isMainMenuButtonX 50
-#define isMainMenuButtonY 30
+
 #define isFontSize
 #define isFontPositionX
 #define isFontPositionY
 
 
 // High Scores Screen Formatting - hs
-#define hsMainMenuButtonX 50
-#define hsMainMenuButtonY 30
+
 #define hsFontSize
 #define hsFontPositionX
 #define hsFontPositionY

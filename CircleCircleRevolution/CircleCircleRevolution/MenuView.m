@@ -19,16 +19,8 @@
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menuBg.png"]];
         [self addSubview:bg];
         
-        float buttonPictureWidth = 252;
-        float topButtonHeight = 70;
-        float middleButtonHeight = 60;
-        float bottomButtonHeight = 64;
+        float xCoord = self.bounds.size.width/2;
         
-        float xCoord = self.bounds.size.width/2;// - buttonPictureWidth/2;
-        float topButtonY = 100;
-        float secondButtonY = topButtonY + topButtonHeight;
-        float thirdButtonY = secondButtonY + middleButtonHeight;
-        float bottomButtonY = thirdButtonY + middleButtonHeight;
         
         // Initialization code
         self.userInteractionEnabled=YES;
@@ -38,7 +30,7 @@
         [gameButton setTitle:toSelectionScreen forState:UIControlStateNormal];
         [gameButton setBackgroundImage:[UIImage imageNamed:@"button_top.png"] forState:UIControlStateNormal];
         [gameButton setBackgroundImage:[UIImage imageNamed:@"button_top_pressed.png"] forState:UIControlStateHighlighted];
-        gameButton.frame = CGRectMake(xCoord,topButtonY, buttonPictureWidth, topButtonHeight);
+        gameButton.frame = CGRectMake(xCoord,topButtonY, rectButtonWidth, rectTopButtonHeight);
         [gameButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:gameButton];
         
@@ -47,7 +39,7 @@
         [instructionsButton setTitle:toInstructions forState:UIControlStateNormal];
         [instructionsButton setBackgroundImage:[UIImage imageNamed:@"button_middle_neutral.png"] forState:UIControlStateNormal];
         [instructionsButton setBackgroundImage:[UIImage imageNamed:@"button_middle_pressed.png"] forState:UIControlStateHighlighted];
-        instructionsButton.frame = CGRectMake(xCoord, secondButtonY, buttonPictureWidth, middleButtonHeight);
+        instructionsButton.frame = CGRectMake(xCoord, secondButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [instructionsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:instructionsButton];
         
@@ -56,7 +48,7 @@
         [scoreButton setTitle:toHighScores forState:UIControlStateNormal];
         [scoreButton setBackgroundImage:[UIImage imageNamed:@"button_middle_neutral.png"] forState:UIControlStateNormal];
         [scoreButton setBackgroundImage:[UIImage imageNamed:@"button_middle_pressed.png"] forState:UIControlStateHighlighted];
-        scoreButton.frame = CGRectMake(xCoord, thirdButtonY, buttonPictureWidth, middleButtonHeight);
+        scoreButton.frame = CGRectMake(xCoord, thirdButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [scoreButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:scoreButton];
         
@@ -65,7 +57,7 @@
         [creditsButton setTitle:toCredits forState:UIControlStateNormal];
         [creditsButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_neutral.png"] forState:UIControlStateNormal];
         [creditsButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_pressed.png"] forState:UIControlStateHighlighted];
-        creditsButton.frame = CGRectMake(xCoord, bottomButtonY, buttonPictureWidth, bottomButtonHeight);
+        creditsButton.frame = CGRectMake(xCoord, bottomButtonY, rectButtonWidth, rectBottomButtonHeight);
         [creditsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:creditsButton];
         
