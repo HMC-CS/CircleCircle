@@ -15,5 +15,6 @@
 }
 
 -(void)updateFraction:(NSArray*)currentFraction;
+-(id)initWithFrame:(CGRect)frame andImage:(NSString*)image;
 
 @end

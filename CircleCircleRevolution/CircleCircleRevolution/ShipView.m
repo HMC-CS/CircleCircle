@@ -26,21 +26,25 @@
             shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
             shipBody.backgroundColor = [UIColor clearColor];
             circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(174,67,320,320)];
-            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(223,398,220,194)];
+            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(223,398,220,194) andImage:@"ship_fraction_single.png"];
             [self addSubview:circleView1];
             [self addSubview:fractionView1];
             [self addSubview:shipBody];
         }
         else if (gameMode == 2)
         {
-            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width/2,self.bounds.size.width/2)];
-            circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(self.bounds.size.width/2,0,self.bounds.size.width/2,self.bounds.size.width/2)];
-            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(200,400,200,200)];
-            fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(400,400,200,200)];
+            shipBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ship_body_double.png"]];
+            shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
+            shipBody.backgroundColor = [UIColor clearColor];
+            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(136,44,249,249)];
+            circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(518,44,249,249)];
+            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(244,284,170,220) andImage:@"ship_fraction_double_1.png"];
+            fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(481,280,170,220) andImage:@"ship_fraction_double_2.png"];
             [self addSubview:circleView1];
             [self addSubview:circleView2];
             [self addSubview:fractionView1];
             [self addSubview:fractionView2];
+            [self addSubview:shipBody];
         }
     }
     return self;
@@ -75,7 +79,6 @@
 
 -(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2
 {
-    
     if (feedbackPercent1 == 0)
     {
         [circleView1 resetFeedback];
