@@ -23,7 +23,7 @@
 #define rectMiddleButtonHeight 60
 #define rectBottomButtonHeight 64
 
-#define topButtonY (100)
+#define topButtonY (400)
 #define secondButtonY (topButtonY + rectTopButtonHeight)
 #define thirdButtonY (secondButtonY + rectMiddleButtonHeight)
 #define bottomButtonY (thirdButtonY + rectMiddleButtonHeight)

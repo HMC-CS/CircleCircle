@@ -21,9 +21,14 @@
         
         float xCoord = self.bounds.size.width/2;
         
-        
         // Initialization code
         self.userInteractionEnabled=YES;
+        
+        // Title
+        title = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title.png"]];
+        title.backgroundColor = [UIColor clearColor];
+        title.frame = CGRectMake((kScreenWidth-title.image.size.width)/2,(kScreenHeight-title.image.size.height)/4,title.image.size.width,title.image.size.height);
+        [self addSubview:title];
         
         // Game button
         gameButton = [UIButton buttonWithType:UIButtonTypeCustom];
