@@ -20,10 +20,17 @@
     self = [super init];
     if (self)
     {
-        isPaused = FALSE;
+        circle1Feedback = 0;
+        circle1FeedbackChange = 0;
+        circle2Feedback = 0;
+        circle2FeedbackChange = 0;
+        
+        circle1FeedbackCount = -1;
+        circle2FeedbackCount = -1;
+        
+        resetCircle1Count = -1;
+        resetCircle2Count = -1;
         gameDifficulty = difficulty;
-        pauseDisabledBy2 = FALSE;
-        pauseDisabledBy1 = FALSE;
         self.view.backgroundColor = [UIColor blackColor];
         
         // Scrolling background pieces
@@ -141,6 +148,10 @@
         }
         if (circleNumber ==1)
         {
+            circle1FeedbackCount = -1;
+            circle1Feedback = 0;
+            circle1FeedbackChange = 0;
+            resetCircle1Count = -1;
             update1 = TRUE;
             touch1 = FALSE;
             circlePercent1 = 0;
@@ -151,6 +162,10 @@
         }
         if (circleNumber == 2)
         {
+            circle2FeedbackCount = -1;
+            circle2Feedback = 0;
+            circle2FeedbackChange = 0;
+            resetCircle2Count = -1;
             update2 = TRUE;
             touch2 = FALSE;
             circlePercent2 = 0;
@@ -171,11 +186,13 @@
 // Game Loop Updates
 -(void)allUpdates
 {
-    if (!isPaused){
-        [self moveLeft];
-        [self checkUpdate1];
-        if (gameMode ==2)
-            [self checkUpdate2];
+    [self moveLeft];
+    [self checkUpdate1];
+    if (gameMode ==2){
+        [self checkUpdate2];
+        [gameView setFeedback1:circle1Feedback feedback2:circle2Feedback];
+    }else{
+    [gameView setFeedback1:circle1Feedback feedback2:-1];
     }
 }
 
@@ -184,12 +201,29 @@
 {
     if (update1)
         [self updateCircle1];
+    if (resetCircle1Count>0)
+        resetCircle1Count--;
+    else if (resetCircle1Count == 0)
+        [self resetCircle:1];
+    if (circle1FeedbackCount>0){
+        circle1FeedbackCount--;
+        circle1Feedback += circle1FeedbackChange;        
+    }
+        
 }
 
 -(void) checkUpdate2
 {
     if (update2)
         [self updateCircle2];
+    if (resetCircle2Count>0)
+        resetCircle2Count--;
+    else if (resetCircle2Count == 0)
+        [self resetCircle:2];
+    if (circle2FeedbackCount>0){
+        circle2FeedbackCount--;
+        circle2Feedback += circle2FeedbackChange;
+    }
 }
 
 -(void) updateCircle1
@@ -236,16 +270,27 @@
 // Scoring and Displaying Feedback
 -(void)scoreBlock1
 {
-    //[timer1 invalidate];
     update1 = FALSE;
     float fracValue = [self calculateFractionValue:currentFraction1];
     int accuracy = [self calculateAccuracyFromPercent:circlePercent1 andTargetFractionValue:fracValue];
     [self tapFeedback:accuracy];
     [self checkGameOver];
-    [gameView setFeedback1:fracValue*100 feedback2:-1];
     [self updateScore];
     [gameView updateCircle1:circlePercent1 circle2:NO];
     touch1 = TRUE;
+    
+    float feedbackPercent = fracValue*100;
+    if (feedbackPercent>circlePercent1 && circle1Feedback ==0){
+        [gameView setFeedback1:circlePercent1 feedback2:-1];
+        circle1FeedbackChange = (feedbackPercent-circlePercent1)/60;
+        circle1Feedback = circlePercent1;
+            circle1FeedbackCount = 60;
+    }
+    else if (circle1Feedback == 0){
+        circle1FeedbackChange = feedbackPercent/60;
+            circle1FeedbackCount = 60;
+    }
+
 }
 
 -(void)scoreBlock2
@@ -255,28 +300,34 @@
     int accuracy = [self calculateAccuracyFromPercent:circlePercent2 andTargetFractionValue:fracValue];
     [self tapFeedback:accuracy];
     [self checkGameOver];
-    [gameView setFeedback1:-1 feedback2:fracValue*100];
     [self updateScore];
     [gameView updateCircle1:NO circle2:circlePercent2];
     touch2 = TRUE;
+    
+    float feedbackPercent = fracValue*100;
+    if (feedbackPercent>circlePercent2 && circle2Feedback==0){
+        [gameView setFeedback1:-1 feedback2:circlePercent2];
+        circle2FeedbackChange = (feedbackPercent-circlePercent2)/60;
+        circle2Feedback = circlePercent2;
+        circle2FeedbackCount = 60;
+
+    }
+    else if (circle2Feedback == 0){
+        circle2FeedbackChange = feedbackPercent/60;
+        circle2FeedbackCount = 60;
+
+    }
 }
 
 -(void) scoreTap1
 {
     if (!touch1){
-        [self scoreBlock1];        
-        [self disablePause];
-        pauseDisabledBy1 = TRUE;
+        [self scoreBlock1];
         if (gameOver && gameMode == 2){
             [self scoreBlock2];        
         }else if (!gameOver){
-            //[self performSelector:@selector(startTimer1) withObject:nil afterDelay:5.0];
-            [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:1] afterDelay:4.0];
-            if (pauseDisabledBy2){
-                // cancel the other enable selector
-                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(enablePause) object:nil];
-            }
-            [self performSelector:@selector(enablePause) withObject:nil afterDelay:4.0];
+            resetCircle1Count = 60*5;
+            
         }
     }
 }
@@ -285,17 +336,10 @@
 {
     if(!touch2){
         [self scoreBlock2];
-        [self disablePause];
-        pauseDisabledBy2 = TRUE;
         if (gameOver){
             [self scoreBlock1];
         }else if (!gameOver){
-            [self performSelector:@selector(resetCircleFromNum:) withObject:[NSNumber numberWithInt:2] afterDelay:4.0];
-            if (pauseDisabledBy1){
-                // cancel the other enable selector
-                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(enablePause) object:nil];
-            }
-        [self performSelector:@selector(enablePause) withObject:nil afterDelay:4.0];
+            resetCircle2Count = 5*60;
         }
     }
 }
@@ -362,20 +406,18 @@
     {
         if (!gameOver){ // the first time this is reached
             [self performSelector:@selector(goToHighScores) withObject:nil afterDelay:5.0];
-            [timer1 invalidate];
             [gameView disablePause];
 
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
         NSLog(@"Game should be over now, technically!");
-        [timer1 invalidate];
-
     }
 }
 
 // Helper method that can be called by a selector
 -(void) goToHighScores
 {
+    [timer1 invalidate];
     bg1Far.center = CGPointMake(bg1Far.image.size.width/2.0,bg1Far.image.size.height/2.0);
     bg2Far.center = CGPointMake(bg2Far.image.size.width/2.0,bg2Far.image.size.height/2.0);
     bg1Near.center = CGPointMake(bg1Near.image.size.width/2.0,bg1Near.image.size.height/2.0);
@@ -441,17 +483,5 @@
     backgroundMoveAmount = [gameModel getBackgroundChange];
 }
 
-// Disables pause button while feedback displays until circle resets
--(void) disablePause
-{
-    [gameView disablePause];
-}
-
--(void) enablePause
-{
-    pauseDisabledBy1 = FALSE;
-    pauseDisabledBy2 = FALSE;
-    [gameView enablePause];
-}
 
 @end

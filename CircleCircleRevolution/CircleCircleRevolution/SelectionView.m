@@ -18,17 +18,8 @@
         // stars background
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"modeBg.png"]];
         [self addSubview:bg];
-        
-        float buttonPictureWidth = 252;
-        float topButtonHeight = 70;
-        float middleButtonHeight = 60;
-        float bottomButtonHeight = 64;
-        
-        float xCoord = self.bounds.size.width/2;
-        float topButtonY = 100;
-        float secondButtonY = topButtonY + topButtonHeight;
-        float bottomButtonY = secondButtonY + middleButtonHeight;
                 
+        float xCoord = self.bounds.size.width/2;
         
         self.userInteractionEnabled=YES;
         
@@ -37,7 +28,7 @@
         [singleButton setTitle:toSingleGame forState:UIControlStateNormal];
         [singleButton setBackgroundImage:[UIImage imageNamed:@"button_top.png"] forState:UIControlStateNormal];
         [singleButton setBackgroundImage:[UIImage imageNamed:@"button_top_pressed.png"] forState:UIControlStateHighlighted];
-        singleButton.frame = CGRectMake(xCoord,topButtonY, buttonPictureWidth, topButtonHeight);
+        singleButton.frame = CGRectMake(xCoord,topButtonY, rectButtonWidth, rectTopButtonHeight);
 
         [singleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:singleButton];
@@ -47,7 +38,7 @@
         [doubleButton setTitle:toDoubleGame forState:UIControlStateNormal];
         [doubleButton setBackgroundImage:[UIImage imageNamed:@"button_middle_neutral.png"] forState:UIControlStateNormal];
         [doubleButton setBackgroundImage:[UIImage imageNamed:@"button_middle_pressed.png"] forState:UIControlStateHighlighted];
-        doubleButton.frame = CGRectMake(xCoord, secondButtonY, buttonPictureWidth, middleButtonHeight);
+        doubleButton.frame = CGRectMake(xCoord, secondButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [doubleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:doubleButton];
         
@@ -56,7 +47,7 @@
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
         [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_neutral.png"] forState:UIControlStateNormal];
         [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_pressed.png"] forState:UIControlStateHighlighted];
-        menuButton.frame = CGRectMake(xCoord, bottomButtonY, buttonPictureWidth, bottomButtonHeight);
+        menuButton.frame = CGRectMake(xCoord, thirdButtonY, rectButtonWidth, rectBottomButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
         
@@ -66,33 +57,6 @@
     }
     return self;
 }
-/*
--(void)selectDifficulty
-{
-    // make the view to select from
-    UIView* difficultySelection = [[UIView alloc] initWithFrame:self.bounds];
-    difficultySelection.backgroundColor = [UIColor brownColor];
-    
-    UIButton* easyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [easyButton setTitle:@"Easy" forState:UIControlStateNormal];
-    easyButton.frame = CGRectMake(ssSingleGameButtonX,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
-    [easyButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:easyButton];
-    
-    UIButton* mediumButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [mediumButton setTitle:@"Medium" forState:UIControlStateNormal];
-    mediumButton.frame = CGRectMake(ssSingleGameButtonX+50,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
-    [mediumButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:mediumButton];
-    
-    UIButton* hardButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [hardButton setTitle:@"Hard" forState:UIControlStateNormal];
-    hardButton.frame = CGRectMake(ssSingleGameButtonX+100,ssSingleGameButtonY, ssButtonWidth, ssButtonHeight);
-    [hardButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:hardButton];
-
-}*/
-
 
 // Protocol for communicating with SelectionViewController, to reach ViewController
 -(void) buttonPress:(id)sender

@@ -102,7 +102,7 @@
 }
 
 // Draws feedback "sweeping" to the correct answer
--(void) setFeedback:(float)newFeedback
+/*-(void) setFeedback:(float)newFeedback
 {
     if (feedback ==0){
         float startTime = 0;
@@ -123,7 +123,16 @@
             startTime += 0.04;
         }
     }
+}*/
+
+-(void) setFeedback:(float)newFeedback
+{
+    feedback = newFeedback;
+    [self setNeedsDisplay];
 }
+
+
+
 
 -(void) setCircleTarget:(id)sender forAction:(SEL)action
 {

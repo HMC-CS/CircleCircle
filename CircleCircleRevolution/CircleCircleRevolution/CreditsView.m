@@ -23,7 +23,7 @@
         float smallCircleButtonPictureHeight = 120;
         
         float xCoord = 25;
-        float topButtonY = 25;
+
         
         self.userInteractionEnabled=YES;
         

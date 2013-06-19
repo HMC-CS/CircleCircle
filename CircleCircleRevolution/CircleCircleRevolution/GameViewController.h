@@ -29,10 +29,23 @@
 {
     int gameMode;
     int gameDifficulty;
+    int resetCircle1Count;
+    int resetCircle2Count;
+    
+    int circle1FeedbackCount;
+    int circle2FeedbackCount;
+    
     float percentChange;
     float circlePercent1;
     float circlePercent2;
     float backgroundMoveAmount;
+    
+    float circle1Feedback;
+    float circle1FeedbackChange;
+    
+    float circle2Feedback;
+    float circle2FeedbackChange;
+    
     BOOL update1;
     BOOL touch1;
     BOOL update2;
@@ -40,8 +53,6 @@
     BOOL gameOver;
     BOOL isBoosted;
     BOOL isPaused;
-    BOOL pauseDisabledBy1;
-    BOOL pauseDisabledBy2;
     NSArray* currentFraction1;
     NSArray* currentFraction2;
     NSString* feedbackTerm1;
