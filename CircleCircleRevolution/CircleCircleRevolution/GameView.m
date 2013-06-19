@@ -82,7 +82,7 @@
         gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(700, 0, 310, 140)];
         
         // Life View
-        lifeView = [[LifeView alloc] initWithFrame:CGRectMake(500, 50, 200, 100)];
+        lifeView = [[LifeView alloc] initWithFrame:CGRectMake(850, 450, 120, 250)];
         
         
         [self addSubview:pauseView];
