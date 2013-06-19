@@ -1,0 +1,5 @@
+First, choose a mode and difficulty: one or two circles, and easy, medium or hard fractions.
+
+You will be shown a fraction, and the circle will begin to fill up. When the amount filled matches the fraction shown, tap the center of the circle. The closer you are, the more points you score!
+
+The more questions you get correct, the faster the circle will fill. Hold down "Boost" if you want the circle to fill faster!

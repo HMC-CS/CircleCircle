@@ -35,6 +35,27 @@
         [menuButton setBackgroundImage:[UIImage imageNamed:@"button_round_s_pressed.png"] forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(xCoord,topButtonY, smallCircleButtonPictureWidth, smallCircleButtonPictureHeight);        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
+        
+        // Get the file from the resources
+        NSString* path = [[NSBundle mainBundle] pathForResource:@"instructions" ofType:@"txt"];
+        NSAssert(path!=nil, @"instructions.txt not found. Failed to load Instructions screen");
+        NSString* fileContents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        
+        // Create the label
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2 - 250,0,500,500)];
+        label.text = fileContents;
+        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor clearColor];
+        label.numberOfLines = 0;
+        
+        // Position it on the screen
+        //label.position = CGPointMake(500,400);
+        
+        // Add it to the scene so it can be displayed
+        [self addSubview:label];
+
+        
+        
     }
     return self;
 }
