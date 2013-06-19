@@ -1,0 +1,10 @@
+Funded by NSF grant #1042472, The Games Network: Games for students, games by students (PIs Sweedyk and Erlinger) and by the Dept. of Computer Science, Harvey Mudd College
+
+Coded By
+    Kathryn Aplin, Haley Erickson, Paige Garratt, Azubuike Ndefo-Dahl, Carson Ramsden, and Jean Sung
+
+Original Concept By
+    Sean Campbell, Greg Kronmiller, Justin Lim, and Maruhan Park
+
+Resources
+	Art Assets by Azubuike Ndefo-Dahl
