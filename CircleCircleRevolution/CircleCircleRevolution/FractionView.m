@@ -11,13 +11,13 @@
 
 @implementation FractionView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andImage:(NSString*)image
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
-        fractionTab = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ship_fraction_single.png"]];
+        fractionTab = [[UIImageView alloc] initWithImage:[UIImage imageNamed:image]];
         fractionTab.backgroundColor = [UIColor clearColor];
         
         fractionLabel = [[UILabel alloc] initWithFrame:self.bounds];

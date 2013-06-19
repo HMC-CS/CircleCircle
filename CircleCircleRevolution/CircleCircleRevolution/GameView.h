@@ -26,7 +26,7 @@
 {
     UIButton* menuButton;
     UIButton* boostButton;
-    UIView* pauseView;
+    UIImageView* pauseView;
     UIButton* pauseButton;
     UIButton* resumeButton;
     ShipView* shipView;

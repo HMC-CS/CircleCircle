@@ -32,7 +32,7 @@
         [menuButton setTitle:@"Menu" forState:UIControlStateNormal];
         [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_neutral.png"] forState:UIControlStateNormal];
         [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_pressed.png"] forState:UIControlStateHighlighted];
-        menuButton.frame = CGRectMake(xCoord, bottomButtonY, buttonPictureWidth, bottomButtonHeight);
+        menuButton.frame = CGRectMake(xCoord-87, bottomButtonY, buttonPictureWidth, bottomButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         
         // Boost button
@@ -59,27 +59,32 @@
         [resumeButton setTitle:@"Resume" forState:UIControlStateNormal];
         [resumeButton setBackgroundImage:[UIImage imageNamed:@"button_top.png"] forState:UIControlStateNormal];
         [resumeButton setBackgroundImage:[UIImage imageNamed:@"button_top_pressed.png"] forState:UIControlStateHighlighted];
-        resumeButton.frame = CGRectMake(xCoord,topButtonY, buttonPictureWidth, topButtonHeight);
+        resumeButton.frame = CGRectMake(xCoord-87,topButtonY, buttonPictureWidth, topButtonHeight);
         [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
         
         // Pause Screen
-        pauseView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width,self.bounds.size.height)];
-        pauseView.backgroundColor = [UIColor purpleColor];
+        pauseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pause.png"]];
+        pauseView.frame = CGRectMake(87,75,850,620);
+        pauseView.backgroundColor = [UIColor clearColor];
+        pauseView.userInteractionEnabled = YES;
         [pauseView addSubview:menuButton];
         [pauseView addSubview:resumeButton];
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_border_2.png"]];
-        highlights.frame = CGRectMake(xCoord,topButtonY,252,132);
+        highlights.frame = CGRectMake(xCoord-87,topButtonY,252,132+2);
         [pauseView addSubview:highlights];
         
         pauseView.alpha = 0;
         
         // Ship view
-        shipView = [[ShipView alloc] initWithFrame:CGRectMake(177,100,560,440) andMode:mode];
+        if (mode == 1)
+            shipView = [[ShipView alloc] initWithFrame:CGRectMake(177,100,850,500) andMode:mode];
+        else if (mode == 2)
+            shipView = [[ShipView alloc] initWithFrame:CGRectMake(107,160,850,500) andMode:mode];
         shipView.backgroundColor = [UIColor clearColor];
         
         // Score view
-        gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(700, 0, 310, 140)];
+        gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(700, -25, 310, 140)];
         
         // Life View
         lifeView = [[LifeView alloc] initWithFrame:CGRectMake(850, 450, 120, 250)];

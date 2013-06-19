@@ -21,6 +21,7 @@
     UIButton* creditsButton;
     UIButton* scoreButton;
     UIButton* instructionsButton;
+    UIImageView* title;
 }
 
 @property (weak,nonatomic)id<ButtonOnMenuPressed> pressedDelegate;
