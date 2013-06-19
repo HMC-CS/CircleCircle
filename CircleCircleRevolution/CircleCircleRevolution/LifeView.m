@@ -14,12 +14,30 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        lifeLabel = [[UILabel alloc] initWithFrame:self.bounds];
-        lifeLabel.backgroundColor = [UIColor whiteColor];
-        lifeLabel.textColor = [UIColor blackColor];
-        lifeLabel.textAlignment = NSTextAlignmentCenter;
-        lifeLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(36.0)];
-        [self addSubview:lifeLabel];
+        lifeBorder = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"life_border.png"]];
+        lifeBorder.backgroundColor = [UIColor clearColor];
+        
+        bottomFilled = [UIImage imageNamed:@"life_bottom_filled.png"];
+        bottomEmpty = [UIImage imageNamed:@"life_bottom_emptypng"];
+        middleFilled = [UIImage imageNamed:@"life_middle_filled.png"];
+        middleEmpty = [UIImage imageNamed:@"life_middle_empty.png"];
+        topFilled = [UIImage imageNamed:@"life_top_filled.png"];
+        topEmpty = [UIImage imageNamed:@"life_top_empty.png"];
+        
+        
+        life1 = [[UIImageView alloc] initWithImage:bottomFilled];
+        life1.backgroundColor = [UIColor clearColor];
+        
+        life2 = [[UIImageView alloc] initWithImage:middleFilled];
+        life2.backgroundColor = [UIColor clearColor];
+        
+        life3 = [[UIImageView alloc] initWithImage:topFilled];
+        life3.backgroundColor = [UIColor clearColor];
+        
+        [self addSubview:life1];
+        [self addSubview:life2];
+        [self addSubview:life3];
+        [self addSubview:lifeBorder];
     }
     return self;
 }
@@ -27,15 +45,20 @@
 
 -(void) updateLife:(int)lives
 {
-    lifeLabel.text = [NSString stringWithFormat:@"%d lives", lives];
+    if (lives == 2)
+        [life3 setHidden:YES];
+    if (lives == 1)
+        [life2 setHidden:YES];
+    if (lives == 0)
+        [life1 setHidden:YES];
 }
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end
