@@ -40,7 +40,7 @@
     
     CGContextRestoreGState(context);
     
-    if (feedback>percent) {
+    if (feedback>=percent) {
         [self drawSlice:feedback :[UIColor colorWithRed:200.0/255 green:55.0/255 blue:55.0/255 alpha:1]];
         [self drawSlice:percent :[UIColor colorWithRed:95.0/255 green:211.0/255 blue:95.0/255 alpha:1]];
     }else{
@@ -101,29 +101,6 @@
     feedback = 0;
 }
 
-// Draws feedback "sweeping" to the correct answer
-/*-(void) setFeedback:(float)newFeedback
-{
-    if (feedback ==0){
-        float startTime = 0;
-        float percentChange;
-        if (newFeedback>percent) //you underestimated, so fill from where you ended
-        {
-            feedback = percent;
-            percentChange = (newFeedback-percent)/25;
-        }
-        else //if you over estimated, start from 0
-        {
-            feedback = 0;
-            percentChange = newFeedback/25;
-        }
-        while (startTime < 1.0) // for 1 second, 25 redraws
-        {
-            [self performSelector:@selector(updateFeedback:) withObject:[NSNumber numberWithFloat:percentChange] afterDelay:startTime];
-            startTime += 0.04;
-        }
-    }
-}*/
 
 -(void) setFeedback:(float)newFeedback
 {

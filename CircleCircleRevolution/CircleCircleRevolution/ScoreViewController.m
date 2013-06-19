@@ -76,7 +76,6 @@
         }
         [self insertNewHighScore:lastScore andName:playerName];
         [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastGameScore"];
-        NSLog(@"Good job, %@! Your score was %d!", playerName, lastScore);
     }
 }
 
@@ -111,7 +110,11 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     lastScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"lastGameScore"];
-    if (lastScore >= 0){
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *highScores = [NSMutableArray arrayWithArray: [defaults arrayForKey: @"scores"]];
+
+    int lowestHighScore = [[highScores objectAtIndex:4] intValue];
+    if (lastScore >= lowestHighScore){
         [self promptForName];
     }
 }
