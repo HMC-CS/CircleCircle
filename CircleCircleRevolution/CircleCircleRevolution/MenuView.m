@@ -15,6 +15,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        // Configuration Constants
+        float xCoord = self.bounds.size.width/2;
+        float highlightsHeight = 251;
+        
         // stars background
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menuBg.png"]];
         [self addSubview:bg];
@@ -23,7 +27,6 @@
         UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
         [self addSubview:twinklingStars];
         
-        float xCoord = self.bounds.size.width/2;
         
         // Initialization code
         self.userInteractionEnabled=YES;
@@ -71,7 +74,7 @@
         [self addSubview:creditsButton];
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight4];
-        highlights.frame = CGRectMake(xCoord,topButtonY,252,251);
+        highlights.frame = CGRectMake(xCoord,topButtonY,rectButtonWidth,highlightsHeight);
         [self addSubview:highlights];
         
          

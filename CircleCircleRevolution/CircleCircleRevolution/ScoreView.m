@@ -15,6 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+
         // stars background
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scoreBg.png"]];
         [self addSubview:bg];
@@ -23,7 +24,6 @@
         UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
         [self addSubview:twinklingStars];
              
-        float xCoord = 25;
         
         self.userInteractionEnabled=YES;
         
@@ -32,7 +32,7 @@
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
         [menuButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
-        menuButton.frame = CGRectMake(xCoord,circleButtonY, smallCircleButtonWidth, smallCircleButtonHeight);
+        menuButton.frame = CGRectMake(circleButtonY,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
         

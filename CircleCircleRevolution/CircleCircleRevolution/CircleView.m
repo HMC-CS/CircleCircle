@@ -7,6 +7,7 @@
 //
 
 #import "CircleView.h"
+#import "Config.h"
 
 @implementation CircleView
 
@@ -18,7 +19,7 @@
         self.userInteractionEnabled = YES;
         percent = 0;
         feedback = 0;
-        color = [UIColor colorWithRed:0 green:128.0/255 blue:128.0/255 alpha:1];
+        color = circleBGColor;
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
@@ -41,11 +42,11 @@
     CGContextRestoreGState(context);
     
     if (feedback>=percent) {
-        [self drawSlice:feedback :[UIColor colorWithRed:200.0/255 green:55.0/255 blue:55.0/255 alpha:1]];
-        [self drawSlice:percent :[UIColor colorWithRed:95.0/255 green:211.0/255 blue:95.0/255 alpha:1]];
+        [self drawSlice:feedback :circleFeedbackColor];
+        [self drawSlice:percent :circleFillColor];
     }else{
-        [self drawSlice:percent :[UIColor colorWithRed:95.0/255 green:211.0/255 blue:95.0/255 alpha:1]];
-        [self drawSlice:feedback :[UIColor colorWithRed:200.0/255 green:55.0/255 blue:55.0/255 alpha:1]];
+        [self drawSlice:percent :circleFillColor];
+        [self drawSlice:feedback :circleFeedbackColor];
     }
 }
 
