@@ -20,7 +20,15 @@
     [super viewDidLoad];
     [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastGameScore"];
 
-	// Do any additional setup after loading the view, typically from a nib.
+
+    NSString* bgMusicPath = [[NSBundle mainBundle] pathForResource:@"through space" ofType:@"mp3"];
+    NSURL* bgMusicURL = [NSURL fileURLWithPath:bgMusicPath];
+    NSError* error;
+    bgMusicPlayer = [[AVAudioPlayer alloc]
+                                    initWithContentsOfURL:bgMusicURL error:&error];
+    bgMusicPlayer.numberOfLoops = -1;
+    [bgMusicPlayer prepareToPlay];
+    [bgMusicPlayer play];
     
     self.navigationBarHidden = YES;
     
