@@ -19,6 +19,9 @@
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"difficultyBg.png"]];
         [self addSubview:bg];
 
+        // Twinkling stars
+        UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
+        [self addSubview:twinklingStars];
         float xCoord = self.bounds.size.width/2 - rectButtonWidth/2;
         
         UIButton* easyButton = [UIButton buttonWithType:UIButtonTypeCustom];

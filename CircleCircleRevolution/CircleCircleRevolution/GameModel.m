@@ -26,6 +26,11 @@
     score += increment;
     if (increment >0){
         problemsCorrect += 1;
+        if (problemsCorrect % 3 == 0 && problemsCorrect != 0 && percentChange < 0.5)
+        {
+            percentChange += .2;
+            backgroundChange += 5;
+        }
 
     }
 }
@@ -37,11 +42,6 @@
 
 -(float)calculateSpeed
 {
-    if (problemsCorrect % 3 == 0 && problemsCorrect != 0 && percentChange < 0.5)
-    {
-        percentChange += .2;
-        backgroundChange += 5;
-    }
     return percentChange;
 }
 
