@@ -20,17 +20,17 @@
     self = [super init];
     if (self)
     {
+        // Initial feedback, percent, and counter values
         circle1Feedback = 0;
         circle1FeedbackChange = 0;
         circle2Feedback = 0;
         circle2FeedbackChange = 0;
-        
         circle1FeedbackCount = -1;
-        circle2FeedbackCount = -1;
-        
+        circle2FeedbackCount = -1;        
         resetCircle1Count = -1;
         resetCircle2Count = -1;
-        gameDifficulty = difficulty;
+        
+        
         self.view.backgroundColor = [UIColor blackColor];
         
         // Scrolling background pieces
@@ -40,17 +40,14 @@
         bg2Far = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars2_s.png"]];
         bg2Far.center = CGPointMake(3.0*bg2Far.image.size.width/2.0, bg2Far.center.y);
         bg2Far.backgroundColor = [UIColor clearColor];
-
         [self.view addSubview:bg1Far];
         [self.view addSubview:bg2Far];
-        
         bg1Near = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars1_l.png"]];
         bg1Near.center = CGPointMake(bg1Near.image.size.width/2.0, bg1Near.center.y);
         bg1Near.backgroundColor = [UIColor clearColor];
         bg2Near = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stars2_l.png"]];
         bg2Near.center = CGPointMake(3.0*bg2Near.image.size.width/2.0, bg2Near.center.y);
         bg1Near.backgroundColor = [UIColor clearColor];
-
         [self.view addSubview:bg1Near];
         [self.view addSubview:bg2Near];
         
@@ -61,29 +58,26 @@
         gameView.pressedDelegate = self;
         [self.view addSubview:gameView];
 
+        // Models
         shipModel = [[ShipModel alloc] init];
         fractionModel = [[FractionModel alloc] init];
         gameModel = [[GameModel alloc] init];
         
+        // Game Mode Information
+        gameDifficulty = difficulty;
         gameMode = mode;
-        update1 = TRUE;
-        touch1 = FALSE;
-        touch2 = FALSE;
-        percentChange = 0.1;
-        backgroundMoveAmount = 1.0;
         
+        // Initial Updates
+        update2 = FALSE;
         [self resetCircle:1];
-        
-        [self startTimer1];
         if (gameMode == 2)
         {
-            update2 = TRUE;
             [self resetCircle:2];
-            touch2 = FALSE;
         }
+        [self startTimer1];
+        NSLog(@"lives are %d",[gameModel getLives]);
         [gameView updateLife:[gameModel getLives]];
         gameOver = FALSE;
-        
         isBoosted = FALSE;
         
     }
@@ -92,29 +86,29 @@
 
 -(void)moveLeft
 {
-    float moveAmount = backgroundMoveAmount;
     if (bg1Far.center.x <= -bg1Far.image.size.width/2.0)
     {
-        bg1Far.center = CGPointMake(1.5*bg1Far.image.size.width,bg1Far.center.y);
+        bg1Far.center = CGPointMake(bg2Far.center.x+bg1Far.image.size.width,bg1Far.center.y);
     }
     if (bg2Far.center.x <= -bg2Far.image.size.width/2.0)
     {
-        bg2Far.center = CGPointMake(1.5*bg2Far.image.size.width,bg2Far.center.y);
+        bg2Far.center = CGPointMake(bg1Far.center.x+bg2Far.image.size.width,bg2Far.center.y);
     }
-    bg1Far.center = CGPointMake(bg1Far.center.x - moveAmount, bg1Far.center.y);
-    bg2Far.center = CGPointMake(bg2Far.center.x - moveAmount, bg2Far.center.y);
+    
+    bg1Far.center = CGPointMake(bg1Far.center.x - backgroundMoveAmount, bg1Far.center.y);
+    bg2Far.center = CGPointMake(bg2Far.center.x - backgroundMoveAmount, bg2Far.center.y);
   
     
     if (bg1Near.center.x <= -bg1Near.image.size.width/2.0)
     {
-        bg1Near.center = CGPointMake(1.5*bg1Near.image.size.width,bg1Near.center.y);
+        bg1Near.center = CGPointMake(bg2Near.center.x+bg1Near.image.size.width,bg1Near.center.y);
     }
     if (bg2Near.center.x <= -bg2Near.image.size.width/2.0)
     {
-        bg2Near.center = CGPointMake(1.5*bg2Near.image.size.width,bg2Near.center.y);
+        bg2Near.center = CGPointMake(bg1Near.center.x+bg2Near.image.size.width,bg2Near.center.y);
     }
-    bg1Near.center = CGPointMake(bg1Near.center.x - 2*moveAmount, bg1Near.center.y);
-    bg2Near.center = CGPointMake(bg2Near.center.x - 2*moveAmount, bg2Near.center.y);
+    bg1Near.center = CGPointMake(bg1Near.center.x - nearFarParallaxRatio*backgroundMoveAmount, bg1Near.center.y);
+    bg2Near.center = CGPointMake(bg2Near.center.x - nearFarParallaxRatio*backgroundMoveAmount, bg2Near.center.y);
 
 }
 
@@ -123,7 +117,7 @@
 -(void) startTimer1
 {
     if (!gameOver){
-    timer1 = [NSTimer scheduledTimerWithTimeInterval:1.0/60
+    timer1 = [NSTimer scheduledTimerWithTimeInterval:1.0/gameFPS
                                              target:self
                                            selector:@selector(allUpdates)
                                            userInfo:nil
@@ -141,10 +135,9 @@
     {
         percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
         backgroundMoveAmount = [gameModel getBackgroundChange];
-        NSLog(@"percent change is %f and bgmoveamt is %f",percentChange,backgroundMoveAmount);
         if (isBoosted){
-            percentChange += 1;
-            backgroundMoveAmount *=3;
+            percentChange += boostPercent;
+            backgroundMoveAmount *= boostBackground;
         }
         if (circleNumber ==1)
         {
@@ -177,11 +170,6 @@
         [self updateScore];
     }
 }
-// A helper method so reset can be called by a selector
--(void) resetCircleFromNum:(NSNumber*)circleNumber
-{
-    [self resetCircle:[circleNumber integerValue]];
-}
 
 // Game Loop Updates
 -(void)allUpdates
@@ -209,7 +197,6 @@
         circle1FeedbackCount--;
         circle1Feedback += circle1FeedbackChange;        
     }
-        
 }
 
 -(void) checkUpdate2
@@ -282,13 +269,13 @@
     float feedbackPercent = fracValue*100;
     if (feedbackPercent>=circlePercent1 && circle1Feedback ==0){
         [gameView setFeedback1:circlePercent1 feedback2:-1];
-        circle1FeedbackChange = (feedbackPercent-circlePercent1)/60;
+        circle1FeedbackChange = (feedbackPercent-circlePercent1)/feedbackFrames;
         circle1Feedback = circlePercent1;
-            circle1FeedbackCount = 60;
+            circle1FeedbackCount = feedbackFrames;
     }
     else if (circle1Feedback == 0){
-        circle1FeedbackChange = feedbackPercent/60;
-            circle1FeedbackCount = 60;
+        circle1FeedbackChange = feedbackPercent/feedbackFrames;
+            circle1FeedbackCount = feedbackFrames;
     }
 
 }
@@ -307,15 +294,13 @@
     float feedbackPercent = fracValue*100;
     if (feedbackPercent>=circlePercent2 && circle2Feedback==0){
         [gameView setFeedback1:-1 feedback2:circlePercent2];
-        circle2FeedbackChange = (feedbackPercent-circlePercent2)/60;
+        circle2FeedbackChange = (feedbackPercent-circlePercent2)/feedbackFrames;
         circle2Feedback = circlePercent2;
-        circle2FeedbackCount = 60;
-
+        circle2FeedbackCount = feedbackFrames;
     }
     else if (circle2Feedback == 0){
-        circle2FeedbackChange = feedbackPercent/60;
-        circle2FeedbackCount = 60;
-
+        circle2FeedbackChange = feedbackPercent/feedbackFrames;
+        circle2FeedbackCount = feedbackFrames;
     }
 }
 
@@ -326,7 +311,7 @@
         if (gameOver && gameMode == 2){
             [self scoreBlock2];        
         }else if (!gameOver){
-            resetCircle1Count = 60*5;
+            resetCircle1Count = resetFrames;
             
         }
     }
@@ -339,7 +324,7 @@
         if (gameOver){
             [self scoreBlock1];
         }else if (!gameOver){
-            resetCircle2Count = 5*60;
+            resetCircle2Count = resetFrames;
         }
     }
 }
@@ -349,21 +334,21 @@
     NSString* feedbackTerm = @"Miss";
     int score = 0;
     if (!gameOver){
-        if (accuracy <= 2)
+        if (accuracy <= awesomeAccuracy)
         {
             feedbackTerm = @"Awesome";
-            score = 100;
+            score = awesomeScore;
         }
-        else if (accuracy <= 5)
+        else if (accuracy <= goodAccuracy)
         {
             feedbackTerm = @"Good";
-            score = 50;
+            score = goodScore;
         }
         
-        else if (accuracy <= 8)
+        else if (accuracy <= okayAccuracy)
         {
             feedbackTerm = @"Okay";
-            score = 25;
+            score = okayScore;
         }
         else
         {
@@ -392,7 +377,6 @@
     return fracValue;
 }
 
-
 -(void) displayFeedback:(NSString*)feedbackTerm atPosition:(CGPoint)location
 {
     // Any visual onscreen feedback other than the circle filling
@@ -405,12 +389,11 @@
     if ([gameModel getLives]==0) // the game is over
     {
         if (!gameOver){ // the first time this is reached
-            [self performSelector:@selector(goToHighScores) withObject:nil afterDelay:5.0];
+            [self performSelector:@selector(goToHighScores) withObject:nil afterDelay:resetWaitTime];
             [gameView disablePause];
-
+            NSLog(@"Game should be over now, technically!");
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
-        NSLog(@"Game should be over now, technically!");
     }
 }
 
@@ -472,15 +455,15 @@
 -(void) boost
 {
     isBoosted = TRUE;
-    percentChange +=1;
-    backgroundMoveAmount *= 3;
+    percentChange += boostPercent;
+    backgroundMoveAmount *= boostBackground;
 }
 
 -(void) unboost
 {
     isBoosted = FALSE;
-    percentChange -= 1;//[gameModel calculateSpeed];
-    backgroundMoveAmount /= 3;//[gameModel getBackgroundChange];
+    percentChange -= boostPercent;
+    backgroundMoveAmount /= boostBackground;
 }
 
 

@@ -22,24 +22,24 @@
         
         if (gameMode == 1)
         {
-            shipBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ship_body_single.png"]];
+            shipBody = [[UIImageView alloc] initWithImage:singleShipImage];
             shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
             shipBody.backgroundColor = [UIColor clearColor];
-            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(174,67,320,320)];
-            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(223,398,220,194) andImage:@"ship_fraction_single.png"];
+            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(sgCircleX,sgCircleY,sgCircleSize,sgCircleSize)];
+            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(sgFractionX,sgFractionY,sgFractionWidth,sgFractionHeight) andImage:sgFractionImageName];
             [self addSubview:circleView1];
             [self addSubview:fractionView1];
             [self addSubview:shipBody];
         }
         else if (gameMode == 2)
         {
-            shipBody = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ship_body_double.png"]];
+            shipBody = [[UIImageView alloc] initWithImage:doubleShipImage];
             shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
             shipBody.backgroundColor = [UIColor clearColor];
-            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(136,44,249,249)];
-            circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(518,44,249,249)];
-            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(244,284,170,220) andImage:@"ship_fraction_double_1.png"];
-            fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(481,280,170,220) andImage:@"ship_fraction_double_2.png"];
+            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle1X,dgCircle1Y,dgCircleSize,dgCircleSize)];
+            circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle2X,dgCircle2Y,dgCircleSize,dgCircleSize)];
+            fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction1X,dgFraction1Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction1ImageName];
+            fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction2X,dgFraction2Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction2ImageName];
             [self addSubview:circleView1];
             [self addSubview:circleView2];
             [self addSubview:fractionView1];

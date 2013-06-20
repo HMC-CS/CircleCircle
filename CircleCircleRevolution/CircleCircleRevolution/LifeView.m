@@ -7,6 +7,7 @@
 //
 
 #import "LifeView.h"
+#import "Config.h"
 
 @implementation LifeView
 
@@ -14,15 +15,15 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        lifeBorder = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"life_border.png"]];
+        lifeBorder = [[UIImageView alloc] initWithImage:lifeBorderImage];
         lifeBorder.backgroundColor = [UIColor clearColor];
         
-        bottomFilled = [UIImage imageNamed:@"life_bottom_filled.png"];
-        bottomEmpty = [UIImage imageNamed:@"life_bottom_emptypng"];
-        middleFilled = [UIImage imageNamed:@"life_middle_filled.png"];
-        middleEmpty = [UIImage imageNamed:@"life_middle_empty.png"];
-        topFilled = [UIImage imageNamed:@"life_top_filled.png"];
-        topEmpty = [UIImage imageNamed:@"life_top_empty.png"];
+        bottomFilled = bottomLifeFilled;
+        bottomEmpty = bottomLifeEmpty;
+        middleFilled = middleLifeFilled;
+        middleEmpty = middleLifeEmpty;
+        topFilled = topLifeFilled;
+        topEmpty = topLifeEmpty;
         
         
         life1 = [[UIImageView alloc] initWithImage:bottomFilled];

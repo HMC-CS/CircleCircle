@@ -7,16 +7,17 @@
 //
 
 #import "GameModel.h"
+#import "Config.h"
 
 @implementation GameModel
 
 -(id)init
 {
     score = 0;
-    percentChange = 0.1;
+    percentChange = startingPercentChange;
     problemsCorrect = 0;
     lives = 3;
-    backgroundChange = 1.0;
+    backgroundChange = startingBackgroundChange;
     return self;
 
 }
@@ -26,10 +27,10 @@
     score += increment;
     if (increment >0){
         problemsCorrect += 1;
-        if (problemsCorrect % 3 == 0 && problemsCorrect != 0 && percentChange < 0.5)
+        if (problemsCorrect % numProblemCorrectForIncrease == 0 && problemsCorrect != 0 && percentChange < maximumPercentChange)
         {
-            percentChange += .2;
-            backgroundChange += 5;
+            percentChange += percentChangeIncrease;
+            backgroundChange += backgroundChangeIncrease;
         }
 
     }
