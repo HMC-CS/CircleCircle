@@ -280,7 +280,7 @@
     touch1 = TRUE;
     
     float feedbackPercent = fracValue*100;
-    if (feedbackPercent>circlePercent1 && circle1Feedback ==0){
+    if (feedbackPercent>=circlePercent1 && circle1Feedback ==0){
         [gameView setFeedback1:circlePercent1 feedback2:-1];
         circle1FeedbackChange = (feedbackPercent-circlePercent1)/60;
         circle1Feedback = circlePercent1;
@@ -305,7 +305,7 @@
     touch2 = TRUE;
     
     float feedbackPercent = fracValue*100;
-    if (feedbackPercent>circlePercent2 && circle2Feedback==0){
+    if (feedbackPercent>=circlePercent2 && circle2Feedback==0){
         [gameView setFeedback1:-1 feedback2:circlePercent2];
         circle2FeedbackChange = (feedbackPercent-circlePercent2)/60;
         circle2Feedback = circlePercent2;
@@ -479,8 +479,8 @@
 -(void) unboost
 {
     isBoosted = FALSE;
-    percentChange = [gameModel calculateSpeed];
-    backgroundMoveAmount = [gameModel getBackgroundChange];
+    percentChange -= 1;//[gameModel calculateSpeed];
+    backgroundMoveAmount /= 3;//[gameModel getBackgroundChange];
 }
 
 
