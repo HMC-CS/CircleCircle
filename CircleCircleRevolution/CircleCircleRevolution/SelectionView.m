@@ -18,7 +18,11 @@
         // stars background
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"modeBg.png"]];
         [self addSubview:bg];
-                
+        
+        // Twinkling stars
+        UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
+        [self addSubview:twinklingStars];
+        
         float xCoord = self.bounds.size.width/2;
         
         self.userInteractionEnabled=YES;

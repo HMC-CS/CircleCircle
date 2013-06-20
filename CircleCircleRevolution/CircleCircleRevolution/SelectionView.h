@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIEffectDesignerView.h"
+
 
 @class SelectionView;
 
