@@ -30,11 +30,11 @@
 -(void) passedDifficulty:(UIButton*)button;
 {
     
-    if ([button.titleLabel.text isEqualToString:@"Easy"])
+    if ([button.titleLabel.text isEqualToString:easyMode])
         [self.screenDelegate beginGameWithMode:gameMode andDifficulty:1];
-    if ([button.titleLabel.text isEqualToString:@"Medium"])
+    if ([button.titleLabel.text isEqualToString:mediumMode])
         [self.screenDelegate beginGameWithMode:gameMode andDifficulty:2];
-    if ([button.titleLabel.text isEqualToString:@"Hard"])
+    if ([button.titleLabel.text isEqualToString:hardMode])
         [self.screenDelegate beginGameWithMode:gameMode andDifficulty:3];
 
     
