@@ -19,6 +19,10 @@
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"creditsBg.png"]];
         [self addSubview:bg];
         
+        // Twinkling stars
+        UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
+        [self addSubview:twinklingStars];
+        
         float smallCircleButtonPictureWidth = 120;
         float smallCircleButtonPictureHeight = 120;
         
