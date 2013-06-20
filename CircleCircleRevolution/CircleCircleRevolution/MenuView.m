@@ -19,6 +19,10 @@
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menuBg.png"]];
         [self addSubview:bg];
         
+        // Twinkling stars
+        UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
+        [self addSubview:twinklingStars];
+        
         float xCoord = self.bounds.size.width/2;
         
         // Initialization code
