@@ -8,6 +8,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "MenuViewController.h"
 #import "CreditsViewController.h"
 #import "SelectionViewController.h"
@@ -26,5 +27,6 @@
     InstructionsViewController* instructionsViewController;
     GameViewController* gameViewController;
     DifficultySelectionViewController* difficultySelectionViewController;
+    AVAudioPlayer* bgMusicPlayer;
 }
 @end
