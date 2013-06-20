@@ -20,9 +20,6 @@
     [super viewDidLoad];
     [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastGameScore"];
 
-
-    NSString* bgMusicPath = [[NSBundle mainBundle] pathForResource:@"through space" ofType:@"mp3"];
-    NSURL* bgMusicURL = [NSURL fileURLWithPath:bgMusicPath];
     NSError* error;
     bgMusicPlayer = [[AVAudioPlayer alloc]
                                     initWithContentsOfURL:bgMusicURL error:&error];

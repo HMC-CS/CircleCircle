@@ -18,7 +18,7 @@
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
         
-        scoreBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"score_tab.png"]];
+        scoreBg = [[UIImageView alloc] initWithImage:scoreImage];
         scoreBg.backgroundColor = [UIColor clearColor];
         
         scoreLabel = [[UILabel alloc] initWithFrame:self.bounds];

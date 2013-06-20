@@ -7,6 +7,7 @@
 //
 
 #import "GameView.h"
+#import "Config.h"
 
 @implementation GameView
 
@@ -14,80 +15,76 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        float buttonPictureWidth = 252;
-        float topButtonHeight = 70;
-        float bottomButtonHeight = 64;
+        // Configuration Constants
+        float xCoord = self.bounds.size.width/2  - rectButtonWidth/2;
+        float highlightsHeight = 134;
         
-        float xCoord = self.bounds.size.width/2  - buttonPictureWidth/2;
-        float topButtonY = 100;
-        float bottomButtonY = topButtonY + topButtonHeight;
-        
-        // Initialization code
         self.backgroundColor = [UIColor clearColor];
-        
         self.userInteractionEnabled = YES;
         
-        // Menu button
+               
+        // Pause Screen
+        pauseView = [[UIImageView alloc] initWithImage:pauseScreenImage];
+        pauseView.frame = CGRectMake(pauseScreenXOffset,pauseScreenYOffset,pauseScreenImage.size.width,pauseScreenImage.size.height);
+        pauseView.backgroundColor = [UIColor clearColor];
+        pauseView.userInteractionEnabled = YES;
+
+        
+        // Menu button - on pause screen
         menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [menuButton setTitle:@"Menu" forState:UIControlStateNormal];
-        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_neutral.png"] forState:UIControlStateNormal];
-        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_pressed.png"] forState:UIControlStateHighlighted];
-        menuButton.frame = CGRectMake(xCoord-87, bottomButtonY, buttonPictureWidth, bottomButtonHeight);
+        [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
+        [menuButton setBackgroundImage:bottomRectButtonNormal forState:UIControlStateNormal];
+        [menuButton setBackgroundImage:bottomRectButtonPressed forState:UIControlStateHighlighted];
+        menuButton.frame = CGRectMake(xCoord-pauseScreenXOffset, secondButtonY, rectButtonWidth, rectBottomButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        
+        // Resume button - on pause screen
+        resumeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [resumeButton setTitle:resumeGame forState:UIControlStateNormal];
+        [resumeButton setBackgroundImage:topRectButtonNormal forState:UIControlStateNormal];
+        [resumeButton setBackgroundImage:topRectButtonPressed forState:UIControlStateHighlighted];
+        resumeButton.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY, rectButtonWidth, rectTopButtonHeight);
+        [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight2];
+        highlights.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY,rectButtonWidth,highlightsHeight);
+        [pauseView addSubview:menuButton];
+        [pauseView addSubview:resumeButton];
+        [pauseView addSubview:highlights];
+        pauseView.alpha = 0;
+        
         
         // Boost button
         boostButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [boostButton setTitle:@"Boost" forState:UIControlStateNormal];
-        boostButton.frame = CGRectMake(50,500,178,178);
-        [boostButton setImage:[UIImage imageNamed:@"button_round_l_neutral.png"] forState:UIControlStateNormal];
-        [boostButton setImage:[UIImage imageNamed:@"button_round_l_pressed.png"] forState:UIControlStateHighlighted];
+        [boostButton setTitle:speedBoost forState:UIControlStateNormal];
+        boostButton.frame = CGRectMake(gameLeftButtonX,gameBoostY,largeCircleButtonSize,largeCircleButtonSize);
+        [boostButton setImage:largeCircleButtonNormal forState:UIControlStateNormal];
+        [boostButton setImage:largeCircleButtonPressed forState:UIControlStateHighlighted];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchUpInside];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchDragExit];
         [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDown];
-        [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDragEnter];        
-    
+        [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDragEnter];
+        
         // Pause button
         pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
-        pauseButton.frame = CGRectMake(50,50,120,120);
-        [pauseButton setImage:[UIImage imageNamed:@"button_round_s_neutral.png"] forState:UIControlStateNormal];
-        [pauseButton setImage:[UIImage imageNamed:@"button_round_s_pressed.png"] forState:UIControlStateHighlighted];
+        [pauseButton setTitle:pauseGame forState:UIControlStateNormal];
+        pauseButton.frame = CGRectMake(gameLeftButtonX,gamePauseY,smallCircleButtonSize,smallCircleButtonSize);
+        [pauseButton setImage:smallCircleButtonNormal forState:UIControlStateNormal];
+        [pauseButton setImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         [pauseButton addTarget:self action:@selector(pause) forControlEvents:UIControlEventTouchUpInside];
-        
-        // Resume button
-        resumeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [resumeButton setTitle:@"Resume" forState:UIControlStateNormal];
-        [resumeButton setBackgroundImage:[UIImage imageNamed:@"button_top.png"] forState:UIControlStateNormal];
-        [resumeButton setBackgroundImage:[UIImage imageNamed:@"button_top_pressed.png"] forState:UIControlStateHighlighted];
-        resumeButton.frame = CGRectMake(xCoord-87,topButtonY, buttonPictureWidth, topButtonHeight);
-        [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
-        
-        // Pause Screen
-        pauseView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pause.png"]];
-        pauseView.frame = CGRectMake(87,75,850,620);
-        pauseView.backgroundColor = [UIColor clearColor];
-        pauseView.userInteractionEnabled = YES;
-        [pauseView addSubview:menuButton];
-        [pauseView addSubview:resumeButton];
-        
-        UIImageView* highlights = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_border_2.png"]];
-        highlights.frame = CGRectMake(xCoord-87,topButtonY,252,132+2);
-        [pauseView addSubview:highlights];
-        
-        pauseView.alpha = 0;
         
         // Ship view
         if (mode == 1)
-            shipView = [[ShipView alloc] initWithFrame:CGRectMake(177,100,850,500) andMode:mode];
+            shipView = [[ShipView alloc] initWithFrame:CGRectMake(sgShipXOffset,sgShipYOffset,shipWidth,shipHeight) andMode:mode];
         else if (mode == 2)
-            shipView = [[ShipView alloc] initWithFrame:CGRectMake(107,160,850,500) andMode:mode];
+            shipView = [[ShipView alloc] initWithFrame:CGRectMake(dgShipXOffset,dgShipYOffset,shipWidth,shipHeight) andMode:mode];
         shipView.backgroundColor = [UIColor clearColor];
         
         // Score view
-        gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(700, -25, 310, 140)];
+        gameScoreView = [[GameScoreView alloc] initWithFrame:CGRectMake(gameScoreX, gameScoreY, gameScoreWidth, gameScoreHeight)];
         
         // Life View
-        lifeView = [[LifeView alloc] initWithFrame:CGRectMake(850, 450, 120, 250)];
+        lifeView = [[LifeView alloc] initWithFrame:CGRectMake(lifeXOffset, lifeYOffset, lifeWidth, lifeHeight)];
         
         
         [self addSubview:pauseView];

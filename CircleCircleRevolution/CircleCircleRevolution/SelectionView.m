@@ -15,6 +15,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        // Configuration Constants
+        float xCoord = self.bounds.size.width/2;
+        float highlightsHeight = 132;
+        
         // stars background
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"modeBg.png"]];
         [self addSubview:bg];
@@ -22,12 +26,6 @@
         // Twinkling stars
         UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
         [self addSubview:twinklingStars];
-        
-        float smallCircleButtonPictureWidth = 120;
-        float smallCircleButtonPictureHeight = 120;
-        
-        float xCoord = self.bounds.size.width/2;
-        float menuXCoord = 25;
         
         self.userInteractionEnabled=YES;
         
@@ -45,8 +43,8 @@
         doubleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [doubleButton setTitle:toDoubleGame forState:UIControlStateNormal];
 
-        [doubleButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_neutral.png"] forState:UIControlStateNormal];
-        [doubleButton setBackgroundImage:[UIImage imageNamed:@"button_bottom_pressed.png"] forState:UIControlStateHighlighted];
+        [doubleButton setBackgroundImage:bottomRectButtonNormal forState:UIControlStateNormal];
+        [doubleButton setBackgroundImage:bottomRectButtonPressed forState:UIControlStateHighlighted];
 
         doubleButton.frame = CGRectMake(xCoord, secondButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [doubleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
@@ -56,16 +54,17 @@
         menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
 
-        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_round_s_neutral.png"] forState:UIControlStateNormal];
-        [menuButton setBackgroundImage:[UIImage imageNamed:@"button_round_s_pressed.png"] forState:UIControlStateHighlighted];
-        menuButton.frame = CGRectMake(menuXCoord,topButtonY, smallCircleButtonPictureWidth, smallCircleButtonPictureHeight);        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        [menuButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
+        [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
+        menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
+        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview:menuButton];
 
         
 
-        UIImageView* highlights = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_border_2.png"]];
-        highlights.frame = CGRectMake(xCoord,topButtonY,252,132);
+        UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight2];
+        highlights.frame = CGRectMake(xCoord,topButtonY,rectButtonWidth,highlightsHeight);
 
         [self addSubview:highlights];
     }

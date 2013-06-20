@@ -23,10 +23,6 @@
         UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
         [self addSubview:twinklingStars];
         
-        float xCoord = 25;
-        
-        
-        
         self.userInteractionEnabled=YES;
         
         /// Menu button
@@ -34,7 +30,7 @@
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
         [menuButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
-        menuButton.frame = CGRectMake(xCoord,circleButtonY, smallCircleButtonWidth, smallCircleButtonHeight);        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
         
         // Get the file from the resources

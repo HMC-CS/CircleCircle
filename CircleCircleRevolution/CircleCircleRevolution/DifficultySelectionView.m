@@ -15,6 +15,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        // Configuration Constants
+        float xCoord = self.bounds.size.width/2 - rectButtonWidth/2;
+        float highlightsHeight = 192;
+
         // stars background
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"difficultyBg.png"]];
         [self addSubview:bg];
@@ -22,7 +26,6 @@
         // Twinkling stars
         UIEffectDesignerView* twinklingStars = [UIEffectDesignerView effectWithFile:@"starTwinkle.ped"];
         [self addSubview:twinklingStars];
-        float xCoord = self.bounds.size.width/2 - rectButtonWidth/2;
         
         UIButton* easyButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [easyButton setTitle:easyMode forState:UIControlStateNormal];
@@ -48,7 +51,7 @@
         [self addSubview:hardButton];
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight3];
-        highlights.frame = CGRectMake(xCoord,topButtonY,252,192);
+        highlights.frame = CGRectMake(xCoord,topButtonY,rectButtonWidth,highlightsHeight);
         [self addSubview:highlights];
         
     }
