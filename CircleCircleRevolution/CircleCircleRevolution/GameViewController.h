@@ -17,6 +17,7 @@
 #import "FractionModel.h"
 #import "GameModel.h"
 #import "DifficultySelectionView.h"
+#import <AVFoundation/AVFoundation.h>
 
 @class GameViewController;
 
@@ -68,6 +69,12 @@
     UIImageView* bg2Far;
     UIImageView* bg1Near;
     UIImageView* bg2Near;
+    
+    AVAudioPlayer *buttonSFX;
+    AVAudioPlayer *correctSFX;
+    AVAudioPlayer *wrongSFX;
+    AVAudioPlayer *boostSFX;
+    AVAudioPlayer *fasterSFX;
 }
 
 -(id)initWithMode:(int)mode andDifficulty:(int)difficulty;

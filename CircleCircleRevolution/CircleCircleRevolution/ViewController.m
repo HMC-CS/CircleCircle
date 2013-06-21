@@ -27,6 +27,11 @@
     [bgMusicPlayer prepareToPlay];
     [bgMusicPlayer play];
     
+    
+    buttonSFX = [[AVAudioPlayer alloc]
+                 initWithContentsOfURL:buttonSFXURL error:&error];
+    
+    
     self.navigationBarHidden = YES;
     
     // Initialize all child view controllers
@@ -55,6 +60,11 @@
 
 -(void)goToScreen:(NSString *)screen
 {
+    [buttonSFX prepareToPlay];
+    [buttonSFX play];
+    NSLog(@"played button swoosh from VC in gottoscreen method");
+
+
     if ([screen isEqualToString:toMainMenu])
         [self popToViewController:menuViewController animated:YES];
     else if ([screen isEqualToString:toSelectionScreen])
@@ -76,7 +86,6 @@
         difficultySelectionViewController = [[DifficultySelectionViewController alloc] initWithMode:2];
         difficultySelectionViewController.screenDelegate = self;
         [self pushViewController:difficultySelectionViewController animated:YES];
-
     }
     else
         NSLog(@"Invalid screen.");
@@ -122,6 +131,9 @@
 
 -(void)beginGameWithMode:(int)gameMode andDifficulty:(int)difficulty
 {
+    [buttonSFX prepareToPlay];
+    [buttonSFX play];
+    NSLog(@"played button swoosh from VC in begin game w/ mode method");
     gameViewController = [[GameViewController alloc] initWithMode:gameMode andDifficulty:difficulty];
     gameViewController.screenDelegate = self;
     [self pushViewController:gameViewController animated:YES];

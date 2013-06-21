@@ -175,6 +175,11 @@
     pauseButton.enabled = YES;
 }
 
+-(void) disableBoost
+{
+    boostButton.enabled = NO;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

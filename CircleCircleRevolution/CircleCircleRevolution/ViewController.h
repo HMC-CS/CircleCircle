@@ -28,5 +28,6 @@
     GameViewController* gameViewController;
     DifficultySelectionViewController* difficultySelectionViewController;
     AVAudioPlayer* bgMusicPlayer;
+    AVAudioPlayer* buttonSFX;
 }
 @end
