@@ -20,6 +20,21 @@
     self = [super init];
     if (self)
     {
+        // Sounds
+        NSError* error;
+
+        buttonSFX = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonSFXURL error:&error];
+        correctSFX = [[AVAudioPlayer alloc] initWithContentsOfURL:correctSFXURL error:&error];
+        [correctSFX setVolume:3.0];
+        wrongSFX = [[AVAudioPlayer alloc] initWithContentsOfURL:wrongSFXURL error:&error];
+        [wrongSFX setVolume:3.0];
+        fasterSFX = [[AVAudioPlayer alloc] initWithContentsOfURL:fasterSFXURL error:&error];
+        [fasterSFX setVolume:3.0];
+        boostSFX = [[AVAudioPlayer alloc] initWithContentsOfURL:boostSFXURL error:&error];
+        boostSFX.numberOfLoops = -1;
+        [boostSFX setVolume:2.5];
+        
+        
         // Initial feedback, percent, and counter values
         circle1Feedback = 0;
         circle1FeedbackChange = 0;
@@ -133,12 +148,7 @@
 {
     if (!gameOver)
     {
-        percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
-        backgroundMoveAmount = [gameModel getBackgroundChange];
-        if (isBoosted){
-            percentChange += boostPercent;
-            backgroundMoveAmount *= boostBackground;
-        }
+        [self getNewSpeeds];
         if (circleNumber ==1)
         {
             circle1FeedbackCount = -1;
@@ -169,6 +179,25 @@
         }    
         [self updateScore];
     }
+}
+
+-(void) getNewSpeeds
+{
+    if (isBoosted){
+        percentChange -= boostPercent;
+        backgroundMoveAmount /= boostBackground;
+    }
+    if (percentChange < [gameModel calculateSpeed]){// we got faster
+        [fasterSFX prepareToPlay];
+        [fasterSFX play];
+    }
+    percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
+    backgroundMoveAmount = [gameModel getBackgroundChange];
+    if (isBoosted){
+        percentChange += boostPercent;
+        backgroundMoveAmount *= boostBackground;
+    }
+
 }
 
 // Game Loop Updates
@@ -359,6 +388,14 @@
             }
         }
     }
+    if (score >0){
+        [correctSFX prepareToPlay];
+        [correctSFX play];
+    }
+    else{
+        [wrongSFX prepareToPlay];
+        [wrongSFX play];
+    }
     [gameModel incrementScore:score];
     return feedbackTerm;
 }
@@ -391,6 +428,10 @@
         if (!gameOver){ // the first time this is reached
             [self performSelector:@selector(goToHighScores) withObject:nil afterDelay:resetWaitTime];
             [gameView disablePause];
+            [gameView disableBoost];
+            if (isBoosted){
+                [self unboost];
+            }
             NSLog(@"Game should be over now, technically!");
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
@@ -401,6 +442,8 @@
 -(void) goToHighScores
 {
     [timer1 invalidate];
+    if ([boostSFX isPlaying]){
+        [boostSFX stop];}
     bg1Far.center = CGPointMake(bg1Far.image.size.width/2.0,bg1Far.image.size.height/2.0);
     bg2Far.center = CGPointMake(bg2Far.image.size.width/2.0,bg2Far.image.size.height/2.0);
     bg1Near.center = CGPointMake(bg1Near.image.size.width/2.0,bg1Near.image.size.height/2.0);
@@ -408,6 +451,9 @@
     [gameView removeFromSuperview];
     // Save the score in the userDefaults for last game, and go to high scores
     [[NSUserDefaults standardUserDefaults] setInteger:[gameModel getScore] forKey:@"lastGameScore"];
+    [[NSUserDefaults standardUserDefaults] setInteger:gameDifficulty forKey:@"lastGameDifficulty"];
+    [[NSUserDefaults standardUserDefaults] setInteger:gameMode forKey:@"lastGameMode"];
+
     [self.screenDelegate goToScreenFromGame1:toHighScores];
     
 }
@@ -443,17 +489,23 @@
 // Protocol for pausing and resuming game
 -(void) gamePause
 {
+    [buttonSFX prepareToPlay];
+    [buttonSFX play];
     [timer1 invalidate];
 }
 
 -(void) gameResume
 {
+    [buttonSFX prepareToPlay];
+    [buttonSFX play];
     [self startTimer1];
 }
 
 // Protocol for boosting
 -(void) boost
 {
+    [boostSFX prepareToPlay];
+    [boostSFX play];
     isBoosted = TRUE;
     percentChange += boostPercent;
     backgroundMoveAmount *= boostBackground;
@@ -461,6 +513,7 @@
 
 -(void) unboost
 {
+    [boostSFX stop];
     isBoosted = FALSE;
     percentChange -= boostPercent;
     backgroundMoveAmount /= boostBackground;

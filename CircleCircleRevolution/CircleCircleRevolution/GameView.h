@@ -11,6 +11,8 @@
 #import "GameScoreView.h"
 #import "LifeView.h"
 
+#import <AVFoundation/AVFoundation.h>
+
 @class GameView;
 
 @protocol ButtonOnGame1Pressed <NSObject>
@@ -43,6 +45,7 @@
 -(void) setCircleTarget:(id)sender forAction:(SEL)action whichCircle:(int)circleNumber;
 -(void) disablePause;
 -(void) enablePause;
+-(void) disableBoost;
 
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;

@@ -62,6 +62,16 @@
 // Audio
 #define bgMusicPath [[NSBundle mainBundle] pathForResource:@"through space" ofType:@"mp3"]
 #define bgMusicURL [NSURL fileURLWithPath:bgMusicPath]
+#define buttonSFXPath [[NSBundle mainBundle] pathForResource:@"flopp med underleppa (flanger9)" ofType:@"wav"]
+#define buttonSFXURL [NSURL fileURLWithPath:buttonSFXPath]
+#define correctSFXPath [[NSBundle mainBundle] pathForResource:@"zapThreeToneUp" ofType:@"mp3"]
+#define correctSFXURL [NSURL fileURLWithPath:correctSFXPath]
+#define wrongSFXPath [[NSBundle mainBundle] pathForResource:@"zapThreeToneDown" ofType:@"mp3"]
+#define wrongSFXURL [NSURL fileURLWithPath:wrongSFXPath]
+#define fasterSFXPath [[NSBundle mainBundle] pathForResource:@"threetone12" ofType:@"mp3"]
+#define fasterSFXURL [NSURL fileURLWithPath:fasterSFXPath]
+#define boostSFXPath [[NSBundle mainBundle] pathForResource:@"171106__qubodup__rocket-flight-loop" ofType:@"mp3"]
+#define boostSFXURL [NSURL fileURLWithPath:boostSFXPath]
 
 // Button Titles
 #define toMainMenu @"Menu"
