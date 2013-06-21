@@ -33,6 +33,8 @@
         boostSFX = [[AVAudioPlayer alloc] initWithContentsOfURL:boostSFXURL error:&error];
         boostSFX.numberOfLoops = -1;
         [boostSFX setVolume:2.5];
+        gameOverSound = [[AVAudioPlayer alloc] initWithContentsOfURL:gameOverSoundURL error:&error];
+        [gameOverSound setVolume:2.0];
         
         
         // Initial feedback, percent, and counter values
@@ -389,6 +391,8 @@
         }
     }
     if (score >0){
+        [correctSFX stop];
+        correctSFX.currentTime = 0;
         [correctSFX prepareToPlay];
         [correctSFX play];
     }
@@ -433,6 +437,8 @@
                 [self unboost];
             }
             NSLog(@"Game should be over now, technically!");
+            [gameOverSound prepareToPlay];
+            [gameOverSound play];
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
     }

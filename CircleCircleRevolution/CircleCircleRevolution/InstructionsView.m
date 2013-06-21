@@ -28,9 +28,13 @@
         /// Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
+        menuButton.titleLabel.font = fontSmallRoundButtons;
         [menuButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
-        menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
+        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+
         [self addSubview:menuButton];
         
         // Get the file from the resources
@@ -44,11 +48,10 @@
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
         label.numberOfLines = 0;
-        
-        // Position it on the screen
-        //label.position = CGPointMake(500,400);
-        
-        // Add it to the scene so it can be displayed
+        label.font = fontInstructions;
+        label.shadowOffset = CGSizeMake(-1,-1);
+        label.shadowColor = [UIColor blackColor];
+
         [self addSubview:label];
 
         

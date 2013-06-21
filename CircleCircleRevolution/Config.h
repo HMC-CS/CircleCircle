@@ -13,7 +13,14 @@
 #define CircleCircleRevolution_Config_h
 
 // Overall
-#define kgameFont
+#define fontRectButtons [UIFont fontWithName:@"Krungthep" size:30.0]
+#define fontSmallRoundButtons [UIFont fontWithName:@"Krungthep" size:25.0]
+#define fontLargeRoundButtons [UIFont fontWithName:@"Krungthep" size:40.0]
+#define fontInstructions [UIFont fontWithName:@"Krungthep" size:30.0]
+#define fontCredits [UIFont fontWithName:@"Krungthep" size:30.0]
+#define fontHighScores [UIFont fontWithName:@"Krungthep" size:30.0]
+#define fontScoreLabel [UIFont fontWithName:@"Krungthep" size:30.0]
+#define fontFractionLabel [UIFont fontWithName:@"Krungthep" size:50.0]
 #define kScreenWidth [UIScreen mainScreen].bounds.size.height
 #define kScreenHeight [UIScreen mainScreen].bounds.size.width
 
@@ -72,6 +79,8 @@
 #define fasterSFXURL [NSURL fileURLWithPath:fasterSFXPath]
 #define boostSFXPath [[NSBundle mainBundle] pathForResource:@"171106__qubodup__rocket-flight-loop" ofType:@"mp3"]
 #define boostSFXURL [NSURL fileURLWithPath:boostSFXPath]
+#define gameOverSoundPath [[NSBundle mainBundle] pathForResource:@"43698__notchfilter__game-over03" ofType:@"wav"]
+#define gameOverSoundURL [NSURL fileURLWithPath:gameOverSoundPath]
 
 // Button Titles
 #define toMainMenu @"Menu"

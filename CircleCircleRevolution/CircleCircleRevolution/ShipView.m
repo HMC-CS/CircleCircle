@@ -25,7 +25,7 @@
             shipBody = [[UIImageView alloc] initWithImage:singleShipImage];
             shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
             shipBody.backgroundColor = [UIColor clearColor];
-            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(sgCircleX,sgCircleY,sgCircleSize,sgCircleSize)];
+            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(sgCircleX-50,sgCircleY-50,sgCircleSize+100,sgCircleSize+100)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(sgFractionX,sgFractionY,sgFractionWidth,sgFractionHeight) andImage:sgFractionImageName];
             [self addSubview:circleView1];
             [self addSubview:fractionView1];
@@ -36,8 +36,8 @@
             shipBody = [[UIImageView alloc] initWithImage:doubleShipImage];
             shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
             shipBody.backgroundColor = [UIColor clearColor];
-            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle1X,dgCircle1Y,dgCircleSize,dgCircleSize)];
-            circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle2X,dgCircle2Y,dgCircleSize,dgCircleSize)];
+            circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle1X-40,dgCircle1Y-40,dgCircleSize+80,dgCircleSize+80)];
+            circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle2X-40,dgCircle2Y-40,dgCircleSize+80,dgCircleSize+80)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction1X,dgFraction1Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction1ImageName];
             fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction2X,dgFraction2Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction2ImageName];
             [self addSubview:circleView1];

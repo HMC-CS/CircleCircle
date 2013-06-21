@@ -30,9 +30,13 @@
         // Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
+        menuButton.titleLabel.font = fontSmallRoundButtons;
         [menuButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
-        menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
+        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+
         [self addSubview:menuButton];
         
         // Get the file from the resources
@@ -41,11 +45,14 @@
         NSString* fileContents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
         // Create the label
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2 - 250,0,500,500)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2 - 350,0,700,800)];
         label.text = fileContents;
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
         label.numberOfLines = 0;
+        label.font = fontCredits;
+        label.shadowColor=[UIColor blackColor];
+        label.shadowOffset = CGSizeMake(-1,-1);
         [self addSubview:label];
     }
     return self;

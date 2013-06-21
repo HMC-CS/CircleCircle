@@ -32,9 +32,12 @@
         // single button
         singleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [singleButton setTitle:toSingleGame forState:UIControlStateNormal];
+        singleButton.titleLabel.font = fontRectButtons;
         [singleButton setBackgroundImage:topRectButtonNormal forState:UIControlStateNormal];
         [singleButton setBackgroundImage:topRectButtonPressed forState:UIControlStateHighlighted];
         singleButton.frame = CGRectMake(xCoord,topButtonY, rectButtonWidth, rectTopButtonHeight);
+        singleButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+
 
         [singleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:singleButton];
@@ -42,9 +45,11 @@
         // double button
         doubleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [doubleButton setTitle:toDoubleGame forState:UIControlStateNormal];
-
+        doubleButton.titleLabel.font = fontRectButtons;
         [doubleButton setBackgroundImage:bottomRectButtonNormal forState:UIControlStateNormal];
         [doubleButton setBackgroundImage:bottomRectButtonPressed forState:UIControlStateHighlighted];
+        doubleButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+
 
         doubleButton.frame = CGRectMake(xCoord, secondButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [doubleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
@@ -53,11 +58,12 @@
         /// Menu button
         menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
-
+        menuButton.titleLabel.font = fontSmallRoundButtons;
         [menuButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
 
         [self addSubview:menuButton];
 

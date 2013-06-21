@@ -33,18 +33,24 @@
         // Menu button - on pause screen
         menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setTitle:toMainMenu forState:UIControlStateNormal];
+        menuButton.titleLabel.font = fontRectButtons;
         [menuButton setBackgroundImage:bottomRectButtonNormal forState:UIControlStateNormal];
         [menuButton setBackgroundImage:bottomRectButtonPressed forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(xCoord-pauseScreenXOffset, secondButtonY, rectButtonWidth, rectBottomButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+
         
         // Resume button - on pause screen
         resumeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [resumeButton setTitle:resumeGame forState:UIControlStateNormal];
+        resumeButton.titleLabel.font = fontRectButtons;
         [resumeButton setBackgroundImage:topRectButtonNormal forState:UIControlStateNormal];
         [resumeButton setBackgroundImage:topRectButtonPressed forState:UIControlStateHighlighted];
         resumeButton.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY, rectButtonWidth, rectTopButtonHeight);
         [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
+        resumeButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight2];
         highlights.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY,rectButtonWidth,highlightsHeight);
@@ -57,21 +63,28 @@
         // Boost button
         boostButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [boostButton setTitle:speedBoost forState:UIControlStateNormal];
+        boostButton.titleLabel.font = fontLargeRoundButtons;
         boostButton.frame = CGRectMake(gameLeftButtonX,gameBoostY,largeCircleButtonSize,largeCircleButtonSize);
-        [boostButton setImage:largeCircleButtonNormal forState:UIControlStateNormal];
-        [boostButton setImage:largeCircleButtonPressed forState:UIControlStateHighlighted];
+        [boostButton setBackgroundImage:largeCircleButtonNormal forState:UIControlStateNormal];
+        [boostButton setBackgroundImage:largeCircleButtonPressed forState:UIControlStateHighlighted];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchUpInside];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchDragExit];
         [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDown];
         [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDragEnter];
+        boostButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+
+        
         
         // Pause button
         pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [pauseButton setTitle:pauseGame forState:UIControlStateNormal];
+        pauseButton.titleLabel.font = fontSmallRoundButtons;
         pauseButton.frame = CGRectMake(gameLeftButtonX,gamePauseY,smallCircleButtonSize,smallCircleButtonSize);
-        [pauseButton setImage:smallCircleButtonNormal forState:UIControlStateNormal];
-        [pauseButton setImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
+        [pauseButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
+        [pauseButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         [pauseButton addTarget:self action:@selector(pause) forControlEvents:UIControlEventTouchUpInside];
+        pauseButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+
         
         // Ship view
         if (mode == 1)
