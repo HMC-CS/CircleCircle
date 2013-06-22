@@ -71,7 +71,7 @@
         [menuButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
-        [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
+        [menuButton addTarget:self action:@selector(toMenu:) forControlEvents:UIControlEventTouchUpInside];
         menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
 
         
@@ -84,6 +84,11 @@
 -(void)buttonPress:(id)sender
 {
     [self.pressedDelegate passedDifficulty:sender];
+}
+
+-(void) toMenu:(id)sender
+{
+    [self.pressedDelegate toMenuFromDifficultySelection:sender];
 }
 
 /*

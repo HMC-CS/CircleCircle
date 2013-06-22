@@ -13,6 +13,7 @@
 
 @protocol BeginGameFromDifficulySelection <NSObject>
 -(void) beginGameWithMode:(int) gameMode andDifficulty:(int)difficulty;
+-(void) goToScreenFromDifficultySelection:(NSString*)screen;
 
 @end
 

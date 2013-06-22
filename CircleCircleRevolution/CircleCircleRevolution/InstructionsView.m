@@ -53,9 +53,6 @@
         label.shadowColor = [UIColor blackColor];
 
         [self addSubview:label];
-
-        
-        
     }
     return self;
 }

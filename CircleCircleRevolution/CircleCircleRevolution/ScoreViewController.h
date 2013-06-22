@@ -21,6 +21,8 @@
     NSString* playerName;
     UIAlertView* message;
     int lastScore;
+    int lastMode;
+    int lastDifficulty;
 }
 
 @property (weak,nonatomic) id<ChangeScreenFromScore> screenDelegate;
