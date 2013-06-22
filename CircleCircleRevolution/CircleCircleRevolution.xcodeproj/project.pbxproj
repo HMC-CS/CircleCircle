@@ -94,6 +94,8 @@
 		6FD2684C1774D0D3009DFECB /* threetone12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD2684B1774D0D3009DFECB /* threetone12.mp3 */; };
 		6FD2684F1774D0E9009DFECB /* zapThreeToneDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD2684D1774D0E9009DFECB /* zapThreeToneDown.mp3 */; };
 		6FD268501774D0E9009DFECB /* zapThreeToneUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD2684E1774D0E9009DFECB /* zapThreeToneUp.mp3 */; };
+		6FD268521774F0E0009DFECB /* 43698__notchfilter__game-over03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FD268511774F0E0009DFECB /* 43698__notchfilter__game-over03.wav */; };
+		6FD268551775126C009DFECB /* Krungthep.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FD26854177507D9009DFECB /* Krungthep.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +216,8 @@
 		6FD2684B1774D0D3009DFECB /* threetone12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = threetone12.mp3; sourceTree = "<group>"; };
 		6FD2684D1774D0E9009DFECB /* zapThreeToneDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zapThreeToneDown.mp3; sourceTree = "<group>"; };
 		6FD2684E1774D0E9009DFECB /* zapThreeToneUp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zapThreeToneUp.mp3; sourceTree = "<group>"; };
+		6FD268511774F0E0009DFECB /* 43698__notchfilter__game-over03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "43698__notchfilter__game-over03.wav"; sourceTree = "<group>"; };
+		6FD26854177507D9009DFECB /* Krungthep.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Krungthep.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +239,7 @@
 		459B78561770F5C500D3C583 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6FD268531775079F009DFECB /* Fonts */,
 				6F98E35A17736D6D00FC64C9 /* Sounds */,
 				45BD0A97177255B800EF11C2 /* effects */,
 				45BD0A7C17722CE500EF11C2 /* life */,
@@ -530,6 +535,7 @@
 		6F98E35A17736D6D00FC64C9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				6FD268511774F0E0009DFECB /* 43698__notchfilter__game-over03.wav */,
 				6FD2684D1774D0E9009DFECB /* zapThreeToneDown.mp3 */,
 				6FD2684E1774D0E9009DFECB /* zapThreeToneUp.mp3 */,
 				6FD2684B1774D0D3009DFECB /* threetone12.mp3 */,
@@ -538,6 +544,14 @@
 				6F98E35B17736D8200FC64C9 /* through space.mp3 */,
 			);
 			name = Sounds;
+			sourceTree = "<group>";
+		};
+		6FD268531775079F009DFECB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6FD26854177507D9009DFECB /* Krungthep.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -646,6 +660,8 @@
 				6FD2684C1774D0D3009DFECB /* threetone12.mp3 in Resources */,
 				6FD2684F1774D0E9009DFECB /* zapThreeToneDown.mp3 in Resources */,
 				6FD268501774D0E9009DFECB /* zapThreeToneUp.mp3 in Resources */,
+				6FD268521774F0E0009DFECB /* 43698__notchfilter__game-over03.wav in Resources */,
+				6FD268551775126C009DFECB /* Krungthep.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
