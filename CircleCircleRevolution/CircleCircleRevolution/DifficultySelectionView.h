@@ -13,6 +13,7 @@
 
 @protocol ButtonOnDifficultySelectionPressed <NSObject>
 -(void) passedDifficulty:(UIButton*)button;
+-(void) toMenuFromDifficultySelection:(UIButton*)button;
 
 @end
 

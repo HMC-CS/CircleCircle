@@ -75,6 +75,7 @@
     AVAudioPlayer *wrongSFX;
     AVAudioPlayer *boostSFX;
     AVAudioPlayer *fasterSFX;
+    AVAudioPlayer *gameOverSound;
 }
 
 -(id)initWithMode:(int)mode andDifficulty:(int)difficulty;

@@ -24,7 +24,7 @@
         fractionLabel.backgroundColor = [UIColor clearColor];
         fractionLabel.textColor = [UIColor blackColor];
         fractionLabel.textAlignment = NSTextAlignmentCenter;
-        fractionLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(72.0)];
+        fractionLabel.font = fontFractionLabel;
         
         [self addSubview:fractionTab];
         [self addSubview:fractionLabel];

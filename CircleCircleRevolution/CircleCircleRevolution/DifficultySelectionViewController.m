@@ -53,4 +53,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) toMenuFromDifficultySelection:(UIButton*)button
+{
+    [self.screenDelegate goToScreenFromDifficultySelection:button.titleLabel.text];
+}
+
 @end

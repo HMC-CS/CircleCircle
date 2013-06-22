@@ -129,6 +129,11 @@
     [self goToScreen:screen];
 }
 
+-(void) goToScreenFromDifficultySelection:(NSString*)screen
+{
+    [self goToScreen:screen];
+}
+
 -(void)beginGameWithMode:(int)gameMode andDifficulty:(int)difficulty
 {
     [buttonSFX prepareToPlay];
