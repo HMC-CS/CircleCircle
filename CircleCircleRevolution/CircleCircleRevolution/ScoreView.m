@@ -65,17 +65,15 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // Get high scores array from "defaults" object
     NSString* scoresToPrint = @"";
-    
     for (int difficulty=1; difficulty<4;difficulty++) {
         for (int mode = 1; mode <3; mode++){
             NSMutableArray *highScores = [NSMutableArray arrayWithArray: [defaults arrayForKey: [[NSString alloc] initWithFormat:@"scores mode:%d diff:%d",mode,difficulty]]];
-    NSMutableArray *nameList = [NSMutableArray arrayWithArray: [defaults arrayForKey: [[NSString alloc] initWithFormat:@"names mode:%d diff:%d",mode,difficulty]]];
-    scoresToPrint = [scoresToPrint stringByAppendingFormat: @"%d %d\n", mode, difficulty];
-
-    for (int i = 0; i < [nameList count]; i++) {
-        int score = [[highScores objectAtIndex: i] intValue];
-        NSString* name = [nameList objectAtIndex: i];
-        scoresToPrint = [scoresToPrint stringByAppendingFormat: @"%@ %i\n", name, score];
+            NSMutableArray *nameList = [NSMutableArray arrayWithArray: [defaults arrayForKey: [[NSString alloc] initWithFormat:@"names mode:%d diff:%d",mode,difficulty]]];
+            scoresToPrint = [scoresToPrint stringByAppendingFormat: @"%d %d\n", mode, difficulty];
+            for (int i = 0; i < [nameList count]; i++) {
+                int score = [[highScores objectAtIndex: i] intValue];
+                NSString* name = [nameList objectAtIndex: i];
+                scoresToPrint = [scoresToPrint stringByAppendingFormat: @"%@ %i\n", name, score];
     }
         
         }}
