@@ -104,6 +104,8 @@
 		6FD268501774D0E9009DFECB /* zapThreeToneUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD2684E1774D0E9009DFECB /* zapThreeToneUp.mp3 */; };
 		6FD268521774F0E0009DFECB /* 43698__notchfilter__game-over03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FD268511774F0E0009DFECB /* 43698__notchfilter__game-over03.wav */; };
 		6FD268551775126C009DFECB /* Krungthep.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FD26854177507D9009DFECB /* Krungthep.ttf */; };
+		6FE68D951778FA210074AB0A /* CircleGlowL.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D941778FA200074AB0A /* CircleGlowL.png */; };
+		6FE68D971778FD700074AB0A /* CircleGlowS.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D961778FD6F0074AB0A /* CircleGlowS.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +236,8 @@
 		6FD2684E1774D0E9009DFECB /* zapThreeToneUp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zapThreeToneUp.mp3; sourceTree = "<group>"; };
 		6FD268511774F0E0009DFECB /* 43698__notchfilter__game-over03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "43698__notchfilter__game-over03.wav"; sourceTree = "<group>"; };
 		6FD26854177507D9009DFECB /* Krungthep.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Krungthep.ttf; sourceTree = "<group>"; };
+		6FE68D941778FA200074AB0A /* CircleGlowL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowL.png; sourceTree = "<group>"; };
+		6FE68D961778FD6F0074AB0A /* CircleGlowS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowS.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +352,8 @@
 		45BD0A97177255B800EF11C2 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				6FE68D961778FD6F0074AB0A /* CircleGlowS.png */,
+				6FE68D941778FA200074AB0A /* CircleGlowL.png */,
 				45D803631778CDFA00C8F0DE /* fire */,
 				6F98E34A177363E700FC64C9 /* particles */,
 				45BD0A9A1772812D00EF11C2 /* star_l.png */,
@@ -702,6 +708,8 @@
 				45D803711778CDFA00C8F0DE /* fire_s_2.png in Resources */,
 				45D803721778CDFA00C8F0DE /* fire_s_3.png in Resources */,
 				45D803731778CDFA00C8F0DE /* fire_s_4.png in Resources */,
+				6FE68D951778FA210074AB0A /* CircleGlowL.png in Resources */,
+				6FE68D971778FD700074AB0A /* CircleGlowS.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

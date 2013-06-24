@@ -46,6 +46,7 @@
         [resumeButton setTitle:resumeGame forState:UIControlStateNormal];
         resumeButton.titleLabel.font = fontRectButtons;
         [resumeButton setBackgroundImage:topRectButtonNormal forState:UIControlStateNormal];
+
         [resumeButton setBackgroundImage:topRectButtonPressed forState:UIControlStateHighlighted];
         resumeButton.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY, rectButtonWidth, rectTopButtonHeight);
         [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
@@ -66,6 +67,7 @@
         boostButton.titleLabel.font = fontLargeRoundButtons;
         boostButton.frame = CGRectMake(gameLeftButtonX,gameBoostY,largeCircleButtonSize,largeCircleButtonSize);
         [boostButton setBackgroundImage:largeCircleButtonNormal forState:UIControlStateNormal];
+        [boostButton setBackgroundImage:largeCircleButtonNormal forState:UIControlStateDisabled];
         [boostButton setBackgroundImage:largeCircleButtonPressed forState:UIControlStateHighlighted];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchUpInside];
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchDragExit];
@@ -81,6 +83,7 @@
         pauseButton.titleLabel.font = fontSmallRoundButtons;
         pauseButton.frame = CGRectMake(gameLeftButtonX,gamePauseY,smallCircleButtonSize,smallCircleButtonSize);
         [pauseButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateNormal];
+        [pauseButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateDisabled];
         [pauseButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         [pauseButton addTarget:self action:@selector(pause) forControlEvents:UIControlEventTouchUpInside];
         pauseButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
@@ -152,6 +155,9 @@
     [self bringSubviewToFront:pauseView];
     pauseView.alpha = 1;
     [self.pressedDelegate gamePause];
+    [shipView pause];
+    [self disableBoost];
+    [self disablePause];
 }
 
 -(void) resume
@@ -159,17 +165,22 @@
     [self sendSubviewToBack:pauseView];
     pauseView.alpha = 0;
     [self.pressedDelegate gameResume];
+    [shipView resume];
+    [self enablePause];
+    boostButton.enabled=YES;
 }
 
 -(void) boost
 {
     [self.pressedDelegate boost];
     // change ship as needed
+    [shipView boost];
 }
 
 -(void) unboost
 {
     [self.pressedDelegate unboost];
+    [shipView unboost];
 }
 
 
@@ -191,6 +202,11 @@
 -(void) disableBoost
 {
     boostButton.enabled = NO;
+}
+
+-(void)showGlowOnCircle:(int)circleNum
+{
+    [shipView showGlowOnCircle:circleNum];
 }
 
 /*

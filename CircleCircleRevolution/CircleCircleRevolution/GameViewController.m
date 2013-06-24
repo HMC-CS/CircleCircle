@@ -344,11 +344,11 @@
 {
     if (!touch1){
         [self scoreBlock1];
+        [gameView showGlowOnCircle:1];
         if (gameOver && gameMode == 2){
             [self scoreBlock2];        
         }else if (!gameOver){
             resetCircle1Count = resetFrames;
-            
         }
     }
 }
@@ -357,6 +357,7 @@
 {
     if(!touch2){
         [self scoreBlock2];
+        [gameView showGlowOnCircle:2];
         if (gameOver){
             [self scoreBlock1];
         }else if (!gameOver){
@@ -425,7 +426,7 @@
     return fracValue;
 }
 
--(void) displayFeedback:(NSString*)feedbackTerm atPosition:(CGPoint)location
+-(void) displayFeedback:(NSString*)feedbackTerm onCircle:(int)circleNumber
 {
     // Any visual onscreen feedback other than the circle filling
 }

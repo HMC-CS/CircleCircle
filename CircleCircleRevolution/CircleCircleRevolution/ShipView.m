@@ -20,6 +20,21 @@
         self.backgroundColor = [UIColor clearColor];
         gameMode = mode;
         
+        NSArray *normalFlamesNames = @[@"fire_s_1.png",@"fire_s_2.png",@"fire_s_3.png",@"fire_s_4.png"];
+        NSArray *boostedFlamesNames = @[@"fire_l_1.png",@"fire_l_2.png",@"fire_l_3.png",@"fire_l_4.png"];
+        normalFlames = [[NSMutableArray alloc] init];
+        boostedFlames = [[NSMutableArray alloc] init];
+        for (int i = 0; i<4;i++){
+            [normalFlames addObject:[UIImage imageNamed:[normalFlamesNames objectAtIndex:i]]];
+            [boostedFlames addObject:[UIImage imageNamed:[boostedFlamesNames objectAtIndex:i]]];
+        }
+        
+        UIImage* flame = [normalFlames objectAtIndex:1];
+        
+        flames = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,flame.size.width,flame.size.height)];
+        flames.animationImages = normalFlames;
+        flames.animationDuration = 0.5;
+                
         if (gameMode == 1)
         {
             shipBody = [[UIImageView alloc] initWithImage:singleShipImage];
@@ -27,6 +42,9 @@
             shipBody.backgroundColor = [UIColor clearColor];
             circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(sgCircleX-50,sgCircleY-50,sgCircleSize+100,sgCircleSize+100)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(sgFractionX,sgFractionY,sgFractionWidth,sgFractionHeight) andImage:sgFractionImageName];
+            flames.center = CGPointMake(-50,250);
+            [self addSubview:flames];
+            [flames startAnimating];
             [self addSubview:circleView1];
             [self addSubview:fractionView1];
             [self addSubview:shipBody];
@@ -40,12 +58,19 @@
             circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle2X-40,dgCircle2Y-40,dgCircleSize+80,dgCircleSize+80)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction1X,dgFraction1Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction1ImageName];
             fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction2X,dgFraction2Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction2ImageName];
-            [self addSubview:circleView1];
-            [self addSubview:circleView2];
+            flames.center = CGPointMake(-55,190);
+            [self addSubview:flames];
+            [flames startAnimating];
             [self addSubview:fractionView1];
             [self addSubview:fractionView2];
+            [self addSubview:circleView1];
+            [self addSubview:circleView2];
+
             [self addSubview:shipBody];
+            
+            
         }
+        
     }
     return self;
 }
@@ -108,6 +133,60 @@
     if (circleNumber ==2)
     {
         [circleView2 setCircleTarget:sender forAction:action];
+    }
+}
+
+-(void) pause
+{
+    flames.alpha = 0;
+}
+
+-(void) resume
+{
+    flames.alpha = 1;
+}
+
+-(void) boost
+{
+    [flames stopAnimating];
+    flames.animationImages = boostedFlames;
+    [flames startAnimating];
+}
+
+-(void) unboost
+{
+    [flames stopAnimating];
+    flames.animationImages = normalFlames;
+    [flames startAnimating];
+}
+
+-(void)showGlowOnCircle:(int)circleNum
+{
+    if (gameMode ==1){
+        UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowL.png"]];
+        glow.center = circleView1.center;
+        [self addSubview:glow];
+        [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
+            glow.alpha = 1;
+            glow.alpha = 0;}];
+    }
+    else if (gameMode == 2){
+        if (circleNum ==1){
+            UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowS.png"]];
+            glow.center = circleView1.center;
+            [self addSubview:glow];
+            [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
+                glow.alpha = 1;
+                glow.alpha = 0;}];
+        }
+        else if (circleNum ==2){
+            UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowS.png"]];
+            glow.center = circleView2.center;
+            [self addSubview:glow];
+            [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
+                glow.alpha = 1;
+                glow.alpha = 0;}];
+        }
     }
 }
 
