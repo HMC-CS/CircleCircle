@@ -69,9 +69,6 @@
 {
     [buttonSFX prepareToPlay];
     [buttonSFX play];
-    NSLog(@"played button swoosh from VC in gottoscreen method");
-
-
     if ([screen isEqualToString:toMainMenu])
         [self popToViewController:menuViewController animated:YES];
     else if ([screen isEqualToString:toSelectionScreen])
@@ -145,7 +142,6 @@
 {
     [buttonSFX prepareToPlay];
     [buttonSFX play];
-    NSLog(@"played button swoosh from VC in begin game w/ mode method");
     gameViewController = [[GameViewController alloc] initWithMode:gameMode andDifficulty:difficulty];
     gameViewController.screenDelegate = self;
     [self pushViewController:gameViewController animated:YES];

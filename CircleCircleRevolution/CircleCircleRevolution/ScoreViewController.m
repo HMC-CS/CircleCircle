@@ -91,6 +91,7 @@
 
 -(void)insertNewHighScore: (int)score andName: (NSString *)name
 {
+
     // Get scores array stored in user default
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // Get high scores array from defaults

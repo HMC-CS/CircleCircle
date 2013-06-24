@@ -43,7 +43,8 @@
         NSString* fileContents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
         // Create the label
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2 - 250,0,500,500)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2 - 400,150,800,350)];
+        [label setTextAlignment:NSTextAlignmentCenter];
         label.text = fileContents;
         label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
@@ -53,6 +54,19 @@
         label.shadowColor = [UIColor blackColor];
 
         [self addSubview:label];
+        
+        // Title label
+        UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2-200,0,400,500)];
+        [title setTextAlignment:NSTextAlignmentCenter];
+        title.text = @"Instructions";
+        title.textColor = [UIColor whiteColor];
+        title.font = fontTitles;
+        title.shadowOffset = CGSizeMake(-1,-1);
+        title.shadowColor = [UIColor blackColor];
+        title.backgroundColor = [UIColor clearColor];
+        [title sizeToFit];
+        title.center = CGPointMake(self.bounds.size.height/2,1.5*title.bounds.size.height);
+        [self addSubview:title];
     }
     return self;
 }

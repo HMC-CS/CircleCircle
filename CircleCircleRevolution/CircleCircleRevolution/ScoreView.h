@@ -20,7 +20,13 @@
 @interface ScoreView : UIView
 {
     UIButton* menuButton;
-    UILabel* scoresLabel;
+    UILabel* scoresLabel11;
+    UILabel* scoresLabel12;
+    UILabel* scoresLabel13;
+    UILabel* scoresLabel21;
+    UILabel* scoresLabel22;
+    UILabel* scoresLabel23;
+    
 }
 
 -(void) updateScoresLabel;

@@ -85,6 +85,8 @@
         gameMode = mode;
         
         // Initial Updates
+        percentChange = startingPercentChange;
+
         update2 = FALSE;
         [self resetCircle:1];
         if (gameMode == 2)
@@ -189,11 +191,14 @@
         percentChange -= boostPercent;
         backgroundMoveAmount /= boostBackground;
     }
-    if (percentChange < [gameModel calculateSpeed]){// we got faster
+    float oldPercent = percentChange;
+    percentChange = [gameModel calculateSpeed];
+    if (oldPercent < percentChange){// we got faster
+        NSLog(@"was at %f, now at %f",oldPercent,percentChange);
         [fasterSFX prepareToPlay];
         [fasterSFX play];
     }
-    percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
+    //percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
     backgroundMoveAmount = [gameModel getBackgroundChange];
     if (isBoosted){
         percentChange += boostPercent;
@@ -397,6 +402,8 @@
         [correctSFX play];
     }
     else{
+        [wrongSFX stop];
+        wrongSFX.currentTime = 0;
         [wrongSFX prepareToPlay];
         [wrongSFX play];
     }
