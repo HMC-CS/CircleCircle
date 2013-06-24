@@ -46,6 +46,7 @@
 -(void) disablePause;
 -(void) enablePause;
 -(void) disableBoost;
+-(void)showGlowOnCircle:(int)circleNum;
 
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;

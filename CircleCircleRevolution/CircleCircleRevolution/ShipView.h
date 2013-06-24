@@ -18,6 +18,10 @@
     FractionView* fractionView1;
     FractionView* fractionView2;
     UIImageView* shipBody;
+    
+    UIImageView* flames;
+    NSMutableArray* normalFlames;
+    NSMutableArray* boostedFlames;
 }
 
 -(id)initWithFrame:(CGRect)frame andMode:(int)mode;
@@ -25,7 +29,11 @@
 -(void)updateCircle1:(float)percent1 circle2:(float)percent2;
 -(void)setFeedback1:(float)feedbackPercent1 feedback2:(float)feedbackPercent2;
 -(void) setCircleTarget:(id)sender forAction:(SEL)action whichCircle:(int)circleNumber;
-
+-(void) pause;
+-(void) resume;
+-(void) boost;
+-(void) unboost;
+-(void)showGlowOnCircle:(int)circleNum;
 
 
 @end
