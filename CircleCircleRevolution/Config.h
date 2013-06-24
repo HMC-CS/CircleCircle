@@ -17,10 +17,11 @@
 #define fontSmallRoundButtons [UIFont fontWithName:@"Krungthep" size:25.0]
 #define fontLargeRoundButtons [UIFont fontWithName:@"Krungthep" size:40.0]
 #define fontInstructions [UIFont fontWithName:@"Krungthep" size:30.0]
-#define fontCredits [UIFont fontWithName:@"Krungthep" size:30.0]
-#define fontHighScores [UIFont fontWithName:@"Krungthep" size:15.0]
+#define fontCredits [UIFont fontWithName:@"Krungthep" size:20.0]
+#define fontHighScores [UIFont fontWithName:@"Krungthep" size:20.0]
 #define fontScoreLabel [UIFont fontWithName:@"Krungthep" size:30.0]
 #define fontFractionLabel [UIFont fontWithName:@"Krungthep" size:50.0]
+#define fontTitles [UIFont fontWithName:@"Krungthep" size:50.0];
 #define kScreenWidth [UIScreen mainScreen].bounds.size.height
 #define kScreenHeight [UIScreen mainScreen].bounds.size.width
 
@@ -54,7 +55,8 @@
 #define numProblemCorrectForIncrease 3
 #define maximumPercentChange 0.8
 #define percentChangeIncrease 0.1
-#define backgroundChangeIncrease 5
+#define backgroundChangeIncrease 2
+
 
 #define nearFarParallaxRatio 2
 

@@ -39,14 +39,73 @@
 
         [self addSubview:menuButton];
         
+        float scoreLabelHeight = (self.bounds.size.width-circleButtonY-smallCircleButtonSize)/2;
+        float scoreLabelWidth = self.bounds.size.height/3;
+        float startingYLabelPos = circleButtonY+smallCircleButtonSize;
+        
         // Scores and the like
-        scoresLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2,0,self.bounds.size.height,self.bounds.size.width)];
-        scoresLabel.backgroundColor = [UIColor clearColor];
-        scoresLabel.textColor = [UIColor whiteColor];
-        scoresLabel.numberOfLines = 0;
-        scoresLabel.font = fontHighScores;
-        [self addSubview:scoresLabel];
+        scoresLabel11 = [[UILabel alloc] initWithFrame:CGRectMake(0,startingYLabelPos,scoreLabelWidth,scoreLabelHeight)];
+        [scoresLabel11 setTextAlignment:NSTextAlignmentCenter];
+        scoresLabel11.backgroundColor = [UIColor clearColor];
+        scoresLabel11.textColor = [UIColor whiteColor];
+        scoresLabel11.numberOfLines = 0;
+        scoresLabel11.font = fontHighScores;
+        [self addSubview:scoresLabel11];
+        
+        scoresLabel12 = [[UILabel alloc] initWithFrame:CGRectMake(scoreLabelWidth,startingYLabelPos,scoreLabelWidth,scoreLabelHeight)];
+        [scoresLabel12 setTextAlignment:NSTextAlignmentCenter];
+        scoresLabel12.backgroundColor = [UIColor clearColor];
+        scoresLabel12.textColor = [UIColor whiteColor];
+        scoresLabel12.numberOfLines = 0;
+        scoresLabel12.font = fontHighScores;
+        [self addSubview:scoresLabel12];
+        
+        scoresLabel13 = [[UILabel alloc] initWithFrame:CGRectMake(scoreLabelWidth*2,startingYLabelPos,scoreLabelWidth,scoreLabelHeight)];
+        [scoresLabel13 setTextAlignment:NSTextAlignmentCenter];
+        scoresLabel13.backgroundColor = [UIColor clearColor];
+        scoresLabel13.textColor = [UIColor whiteColor];
+        scoresLabel13.numberOfLines = 0;
+        scoresLabel13.font = fontHighScores;
+        [self addSubview:scoresLabel13];
+        
+        scoresLabel21 = [[UILabel alloc] initWithFrame:CGRectMake(0,startingYLabelPos+scoreLabelHeight,scoreLabelWidth,scoreLabelHeight)];
+        [scoresLabel21 setTextAlignment:NSTextAlignmentCenter];
+        scoresLabel21.backgroundColor = [UIColor clearColor];
+        scoresLabel21.textColor = [UIColor whiteColor];
+        scoresLabel21.numberOfLines = 0;
+        scoresLabel21.font = fontHighScores;
+        [self addSubview:scoresLabel21];
+
+        scoresLabel22 = [[UILabel alloc] initWithFrame:CGRectMake(scoreLabelWidth,startingYLabelPos+scoreLabelHeight,scoreLabelWidth,scoreLabelHeight)];
+        [scoresLabel22 setTextAlignment:NSTextAlignmentCenter];
+        scoresLabel22.backgroundColor = [UIColor clearColor];
+        scoresLabel22.textColor = [UIColor whiteColor];
+        scoresLabel22.numberOfLines = 0;
+        scoresLabel22.font = fontHighScores;
+        [self addSubview:scoresLabel22];
+
+        scoresLabel23 = [[UILabel alloc] initWithFrame:CGRectMake(scoreLabelWidth*2,startingYLabelPos+scoreLabelHeight,scoreLabelWidth,scoreLabelHeight)];
+        [scoresLabel23 setTextAlignment:NSTextAlignmentCenter];
+        scoresLabel23.backgroundColor = [UIColor clearColor];
+        scoresLabel23.textColor = [UIColor whiteColor];
+        scoresLabel23.numberOfLines = 0;
+        scoresLabel23.font = fontHighScores;
+        [self addSubview:scoresLabel23];
+
         [self updateScoresLabel];
+        
+        // Title label
+        UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2-200,0,400,500)];
+        [title setTextAlignment:NSTextAlignmentCenter];
+        title.text = @"High Scores";
+        title.textColor = [UIColor whiteColor];
+        title.font = fontTitles;
+        title.shadowOffset = CGSizeMake(-1,-1);
+        title.shadowColor = [UIColor blackColor];
+        title.backgroundColor = [UIColor clearColor];
+        [title sizeToFit];
+        title.center = CGPointMake(self.bounds.size.height/2,1.5*title.bounds.size.height);
+        [self addSubview:title];
     }
     return self;
 }
@@ -59,30 +118,35 @@
     }
 }
 
--(NSString*)getScoresAndNames
+-(NSString*)getScoresAndNamesForMode:(int)mode andDifficulty:(int)difficulty
 {
     // Get scores array stored in user default
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // Get high scores array from "defaults" object
     NSString* scoresToPrint = @"";
-    for (int difficulty=1; difficulty<4;difficulty++) {
-        for (int mode = 1; mode <3; mode++){
             NSMutableArray *highScores = [NSMutableArray arrayWithArray: [defaults arrayForKey: [[NSString alloc] initWithFormat:@"scores mode:%d diff:%d",mode,difficulty]]];
             NSMutableArray *nameList = [NSMutableArray arrayWithArray: [defaults arrayForKey: [[NSString alloc] initWithFormat:@"names mode:%d diff:%d",mode,difficulty]]];
-            scoresToPrint = [scoresToPrint stringByAppendingFormat: @"%d %d\n", mode, difficulty];
-            for (int i = 0; i < [nameList count]; i++) {
+            //scoresToPrint = [scoresToPrint stringByAppendingFormat: @"%d %d\n", mode, difficulty];
+    scoresToPrint = @"Double Medium\n";
+    for (int i = 0; i < [nameList count]; i++) {
                 int score = [[highScores objectAtIndex: i] intValue];
                 NSString* name = [nameList objectAtIndex: i];
+        if ([name length] >15){
+            name = [name substringToIndex:15];
+        }
                 scoresToPrint = [scoresToPrint stringByAppendingFormat: @"%@ %i\n", name, score];
-    }
-        
-        }}
+            }
     return scoresToPrint;
 }
 
 -(void) updateScoresLabel
 {
-    scoresLabel.text = [self getScoresAndNames];
+    scoresLabel11.text = [self getScoresAndNamesForMode:1 andDifficulty:1];
+    scoresLabel12.text = [self getScoresAndNamesForMode:1 andDifficulty:2];
+    scoresLabel13.text = [self getScoresAndNamesForMode:1 andDifficulty:3];
+    scoresLabel21.text = [self getScoresAndNamesForMode:2 andDifficulty:1];
+    scoresLabel22.text = [self getScoresAndNamesForMode:2 andDifficulty:2];
+    scoresLabel23.text = [self getScoresAndNamesForMode:2 andDifficulty:3];
 }
 
 /*

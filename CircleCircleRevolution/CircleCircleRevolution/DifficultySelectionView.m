@@ -77,6 +77,18 @@
         
         [self addSubview:menuButton];
         
+        UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2-200,0,400,500)];
+        [title setTextAlignment:NSTextAlignmentCenter];
+        title.text = @"Choose a difficulty";
+        title.textColor = [UIColor whiteColor];
+        title.font = fontTitles;
+        title.shadowOffset = CGSizeMake(-1,-1);
+        title.shadowColor = [UIColor blackColor];
+        title.backgroundColor = [UIColor clearColor];
+        [title sizeToFit];
+        title.center = CGPointMake(self.bounds.size.width/2,topButtonY - 1.5*title.bounds.size.height);        [self addSubview:title];
+
+        
     }
     return self;
 }
