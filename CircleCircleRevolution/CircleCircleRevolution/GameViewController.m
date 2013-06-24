@@ -296,7 +296,9 @@
     update1 = FALSE;
     float fracValue = [self calculateFractionValue:currentFraction1];
     int accuracy = [self calculateAccuracyFromPercent:circlePercent1 andTargetFractionValue:fracValue];
-    [self tapFeedback:accuracy];
+    NSString* feedbackTerm = [self tapFeedback:accuracy];
+    if (!gameOver){
+        [gameView showFeedback:feedbackTerm onCircleNumber:1];}
     [self checkGameOver];
     [self updateScore];
     [gameView updateCircle1:circlePercent1 circle2:NO];
@@ -321,7 +323,9 @@
     update2 = FALSE;
     float fracValue = [self calculateFractionValue:currentFraction2];
     int accuracy = [self calculateAccuracyFromPercent:circlePercent2 andTargetFractionValue:fracValue];
-    [self tapFeedback:accuracy];
+    NSString* feedbackTerm = [self tapFeedback:accuracy];
+    if (!gameOver){
+        [gameView showFeedback:feedbackTerm onCircleNumber:2];}
     [self checkGameOver];
     [self updateScore];
     [gameView updateCircle1:NO circle2:circlePercent2];
@@ -378,7 +382,7 @@
         }
         else if (accuracy <= goodAccuracy)
         {
-            feedbackTerm = @"Good";
+            feedbackTerm = @"Great";
             score = goodScore;
         }
         

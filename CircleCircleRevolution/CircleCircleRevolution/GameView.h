@@ -47,6 +47,8 @@
 -(void) enablePause;
 -(void) disableBoost;
 -(void)showGlowOnCircle:(int)circleNum;
+-(void) showFeedback:(NSString*)feedbackTerm onCircleNumber:(int)circleNum;
+
 
 
 @property (weak,nonatomic)id<ButtonOnGame1Pressed> pressedDelegate;

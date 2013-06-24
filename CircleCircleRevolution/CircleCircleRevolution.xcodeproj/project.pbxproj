@@ -106,6 +106,15 @@
 		6FD268551775126C009DFECB /* Krungthep.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FD26854177507D9009DFECB /* Krungthep.ttf */; };
 		6FE68D951778FA210074AB0A /* CircleGlowL.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D941778FA200074AB0A /* CircleGlowL.png */; };
 		6FE68D971778FD700074AB0A /* CircleGlowS.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D961778FD6F0074AB0A /* CircleGlowS.png */; };
+		6FE68DA1177904470074AB0A /* AboutText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D99177904470074AB0A /* AboutText.png */; };
+		6FE68DA2177904470074AB0A /* AwesomeText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D9A177904470074AB0A /* AwesomeText.png */; };
+		6FE68DA3177904470074AB0A /* GreatText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D9B177904470074AB0A /* GreatText.png */; };
+		6FE68DA4177904470074AB0A /* HighScores.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D9C177904470074AB0A /* HighScores.png */; };
+		6FE68DA5177904470074AB0A /* HowToPlayText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D9D177904470074AB0A /* HowToPlayText.png */; };
+		6FE68DA6177904470074AB0A /* MissText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D9E177904470074AB0A /* MissText.png */; };
+		6FE68DA7177904470074AB0A /* OkayText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D9F177904470074AB0A /* OkayText.png */; };
+		6FE68DA8177904470074AB0A /* SelectDifficultyText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DA0177904470074AB0A /* SelectDifficultyText.png */; };
+		6FE68DAA177904850074AB0A /* SelectModeText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DA9177904850074AB0A /* SelectModeText.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -238,6 +247,15 @@
 		6FD26854177507D9009DFECB /* Krungthep.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Krungthep.ttf; sourceTree = "<group>"; };
 		6FE68D941778FA200074AB0A /* CircleGlowL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowL.png; sourceTree = "<group>"; };
 		6FE68D961778FD6F0074AB0A /* CircleGlowS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowS.png; sourceTree = "<group>"; };
+		6FE68D99177904470074AB0A /* AboutText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AboutText.png; sourceTree = "<group>"; };
+		6FE68D9A177904470074AB0A /* AwesomeText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AwesomeText.png; sourceTree = "<group>"; };
+		6FE68D9B177904470074AB0A /* GreatText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreatText.png; sourceTree = "<group>"; };
+		6FE68D9C177904470074AB0A /* HighScores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HighScores.png; sourceTree = "<group>"; };
+		6FE68D9D177904470074AB0A /* HowToPlayText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HowToPlayText.png; sourceTree = "<group>"; };
+		6FE68D9E177904470074AB0A /* MissText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MissText.png; sourceTree = "<group>"; };
+		6FE68D9F177904470074AB0A /* OkayText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OkayText.png; sourceTree = "<group>"; };
+		6FE68DA0177904470074AB0A /* SelectDifficultyText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SelectDifficultyText.png; sourceTree = "<group>"; };
+		6FE68DA9177904850074AB0A /* SelectModeText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SelectModeText.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +277,8 @@
 		459B78561770F5C500D3C583 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6FE68DAB1779049C0074AB0A /* FeedbackLabels */,
+				6FE68D98177904150074AB0A /* Titles */,
 				6FD268531775079F009DFECB /* Fonts */,
 				6F98E35A17736D6D00FC64C9 /* Sounds */,
 				45BD0A97177255B800EF11C2 /* effects */,
@@ -592,6 +612,29 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		6FE68D98177904150074AB0A /* Titles */ = {
+			isa = PBXGroup;
+			children = (
+				6FE68D99177904470074AB0A /* AboutText.png */,
+				6FE68D9C177904470074AB0A /* HighScores.png */,
+				6FE68D9D177904470074AB0A /* HowToPlayText.png */,
+				6FE68DA0177904470074AB0A /* SelectDifficultyText.png */,
+				6FE68DA9177904850074AB0A /* SelectModeText.png */,
+			);
+			name = Titles;
+			sourceTree = "<group>";
+		};
+		6FE68DAB1779049C0074AB0A /* FeedbackLabels */ = {
+			isa = PBXGroup;
+			children = (
+				6FE68D9A177904470074AB0A /* AwesomeText.png */,
+				6FE68D9B177904470074AB0A /* GreatText.png */,
+				6FE68D9E177904470074AB0A /* MissText.png */,
+				6FE68D9F177904470074AB0A /* OkayText.png */,
+			);
+			name = FeedbackLabels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -710,6 +753,15 @@
 				45D803731778CDFA00C8F0DE /* fire_s_4.png in Resources */,
 				6FE68D951778FA210074AB0A /* CircleGlowL.png in Resources */,
 				6FE68D971778FD700074AB0A /* CircleGlowS.png in Resources */,
+				6FE68DA1177904470074AB0A /* AboutText.png in Resources */,
+				6FE68DA2177904470074AB0A /* AwesomeText.png in Resources */,
+				6FE68DA3177904470074AB0A /* GreatText.png in Resources */,
+				6FE68DA4177904470074AB0A /* HighScores.png in Resources */,
+				6FE68DA5177904470074AB0A /* HowToPlayText.png in Resources */,
+				6FE68DA6177904470074AB0A /* MissText.png in Resources */,
+				6FE68DA7177904470074AB0A /* OkayText.png in Resources */,
+				6FE68DA8177904470074AB0A /* SelectDifficultyText.png in Resources */,
+				6FE68DAA177904850074AB0A /* SelectModeText.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

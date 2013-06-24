@@ -34,6 +34,8 @@
 -(void) boost;
 -(void) unboost;
 -(void)showGlowOnCircle:(int)circleNum;
+-(void) showFeedback:(NSString*)feedbackTerm onCircleNumber:(int)circleNum;
+
 
 
 @end
