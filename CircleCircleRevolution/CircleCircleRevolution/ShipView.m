@@ -190,6 +190,24 @@
     }
 }
 
+-(void) showFeedback:(NSString*)feedbackTerm onCircleNumber:(int)circleNum
+{
+    // determine which feedback to display
+    UIImageView *feedbackView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString alloc] initWithFormat:@"%@Text.png",feedbackTerm]]];
+    
+    [self addSubview:feedbackView];
+    
+    
+    if (circleNum ==1){
+        feedbackView.center = circleView1.center;
+    }
+    else if (circleNum ==2){
+        feedbackView.center = circleView2.center;
+    }
+    
+    [UIView animateWithDuration:1 animations:^(void){feedbackView.alpha = 0;feedbackView.alpha=1;} completion:^(BOOL finished){[feedbackView removeFromSuperview];}];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
