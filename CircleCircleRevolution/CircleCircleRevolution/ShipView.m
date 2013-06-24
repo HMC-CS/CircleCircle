@@ -159,6 +159,37 @@
     flames.animationImages = normalFlames;
     [flames startAnimating];
 }
+
+-(void)showGlowOnCircle:(int)circleNum
+{
+    if (gameMode ==1){
+        UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowL.png"]];
+        glow.center = circleView1.center;
+        [self addSubview:glow];
+        [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
+            glow.alpha = 1;
+            glow.alpha = 0;}];
+    }
+    else if (gameMode == 2){
+        if (circleNum ==1){
+            UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowS.png"]];
+            glow.center = circleView1.center;
+            [self addSubview:glow];
+            [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
+                glow.alpha = 1;
+                glow.alpha = 0;}];
+        }
+        else if (circleNum ==2){
+            UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowS.png"]];
+            glow.center = circleView2.center;
+            [self addSubview:glow];
+            [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
+                glow.alpha = 1;
+                glow.alpha = 0;}];
+        }
+    }
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

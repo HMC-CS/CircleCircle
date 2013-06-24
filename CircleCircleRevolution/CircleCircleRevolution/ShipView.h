@@ -33,7 +33,7 @@
 -(void) resume;
 -(void) boost;
 -(void) unboost;
-
+-(void)showGlowOnCircle:(int)circleNum;
 
 
 @end

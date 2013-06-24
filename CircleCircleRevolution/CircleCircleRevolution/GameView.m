@@ -204,6 +204,11 @@
     boostButton.enabled = NO;
 }
 
+-(void)showGlowOnCircle:(int)circleNum
+{
+    [shipView showGlowOnCircle:circleNum];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
