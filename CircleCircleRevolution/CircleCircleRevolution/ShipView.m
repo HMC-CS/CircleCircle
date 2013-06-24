@@ -183,9 +183,11 @@
             UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowS.png"]];
             glow.center = circleView2.center;
             [self addSubview:glow];
-            [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
-                glow.alpha = 1;
-                glow.alpha = 0;}];
+            [UIView animateWithDuration:1.0
+                             animations:^(void) {
+                                 glow.alpha = 0;
+                                 glow.alpha = 1;
+                                 glow.alpha = 0;}];
         }
     }
 }
@@ -197,6 +199,9 @@
     
     [self addSubview:feedbackView];
     
+    if (gameMode ==2 && [feedbackTerm isEqualToString:@"Awesome"]){
+        feedbackView.frame = CGRectMake(0,0,feedbackView.bounds.size.width*.75,feedbackView.bounds.size.height*.75);
+    }
     
     if (circleNum ==1){
         feedbackView.center = circleView1.center;
@@ -205,7 +210,23 @@
         feedbackView.center = circleView2.center;
     }
     
-    [UIView animateWithDuration:1 animations:^(void){feedbackView.alpha = 0;feedbackView.alpha=1;} completion:^(BOOL finished){[feedbackView removeFromSuperview];}];
+    [UIView animateWithDuration:.25
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^(void){
+                         feedbackView.alpha = 0;
+                         feedbackView.alpha = 1;}
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:1
+                                                delay:0
+                                              options:UIViewAnimationOptionCurveEaseIn
+                                           animations:^(void){
+                                               feedbackView.alpha = 1;
+                                               feedbackView.alpha=0;}
+                                           completion:^(BOOL finished){
+                                               [feedbackView removeFromSuperview];}];}];
+                         
+    
 }
 
 /*
