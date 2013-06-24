@@ -18,6 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [NSUserDefaults resetStandardUserDefaults];
+
         [self checkUserDefaultsExist];
         ScoreView* score = [[ScoreView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         score.pressedDelegate = self;
@@ -42,7 +44,7 @@
 -(void)checkUserDefaultsExist
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey: @"scores mode:1 diff:1"] == nil) {
+    //if ([[NSUserDefaults standardUserDefaults] objectForKey: @"scores mode:1 diff:1"] == nil) {
         // Register default high scores - this could be more easily done by loading a .plist instead of manually creating this nested object
         NSDictionary *defaultScoresSingleEasy = [NSDictionary dictionaryWithObject: [NSArray arrayWithObjects: [NSNumber numberWithInt: 9801], [NSNumber numberWithInt: 5625], [NSNumber numberWithInt: 1728], [NSNumber numberWithInt: 1089], [NSNumber numberWithInt: 1], nil] forKey: @"scores mode:1 diff:1"];
         NSDictionary *defaultNamesSingleEasy = [NSDictionary dictionaryWithObject: [NSArray arrayWithObjects: [NSString stringWithFormat: @"Peter Wiggin"], [NSString stringWithFormat: @"Mr Rock"], [NSString stringWithFormat: @"Voldemort"], [NSString stringWithFormat: @"Ender"], [NSString stringWithFormat: @"Mr Steel"], nil] forKey: @"names mode:1 diff:1"];
@@ -61,14 +63,9 @@
         
         NSDictionary *defaultScoresDoubleHard = [NSDictionary dictionaryWithObject: [NSArray arrayWithObjects: [NSNumber numberWithInt: 9801], [NSNumber numberWithInt: 5625], [NSNumber numberWithInt: 1728], [NSNumber numberWithInt: 1089], [NSNumber numberWithInt: 1], nil] forKey: @"scores mode:2 diff:3"];
         NSDictionary *defaultNamesDoubleHard = [NSDictionary dictionaryWithObject: [NSArray arrayWithObjects: [NSString stringWithFormat: @"Peter Wiggin"], [NSString stringWithFormat: @"Mr Rock"], [NSString stringWithFormat: @"Voldemort"], [NSString stringWithFormat: @"Ender"], [NSString stringWithFormat: @"Mr Steel"], nil] forKey: @"names mode:2 diff:3"];
+    
         
-        
-        
-        NSDictionary *defaultDefaults = [NSDictionary dictionaryWithObject: [NSArray arrayWithObjects: [NSNumber numberWithInt: 9801], [NSNumber numberWithInt: 5625], [NSNumber numberWithInt: 1728], [NSNumber numberWithInt: 1089], [NSNumber numberWithInt: 1], nil] forKey: @"scores"];
-        NSDictionary *stringDefaults = [NSDictionary dictionaryWithObject: [NSArray arrayWithObjects: [NSString stringWithFormat: @"Peter Wiggin"], [NSString stringWithFormat: @"Mr Rock"], [NSString stringWithFormat: @"Voldemort"], [NSString stringWithFormat: @"Ender"], [NSString stringWithFormat: @"Mr Steel"], nil] forKey: @"names"];
-        
-        [defaults registerDefaults: defaultDefaults];
-        [defaults registerDefaults: stringDefaults];
+
         
         [defaults registerDefaults: defaultScoresSingleEasy];
         [defaults registerDefaults: defaultScoresSingleMedium];
@@ -85,7 +82,7 @@
         [defaults registerDefaults: defaultNamesDoubleHard];
         
         [defaults synchronize];
-    }
+    //}
 }
 
 
