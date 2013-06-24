@@ -18,6 +18,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    // To reset the default scores, uncomment these two lines for one run of the app
+    // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    // [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    
     [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastGameScore"];
 
     NSError* error;
@@ -49,6 +54,8 @@
     instructionsViewController.screenDelegate = self;
 
     [self pushViewController:menuViewController animated:NO];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
