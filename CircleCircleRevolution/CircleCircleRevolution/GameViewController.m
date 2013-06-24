@@ -397,6 +397,8 @@
         [correctSFX play];
     }
     else{
+        [wrongSFX stop];
+        wrongSFX.currentTime = 0;
         [wrongSFX prepareToPlay];
         [wrongSFX play];
     }
