@@ -74,17 +74,11 @@
 
         [self addSubview:highlights];
         
-        UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2-200,0,400,500)];
-        [title setTextAlignment:NSTextAlignmentCenter];
-        title.text = @"Choose a game mode";
-        title.textColor = [UIColor whiteColor];
-        title.font = fontTitles;
-        title.shadowOffset = CGSizeMake(-1,-1);
-        title.shadowColor = [UIColor blackColor];
+        UIImageView* title = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SelectModeText.png"]];
         title.backgroundColor = [UIColor clearColor];
-        [title sizeToFit];
-        title.center = CGPointMake(self.bounds.size.height/2,topButtonY - 1.5*title.bounds.size.height);
+        title.center = CGPointMake(self.bounds.size.height/2, self.bounds.size.width/3);
         [self addSubview:title];
+
 
     }
     return self;

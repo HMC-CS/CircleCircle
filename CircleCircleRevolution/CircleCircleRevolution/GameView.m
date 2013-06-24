@@ -209,6 +209,11 @@
     [shipView showGlowOnCircle:circleNum];
 }
 
+-(void) showFeedback:(NSString*)feedbackTerm onCircleNumber:(int)circleNum
+{
+    [shipView showFeedback:feedbackTerm onCircleNumber:circleNum];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
