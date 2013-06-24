@@ -57,6 +57,7 @@
 #define percentChangeIncrease 0.1
 #define backgroundChangeIncrease 2
 
+
 #define nearFarParallaxRatio 2
 
 #define awesomeScore 100
