@@ -55,7 +55,7 @@
 #define numProblemCorrectForIncrease 3
 #define maximumPercentChange 0.8
 #define percentChangeIncrease 0.1
-#define backgroundChangeIncrease 5
+#define backgroundChangeIncrease 2
 
 #define nearFarParallaxRatio 2
 

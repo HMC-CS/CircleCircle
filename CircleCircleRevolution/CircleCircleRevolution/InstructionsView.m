@@ -43,7 +43,7 @@
         NSString* fileContents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
         // Create the label
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2 - 400,150,800,500)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.height/2 - 400,150,800,350)];
         [label setTextAlignment:NSTextAlignmentCenter];
         label.text = fileContents;
         label.textColor = [UIColor whiteColor];
