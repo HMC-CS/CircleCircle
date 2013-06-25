@@ -47,4 +47,10 @@
     }
 }
 
+-(void) soundButtonPressed
+{
+    if (self.screenDelegate)
+        [self.screenDelegate toggleSound];
+}
+
 @end

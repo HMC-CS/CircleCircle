@@ -118,6 +118,15 @@
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight4];
         highlights.frame = CGRectMake(xCoord,topButtonY,rectButtonWidth,highlightsHeight);
         [self addSubview:highlights];
+        
+        // Sound button
+        soundButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [soundButton setBackgroundImage:[UIImage imageNamed:@"soundIconGray.png"] forState:UIControlStateNormal];
+
+        soundButton.frame = CGRectMake(25,25,50,50);
+        //[soundButton setTitle:@"Sound" forState:UIControlStateNormal];
+        [soundButton addTarget:self action:@selector(sound) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:soundButton];
     }
 
     return self;
@@ -133,20 +142,35 @@
 
 -(void) pressDown:(id)sender
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     buttonDownSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonSFXURL error:nil];
     [buttonDownSound prepareToPlay];
-    [buttonDownSound play];
+    [buttonDownSound play];}
     UIButton* button = (UIButton*)sender;
     [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top+2,0,0,0)];
 }
 
 -(void) pressUp:(id)sender
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonSFXURL error:nil];
     [buttonUpSound prepareToPlay];
-    [buttonUpSound play];
+        [buttonUpSound play];}
     UIButton* button = (UIButton*)sender;
     [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top-2,0,0,0)];
+}
+
+-(void) sound
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
+        [soundButton setBackgroundImage:[UIImage imageNamed:@"muteIconGray.png"] forState:UIControlStateNormal];}
+    else{
+        [soundButton setBackgroundImage:[UIImage imageNamed:@"soundIconGray.png"] forState:UIControlStateNormal];
+    }
+    
+    
+    if (self.pressedDelegate)
+        [self.pressedDelegate soundButtonPressed];
 }
 
 /*
