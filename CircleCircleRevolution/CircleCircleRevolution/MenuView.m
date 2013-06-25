@@ -17,7 +17,7 @@
     if (self) {
         // Configuration Constants
         float xCoord = self.bounds.size.width/2;
-        float highlightsHeight = 251;
+        float highlightsHeight = 252;
         
         // stars background
         UIImageView* bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menuBg.png"]];
@@ -49,6 +49,11 @@
         [gameButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [gameButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [gameButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+        [gameButton setTitleEdgeInsets:UIEdgeInsetsMake(10,0,0,0)];
+        [gameButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [gameButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [gameButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [gameButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview:gameButton];
         
@@ -64,6 +69,10 @@
         [instructionsButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [instructionsButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [instructionsButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+        [instructionsButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [instructionsButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [instructionsButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [instructionsButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview:instructionsButton];
         
@@ -79,7 +88,10 @@
         [scoreButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [scoreButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [scoreButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
-
+        [scoreButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [scoreButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [scoreButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [scoreButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview:scoreButton];
         
@@ -95,14 +107,17 @@
         [creditsButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [creditsButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [creditsButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+        [creditsButton setTitleEdgeInsets:UIEdgeInsetsMake(-10,0,0,0)];
+        [creditsButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [creditsButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [creditsButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [creditsButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview:creditsButton];
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight4];
         highlights.frame = CGRectMake(xCoord,topButtonY,rectButtonWidth,highlightsHeight);
         [self addSubview:highlights];
-        
-         
     }
 
     return self;
@@ -116,6 +131,23 @@
     }
 }
 
+-(void) pressDown:(id)sender
+{
+    buttonDownSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonSFXURL error:nil];
+    [buttonDownSound prepareToPlay];
+    [buttonDownSound play];
+    UIButton* button = (UIButton*)sender;
+    [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top+2,0,0,0)];
+}
+
+-(void) pressUp:(id)sender
+{
+    buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonSFXURL error:nil];
+    [buttonUpSound prepareToPlay];
+    [buttonUpSound play];
+    UIButton* button = (UIButton*)sender;
+    [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top-2,0,0,0)];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
