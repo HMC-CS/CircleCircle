@@ -117,6 +117,7 @@
 		6FE68DAE177915850074AB0A /* CircleGlowLRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DAC177915840074AB0A /* CircleGlowLRed.png */; };
 		6FE68DAF177915850074AB0A /* CircleGlowSRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DAD177915840074AB0A /* CircleGlowSRed.png */; };
 		6FE68DB1177A06CE0074AB0A /* through space.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DB0177A06CE0074AB0A /* through space.wav */; };
+		6FE68DB7177A11B80074AB0A /* fire.ped in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DB6177A11B80074AB0A /* fire.ped */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -260,6 +261,7 @@
 		6FE68DAC177915840074AB0A /* CircleGlowLRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowLRed.png; sourceTree = "<group>"; };
 		6FE68DAD177915840074AB0A /* CircleGlowSRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowSRed.png; sourceTree = "<group>"; };
 		6FE68DB0177A06CE0074AB0A /* through space.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "through space.wav"; sourceTree = "<group>"; };
+		6FE68DB6177A11B80074AB0A /* fire.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fire.ped; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -579,6 +581,7 @@
 		6F98E34A177363E700FC64C9 /* particles */ = {
 			isa = PBXGroup;
 			children = (
+				6FE68DB6177A11B80074AB0A /* fire.ped */,
 				6F98E34B177363FB00FC64C9 /* starTwinkle.ped */,
 			);
 			name = particles;
@@ -770,6 +773,7 @@
 				6FE68DAE177915850074AB0A /* CircleGlowLRed.png in Resources */,
 				6FE68DAF177915850074AB0A /* CircleGlowSRed.png in Resources */,
 				6FE68DB1177A06CE0074AB0A /* through space.wav in Resources */,
+				6FE68DB7177A11B80074AB0A /* fire.ped in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
