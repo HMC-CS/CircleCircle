@@ -94,7 +94,6 @@
             [self resetCircle:2];
         }
         [self startTimer1];
-        NSLog(@"lives are %d",[gameModel getLives]);
         [gameView updateLife:[gameModel getLives]];
         gameOver = FALSE;
         isBoosted = FALSE;
@@ -192,9 +191,12 @@
         backgroundMoveAmount /= boostBackground;
     }
     float oldPercent = percentChange;
-    percentChange = [gameModel calculateSpeed];
-    if (oldPercent < percentChange){// we got faster
-        NSLog(@"was at %f, now at %f",oldPercent,percentChange);
+    float newPercent = [gameModel calculateSpeed];
+    
+    //percentChange = [gameModel calculateSpeed];
+    if (oldPercent < newPercent && newPercent - oldPercent > 0.01){// we got faster
+        percentChange = newPercent;
+        NSLog(@"was at %f, now at %f",oldPercent,newPercent);
         [fasterSFX prepareToPlay];
         [fasterSFX play];
     }

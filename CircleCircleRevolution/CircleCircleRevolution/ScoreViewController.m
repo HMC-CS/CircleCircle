@@ -46,7 +46,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[NSUserDefaults standardUserDefaults] objectForKey: @"scores mode:1 diff:1"] == nil) {
      
-        NSLog(@"into loop");
         NSArray* highScores = [NSArray arrayWithObjects: [NSNumber numberWithInt: 9801], [NSNumber numberWithInt: 5625], [NSNumber numberWithInt: 1728], [NSNumber numberWithInt: 1089], [NSNumber numberWithInt: 1], nil];
         NSArray* nameList = [NSArray arrayWithObjects: [NSString stringWithFormat: @"Peter Wiggin"], [NSString stringWithFormat: @"Mr Rock"], [NSString stringWithFormat: @"Voldemort"], [NSString stringWithFormat: @"Ender"], [NSString stringWithFormat: @"Mr Steel"], nil];
         
