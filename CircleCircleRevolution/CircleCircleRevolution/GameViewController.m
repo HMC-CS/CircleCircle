@@ -197,8 +197,9 @@
     if (oldPercent < newPercent && newPercent - oldPercent > 0.01){// we got faster
         percentChange = newPercent;
         NSLog(@"was at %f, now at %f",oldPercent,newPercent);
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
         [fasterSFX prepareToPlay];
-        [fasterSFX play];
+            [fasterSFX play];}
     }
     //percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
     backgroundMoveAmount = [gameModel getBackgroundChange];
@@ -418,14 +419,16 @@
     if (score >0){
         [correctSFX stop];
         correctSFX.currentTime = 0;
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
         [correctSFX prepareToPlay];
-        [correctSFX play];
+            [correctSFX play];}
     }
     else{
         [wrongSFX stop];
         wrongSFX.currentTime = 0;
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
         [wrongSFX prepareToPlay];
-        [wrongSFX play];
+            [wrongSFX play];}
     }
     [gameModel incrementScore:score];
     return feedbackTerm;
@@ -464,8 +467,9 @@
                 [self unboost];
             }
             NSLog(@"Game should be over now, technically!");
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
             [gameOverSound prepareToPlay];
-            [gameOverSound play];
+                [gameOverSound play];}
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
     }
@@ -522,23 +526,26 @@
 // Protocol for pausing and resuming game
 -(void) gamePause
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     [buttonSFX prepareToPlay];
-    [buttonSFX play];
+        [buttonSFX play];}
     [timer1 invalidate];
+    
 }
 
 -(void) gameResume
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     [buttonSFX prepareToPlay];
-    [buttonSFX play];
+        [buttonSFX play];}
     [self startTimer1];
 }
 
 // Protocol for boosting
 -(void) boost
-{
+{if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     [boostSFX prepareToPlay];
-    [boostSFX play];
+    [boostSFX play];}
     isBoosted = TRUE;
     percentChange += boostPercent;
     backgroundMoveAmount *= boostBackground;

@@ -14,6 +14,7 @@
 
 @protocol ButtonOnMenuPressed <NSObject>
 -(void) passedButtonPress:(UIButton*)button;
+-(void) soundButtonPressed;
 
 @end
 
@@ -23,6 +24,7 @@
     UIButton* creditsButton;
     UIButton* scoreButton;
     UIButton* instructionsButton;
+    UIButton* soundButton;
     UIImageView* title;
     AVAudioPlayer* buttonDownSound;
     AVAudioPlayer* buttonUpSound;
