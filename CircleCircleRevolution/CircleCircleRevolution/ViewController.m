@@ -25,12 +25,15 @@
     
     [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastGameScore"];
 
+    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"soundShouldPlay"];
+    
     NSError* error;
     bgMusicPlayer = [[AVAudioPlayer alloc]
                                     initWithContentsOfURL:bgMusicURL error:&error];
     bgMusicPlayer.numberOfLoops = -1;
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     [bgMusicPlayer prepareToPlay];
-    [bgMusicPlayer play];
+        [bgMusicPlayer play];}
     
     
     buttonSFX = [[AVAudioPlayer alloc]
@@ -67,8 +70,9 @@
 
 -(void)goToScreen:(NSString *)screen
 {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     [buttonSFX prepareToPlay];
-    [buttonSFX play];
+        [buttonSFX play];}
     if ([screen isEqualToString:toMainMenu])
         [self popToViewController:menuViewController animated:YES];
     else if ([screen isEqualToString:toSelectionScreen])
@@ -139,13 +143,27 @@
 }
 
 -(void)beginGameWithMode:(int)gameMode andDifficulty:(int)difficulty
-{
+{if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     [buttonSFX prepareToPlay];
-    [buttonSFX play];
+    [buttonSFX play];}
     gameViewController = [[GameViewController alloc] initWithMode:gameMode andDifficulty:difficulty];
     gameViewController.screenDelegate = self;
     [self pushViewController:gameViewController animated:YES];
 }
 
+-(void) toggleSound
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
+        [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"soundShouldPlay"];
+
+        [bgMusicPlayer stop];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"soundShouldPlay"];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
+            [bgMusicPlayer prepareToPlay];
+            [bgMusicPlayer play];}
+    }
+}
 
 @end

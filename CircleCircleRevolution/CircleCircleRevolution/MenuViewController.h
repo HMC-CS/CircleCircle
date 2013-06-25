@@ -13,6 +13,7 @@
 
 @protocol ChangeScreenFromMenu <NSObject>
 -(void) goToScreenFromMenu:(NSString*) screen;
+-(void) toggleSound;
 
 @end
 
