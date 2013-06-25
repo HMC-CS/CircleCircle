@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CircleView.h"
 #import "FractionView.h"
+#import "UIEffectDesignerView.h"
 
 @interface ShipView : UIImageView
 {
@@ -19,9 +20,8 @@
     FractionView* fractionView2;
     UIImageView* shipBody;
     
-    UIImageView* flames;
-    NSMutableArray* normalFlames;
-    NSMutableArray* boostedFlames;
+    UIEffectDesignerView* flames;
+
 }
 
 -(id)initWithFrame:(CGRect)frame andMode:(int)mode;

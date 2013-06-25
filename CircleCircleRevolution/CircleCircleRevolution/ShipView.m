@@ -20,20 +20,11 @@
         self.backgroundColor = [UIColor clearColor];
         gameMode = mode;
         
-        NSArray *normalFlamesNames = @[@"fire_s_1.png",@"fire_s_2.png",@"fire_s_3.png",@"fire_s_4.png"];
-        NSArray *boostedFlamesNames = @[@"fire_l_1.png",@"fire_l_2.png",@"fire_l_3.png",@"fire_l_4.png"];
-        normalFlames = [[NSMutableArray alloc] init];
-        boostedFlames = [[NSMutableArray alloc] init];
-        for (int i = 0; i<4;i++){
-            [normalFlames addObject:[UIImage imageNamed:[normalFlamesNames objectAtIndex:i]]];
-            [boostedFlames addObject:[UIImage imageNamed:[boostedFlamesNames objectAtIndex:i]]];
-        }
+
         
-        UIImage* flame = [normalFlames objectAtIndex:1];
         
-        flames = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,flame.size.width,flame.size.height)];
-        flames.animationImages = normalFlames;
-        flames.animationDuration = 0.5;
+        // Twinkling stars
+        flames = [UIEffectDesignerView effectWithFile:@"fire.ped"];
                 
         if (gameMode == 1)
         {
@@ -42,9 +33,8 @@
             shipBody.backgroundColor = [UIColor clearColor];
             circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(sgCircleX-50,sgCircleY-50,sgCircleSize+100,sgCircleSize+100)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(sgFractionX,sgFractionY,sgFractionWidth,sgFractionHeight) andImage:sgFractionImageName];
-            flames.center = CGPointMake(-50,250);
+            flames.center = CGPointMake(5,250);
             [self addSubview:flames];
-            [flames startAnimating];
             [self addSubview:circleView1];
             [self addSubview:fractionView1];
             [self addSubview:shipBody];
@@ -58,9 +48,8 @@
             circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle2X-40,dgCircle2Y-40,dgCircleSize+80,dgCircleSize+80)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction1X,dgFraction1Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction1ImageName];
             fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction2X,dgFraction2Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction2ImageName];
-            flames.center = CGPointMake(-55,190);
+            flames.center = CGPointMake(5,185);
             [self addSubview:flames];
-            [flames startAnimating];
             [self addSubview:fractionView1];
             [self addSubview:fractionView2];
             [self addSubview:circleView1];
@@ -148,16 +137,13 @@
 
 -(void) boost
 {
-    [flames stopAnimating];
-    flames.animationImages = boostedFlames;
-    [flames startAnimating];
+    NSLog(@"velocity initially is %f",flames.emitter.velocity);
+    flames.emitter.velocity = 2;
 }
 
 -(void) unboost
 {
-    [flames stopAnimating];
-    flames.animationImages = normalFlames;
-    [flames startAnimating];
+    flames.emitter.velocity = 1;
 }
 
 -(void)showGlowOnCircle:(int)circleNum isCorrect:(BOOL)isRight
