@@ -118,6 +118,11 @@
 		6FE68DAF177915850074AB0A /* CircleGlowSRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DAD177915840074AB0A /* CircleGlowSRed.png */; };
 		6FE68DB1177A06CE0074AB0A /* through space.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DB0177A06CE0074AB0A /* through space.wav */; };
 		6FE68DB7177A11B80074AB0A /* fire.ped in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DB6177A11B80074AB0A /* fire.ped */; };
+		6FE68DBB177A32C70074AB0A /* teardropFlamesBoosted.ped in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DBA177A32C60074AB0A /* teardropFlamesBoosted.ped */; };
+		6FE68DBD177A3B720074AB0A /* teardropFlamesUnboosted.ped in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DBC177A3B700074AB0A /* teardropFlamesUnboosted.ped */; };
+		6FE68DC0177A3D890074AB0A /* smallTeardropFlameUnboosted.ped in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DBE177A3D880074AB0A /* smallTeardropFlameUnboosted.ped */; };
+		6FE68DC1177A3D890074AB0A /* smallTeardropFlameBoosted.ped in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DBF177A3D890074AB0A /* smallTeardropFlameBoosted.ped */; };
+		6FE68DC3177A448B0074AB0A /* PauseText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DC2177A448A0074AB0A /* PauseText.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,6 +267,11 @@
 		6FE68DAD177915840074AB0A /* CircleGlowSRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowSRed.png; sourceTree = "<group>"; };
 		6FE68DB0177A06CE0074AB0A /* through space.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "through space.wav"; sourceTree = "<group>"; };
 		6FE68DB6177A11B80074AB0A /* fire.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fire.ped; sourceTree = "<group>"; };
+		6FE68DBA177A32C60074AB0A /* teardropFlamesBoosted.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teardropFlamesBoosted.ped; sourceTree = "<group>"; };
+		6FE68DBC177A3B700074AB0A /* teardropFlamesUnboosted.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teardropFlamesUnboosted.ped; sourceTree = "<group>"; };
+		6FE68DBE177A3D880074AB0A /* smallTeardropFlameUnboosted.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = smallTeardropFlameUnboosted.ped; sourceTree = "<group>"; };
+		6FE68DBF177A3D890074AB0A /* smallTeardropFlameBoosted.ped */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = smallTeardropFlameBoosted.ped; sourceTree = "<group>"; };
+		6FE68DC2177A448A0074AB0A /* PauseText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseText.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +403,10 @@
 		45D803631778CDFA00C8F0DE /* fire */ = {
 			isa = PBXGroup;
 			children = (
+				6FE68DBC177A3B700074AB0A /* teardropFlamesUnboosted.ped */,
+				6FE68DBA177A32C60074AB0A /* teardropFlamesBoosted.ped */,
+				6FE68DBE177A3D880074AB0A /* smallTeardropFlameUnboosted.ped */,
+				6FE68DBF177A3D890074AB0A /* smallTeardropFlameBoosted.ped */,
 				45D803641778CDFA00C8F0DE /* fire_l_1.png */,
 				45D803651778CDFA00C8F0DE /* fire_l_2.png */,
 				45D803661778CDFA00C8F0DE /* fire_l_3.png */,
@@ -624,6 +638,7 @@
 		6FE68D98177904150074AB0A /* Titles */ = {
 			isa = PBXGroup;
 			children = (
+				6FE68DC2177A448A0074AB0A /* PauseText.png */,
 				6FE68D99177904470074AB0A /* AboutText.png */,
 				6FE68D9C177904470074AB0A /* HighScores.png */,
 				6FE68D9D177904470074AB0A /* HowToPlayText.png */,
@@ -774,6 +789,11 @@
 				6FE68DAF177915850074AB0A /* CircleGlowSRed.png in Resources */,
 				6FE68DB1177A06CE0074AB0A /* through space.wav in Resources */,
 				6FE68DB7177A11B80074AB0A /* fire.ped in Resources */,
+				6FE68DBB177A32C70074AB0A /* teardropFlamesBoosted.ped in Resources */,
+				6FE68DBD177A3B720074AB0A /* teardropFlamesUnboosted.ped in Resources */,
+				6FE68DC0177A3D890074AB0A /* smallTeardropFlameUnboosted.ped in Resources */,
+				6FE68DC1177A3D890074AB0A /* smallTeardropFlameBoosted.ped in Resources */,
+				6FE68DC3177A448B0074AB0A /* PauseText.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
