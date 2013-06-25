@@ -74,7 +74,7 @@
 #define okayAccuracy 8
 
 // Audio
-#define bgMusicPath [[NSBundle mainBundle] pathForResource:@"through space" ofType:@"mp3"]
+#define bgMusicPath [[NSBundle mainBundle] pathForResource:@"through space" ofType:@"wav"]
 #define bgMusicURL [NSURL fileURLWithPath:bgMusicPath]
 #define buttonSFXPath [[NSBundle mainBundle] pathForResource:@"flopp med underleppa (flanger9)" ofType:@"wav"]
 #define buttonSFXURL [NSURL fileURLWithPath:buttonSFXPath]

@@ -96,7 +96,6 @@
 		6F98E3531773642800FC64C9 /* UIEffectDesignerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F98E3511773642800FC64C9 /* UIEffectDesignerView.m */; };
 		6F98E3571773649D00FC64C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F98E3561773649D00FC64C9 /* QuartzCore.framework */; };
 		6F98E35917736A6E00FC64C9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F98E35817736A6E00FC64C9 /* AVFoundation.framework */; };
-		6F98E35C17736D8200FC64C9 /* through space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6F98E35B17736D8200FC64C9 /* through space.mp3 */; };
 		6FD268461774BB4B009DFECB /* flopp med underleppa (flanger9).wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FD268451774BB4B009DFECB /* flopp med underleppa (flanger9).wav */; };
 		6FD268481774C9DC009DFECB /* 171106__qubodup__rocket-flight-loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD268471774C9DC009DFECB /* 171106__qubodup__rocket-flight-loop.mp3 */; };
 		6FD2684C1774D0D3009DFECB /* threetone12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6FD2684B1774D0D3009DFECB /* threetone12.mp3 */; };
@@ -117,6 +116,7 @@
 		6FE68DAA177904850074AB0A /* SelectModeText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DA9177904850074AB0A /* SelectModeText.png */; };
 		6FE68DAE177915850074AB0A /* CircleGlowLRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DAC177915840074AB0A /* CircleGlowLRed.png */; };
 		6FE68DAF177915850074AB0A /* CircleGlowSRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DAD177915840074AB0A /* CircleGlowSRed.png */; };
+		6FE68DB1177A06CE0074AB0A /* through space.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DB0177A06CE0074AB0A /* through space.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,7 +239,6 @@
 		6F98E3511773642800FC64C9 /* UIEffectDesignerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIEffectDesignerView.m; sourceTree = "<group>"; };
 		6F98E3561773649D00FC64C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6F98E35817736A6E00FC64C9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		6F98E35B17736D8200FC64C9 /* through space.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "through space.mp3"; sourceTree = "<group>"; };
 		6FD268451774BB4B009DFECB /* flopp med underleppa (flanger9).wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "flopp med underleppa (flanger9).wav"; sourceTree = "<group>"; };
 		6FD268471774C9DC009DFECB /* 171106__qubodup__rocket-flight-loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "171106__qubodup__rocket-flight-loop.mp3"; sourceTree = "<group>"; };
 		6FD2684B1774D0D3009DFECB /* threetone12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = threetone12.mp3; sourceTree = "<group>"; };
@@ -260,6 +259,7 @@
 		6FE68DA9177904850074AB0A /* SelectModeText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SelectModeText.png; sourceTree = "<group>"; };
 		6FE68DAC177915840074AB0A /* CircleGlowLRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowLRed.png; sourceTree = "<group>"; };
 		6FE68DAD177915840074AB0A /* CircleGlowSRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowSRed.png; sourceTree = "<group>"; };
+		6FE68DB0177A06CE0074AB0A /* through space.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "through space.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -599,13 +599,13 @@
 		6F98E35A17736D6D00FC64C9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				6FE68DB0177A06CE0074AB0A /* through space.wav */,
 				6FD268511774F0E0009DFECB /* 43698__notchfilter__game-over03.wav */,
 				6FD2684D1774D0E9009DFECB /* zapThreeToneDown.mp3 */,
 				6FD2684E1774D0E9009DFECB /* zapThreeToneUp.mp3 */,
 				6FD2684B1774D0D3009DFECB /* threetone12.mp3 */,
 				6FD268471774C9DC009DFECB /* 171106__qubodup__rocket-flight-loop.mp3 */,
 				6FD268451774BB4B009DFECB /* flopp med underleppa (flanger9).wav */,
-				6F98E35B17736D8200FC64C9 /* through space.mp3 */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -741,7 +741,6 @@
 				45BD0A99177255B800EF11C2 /* star_s.png in Resources */,
 				45BD0A9B1772812E00EF11C2 /* star_l.png in Resources */,
 				6F98E34C177363FB00FC64C9 /* starTwinkle.ped in Resources */,
-				6F98E35C17736D8200FC64C9 /* through space.mp3 in Resources */,
 				6FD268461774BB4B009DFECB /* flopp med underleppa (flanger9).wav in Resources */,
 				6FD268481774C9DC009DFECB /* 171106__qubodup__rocket-flight-loop.mp3 in Resources */,
 				6FD2684C1774D0D3009DFECB /* threetone12.mp3 in Resources */,
@@ -770,6 +769,7 @@
 				6FE68DAA177904850074AB0A /* SelectModeText.png in Resources */,
 				6FE68DAE177915850074AB0A /* CircleGlowLRed.png in Resources */,
 				6FE68DAF177915850074AB0A /* CircleGlowSRed.png in Resources */,
+				6FE68DB1177A06CE0074AB0A /* through space.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
