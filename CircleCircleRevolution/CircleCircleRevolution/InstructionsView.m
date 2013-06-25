@@ -33,9 +33,13 @@
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-
+        menuButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [menuButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [menuButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [menuButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
         [self addSubview:menuButton];
+
+
         
         // Get the file from the resources
         NSString* path = [[NSBundle mainBundle] pathForResource:@"instructions" ofType:@"txt"];

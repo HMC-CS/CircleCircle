@@ -160,10 +160,13 @@
     [flames startAnimating];
 }
 
--(void)showGlowOnCircle:(int)circleNum
+-(void)showGlowOnCircle:(int)circleNum isCorrect:(BOOL)isRight
 {
     if (gameMode ==1){
         UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowL.png"]];
+        if (!isRight){
+            glow.image = [UIImage imageNamed:@"CircleGlowLRed.png"];
+        }
         glow.center = circleView1.center;
         [self addSubview:glow];
         [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
@@ -171,8 +174,11 @@
             glow.alpha = 0;}];
     }
     else if (gameMode == 2){
+        UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowS.png"]];
+        if (!isRight){
+            glow.image = [UIImage imageNamed:@"CircleGlowSRed.png"];
+        }
         if (circleNum ==1){
-            UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowS.png"]];
             glow.center = circleView1.center;
             [self addSubview:glow];
             [UIView animateWithDuration:1.0 animations:^(void) { glow.alpha = 0;
@@ -180,7 +186,6 @@
                 glow.alpha = 0;}];
         }
         else if (circleNum ==2){
-            UIImageView* glow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CircleGlowS.png"]];
             glow.center = circleView2.center;
             [self addSubview:glow];
             [UIView animateWithDuration:1.0

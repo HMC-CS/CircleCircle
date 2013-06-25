@@ -46,7 +46,7 @@
 -(void) disablePause;
 -(void) enablePause;
 -(void) disableBoost;
--(void)showGlowOnCircle:(int)circleNum;
+-(void)showGlowOnCircle:(int)circleNum isCorrect:(BOOL)isRight;
 -(void) showFeedback:(NSString*)feedbackTerm onCircleNumber:(int)circleNum;
 
 

@@ -115,6 +115,8 @@
 		6FE68DA7177904470074AB0A /* OkayText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68D9F177904470074AB0A /* OkayText.png */; };
 		6FE68DA8177904470074AB0A /* SelectDifficultyText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DA0177904470074AB0A /* SelectDifficultyText.png */; };
 		6FE68DAA177904850074AB0A /* SelectModeText.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DA9177904850074AB0A /* SelectModeText.png */; };
+		6FE68DAE177915850074AB0A /* CircleGlowLRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DAC177915840074AB0A /* CircleGlowLRed.png */; };
+		6FE68DAF177915850074AB0A /* CircleGlowSRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE68DAD177915840074AB0A /* CircleGlowSRed.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -256,6 +258,8 @@
 		6FE68D9F177904470074AB0A /* OkayText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OkayText.png; sourceTree = "<group>"; };
 		6FE68DA0177904470074AB0A /* SelectDifficultyText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SelectDifficultyText.png; sourceTree = "<group>"; };
 		6FE68DA9177904850074AB0A /* SelectModeText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SelectModeText.png; sourceTree = "<group>"; };
+		6FE68DAC177915840074AB0A /* CircleGlowLRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowLRed.png; sourceTree = "<group>"; };
+		6FE68DAD177915840074AB0A /* CircleGlowSRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CircleGlowSRed.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +376,8 @@
 		45BD0A97177255B800EF11C2 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				6FE68DAC177915840074AB0A /* CircleGlowLRed.png */,
+				6FE68DAD177915840074AB0A /* CircleGlowSRed.png */,
 				6FE68D961778FD6F0074AB0A /* CircleGlowS.png */,
 				6FE68D941778FA200074AB0A /* CircleGlowL.png */,
 				45D803631778CDFA00C8F0DE /* fire */,
@@ -762,6 +768,8 @@
 				6FE68DA7177904470074AB0A /* OkayText.png in Resources */,
 				6FE68DA8177904470074AB0A /* SelectDifficultyText.png in Resources */,
 				6FE68DAA177904850074AB0A /* SelectModeText.png in Resources */,
+				6FE68DAE177915850074AB0A /* CircleGlowLRed.png in Resources */,
+				6FE68DAF177915850074AB0A /* CircleGlowSRed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

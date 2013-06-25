@@ -34,9 +34,12 @@
         [easyButton setBackgroundImage:topRectButtonPressed forState:UIControlStateHighlighted];
         easyButton.frame = CGRectMake(xCoord,topButtonY, rectButtonWidth, rectTopButtonHeight);
         [easyButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        easyButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-
+        easyButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [easyButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [easyButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [easyButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
         [self addSubview:easyButton];
+
         
         UIButton* mediumButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [mediumButton setTitle:mediumMode forState:UIControlStateNormal];
@@ -45,7 +48,10 @@
         [mediumButton setBackgroundImage:midRectButtonPressed forState:UIControlStateHighlighted];
         mediumButton.frame = CGRectMake(xCoord, secondButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [mediumButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        mediumButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+        mediumButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [mediumButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [mediumButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [mediumButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
 
         [self addSubview:mediumButton];
         
@@ -56,8 +62,10 @@
         [hardButton setBackgroundImage:bottomRectButtonPressed forState:UIControlStateHighlighted];
         hardButton.frame = CGRectMake(xCoord, thirdButtonY, rectButtonWidth, rectBottomButtonHeight);
         [hardButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        hardButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-
+        hardButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [hardButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [hardButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [hardButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
         [self addSubview:hardButton];
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight3];
@@ -72,8 +80,10 @@
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
         [menuButton addTarget:self action:@selector(toMenu:) forControlEvents:UIControlEventTouchUpInside];
-        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-
+        menuButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [menuButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [menuButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [menuButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
         
         [self addSubview:menuButton];
         UIImageView* title = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SelectDifficultyText.png"]];
