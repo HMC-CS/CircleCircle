@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "UIEffectDesignerView.h"
 
 @class MenuView;
@@ -23,6 +24,8 @@
     UIButton* scoreButton;
     UIButton* instructionsButton;
     UIImageView* title;
+    AVAudioPlayer* buttonDownSound;
+    AVAudioPlayer* buttonUpSound;
 }
 
 @property (weak,nonatomic)id<ButtonOnMenuPressed> pressedDelegate;

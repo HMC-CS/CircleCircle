@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "UIEffectDesignerView.h"
 
 @class DifficultySelectionView;
@@ -20,7 +21,8 @@
 
 @interface DifficultySelectionView : UIView
 {
-    
+    AVAudioPlayer* buttonDownSound;
+    AVAudioPlayer* buttonUpSound;
 }
 
 @property (weak,nonatomic)id<ButtonOnDifficultySelectionPressed> pressedDelegate;
