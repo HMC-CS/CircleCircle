@@ -35,8 +35,10 @@
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(circleButtonY,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-
+        menuButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [menuButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [menuButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [menuButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
         [self addSubview:menuButton];
         
         float scoreLabelHeight = (self.bounds.size.width-circleButtonY-smallCircleButtonSize)/2;

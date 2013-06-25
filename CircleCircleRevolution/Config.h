@@ -25,6 +25,11 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.height
 #define kScreenHeight [UIScreen mainScreen].bounds.size.width
 
+#define buttonFontNormalColor [UIColor colorWithRed:83.0/255 green:103.0/255 blue:108.0/255 alpha:1]
+#define buttonFontPressedColor [UIColor colorWithRed:55.0/255 green:69.0/255 blue:72.0/255 alpha:1]
+#define buttonFontShadowColor [UIColor colorWithRed:51.0/255 green:51.0/255 blue:51.0/255 alpha:1]
+
+
 // Buttons
 #define rectButtonWidth topRectButtonNormal.size.width
 #define rectTopButtonHeight 70

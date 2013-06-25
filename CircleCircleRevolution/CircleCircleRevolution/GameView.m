@@ -38,7 +38,10 @@
         [menuButton setBackgroundImage:bottomRectButtonPressed forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(xCoord-pauseScreenXOffset, secondButtonY, rectButtonWidth, rectBottomButtonHeight);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+        menuButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [menuButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [menuButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [menuButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
 
         
         // Resume button - on pause screen
@@ -50,8 +53,10 @@
         [resumeButton setBackgroundImage:topRectButtonPressed forState:UIControlStateHighlighted];
         resumeButton.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY, rectButtonWidth, rectTopButtonHeight);
         [resumeButton addTarget:self action:@selector(resume) forControlEvents:UIControlEventTouchUpInside];
-        resumeButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-
+        resumeButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [resumeButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [resumeButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [resumeButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight2];
         highlights.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY,rectButtonWidth,highlightsHeight);
@@ -73,7 +78,10 @@
         [boostButton addTarget:self action:@selector(unboost) forControlEvents:UIControlEventTouchDragExit];
         [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDown];
         [boostButton addTarget:self action:@selector(boost) forControlEvents:UIControlEventTouchDragEnter];
-        boostButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+        boostButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [boostButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [boostButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [boostButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
 
         
         
@@ -86,8 +94,10 @@
         [pauseButton setBackgroundImage:smallCircleButtonNormal forState:UIControlStateDisabled];
         [pauseButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         [pauseButton addTarget:self action:@selector(pause) forControlEvents:UIControlEventTouchUpInside];
-        pauseButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-
+        pauseButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [pauseButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [pauseButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [pauseButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
         
         // Ship view
         if (mode == 1)
@@ -204,9 +214,9 @@
     boostButton.enabled = NO;
 }
 
--(void)showGlowOnCircle:(int)circleNum
+-(void)showGlowOnCircle:(int)circleNum isCorrect:(BOOL)isRight
 {
-    [shipView showGlowOnCircle:circleNum];
+    [shipView showGlowOnCircle:circleNum isCorrect:isRight];
 }
 
 -(void) showFeedback:(NSString*)feedbackTerm onCircleNumber:(int)circleNum

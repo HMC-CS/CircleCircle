@@ -36,7 +36,10 @@
         [singleButton setBackgroundImage:topRectButtonNormal forState:UIControlStateNormal];
         [singleButton setBackgroundImage:topRectButtonPressed forState:UIControlStateHighlighted];
         singleButton.frame = CGRectMake(xCoord,topButtonY, rectButtonWidth, rectTopButtonHeight);
-        singleButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+        singleButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [singleButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [singleButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [singleButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
 
 
         [singleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
@@ -48,8 +51,10 @@
         doubleButton.titleLabel.font = fontRectButtons;
         [doubleButton setBackgroundImage:bottomRectButtonNormal forState:UIControlStateNormal];
         [doubleButton setBackgroundImage:bottomRectButtonPressed forState:UIControlStateHighlighted];
-        doubleButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-
+        doubleButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [doubleButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [doubleButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [doubleButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
 
         doubleButton.frame = CGRectMake(xCoord, secondButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [doubleButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
@@ -63,7 +68,11 @@
         [menuButton setBackgroundImage:smallCircleButtonPressed forState:UIControlStateHighlighted];
         menuButton.frame = CGRectMake(circleButtonX,circleButtonY, smallCircleButtonSize, smallCircleButtonSize);
         [menuButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        menuButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+        menuButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [menuButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [menuButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [menuButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+
 
         [self addSubview:menuButton];
 

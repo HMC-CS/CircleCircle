@@ -45,8 +45,11 @@
         [gameButton setBackgroundImage:topRectButtonPressed forState:UIControlStateHighlighted];
         gameButton.frame = CGRectMake(xCoord,topButtonY, rectButtonWidth, rectTopButtonHeight);
         [gameButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        gameButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
-        gameButton.titleLabel.textColor = [UIColor whiteColor];
+        gameButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [gameButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [gameButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [gameButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+
         [self addSubview:gameButton];
         
         // Instructions button
@@ -57,7 +60,10 @@
         [instructionsButton setBackgroundImage:midRectButtonPressed forState:UIControlStateHighlighted];
         instructionsButton.frame = CGRectMake(xCoord, secondButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [instructionsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        instructionsButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+        instructionsButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [instructionsButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [instructionsButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [instructionsButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
 
         [self addSubview:instructionsButton];
         
@@ -69,7 +75,11 @@
         [scoreButton setBackgroundImage:midRectButtonPressed forState:UIControlStateHighlighted];
         scoreButton.frame = CGRectMake(xCoord, thirdButtonY, rectButtonWidth, rectMiddleButtonHeight);
         [scoreButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        scoreButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+        scoreButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [scoreButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [scoreButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [scoreButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+
 
         [self addSubview:scoreButton];
         
@@ -81,7 +91,10 @@
         [creditsButton setBackgroundImage:bottomRectButtonPressed forState:UIControlStateHighlighted];
         creditsButton.frame = CGRectMake(xCoord, bottomButtonY, rectButtonWidth, rectBottomButtonHeight);
         [creditsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchUpInside];
-        creditsButton.titleLabel.shadowOffset = CGSizeMake(-1,-1);
+        creditsButton.titleLabel.shadowOffset = CGSizeMake(1,1);
+        [creditsButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
+        [creditsButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
+        [creditsButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
 
         [self addSubview:creditsButton];
         
