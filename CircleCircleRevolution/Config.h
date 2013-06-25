@@ -49,7 +49,7 @@
 // Gameplay Constants
 #define gameFPS 60
 #define feedbackFillingTime 1
-#define resetWaitTime 2
+#define resetWaitTime 1.75
 #define feedbackFrames gameFPS*feedbackFillingTime
 #define resetFrames gameFPS*resetWaitTime
 #define boostPercent 1

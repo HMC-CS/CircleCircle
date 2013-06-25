@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "UIEffectDesignerView.h"
 
 
@@ -22,6 +23,8 @@
     UIButton* singleButton;
     UIButton* doubleButton;
     UIButton* menuButton;
+    AVAudioPlayer* buttonDownSound;
+    AVAudioPlayer* buttonUpSound;
 }
 
 @property (weak,nonatomic)id<ButtonOnSelectPressed> pressedDelegate;
