@@ -33,7 +33,7 @@
 -(void) resume;
 -(void) boost;
 -(void) unboost;
--(void)showGlowOnCircle:(int)circleNum;
+-(void)showGlowOnCircle:(int)circleNum isCorrect:(BOOL)isRight;
 -(void) showFeedback:(NSString*)feedbackTerm onCircleNumber:(int)circleNum;
 
 

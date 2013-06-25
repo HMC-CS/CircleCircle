@@ -297,7 +297,14 @@
     float fracValue = [self calculateFractionValue:currentFraction1];
     int accuracy = [self calculateAccuracyFromPercent:circlePercent1 andTargetFractionValue:fracValue];
     NSString* feedbackTerm = [self tapFeedback:accuracy];
+
     if (!gameOver){
+        if ([feedbackTerm isEqualToString:@"Miss"]){
+            [gameView showGlowOnCircle:1 isCorrect:FALSE];
+
+        } else {
+            [gameView showGlowOnCircle:1 isCorrect:TRUE];
+        }
         [gameView showFeedback:feedbackTerm onCircleNumber:1];}
     [self checkGameOver];
     [self updateScore];
@@ -324,7 +331,15 @@
     float fracValue = [self calculateFractionValue:currentFraction2];
     int accuracy = [self calculateAccuracyFromPercent:circlePercent2 andTargetFractionValue:fracValue];
     NSString* feedbackTerm = [self tapFeedback:accuracy];
+
     if (!gameOver){
+        if ([feedbackTerm isEqualToString:@"Miss"]){
+            [gameView showGlowOnCircle:2 isCorrect:FALSE];
+
+        } else {
+            [gameView showGlowOnCircle:2 isCorrect:TRUE];
+
+        }
         [gameView showFeedback:feedbackTerm onCircleNumber:2];}
     [self checkGameOver];
     [self updateScore];
@@ -348,7 +363,6 @@
 {
     if (!touch1){
         [self scoreBlock1];
-        [gameView showGlowOnCircle:1];
         if (gameOver && gameMode == 2){
             [self scoreBlock2];        
         }else if (!gameOver){
@@ -361,7 +375,6 @@
 {
     if(!touch2){
         [self scoreBlock2];
-        [gameView showGlowOnCircle:2];
         if (gameOver){
             [self scoreBlock1];
         }else if (!gameOver){

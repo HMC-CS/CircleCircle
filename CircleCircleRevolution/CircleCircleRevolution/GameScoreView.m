@@ -23,7 +23,9 @@
         
         scoreLabel = [[UILabel alloc] initWithFrame:self.bounds];
         scoreLabel.backgroundColor = [UIColor clearColor];
-        scoreLabel.textColor = [UIColor blackColor];
+        scoreLabel.textColor = buttonFontNormalColor;
+        scoreLabel.shadowColor = buttonFontShadowColor;
+        scoreLabel.shadowOffset = CGSizeMake(1,1);
         scoreLabel.textAlignment = NSTextAlignmentCenter;
         scoreLabel.font = fontScoreLabel;
         

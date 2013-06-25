@@ -22,7 +22,9 @@
         
         fractionLabel = [[UILabel alloc] initWithFrame:self.bounds];
         fractionLabel.backgroundColor = [UIColor clearColor];
-        fractionLabel.textColor = [UIColor blackColor];
+        fractionLabel.textColor = buttonFontNormalColor;
+        fractionLabel.shadowOffset = CGSizeMake(1,1);
+        fractionLabel.shadowColor = buttonFontShadowColor;
         fractionLabel.textAlignment = NSTextAlignmentCenter;
         fractionLabel.font = fontFractionLabel;
         
