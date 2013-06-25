@@ -21,6 +21,7 @@
     UIImageView* shipBody;
     
     UIEffectDesignerView* flames;
+    UIEffectDesignerView* boostedFlames;
 
 }
 

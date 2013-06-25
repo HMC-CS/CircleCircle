@@ -60,6 +60,11 @@
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight2];
         highlights.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY,rectButtonWidth,highlightsHeight);
+        
+        UIImageView* pauseTitle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PauseText.png"]];
+        pauseTitle.center = CGPointMake(pauseView.bounds.size.width/2,250);
+        
+        [pauseView addSubview:pauseTitle];
         [pauseView addSubview:menuButton];
         [pauseView addSubview:resumeButton];
         [pauseView addSubview:highlights];

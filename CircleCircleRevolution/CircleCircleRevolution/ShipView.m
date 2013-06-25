@@ -23,24 +23,31 @@
 
         
         
-        // Twinkling stars
-        flames = [UIEffectDesignerView effectWithFile:@"fire.ped"];
+
+
                 
         if (gameMode == 1)
         {
+            flames = [UIEffectDesignerView effectWithFile:@"teardropFlamesUnboosted.ped"];
+            boostedFlames = [UIEffectDesignerView effectWithFile:@"teardropFlamesBoosted.ped"];
             shipBody = [[UIImageView alloc] initWithImage:singleShipImage];
             shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
             shipBody.backgroundColor = [UIColor clearColor];
             circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(sgCircleX-50,sgCircleY-50,sgCircleSize+100,sgCircleSize+100)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(sgFractionX,sgFractionY,sgFractionWidth,sgFractionHeight) andImage:sgFractionImageName];
-            flames.center = CGPointMake(5,250);
+            flames.center = CGPointMake(25,250);
+            boostedFlames.center = CGPointMake(25,250);
             [self addSubview:flames];
+            [self addSubview:boostedFlames];
+            [boostedFlames.emitter setBirthRate:0];
             [self addSubview:circleView1];
             [self addSubview:fractionView1];
             [self addSubview:shipBody];
         }
         else if (gameMode == 2)
         {
+            flames = [UIEffectDesignerView effectWithFile:@"smallTeardropFlameUnboosted.ped"];
+            boostedFlames = [UIEffectDesignerView effectWithFile:@"smallTeardropFlameBoosted.ped"];
             shipBody = [[UIImageView alloc] initWithImage:doubleShipImage];
             shipBody.frame = CGRectMake(0, 0, shipBody.image.size.width, shipBody.image.size.height);
             shipBody.backgroundColor = [UIColor clearColor];
@@ -48,8 +55,12 @@
             circleView2 = [[CircleView alloc] initWithFrame:CGRectMake(dgCircle2X-40,dgCircle2Y-40,dgCircleSize+80,dgCircleSize+80)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction1X,dgFraction1Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction1ImageName];
             fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction2X,dgFraction2Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction2ImageName];
-            flames.center = CGPointMake(5,185);
+
+            flames.center = CGPointMake(30,185);
+            boostedFlames.center = CGPointMake(30,185);
             [self addSubview:flames];
+            [self addSubview:boostedFlames];
+            [boostedFlames.emitter setBirthRate:0];
             [self addSubview:fractionView1];
             [self addSubview:fractionView2];
             [self addSubview:circleView1];
@@ -128,22 +139,28 @@
 -(void) pause
 {
     flames.alpha = 0;
+    boostedFlames.alpha = 0;
 }
 
 -(void) resume
 {
     flames.alpha = 1;
+    boostedFlames.alpha = 1;
 }
 
 -(void) boost
 {
-    NSLog(@"velocity initially is %f",flames.emitter.velocity);
-    flames.emitter.velocity = 2;
+    [flames.emitter setBirthRate:0];
+    [boostedFlames.emitter setBirthRate:1];
+
 }
 
 -(void) unboost
 {
-    flames.emitter.velocity = 1;
+
+    [flames.emitter setBirthRate:1];
+    [boostedFlames.emitter setBirthRate:0];
+
 }
 
 -(void)showGlowOnCircle:(int)circleNum isCorrect:(BOOL)isRight
