@@ -148,7 +148,7 @@
 #define dgCircle2X 518
 #define dgCircle2Y 44
 #define dgCircleSize 249
-#define dgFraction1X 224
+#define dgFraction1X 244
 #define dgFraction1Y 284
 #define dgFraction2X 481
 #define dgFraction2Y 280
