@@ -34,6 +34,9 @@
     ShipView* shipView;
     GameScoreView* gameScoreView;
     LifeView* lifeView;
+    
+    AVAudioPlayer* buttonDownSound;
+    AVAudioPlayer* buttonUpSound;
 }
 
 -(id)initWithFrame:(CGRect)frame andMode:(int)mode;
