@@ -56,8 +56,8 @@
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction1X,dgFraction1Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction1ImageName];
             fractionView2 = [[FractionView alloc] initWithFrame:CGRectMake(dgFraction2X,dgFraction2Y,dgFractionWidth,dgFractionHeight) andImage:dgFraction2ImageName];
 
-            flames.center = CGPointMake(30,185);
-            boostedFlames.center = CGPointMake(30,185);
+            flames.center = CGPointMake(45,185);
+            boostedFlames.center = CGPointMake(45,185);
             [self addSubview:flames];
             [self addSubview:boostedFlames];
             [boostedFlames.emitter setBirthRate:0];
