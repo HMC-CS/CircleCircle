@@ -59,7 +59,7 @@
         label.numberOfLines = 0;
         label.font = fontCredits;
         label.shadowColor=[UIColor blackColor];
-        label.shadowOffset = CGSizeMake(-1,-1);
+        label.shadowOffset = CGSizeMake(1,1);
         label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
         
