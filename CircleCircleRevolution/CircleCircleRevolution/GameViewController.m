@@ -207,7 +207,6 @@
         percentChange += boostPercent;
         backgroundMoveAmount *= boostBackground;
     }
-
 }
 
 // Game Loop Updates

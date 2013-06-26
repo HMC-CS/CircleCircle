@@ -12,6 +12,7 @@
 
 -(id) init
 {
+    lastFraction = [NSArray arrayWithObjects:nil];
     return self;
 }
 
@@ -21,10 +22,20 @@
     int denominator = (arc4random() % ((maxDenominator +1)-minDenominator)) + minDenominator;
     int numerator = (arc4random() % (denominator -1)) +1;
     
-    return [NSArray arrayWithObjects:
-            [NSNumber numberWithInteger:numerator],
-            [NSNumber numberWithInteger:denominator],
-            nil];
+    NSArray* newFraction = [NSArray arrayWithObjects:
+                            [NSNumber numberWithInteger:numerator],
+                            [NSNumber numberWithInteger:denominator],
+                            nil];
+    
+    if ([newFraction isEqualToArray:lastFraction])
+    {
+        return [self getFractionWithMinD:minDenominator andMaxD:maxDenominator];
+    }
+    else
+    {
+        lastFraction = newFraction;
+        return newFraction;
+    }
 }
 
 -(NSArray*) getFractionGivenDifficulty:(int)difficulty
