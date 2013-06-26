@@ -31,6 +31,7 @@
 		45332235177B7BB3007CAA59 /* button_top_neutral@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45332228177B7BB3007CAA59 /* button_top_neutral@2x.png */; };
 		45332236177B7BB3007CAA59 /* button_top_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45332229177B7BB3007CAA59 /* button_top_pressed@2x.png */; };
 		45332239177B7C82007CAA59 /* ship_body_double@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45332238177B7C82007CAA59 /* ship_body_double@2x.png */; };
+		4533223B177B7CCD007CAA59 /* ship_body_single@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4533223A177B7CCD007CAA59 /* ship_body_single@2x.png */; };
 		4563F4C1176679FC00A74E15 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C0176679FC00A74E15 /* GameView.m */; };
 		4563F4C717667B6800A74E15 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C617667B6800A74E15 /* GameViewController.m */; };
 		459B786F1770F5C500D3C583 /* stars1_l.png in Resources */ = {isa = PBXBuildFile; fileRef = 459B78581770F5C500D3C583 /* stars1_l.png */; };
@@ -205,6 +206,7 @@
 		45332228177B7BB3007CAA59 /* button_top_neutral@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_top_neutral@2x.png"; sourceTree = "<group>"; };
 		45332229177B7BB3007CAA59 /* button_top_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_top_pressed@2x.png"; sourceTree = "<group>"; };
 		45332238177B7C82007CAA59 /* ship_body_double@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship_body_double@2x.png"; sourceTree = "<group>"; };
+		4533223A177B7CCD007CAA59 /* ship_body_single@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship_body_single@2x.png"; sourceTree = "<group>"; };
 		4563F4BF176679FC00A74E15 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		4563F4C0176679FC00A74E15 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
 		4563F4C517667B6700A74E15 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
@@ -428,10 +430,11 @@
 		45332237177B7C66007CAA59 /* x2 images */ = {
 			isa = PBXGroup;
 			children = (
-				45332238177B7C82007CAA59 /* ship_body_double@2x.png */,
 				6FE68E13177B75E00074AB0A /* ship_fraction_single@2x.png */,
 				6FE68E11177B75E00074AB0A /* ship_fraction_double_1@2x.png */,
 				6FE68E12177B75E00074AB0A /* ship_fraction_double_2@2x.png */,
+				4533223A177B7CCD007CAA59 /* ship_body_single@2x.png */,
+				45332238177B7C82007CAA59 /* ship_body_double@2x.png */,
 			);
 			name = "x2 images";
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 				45332235177B7BB3007CAA59 /* button_top_neutral@2x.png in Resources */,
 				45332236177B7BB3007CAA59 /* button_top_pressed@2x.png in Resources */,
 				45332239177B7C82007CAA59 /* ship_body_double@2x.png in Resources */,
+				4533223B177B7CCD007CAA59 /* ship_body_single@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
