@@ -154,15 +154,14 @@
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
         [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"soundShouldPlay"];
-
-        [bgMusicPlayer stop];
+        bgMusicPlayer.volume = 0;
+        
     }
     else {
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"soundShouldPlay"];
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-            [bgMusicPlayer prepareToPlay];
-            [bgMusicPlayer play];}
+            bgMusicPlayer.volume = 1;
+        }
     }
 }
-
 @end
