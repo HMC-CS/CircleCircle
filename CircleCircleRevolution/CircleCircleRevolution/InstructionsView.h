@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "UIEffectDesignerView.h"
 
 
@@ -20,6 +21,9 @@
 @interface InstructionsView : UIView
 {
     UIButton* menuButton;
+    
+    AVAudioPlayer* buttonDownSound;
+    AVAudioPlayer* buttonUpSound;
 }
 
 @property (weak,nonatomic)id<ButtonOnInstructionsPressed> pressedDelegate;

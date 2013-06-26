@@ -18,7 +18,8 @@
 #define fontLargeRoundButtons [UIFont fontWithName:@"Krungthep" size:40.0]
 #define fontInstructions [UIFont fontWithName:@"Krungthep" size:30.0]
 #define fontCredits [UIFont fontWithName:@"Krungthep" size:20.0]
-#define fontHighScores [UIFont fontWithName:@"Krungthep" size:20.0]
+#define fontHighScoresS [UIFont fontWithName:@"Krungthep" size:18.0]
+#define fontHighScoresL [UIFont fontWithName:@"Krungthep" size:28.0]
 #define fontScoreLabel [UIFont fontWithName:@"Krungthep" size:30.0]
 #define fontFractionLabel [UIFont fontWithName:@"Krungthep" size:50.0]
 #define fontTitles [UIFont fontWithName:@"Krungthep" size:50.0];
@@ -45,6 +46,10 @@
 #define bottomButtonY (thirdButtonY + rectMiddleButtonHeight)
 #define circleButtonY 50
 #define circleButtonX 50
+
+#define scoreMarginX 40
+#define scoreMarginTop 200
+#define scoreMarginBottom 20
 
 // Gameplay Constants
 #define gameFPS 60
@@ -78,6 +83,10 @@
 #define bgMusicURL [NSURL fileURLWithPath:bgMusicPath]
 #define buttonSFXPath [[NSBundle mainBundle] pathForResource:@"flopp med underleppa (flanger9)" ofType:@"wav"]
 #define buttonSFXURL [NSURL fileURLWithPath:buttonSFXPath]
+#define buttonUpPath [[NSBundle mainBundle] pathForResource:@"flopp med underleppa (flanger9)" ofType:@"wav"]
+#define buttonUpURL [NSURL fileURLWithPath:buttonUpPath]
+#define buttonDownPath [[NSBundle mainBundle] pathForResource:@"flopp med underleppa (flanger9)" ofType:@"wav"]
+#define buttonDownURL [NSURL fileURLWithPath:buttonDownPath]
 #define correctSFXPath [[NSBundle mainBundle] pathForResource:@"zapThreeToneUp" ofType:@"mp3"]
 #define correctSFXURL [NSURL fileURLWithPath:correctSFXPath]
 #define wrongSFXPath [[NSBundle mainBundle] pathForResource:@"zapThreeToneDown" ofType:@"mp3"]
@@ -94,9 +103,9 @@
 #define toSelectionScreen @"Game"
 #define toSingleGame @"Single"
 #define toDoubleGame @"Double"
-#define toHighScores @"Score"
+#define toHighScores @"High Scores"
 #define toInstructions @"Instructions"
-#define toCredits @"Credits"
+#define toCredits @"About"
 #define showPauseMenu @"Pause"
 #define hardMode @"Hard"
 #define mediumMode @"Medium"
@@ -152,6 +161,7 @@
 #define circleFeedbackColor [UIColor colorWithRed:200.0/255 green:55.0/255 blue:55.0/255 alpha:1]
 
 // Images
+#define scoreScreenImage [UIImage imageNamed:@"scorescreen.png"]
 #define pauseScreenImage [UIImage imageNamed:@"pause.png"]
 #define singleShipImage [UIImage imageNamed:@"ship_body_single.png"]
 #define doubleShipImage [UIImage imageNamed:@"ship_body_double.png"]

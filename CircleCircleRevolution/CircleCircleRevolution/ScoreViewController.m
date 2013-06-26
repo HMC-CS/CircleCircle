@@ -7,6 +7,7 @@
 //
 
 #import "ScoreViewController.h"
+#import "Config.h"
 
 @interface ScoreViewController ()
 
@@ -65,10 +66,23 @@
 
 -(void) promptForName
 {
-    message = [[UIAlertView alloc] initWithTitle:@"Nicely played! What's your name?"
+    message = [[UIAlertView alloc] initWithTitle:@"High Score! Enter your name:"
                                          message:nil
                                         delegate:self
-                               cancelButtonTitle:@"Save name"
+                               cancelButtonTitle:@"Save Name"
+                               otherButtonTitles:nil, nil];
+    
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message show];
+    return;
+}
+
+-(void) promptForShortName
+{
+    message = [[UIAlertView alloc] initWithTitle:@"Please enter a shorter name:"
+                                         message:nil
+                                        delegate:self
+                               cancelButtonTitle:@"Save Name"
                                otherButtonTitles:nil, nil];
     
     [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
@@ -81,10 +95,18 @@
     if (buttonIndex == 0) {
         playerName = [message textFieldAtIndex:0].text;
         if ([playerName isEqualToString:@""]){
-            playerName = @"??????";
+            playerName = @"???";
         }
-        [self insertNewHighScore:lastScore andName:playerName];
-        [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastGameScore"];
+        
+        if ([playerName sizeWithFont:fontHighScoresS].width > 180)
+        {
+            [self promptForShortName];
+        }
+        else
+        {
+            [self insertNewHighScore:lastScore andName:playerName];
+            [[NSUserDefaults standardUserDefaults] setInteger:-1 forKey:@"lastGameScore"];
+        }
     }
 }
 

@@ -39,6 +39,10 @@
         [menuButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [menuButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [menuButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+        [menuButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [menuButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [menuButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [menuButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:menuButton];
         
@@ -56,6 +60,7 @@
         label.font = fontCredits;
         label.shadowColor=[UIColor blackColor];
         label.shadowOffset = CGSizeMake(-1,-1);
+        label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:label];
         
         // Title label
@@ -75,6 +80,24 @@
     if (self.pressedDelegate){
         [self.pressedDelegate passedButtonPress:sender];
     }
+}
+
+-(void) pressDown:(id)sender
+{
+    buttonDownSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonDownURL error:nil];
+    [buttonDownSound prepareToPlay];
+    [buttonDownSound play];
+    UIButton* button = (UIButton*)sender;
+    [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top+2,0,0,0)];
+}
+
+-(void) pressUp:(id)sender
+{
+    buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonUpURL error:nil];
+    [buttonUpSound prepareToPlay];
+    [buttonUpSound play];
+    UIButton* button = (UIButton*)sender;
+    [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top-2,0,0,0)];
 }
 
 /*
