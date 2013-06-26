@@ -35,8 +35,8 @@
             shipBody.backgroundColor = [UIColor clearColor];
             circleView1 = [[CircleView alloc] initWithFrame:CGRectMake(sgCircleX-50,sgCircleY-50,sgCircleSize+100,sgCircleSize+100)];
             fractionView1 = [[FractionView alloc] initWithFrame:CGRectMake(sgFractionX,sgFractionY,sgFractionWidth,sgFractionHeight) andImage:sgFractionImageName];
-            flames.center = CGPointMake(25,250);
-            boostedFlames.center = CGPointMake(25,250);
+            flames.center = CGPointMake(45,250);
+            boostedFlames.center = CGPointMake(45,250);
             [self addSubview:flames];
             [self addSubview:boostedFlames];
             [boostedFlames.emitter setBirthRate:0];
