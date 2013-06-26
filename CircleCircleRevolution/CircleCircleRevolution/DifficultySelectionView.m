@@ -129,7 +129,7 @@
 -(void) pressDown:(id)sender
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-        buttonDownSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonSFXURL error:nil];
+        buttonDownSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonDownURL error:nil];
         [buttonDownSound prepareToPlay];
         [buttonDownSound play];}
     
@@ -140,7 +140,7 @@
 -(void) pressUp:(id)sender
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-    buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonSFXURL error:nil];
+    buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonUpURL error:nil];
     [buttonUpSound prepareToPlay];
         [buttonUpSound play];}
     UIButton* button = (UIButton*)sender;

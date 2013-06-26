@@ -158,7 +158,8 @@
     {
         buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonUpURL error:nil];
         [buttonUpSound prepareToPlay];
-        [buttonUpSound play];}
+        [buttonUpSound play];
+    }
     UIButton* button = (UIButton*)sender;
     [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top-2,0,0,0)];
 }
@@ -167,7 +168,7 @@
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
         [soundButton setBackgroundImage:[UIImage imageNamed:@"muteIconGrayL.png"] forState:UIControlStateNormal];}
-    else{
+    else{ 
         [soundButton setBackgroundImage:[UIImage imageNamed:@"audioIconGrayL.png"] forState:UIControlStateNormal];
     }
     

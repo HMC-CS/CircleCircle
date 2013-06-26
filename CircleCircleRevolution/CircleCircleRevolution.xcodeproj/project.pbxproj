@@ -65,6 +65,8 @@
 		45D803731778CDFA00C8F0DE /* fire_s_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D8036B1778CDFA00C8F0DE /* fire_s_4.png */; };
 		45D80375177A388100C8F0DE /* scorescreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D80374177A388100C8F0DE /* scorescreen.png */; };
 		45D80378177A4FEC00C8F0DE /* ScoreSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D80377177A4FEB00C8F0DE /* ScoreSubview.m */; };
+		45D8037B177A6C9200C8F0DE /* button11.wav in Resources */ = {isa = PBXBuildFile; fileRef = 45D80379177A6C9200C8F0DE /* button11.wav */; };
+		45D8037C177A6C9200C8F0DE /* button25.wav in Resources */ = {isa = PBXBuildFile; fileRef = 45D8037A177A6C9200C8F0DE /* button25.wav */; };
 		6F39D82017625D190089FBA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D81F17625D190089FBA1 /* UIKit.framework */; };
 		6F39D82217625D190089FBA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D82117625D190089FBA1 /* Foundation.framework */; };
 		6F39D82417625D190089FBA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F39D82317625D190089FBA1 /* CoreGraphics.framework */; };
@@ -200,6 +202,8 @@
 		45D80374177A388100C8F0DE /* scorescreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scorescreen.png; sourceTree = "<group>"; };
 		45D80376177A4FEB00C8F0DE /* ScoreSubview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSubview.h; sourceTree = "<group>"; };
 		45D80377177A4FEB00C8F0DE /* ScoreSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSubview.m; sourceTree = "<group>"; };
+		45D80379177A6C9200C8F0DE /* button11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button11.wav; sourceTree = "<group>"; };
+		45D8037A177A6C9200C8F0DE /* button25.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button25.wav; sourceTree = "<group>"; };
 		6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircleCircleRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F39D81F17625D190089FBA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F39D82117625D190089FBA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -546,6 +550,10 @@
 			children = (
 				6F39D84B1762623F0089FBA1 /* MenuView.h */,
 				6F39D84C1762623F0089FBA1 /* MenuView.m */,
+				6F39D8571762898A0089FBA1 /* SelectionView.h */,
+				6F39D8581762898B0089FBA1 /* SelectionView.m */,
+				45B1F2DB1767D8870090EEF7 /* DifficultySelectionView.h */,
+				45B1F2DC1767D8870090EEF7 /* DifficultySelectionView.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -554,10 +562,6 @@
 			isa = PBXGroup;
 			children = (
 				45B1F2B617679FE10090EEF7 /* Subviews */,
-				6F39D8571762898A0089FBA1 /* SelectionView.h */,
-				6F39D8581762898B0089FBA1 /* SelectionView.m */,
-				45B1F2DB1767D8870090EEF7 /* DifficultySelectionView.h */,
-				45B1F2DC1767D8870090EEF7 /* DifficultySelectionView.m */,
 				4563F4BF176679FC00A74E15 /* GameView.h */,
 				4563F4C0176679FC00A74E15 /* GameView.m */,
 			);
@@ -630,6 +634,8 @@
 		6F98E35A17736D6D00FC64C9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				45D80379177A6C9200C8F0DE /* button11.wav */,
+				45D8037A177A6C9200C8F0DE /* button25.wav */,
 				6FE68DB0177A06CE0074AB0A /* through space.wav */,
 				6FD268511774F0E0009DFECB /* 43698__notchfilter__game-over03.wav */,
 				6FD2684D1774D0E9009DFECB /* zapThreeToneDown.mp3 */,
@@ -811,6 +817,8 @@
 				45D80375177A388100C8F0DE /* scorescreen.png in Resources */,
 				6FE68DD6177A68940074AB0A /* audioIconGrayL.png in Resources */,
 				6FE68DD7177A68940074AB0A /* muteIconGrayL.png in Resources */,
+				45D8037B177A6C9200C8F0DE /* button11.wav in Resources */,
+				45D8037C177A6C9200C8F0DE /* button25.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
