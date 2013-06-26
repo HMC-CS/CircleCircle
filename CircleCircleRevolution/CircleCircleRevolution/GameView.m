@@ -42,6 +42,10 @@
         [menuButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [menuButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [menuButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+        [menuButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [menuButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [menuButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [menuButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
 
         
         // Resume button - on pause screen
@@ -57,6 +61,10 @@
         [resumeButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [resumeButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [resumeButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+        [resumeButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [resumeButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [resumeButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [resumeButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
         
         UIImageView* highlights = [[UIImageView alloc] initWithImage:highlight2];
         highlights.frame = CGRectMake(xCoord-pauseScreenXOffset,topButtonY,rectButtonWidth,highlightsHeight);
@@ -87,6 +95,10 @@
         [boostButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [boostButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [boostButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+        [boostButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [boostButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [boostButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [boostButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
 
         
         
@@ -103,6 +115,10 @@
         [pauseButton setTitleColor:buttonFontNormalColor forState:UIControlStateNormal];
         [pauseButton setTitleColor:buttonFontPressedColor forState:UIControlStateHighlighted];
         [pauseButton setTitleShadowColor:buttonFontShadowColor forState:UIControlStateNormal];
+        [pauseButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDown];
+        [pauseButton addTarget:self action:@selector(pressDown:) forControlEvents:UIControlEventTouchDragEnter];
+        [pauseButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchDragExit];
+        [pauseButton addTarget:self action:@selector(pressUp:) forControlEvents:UIControlEventTouchUpInside];
         
         // Ship view
         if (mode == 1)
@@ -227,6 +243,24 @@
 -(void) showFeedback:(NSString*)feedbackTerm onCircleNumber:(int)circleNum
 {
     [shipView showFeedback:feedbackTerm onCircleNumber:circleNum];
+}
+
+-(void) pressDown:(id)sender
+{
+    buttonDownSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonDownURL error:nil];
+    [buttonDownSound prepareToPlay];
+    [buttonDownSound play];
+    UIButton* button = (UIButton*)sender;
+    [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top+2,0,0,0)];
+}
+
+-(void) pressUp:(id)sender
+{
+    buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonUpURL error:nil];
+    [buttonUpSound prepareToPlay];
+    [buttonUpSound play];
+    UIButton* button = (UIButton*)sender;
+    [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top-2,0,0,0)];
 }
 
 /*

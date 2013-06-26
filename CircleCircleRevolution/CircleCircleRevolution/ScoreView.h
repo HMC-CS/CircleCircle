@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import "ScoreSubview.h"
 #import "UIEffectDesignerView.h"
 
 
@@ -20,13 +22,16 @@
 @interface ScoreView : UIView
 {
     UIButton* menuButton;
-    UILabel* scoresLabel11;
-    UILabel* scoresLabel12;
-    UILabel* scoresLabel13;
-    UILabel* scoresLabel21;
-    UILabel* scoresLabel22;
-    UILabel* scoresLabel23;
     
+    UIView* subview11;
+    UIView* subview12;
+    UIView* subview13;
+    UIView* subview21;
+    UIView* subview22;
+    UIView* subview23;
+    
+    AVAudioPlayer* buttonDownSound;
+    AVAudioPlayer* buttonUpSound;
 }
 
 -(void) updateScoresLabel;
