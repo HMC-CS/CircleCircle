@@ -102,18 +102,18 @@
 
 -(void) pressDown:(id)sender
 {
-    buttonDownSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonDownURL error:nil];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){buttonDownSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonDownURL error:nil];
     [buttonDownSound prepareToPlay];
-    [buttonDownSound play];
+        [buttonDownSound play];}
     UIButton* button = (UIButton*)sender;
     [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top+2,0,0,0)];
 }
 
 -(void) pressUp:(id)sender
 {
-    buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonUpURL error:nil];
+   if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){ buttonUpSound = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonUpURL error:nil];
     [buttonUpSound prepareToPlay];
-    [buttonUpSound play];
+       [buttonUpSound play];}
     UIButton* button = (UIButton*)sender;
     [sender setTitleEdgeInsets:UIEdgeInsetsMake(button.titleEdgeInsets.top-2,0,0,0)];
 }
