@@ -121,7 +121,7 @@
         
         // Sound button
         soundButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [soundButton setBackgroundImage:[UIImage imageNamed:@"soundIconGray.png"] forState:UIControlStateNormal];
+        [soundButton setBackgroundImage:[UIImage imageNamed:@"audioIconGrayL.png"] forState:UIControlStateNormal];
 
         soundButton.frame = CGRectMake(25,25,50,50);
         //[soundButton setTitle:@"Sound" forState:UIControlStateNormal];
@@ -166,9 +166,9 @@
 -(void) sound
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-        [soundButton setBackgroundImage:[UIImage imageNamed:@"muteIconGray.png"] forState:UIControlStateNormal];}
+        [soundButton setBackgroundImage:[UIImage imageNamed:@"muteIconGrayL.png"] forState:UIControlStateNormal];}
     else{
-        [soundButton setBackgroundImage:[UIImage imageNamed:@"soundIconGray.png"] forState:UIControlStateNormal];
+        [soundButton setBackgroundImage:[UIImage imageNamed:@"audioIconGrayL.png"] forState:UIControlStateNormal];
     }
     
     
