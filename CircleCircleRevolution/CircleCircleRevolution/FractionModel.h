@@ -10,7 +10,8 @@
 
 @interface FractionModel : NSObject
 {
-    NSArray* fractionList;
+    NSArray* lastFraction;
+    
 }
 
 -(id) init;
