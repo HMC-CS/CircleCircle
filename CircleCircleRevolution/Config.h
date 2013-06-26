@@ -175,7 +175,7 @@
 #define topLifeEmpty [UIImage imageNamed:@"life_top_empty.png"]
 #define lifeBorderImage [UIImage imageNamed:@"life_border.png"]
 
-#define topRectButtonNormal [UIImage imageNamed:@"button_top.png"]
+#define topRectButtonNormal [UIImage imageNamed:@"button_top_neutral.png"]
 #define topRectButtonPressed [UIImage imageNamed:@"button_top_pressed.png"]
 #define midRectButtonNormal [UIImage imageNamed:@"button_middle_neutral.png"]
 #define midRectButtonPressed [UIImage imageNamed:@"button_middle_pressed.png"]
