@@ -28,48 +28,63 @@
 
 @interface GameViewController : UIViewController <ButtonOnGame1Pressed>
 {
+    // Game information
     int gameMode;
     int gameDifficulty;
+    
+    // Counts for timers to reset circle and display feedback smoothly
     int resetCircle1Count;
     int resetCircle2Count;
-    
     int circle1FeedbackCount;
     int circle2FeedbackCount;
     
+    // How much to move background and increase circle each fire of the timer
     float percentChange;
-    float circlePercent1;
-    float circlePercent2;
     float backgroundMoveAmount;
     
+    // Current values filled in circles
+    float circlePercent1;
+    float circlePercent2;
+    
+    // For displaying correct fraction smoothly
     float circle1Feedback;
     float circle1FeedbackChange;
-    
     float circle2Feedback;
     float circle2FeedbackChange;
     
+    // Whether to increase the circle this timer fire
     BOOL update1;
-    BOOL touch1;
     BOOL update2;
+    
+    // Whether a circle has already been touched and is therefore displaying feedback
+    BOOL touch1;
     BOOL touch2;
+    
+    // Game states
     BOOL gameOver;
     BOOL isBoosted;
     BOOL isPaused;
+    
+    // A circle's correct fraction
     NSArray* currentFraction1;
     NSArray* currentFraction2;
-    NSString* feedbackTerm1;
-    NSString* feedbackTerm2;
+    
+    // Game timer - updates
     NSTimer* timer1;
+    
+    // Models
     ShipModel* shipModel;
     FractionModel* fractionModel;
     GameModel* gameModel;
+    
+    // Views
     GameView* gameView;
-    NSMutableArray* farBackgroundImages;
-    NSMutableArray* nearBackgroundImages;
     UIImageView* bg1Far;
     UIImageView* bg2Far;
     UIImageView* bg1Near;
     UIImageView* bg2Near;
     
+    // Sound Effects
     AVAudioPlayer *buttonSFX;
     AVAudioPlayer *correctSFX;
     AVAudioPlayer *wrongSFX;
