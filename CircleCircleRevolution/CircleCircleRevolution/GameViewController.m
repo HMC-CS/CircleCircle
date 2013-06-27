@@ -196,10 +196,10 @@
     //percentChange = [gameModel calculateSpeed];
     if (oldPercent < newPercent && newPercent - oldPercent > 0.01){// we got faster
         percentChange = newPercent;
-        NSLog(@"was at %f, now at %f",oldPercent,newPercent);
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-        [fasterSFX prepareToPlay];
-            [fasterSFX play];}
+            [fasterSFX prepareToPlay];
+            [fasterSFX play];
+        }
     }
     //percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
     backgroundMoveAmount = [gameModel getBackgroundChange];
@@ -419,15 +419,17 @@
         [correctSFX stop];
         correctSFX.currentTime = 0;
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-        [correctSFX prepareToPlay];
-            [correctSFX play];}
+            [correctSFX prepareToPlay];
+            [correctSFX play];
+        }
     }
     else{
         [wrongSFX stop];
         wrongSFX.currentTime = 0;
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-        [wrongSFX prepareToPlay];
-            [wrongSFX play];}
+            [wrongSFX prepareToPlay];
+            [wrongSFX play];
+        }
     }
     [gameModel incrementScore:score];
     return feedbackTerm;
@@ -465,10 +467,10 @@
             if (isBoosted){
                 [self unboost];
             }
-            NSLog(@"Game should be over now, technically!");
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-            [gameOverSound prepareToPlay];
-                [gameOverSound play];}
+                [gameOverSound prepareToPlay];
+                [gameOverSound play];
+            }
         }
         gameOver = TRUE; // the selector won't be double scheduled, now
     }
@@ -526,8 +528,9 @@
 -(void) gamePause
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-    [buttonSFX prepareToPlay];
-        [buttonSFX play];}
+        [buttonSFX prepareToPlay];
+        [buttonSFX play];
+    }
     [timer1 invalidate];
     
 }
@@ -535,16 +538,19 @@
 -(void) gameResume
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-    [buttonSFX prepareToPlay];
-        [buttonSFX play];}
+        [buttonSFX prepareToPlay];
+        [buttonSFX play];
+    }
     [self startTimer1];
 }
 
 // Protocol for boosting
 -(void) boost
-{if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-    [boostSFX prepareToPlay];
-    [boostSFX play];}
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
+        [boostSFX prepareToPlay];
+        [boostSFX play];
+    }
     isBoosted = TRUE;
     percentChange += boostPercent;
     backgroundMoveAmount *= boostBackground;
