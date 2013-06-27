@@ -299,7 +299,7 @@
 		45D80377177A4FEB00C8F0DE /* ScoreSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSubview.m; sourceTree = "<group>"; };
 		45D80379177A6C9200C8F0DE /* button11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button11.wav; sourceTree = "<group>"; };
 		45D8037A177A6C9200C8F0DE /* button25.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button25.wav; sourceTree = "<group>"; };
-		6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircleCircleRevolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CircleCircleRevolution.app; path = "Circle Circle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F39D81F17625D190089FBA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F39D82117625D190089FBA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6F39D82317625D190089FBA1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -936,9 +936,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6F39D81B17625D190089FBA1 /* Circle Circle */ = {
+		6F39D81B17625D190089FBA1 /* CircleCircleRevolution */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F39D83F17625D190089FBA1 /* Build configuration list for PBXNativeTarget "Circle Circle" */;
+			buildConfigurationList = 6F39D83F17625D190089FBA1 /* Build configuration list for PBXNativeTarget "CircleCircleRevolution" */;
 			buildPhases = (
 				6F39D81817625D190089FBA1 /* Sources */,
 				6F39D81917625D190089FBA1 /* Frameworks */,
@@ -948,7 +948,7 @@
 			);
 			dependencies = (
 			);
-			name = "Circle Circle";
+			name = CircleCircleRevolution;
 			productName = CircleCircleRevolution;
 			productReference = 6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */;
 			productType = "com.apple.product-type.application";
@@ -974,7 +974,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6F39D81B17625D190089FBA1 /* Circle Circle */,
+				6F39D81B17625D190089FBA1 /* CircleCircleRevolution */,
 			);
 		};
 /* End PBXProject section */
@@ -1288,7 +1288,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F39D83F17625D190089FBA1 /* Build configuration list for PBXNativeTarget "Circle Circle" */ = {
+		6F39D83F17625D190089FBA1 /* Build configuration list for PBXNativeTarget "CircleCircleRevolution" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F39D84017625D190089FBA1 /* Debug */,
