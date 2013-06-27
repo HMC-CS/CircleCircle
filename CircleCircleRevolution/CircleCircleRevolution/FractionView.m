@@ -26,7 +26,10 @@
         fractionLabel.shadowOffset = CGSizeMake(1,1);
         fractionLabel.shadowColor = buttonFontShadowColor;
         fractionLabel.textAlignment = NSTextAlignmentCenter;
-        fractionLabel.font = fontFractionLabel;
+        fractionLabel.font = fontFractionLabelS;
+        
+        if (![image isEqualToString:sgFractionImageName])
+            fractionLabel.font = fontFractionLabelS;
         
         [self addSubview:fractionTab];
         [self addSubview:fractionLabel];
