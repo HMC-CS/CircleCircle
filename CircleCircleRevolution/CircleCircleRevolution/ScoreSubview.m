@@ -33,16 +33,16 @@
         names.backgroundColor = [UIColor clearColor];
         names.textColor = [UIColor whiteColor];
         names.font = fontHighScoresS;
-        names.text = @"WWWWWWWWWW\nTEST NAME TEXT\nTEST NAME TEXT\nTEST NAME TEXT\nTEST NAME TEXT";
+        names.text = @"";
         names.numberOfLines = 0;
         [self addSubview:names];
         
-        scores = [[UILabel alloc] initWithFrame:CGRectMake(names.bounds.size.width, header.bounds.size.height, self.bounds.size.width*1/3,self.bounds.size.height*3/4)];
+        scores = [[UILabel alloc] initWithFrame:CGRectMake(0, header.bounds.size.height, self.bounds.size.width,self.bounds.size.height*3/4)];
         [scores setTextAlignment:NSTextAlignmentRight];
         scores.backgroundColor = [UIColor clearColor];
         scores.textColor = [UIColor whiteColor];
         scores.font = fontHighScoresS;
-        scores.text = @"0000000\n1000000\n1000000\n1000000\n1000000";
+        scores.text = @"";
         scores.numberOfLines = 0;
         [self addSubview:scores];
     }
