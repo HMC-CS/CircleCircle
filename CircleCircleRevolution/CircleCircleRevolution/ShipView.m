@@ -81,11 +81,13 @@
     if (currentFraction1)
     {
         [fractionView1 updateFraction:currentFraction1];
+        [circleView1 setDenominator:[[currentFraction1 lastObject] intValue]];
         [circleView1 resetFeedback];
     }
     if (currentFraction2)
     {
         [fractionView2 updateFraction:currentFraction2];
+        [circleView2 setDenominator:[[currentFraction2 lastObject] intValue]];
         [circleView2 resetFeedback];
     }
 }
@@ -235,6 +237,18 @@
                                                [feedbackView removeFromSuperview];}];}];
                          
     
+}
+
+-(void) setCircleDenominator:(int)denom forCircleNumber:(int)num
+{
+    if (num == 1)
+    {
+        [circleView1 setDenominator:num];
+    }
+    else if (num == 2)
+    {
+        [circleView2 setDenominator:num];
+    }
 }
 
 /*

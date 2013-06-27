@@ -48,8 +48,33 @@
         [self drawSlice:percent :circleFillColor];
         [self drawSlice:feedback :circleFeedbackColor];
     }
+    
+//    if (feedback != 0 && !feedbackLinesView)
+//    {
+    if (feedback != 0)
+        feedbackLinesView = [[FeedbackLinesView alloc] initWithFrame:self.frame denominator:denominator];
+//        [UIView animateWithDuration:20
+//                              delay:0
+//                            options:UIViewAnimationOptionCurveEaseOut
+//                         animations:^(void){
+//                             feedbackLinesView.alpha = 0;
+//                             feedbackLinesView.alpha = 1;}
+//                         completion:NULL];
+//    }
+    
+//        float linePos = -M_PI_2;
+//        CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:18/255.0 green:14/255.0 blue:14/255.0 alpha:1].CGColor);
+//        for (int i=0; i<denominator; i++)
+//        {
+//            CGContextMoveToPoint(context,width/2.0,height/2.0);
+//            CGContextSetLineWidth(context, 4.0);
+//            CGContextAddLineToPoint(context,width/2.0+cosf(linePos)*width/2.0,height/2.0+sinf(linePos)*height/2.0);
+//            CGContextStrokePath(context);
+//            
+//            linePos += M_PI*2/denominator;
+//        }
+//    }
 }
-
 
 
 // helper code for drawing the "slices"
@@ -68,7 +93,7 @@
     double endAngle = amtToFill + startAngleAtTop;
     CGContextMoveToPoint(context,width/2.0,height/2.0);
     CGContextAddArc(context, width/2.0, height/2.0, height/2.0, startAngleAtTop, endAngle, false);
-    CGContextMoveToPoint(context,width/2.0,height/2.0);
+    //CGContextMoveToPoint(context,width/2.0,height/2.0);
     CGContextFillPath(context);
     
 }
@@ -124,6 +149,11 @@
     {
         [target performSelector:selector];
     }
+}
+
+-(void) setDenominator:(int)denom
+{
+    denominator = denom;
 }
 
 @end
