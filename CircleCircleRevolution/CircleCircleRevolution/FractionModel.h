@@ -11,7 +11,7 @@
 @interface FractionModel : NSObject
 {
     NSArray* lastFraction;
-    
+    NSArray* lastFraction2;
 }
 
 -(id) init;

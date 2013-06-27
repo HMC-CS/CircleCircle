@@ -98,7 +98,7 @@
             playerName = @"???";
         }
         
-        if ([playerName sizeWithFont:fontHighScoresS].width > 180)
+        if ([playerName sizeWithFont:fontHighScoresS].width+[[[NSString alloc] initWithFormat:@"%i",lastScore] sizeWithFont:fontHighScoresS].width > (scoreScreenImage.size.width-scoreMarginX*5)/3)
         {
             [self promptForShortName];
         }
