@@ -31,9 +31,12 @@
     bgMusicPlayer = [[AVAudioPlayer alloc]
                                     initWithContentsOfURL:bgMusicURL error:&error];
     bgMusicPlayer.numberOfLoops = -1;
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
     [bgMusicPlayer prepareToPlay];
-        [bgMusicPlayer play];}
+    [bgMusicPlayer play];
+    bgMusicPlayer.volume = 0;
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
+        bgMusicPlayer.volume = 1;
+    }
     
     
     buttonSFX = [[AVAudioPlayer alloc]
@@ -70,8 +73,9 @@
 -(void)goToScreen:(NSString *)screen
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-    [buttonSFX prepareToPlay];
-        [buttonSFX play];}
+        [buttonSFX prepareToPlay];
+        [buttonSFX play];
+    }
     if ([screen isEqualToString:toMainMenu])
         [self popToViewController:menuViewController animated:YES];
     else if ([screen isEqualToString:toSelectionScreen])
@@ -95,7 +99,7 @@
         [self pushViewController:difficultySelectionViewController animated:YES];
     }
     else
-        NSLog(@"Invalid screen.");
+        NSAssert(FALSE,@"Invalid screen.");
 }
 
 
@@ -142,9 +146,11 @@
 }
 
 -(void)beginGameWithMode:(int)gameMode andDifficulty:(int)difficulty
-{if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
-    [buttonSFX prepareToPlay];
-    [buttonSFX play];}
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
+        [buttonSFX prepareToPlay];
+        [buttonSFX play];
+    }
     gameViewController = [[GameViewController alloc] initWithMode:gameMode andDifficulty:difficulty];
     gameViewController.screenDelegate = self;
     [self pushViewController:gameViewController animated:YES];
@@ -155,7 +161,6 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
         [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"soundShouldPlay"];
         bgMusicPlayer.volume = 0;
-        
     }
     else {
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"soundShouldPlay"];

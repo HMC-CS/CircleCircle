@@ -40,8 +40,6 @@
 		45332248177B8D07007CAA59 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45332244177B8D07007CAA59 /* iTunesArtwork@2x.png */; };
 		4533224C177B8EAD007CAA59 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4533224B177B8EAD007CAA59 /* Default-Landscape~ipad.png */; };
 		4533224E177B8EB1007CAA59 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4533224D177B8EB1007CAA59 /* Default-Landscape@2x~ipad.png */; };
-		45332250177B8EBB007CAA59 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4533224F177B8EBB007CAA59 /* icon.png */; };
-		45332252177B8EC5007CAA59 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45332251177B8EC5007CAA59 /* icon@2x.png */; };
 		45332254177BA7FF007CAA59 /* score_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45332253177BA7FE007CAA59 /* score_tab@2x.png */; };
 		45332257177BC42D007CAA59 /* FeedbackLinesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45332256177BC42C007CAA59 /* FeedbackLinesView.m */; };
 		4563F4C1176679FC00A74E15 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4563F4C0176679FC00A74E15 /* GameView.m */; };
@@ -227,8 +225,6 @@
 		45332244177B8D07007CAA59 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "icons/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		4533224B177B8EAD007CAA59 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		4533224D177B8EB1007CAA59 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		4533224F177B8EBB007CAA59 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		45332251177B8EC5007CAA59 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		45332253177BA7FE007CAA59 /* score_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "score_tab@2x.png"; sourceTree = "<group>"; };
 		45332255177BC42C007CAA59 /* FeedbackLinesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackLinesView.h; sourceTree = "<group>"; };
 		45332256177BC42C007CAA59 /* FeedbackLinesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackLinesView.m; sourceTree = "<group>"; };
@@ -623,8 +619,6 @@
 		6F39D81317625D190089FBA1 = {
 			isa = PBXGroup;
 			children = (
-				45332251177B8EC5007CAA59 /* icon@2x.png */,
-				4533224F177B8EBB007CAA59 /* icon.png */,
 				4533224D177B8EB1007CAA59 /* Default-Landscape@2x~ipad.png */,
 				4533224B177B8EAD007CAA59 /* Default-Landscape~ipad.png */,
 				6F67EBD61766915D00043359 /* Config.h */,
@@ -1137,8 +1131,6 @@
 				45332248177B8D07007CAA59 /* iTunesArtwork@2x.png in Resources */,
 				4533224C177B8EAD007CAA59 /* Default-Landscape~ipad.png in Resources */,
 				4533224E177B8EB1007CAA59 /* Default-Landscape@2x~ipad.png in Resources */,
-				45332250177B8EBB007CAA59 /* icon.png in Resources */,
-				45332252177B8EC5007CAA59 /* icon@2x.png in Resources */,
 				45332254177BA7FF007CAA59 /* score_tab@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
