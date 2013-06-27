@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6F39D81B17625D190089FBA1"
-               BuildableName = "CircleCircleRevolution.app"
-               BlueprintName = "Circle Circle"
+               BuildableName = "Circle Circle.app"
+               BlueprintName = "CircleCircleRevolution"
                ReferencedContainer = "container:CircleCircleRevolution.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6F39D81B17625D190089FBA1"
-            BuildableName = "CircleCircleRevolution.app"
-            BlueprintName = "Circle Circle"
+            BuildableName = "Circle Circle.app"
+            BlueprintName = "CircleCircleRevolution"
             ReferencedContainer = "container:CircleCircleRevolution.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,8 +52,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6F39D81B17625D190089FBA1"
-            BuildableName = "CircleCircleRevolution.app"
-            BlueprintName = "Circle Circle"
+            BuildableName = "Circle Circle.app"
+            BlueprintName = "CircleCircleRevolution"
             ReferencedContainer = "container:CircleCircleRevolution.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -70,8 +70,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6F39D81B17625D190089FBA1"
-            BuildableName = "CircleCircleRevolution.app"
-            BlueprintName = "Circle Circle"
+            BuildableName = "Circle Circle.app"
+            BlueprintName = "CircleCircleRevolution"
             ReferencedContainer = "container:CircleCircleRevolution.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
