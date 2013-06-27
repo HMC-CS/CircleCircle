@@ -936,9 +936,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6F39D81B17625D190089FBA1 /* CircleCircleRevolution */ = {
+		6F39D81B17625D190089FBA1 /* Circle Circle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F39D83F17625D190089FBA1 /* Build configuration list for PBXNativeTarget "CircleCircleRevolution" */;
+			buildConfigurationList = 6F39D83F17625D190089FBA1 /* Build configuration list for PBXNativeTarget "Circle Circle" */;
 			buildPhases = (
 				6F39D81817625D190089FBA1 /* Sources */,
 				6F39D81917625D190089FBA1 /* Frameworks */,
@@ -948,7 +948,7 @@
 			);
 			dependencies = (
 			);
-			name = CircleCircleRevolution;
+			name = "Circle Circle";
 			productName = CircleCircleRevolution;
 			productReference = 6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */;
 			productType = "com.apple.product-type.application";
@@ -974,7 +974,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6F39D81B17625D190089FBA1 /* CircleCircleRevolution */,
+				6F39D81B17625D190089FBA1 /* Circle Circle */,
 			);
 		};
 /* End PBXProject section */
@@ -1288,7 +1288,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F39D83F17625D190089FBA1 /* Build configuration list for PBXNativeTarget "CircleCircleRevolution" */ = {
+		6F39D83F17625D190089FBA1 /* Build configuration list for PBXNativeTarget "Circle Circle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6F39D84017625D190089FBA1 /* Debug */,
