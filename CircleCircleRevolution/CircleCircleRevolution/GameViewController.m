@@ -22,7 +22,6 @@
     {
         // Sounds
         NSError* error;
-
         buttonSFX = [[AVAudioPlayer alloc] initWithContentsOfURL:buttonSFXURL error:&error];
         correctSFX = [[AVAudioPlayer alloc] initWithContentsOfURL:correctSFXURL error:&error];
         [correctSFX setVolume:3.0];
@@ -102,6 +101,7 @@
     return self;
 }
 
+// Moves the background
 -(void)moveLeft
 {
     if (bg1Far.center.x <= -bg1Far.image.size.width/2.0)
@@ -112,11 +112,9 @@
     {
         bg2Far.center = CGPointMake(bg1Far.center.x+bg2Far.image.size.width,bg2Far.center.y);
     }
-    
     bg1Far.center = CGPointMake(bg1Far.center.x - backgroundMoveAmount, bg1Far.center.y);
     bg2Far.center = CGPointMake(bg2Far.center.x - backgroundMoveAmount, bg2Far.center.y);
   
-    
     if (bg1Near.center.x <= -bg1Near.image.size.width/2.0)
     {
         bg1Near.center = CGPointMake(bg2Near.center.x+bg1Near.image.size.width,bg1Near.center.y);
@@ -192,8 +190,6 @@
     }
     float oldPercent = percentChange;
     float newPercent = [gameModel calculateSpeed];
-    
-    //percentChange = [gameModel calculateSpeed];
     if (oldPercent < newPercent && newPercent - oldPercent > 0.01){// we got faster
         percentChange = newPercent;
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"soundShouldPlay"]){
@@ -201,7 +197,6 @@
             [fasterSFX play];
         }
     }
-    //percentChange = [gameModel calculateSpeed]; // check every time you reset a circle
     backgroundMoveAmount = [gameModel getBackgroundChange];
     if (isBoosted){
         percentChange += boostPercent;
@@ -361,6 +356,7 @@
     }
 }
 
+// Called when a circle view is tapped
 -(void) scoreTap1
 {
     if (!touch1){
@@ -449,12 +445,6 @@
     return fracValue;
 }
 
--(void) displayFeedback:(NSString*)feedbackTerm onCircle:(int)circleNumber
-{
-    // Any visual onscreen feedback other than the circle filling
-}
-
-
 // Game Over Actions
 -(void) checkGameOver
 {
@@ -476,7 +466,7 @@
     }
 }
 
-// Helper method that can be called by a selector
+// Helper method that can be called by a selector at game over
 -(void) goToHighScores
 {
     [timer1 invalidate];
