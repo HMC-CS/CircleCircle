@@ -21,7 +21,8 @@
 #define fontHighScoresS [UIFont fontWithName:@"Krungthep" size:18.0]
 #define fontHighScoresL [UIFont fontWithName:@"Krungthep" size:28.0]
 #define fontScoreLabel [UIFont fontWithName:@"Krungthep" size:30.0]
-#define fontFractionLabel [UIFont fontWithName:@"Krungthep" size:50.0]
+#define fontFractionLabelL [UIFont fontWithName:@"Krungthep" size:50.0]
+#define fontFractionLabelS [UIFont fontWithName:@"Krungthep" size:40.0]
 #define fontTitles [UIFont fontWithName:@"Krungthep" size:50.0];
 #define kScreenWidth [UIScreen mainScreen].bounds.size.height
 #define kScreenHeight [UIScreen mainScreen].bounds.size.width
@@ -63,8 +64,8 @@
 
 #define startingPercentChange 0.1
 #define startingBackgroundChange 1.0
-#define numProblemCorrectForIncrease 5
-#define maximumPercentChange 0.4
+#define numProblemCorrectForIncrease 3
+#define maximumPercentChange 10000
 #define percentChangeIncrease 0.05
 #define backgroundChangeIncrease 1
 

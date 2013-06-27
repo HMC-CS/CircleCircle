@@ -77,7 +77,10 @@
         [buttonSFX play];
     }
     if ([screen isEqualToString:toMainMenu])
+    {
         [self popToViewController:menuViewController animated:YES];
+        gameViewController = nil;
+    }
     else if ([screen isEqualToString:toSelectionScreen])
         [self pushViewController:selectionViewController animated:YES];
     else if ([screen isEqualToString:toHighScores])

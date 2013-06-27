@@ -28,7 +28,7 @@
         header.text = [[NSString alloc] initWithFormat:@"%@ - %@",modeString,diffString];
         [self addSubview:header];
         
-        names = [[UILabel alloc] initWithFrame:CGRectMake(0, header.bounds.size.height,self.bounds.size.width*2/3,self.bounds.size.height*3/4)];
+        names = [[UILabel alloc] initWithFrame:CGRectMake(0, header.bounds.size.height,self.bounds.size.width,self.bounds.size.height*3/4)];
         [names setTextAlignment:NSTextAlignmentLeft];
         names.backgroundColor = [UIColor clearColor];
         names.textColor = [UIColor whiteColor];
