@@ -13,6 +13,7 @@
 -(id) init
 {
     lastFraction = [NSArray arrayWithObjects:nil];
+    lastFraction2 = [NSArray arrayWithObjects:nil]; //2nd to last fraction
     return self;
 }
 
@@ -27,12 +28,13 @@
                             [NSNumber numberWithInteger:denominator],
                             nil];
     
-    if ([newFraction isEqualToArray:lastFraction])
+    if ([newFraction isEqualToArray:lastFraction] || [newFraction isEqualToArray:lastFraction2])
     {
         return [self getFractionWithMinD:minDenominator andMaxD:maxDenominator];
     }
     else
     {
+        lastFraction2 = lastFraction;
         lastFraction = newFraction;
         return newFraction;
     }

@@ -51,10 +51,11 @@
 #define scoreMarginTop 200
 #define scoreMarginBottom 20
 
+
 // Gameplay Constants
 #define gameFPS 60
 #define feedbackFillingTime 1
-#define resetWaitTime 1.75
+#define resetWaitTime 2
 #define feedbackFrames gameFPS*feedbackFillingTime
 #define resetFrames gameFPS*resetWaitTime
 #define boostPercent 1
@@ -62,17 +63,17 @@
 
 #define startingPercentChange 0.1
 #define startingBackgroundChange 1.0
-#define numProblemCorrectForIncrease 3
-#define maximumPercentChange 0.8
-#define percentChangeIncrease 0.1
-#define backgroundChangeIncrease 2
+#define numProblemCorrectForIncrease 5
+#define maximumPercentChange 0.4
+#define percentChangeIncrease 0.05
+#define backgroundChangeIncrease 1
 
 
 #define nearFarParallaxRatio 2
 
-#define awesomeScore 100
-#define goodScore 50
-#define okayScore 25
+#define awesomeScore 1000
+#define goodScore 500
+#define okayScore 250
 
 #define awesomeAccuracy 2
 #define goodAccuracy 5
