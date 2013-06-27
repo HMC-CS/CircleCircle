@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FeedbackLinesView.h"
 
 @interface CircleView : UIView
 {
     float percent;
     UIColor* color;
     float feedback;
+    int denominator;
+    FeedbackLinesView* feedbackLinesView;
     
     id target;
     SEL selector;
@@ -23,5 +26,6 @@
 -(void) setFeedback: (float) newFeedback;
 -(void) resetFeedback;
 -(void) setCircleTarget:(id)sender forAction:(SEL)action;
+-(void) setDenominator:(int)denom;
 
 @end
