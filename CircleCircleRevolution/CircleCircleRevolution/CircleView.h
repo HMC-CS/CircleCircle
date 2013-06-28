@@ -11,9 +11,10 @@
 
 @interface CircleView : UIView
 {
-    float percent;
+    float percentFrom;
+    float percentTo;
     UIColor* color;
-    float feedback;
+    //float feedback;
     int denominator;
     FeedbackLinesView* feedbackLinesView;
     
@@ -23,9 +24,11 @@
 
 -(void) update: (float) per;
 -(void) setColor: (UIColor*) newColor;
--(void) setFeedback: (float) newFeedback;
--(void) resetFeedback;
+//-(void) setFeedback: (float) newFeedback;
+//-(void) resetFeedback;
 -(void) setCircleTarget:(id)sender forAction:(SEL)action;
 -(void) setDenominator:(int)denom;
+-(void) setPercentFrom:(float) newPercentFrom;
+-(float) getPercentTo;
 
 @end
