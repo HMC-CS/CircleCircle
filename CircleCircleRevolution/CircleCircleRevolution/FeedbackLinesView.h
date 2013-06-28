@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface FeedbackLinesView : UIView
+{
+    int denominator;
+}
 
--(id)initWithFrame:(CGRect)frame denominator:(int)denom;
+-(id)initWithFrame:(CGRect)frame;
+-(void)setDenominator:(int)denom;
 
 @end

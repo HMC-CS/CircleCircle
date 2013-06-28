@@ -22,6 +22,9 @@
         
         color = circleBGColor;
         self.backgroundColor = [UIColor clearColor];
+        feedbackLinesView = [[FeedbackLinesView alloc] initWithFrame:CGRectMake(0,0,self.bounds.size.width,self.bounds.size.height)];
+        feedbackLinesView.alpha = 0;
+        [self addSubview:feedbackLinesView];
     }
     return self;
 }
@@ -30,21 +33,8 @@
 {
     [self drawSliceFrom:percentFrom to:percentTo withColor:color];
     
-    /*[self drawSliceFrom:MAX(percent,feedback) to:100 withColor:color];
-    
-    if (feedback>=percent) {
-        [self drawSliceFrom:percent to:feedback withColor:circleFeedbackColor];
-        [self drawSliceFrom:0 to:percent withColor:circleFillColor];
-    }else{
-        [self drawSliceFrom:feedback to:percent withColor:circleFillColor];
-        [self drawSliceFrom:0 to:feedback withColor:circleFeedbackColor];
-    }
-    
-    if (feedback != 0)
-        feedbackLinesView = [[FeedbackLinesView alloc] initWithFrame:self.frame denominator:denominator];*/
-    
     if (denominator != 0 && percentTo != 0){
-        feedbackLinesView = [[FeedbackLinesView alloc] initWithFrame:self.frame denominator:denominator];
+        feedbackLinesView.alpha = 1;
     }
 }
 
@@ -66,9 +56,6 @@
     CGContextFillPath(context);
     
 }
-
-
-
 
 -(void) update: (float) per
 {
@@ -92,29 +79,6 @@
     color = newColor;
 }
 
-/*-(void)updateFeedback:(NSNumber*)percentChange
-{
-    
-    feedback+=[percentChange floatValue];
-    [self setNeedsDisplay];
-}*/
-
-
-/*-(void) resetFeedback
-{
-    feedback = 0;
-}*/
-
-
-/*-(void) setFeedback:(float)newFeedback
-{
-    feedback = newFeedback;
-    [self setNeedsDisplay];
-}*/
-
-
-
-
 -(void) setCircleTarget:(id)sender forAction:(SEL)action
 {
     target = sender;
@@ -132,6 +96,8 @@
 -(void) setDenominator:(int)denom
 {
     denominator = denom;
+    feedbackLinesView.alpha = 0;
+    [feedbackLinesView setDenominator:denom];
 }
 
 @end
