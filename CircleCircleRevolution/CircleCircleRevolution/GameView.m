@@ -159,7 +159,8 @@
 
 -(void) updateScore:(int)score
 {
-    [gameScoreView updateScore:score];
+    [gameScoreView countTo:score withDuration:1];
+    //[gameScoreView updateScore:score];
 }
 
 -(void) updateLife:(int)lives

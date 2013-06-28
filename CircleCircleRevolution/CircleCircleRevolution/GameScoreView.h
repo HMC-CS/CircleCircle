@@ -12,8 +12,10 @@
 {
     UILabel* scoreLabel;
     UIImageView* scoreBg;
+    int value;
 }
 
 -(void) updateScore:(int)score;
+-(void) countTo:(int)to withDuration:(float)t;
 
 @end
