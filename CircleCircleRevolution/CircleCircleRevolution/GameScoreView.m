@@ -32,7 +32,8 @@
         scoreLabel.shadowOffset = CGSizeMake(1,1);
         scoreLabel.textAlignment = NSTextAlignmentCenter;
         scoreLabel.font = fontScoreLabel;
-        
+        [self updateScore:0];
+        value = 0;
         
         [self addSubview:scoreBg];
         [self addSubview:scoreLabel];
