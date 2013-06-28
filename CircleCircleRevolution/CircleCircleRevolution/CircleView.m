@@ -17,8 +17,9 @@
     if (self) {
         // Initialization code
         self.userInteractionEnabled = YES;
-        percent = 0;
-        feedback = 0;
+        percentFrom = 0;
+        percentTo = 0;
+        
         color = circleBGColor;
         self.backgroundColor = [UIColor clearColor];
     }
@@ -27,7 +28,9 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    [self drawSliceFrom:MAX(percent,feedback) to:100 withColor:color];
+    [self drawSliceFrom:percentFrom to:percentTo withColor:color];
+    
+    /*[self drawSliceFrom:MAX(percent,feedback) to:100 withColor:color];
     
     if (feedback>=percent) {
         [self drawSliceFrom:percent to:feedback withColor:circleFeedbackColor];
@@ -38,7 +41,11 @@
     }
     
     if (feedback != 0)
+        feedbackLinesView = [[FeedbackLinesView alloc] initWithFrame:self.frame denominator:denominator];*/
+    
+    if (denominator != 0 && percentTo != 0){
         feedbackLinesView = [[FeedbackLinesView alloc] initWithFrame:self.frame denominator:denominator];
+    }
 }
 
 -(void) drawSliceFrom:(float)percent1 to:(float)percent2 withColor:(UIColor *) sColor
@@ -65,9 +72,18 @@
 
 -(void) update: (float) per
 {
-    percent = per;
+    percentTo = per;
     [self setNeedsDisplay];
-    
+}
+
+-(void) setPercentFrom:(float) newPercentFrom
+{
+    percentFrom = newPercentFrom;
+}
+
+-(float) getPercentTo
+{
+    return percentTo;
 }
 
 // changes the background color (the "red" circle)
@@ -76,25 +92,25 @@
     color = newColor;
 }
 
--(void)updateFeedback:(NSNumber*)percentChange
+/*-(void)updateFeedback:(NSNumber*)percentChange
 {
     
     feedback+=[percentChange floatValue];
     [self setNeedsDisplay];
-}
+}*/
 
 
--(void) resetFeedback
+/*-(void) resetFeedback
 {
     feedback = 0;
-}
+}*/
 
 
--(void) setFeedback:(float)newFeedback
+/*-(void) setFeedback:(float)newFeedback
 {
     feedback = newFeedback;
     [self setNeedsDisplay];
-}
+}*/
 
 
 

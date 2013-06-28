@@ -16,6 +16,12 @@
     int gameMode;
     CircleView* circleView1;
     CircleView* circleView2;
+    CircleView* circleBG1;
+    CircleView* circleBG2;
+    CircleView* circleFeedback1;
+    CircleView* circleFeedback2;
+    
+    
     FractionView* fractionView1;
     FractionView* fractionView2;
     UIImageView* shipBody;
