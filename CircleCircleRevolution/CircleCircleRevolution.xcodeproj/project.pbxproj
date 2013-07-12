@@ -299,7 +299,7 @@
 		45D80377177A4FEB00C8F0DE /* ScoreSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSubview.m; sourceTree = "<group>"; };
 		45D80379177A6C9200C8F0DE /* button11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button11.wav; sourceTree = "<group>"; };
 		45D8037A177A6C9200C8F0DE /* button25.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button25.wav; sourceTree = "<group>"; };
-		6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CircleCircleRevolution.app; path = "Circle Circle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F39D81C17625D190089FBA1 /* Circle Circle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Circle Circle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F39D81F17625D190089FBA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F39D82117625D190089FBA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6F39D82317625D190089FBA1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -631,7 +631,7 @@
 		6F39D81D17625D190089FBA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */,
+				6F39D81C17625D190089FBA1 /* Circle Circle.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -950,7 +950,7 @@
 			);
 			name = CircleCircleRevolution;
 			productName = CircleCircleRevolution;
-			productReference = 6F39D81C17625D190089FBA1 /* CircleCircleRevolution.app */;
+			productReference = 6F39D81C17625D190089FBA1 /* Circle Circle.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1260,7 +1260,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CircleCircleRevolution/CircleCircleRevolution-Prefix.pch";
 				INFOPLIST_FILE = "CircleCircleRevolution/CircleCircleRevolution-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Circle Circle";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1271,7 +1271,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CircleCircleRevolution/CircleCircleRevolution-Prefix.pch";
 				INFOPLIST_FILE = "CircleCircleRevolution/CircleCircleRevolution-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Circle Circle";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
