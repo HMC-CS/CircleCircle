@@ -1,1 +1,3 @@
 Tap the circle when it matches the fraction! The closer you are, the higher you'll score. Lose all 3 lives and it's Game Over.
+
+Hold "Boost!" to speed up!
