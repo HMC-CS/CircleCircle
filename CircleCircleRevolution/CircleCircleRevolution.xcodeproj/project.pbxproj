@@ -1257,10 +1257,14 @@
 		6F39D84017625D190089FBA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elizabeth Sweedyk (5SC92EBS5N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elizabeth Sweedyk (5SC92EBS5N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CircleCircleRevolution/CircleCircleRevolution-Prefix.pch";
 				INFOPLIST_FILE = "CircleCircleRevolution/CircleCircleRevolution-Info.plist";
 				PRODUCT_NAME = "Circle Circle";
+				PROVISIONING_PROFILE = "7CC52099-9F2B-4B6E-8B6B-2EE5443DEED7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7CC52099-9F2B-4B6E-8B6B-2EE5443DEED7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1268,10 +1272,14 @@
 		6F39D84117625D190089FBA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elizabeth Sweedyk (5SC92EBS5N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elizabeth Sweedyk (5SC92EBS5N)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CircleCircleRevolution/CircleCircleRevolution-Prefix.pch";
 				INFOPLIST_FILE = "CircleCircleRevolution/CircleCircleRevolution-Info.plist";
 				PRODUCT_NAME = "Circle Circle";
+				PROVISIONING_PROFILE = "7CC52099-9F2B-4B6E-8B6B-2EE5443DEED7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7CC52099-9F2B-4B6E-8B6B-2EE5443DEED7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
